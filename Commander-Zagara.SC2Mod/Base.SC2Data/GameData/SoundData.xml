@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CSound id="ZagaraCommanderZergling@Attack" parent="Voice">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Attack0.ogg"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Attack1.ogg"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Attack2.ogg"/>
@@ -12,7 +12,7 @@
         <Volume value="-2.000000,-2.000000"/>
     </CSound>
     <CSound id="Zergling_AttackImpact2" parent="Combat">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing0.wav"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing1.wav"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing2.wav"/>
@@ -24,7 +24,7 @@
         <Volume value="-7.000000,-6.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderWeaponZergling@AttackImpact" parent="Combat">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing0.wav"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing1.wav"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Attacks\Zerg_AttackImpactSmallPiercing2.wav"/>
@@ -36,7 +36,7 @@
         <Volume value="-7.000000,-6.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderWeaponZergling@AttackLaunch" parent="Combat">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch0.wav"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch1.wav"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_AttackLaunch10.wav"/>
@@ -59,7 +59,7 @@
         <Volume value="-4.560000,-4.560000"/>
     </CSound>
     <CSound id="ZagaraCommanderZergling@DeathVoice" parent="Death">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Death0.wav"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Death1.wav"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Death2.wav"/>
@@ -69,7 +69,7 @@
         <Volume value="-2.000000,-2.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderZergling@DeathEviscerate" parent="Death">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXEviscerate0.wav"/>
         <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXEviscerate1.wav"/>
         <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXEviscerate2.wav"/>
@@ -77,7 +77,7 @@
         <Volume value="-6.000000,-4.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderZergling@DeathFire" parent="Death">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXFire0.wav"/>
         <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXFire1.wav"/>
         <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXFire2.wav"/>
@@ -88,7 +88,7 @@
         <Volume value="-6.000000,-6.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderZergling@Death" parent="Combat">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall0.wav" Pitch="-3.000000,6.000000" Volume="-3.000000,0.000000"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall1.wav" Pitch="-3.000000,6.000000" Volume="-3.000000,0.000000"/>
         <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall2.wav" Pitch="-3.000000,6.000000" Volume="-6.000000,-4.000000"/>
@@ -101,13 +101,13 @@
         <Volume value="-7.000000,-4.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderZergling@Pissed" parent="Pissed">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Pissed0.ogg"/>
         <Pitch value="-1.000000,1.000000"/>
         <Volume value="-2.000000,-2.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderZergling@Ready" parent="Ready">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Ready0.ogg"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Ready1.ogg"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Ready2.ogg"/>
@@ -115,7 +115,7 @@
         <Volume value="-2.000000,-2.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderZergling@What" parent="Voice">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_What0.ogg"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_What1.ogg"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_What2.ogg"/>
@@ -126,7 +126,7 @@
         <Volume value="-2.000000,-2.000000"/>
     </CSound>
     <CSound id="ZagaraCommanderZergling@Yes" parent="Voice">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Yes0.ogg"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Yes1.ogg"/>
         <AssetArray File="Assets\Sounds\Zerg\Zergling\Zergling_Yes2.ogg"/>

@@ -23,6 +23,7 @@
         <TipabilityLength value="0.400000"/>
         <TipabilityWidth value="0.400000"/>
         <UnitGlossaryCamera value="Star2CameraMid05"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@1" parent="Unit" Race="Zerg">
         <Model value="Assets\Units\Zerg\ZerglingUpgrade_CollectionSkin_Webby\ZerglingUpgrade_CollectionSkin_Webby.m3"/>
@@ -47,43 +48,51 @@
         <TipabilityLength value="0.400000"/>
         <TipabilityWidth value="0.400000"/>
         <UnitGlossaryCamera value="Star2CameraMid05"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@Death" parent="UnitDeath">
         <Model value="Assets\Units\Zerg\Zergling_CollectionSkin_Webby_Death\Zergling_CollectionSkin_Webby_Death.m3"/>
         <LowQualityModel value="ZergSmallUnitDeathLow"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <Occlusion value="Show"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@DeathUpgrade" parent="UnitDeath">
         <Model value="Assets\Units\Zerg\ZerglingUpgrade_CollectionSkin_Webby_Death\ZerglingUpgrade_CollectionSkin_Webby_Death.m3"/>
         <LowQualityModel value="ZergSmallUnitDeathLow"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <Occlusion value="Show"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@Portrait" parent="Portrait" Race="Zerg">
         <Model value="Assets\Portraits\Zerg\ZerglingPortrait\ZerglingPortrait.m3"/>
         <Image value="Assets\Textures\ZerglingPortrait_Static.dds"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@DeathDisintegrate" parent="ZerglingDeathAcidBase">
         <Model value="Assets\Units\Zerg\Zergling_CollectionSkin_Webby_DeathAcid\Zergling_CollectionSkin_Webby_DeathAcid.m3"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@DeathEviscerate" parent="ZerglingDeathEviscerateBase">
         <Model value="Assets\Units\Zerg\Zergling_CollectionSkin_Webby_DeathEviscerate\Zergling_CollectionSkin_Webby_DeathEviscerate.m3"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@DeathFire" parent="ZerglingDeathFireBase">
         <Model value="Assets\Units\Zerg\Zergling_CollectionSkin_Webby_DeathFire\Zergling_CollectionSkin_Webby_DeathFire.m3"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@DodgeImpact" parent="OneShotSpellFX">
         <Model value="Assets\Effects\Zerg\Zagara_Zergling_DodgeEffect\Zagara_Zergling_DodgeEffect.m3"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZerglingFuryImpact2" parent="PersistentSpellFX">
         <Model value="Assets\Effects\Zerg\ZerglingFrenzy\ZerglingFrenzy.m3"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@DeathEviscerateUpgrade" parent="ZerglingUpgradeDeathEviscerateBase">
         <Model value="Assets\Units\Zerg\ZerglingUpgrade_CollectionSkin_Webby_DeathEviscerate\ZerglingUpgrade_CollectionSkin_Webby_DeathEviscerate.m3"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
     <CModel id="ZagaraCommanderZergling@DeathFireUpgrade" parent="ZerglingUpgradeDeathFireBase">
         <Model value="Assets\Units\Zerg\ZerglingUpgrade_CollectionSkin_Webby_DeathFire\ZerglingUpgrade_CollectionSkin_Webby_DeathFire.m3"/>
+        <EditorCategories value="Race:Zagara"/>
     </CModel>
 </Catalog>

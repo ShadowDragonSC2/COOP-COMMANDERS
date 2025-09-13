@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CRequirement id="ZagaraCommanderBaneling">
-        <EditorCategories value="Race:Zerg,TechType:Unit"/>
+        <EditorCategories value="Race:Zagara,TechType:Unit"/>
         <CanBeSuppressed index="Use" value="0"/>
         <NodeArray index="Use" Link="CountUnitBanelingNestCompleteOnlyTechTreeCheat"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderZerglingDodgeChance@Show">
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeZagaraCommanderZerglingDodgeChanceCompleteOnly"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderAdrenalOverload">
-        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUnitHiveCompleteOnlyTechTreeCheat"/>
         <NodeArray index="Show" Link="NotCountUpgradeZagaraCommanderAdrenalOverloadQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderShreddingClaws">
-        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUnitHiveCompleteOnlyTechTreeCheat"/>
         <NodeArray index="Show" Link="NotCountUpgradeZagaraCommanderShreddingClawsQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderAdrenalOverload@Use">
-        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUpgradeZagaraCommanderAdrenalOverloadCompleteOnly3499318896TechTreeCheat"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderMetabolicBoost">
-        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Show" Link="NotCountUpgradeZagaraCommanderMetabolicBoostQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderHardenedCarapace">
-        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUnitLairCompleteOnlyTechTreeCheat"/>
         <NodeArray index="Show" Link="NotCountUpgradeZagaraCommanderHardenedCarapaceQueuedOrBetter"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderShreddingClaws@Use">
-        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUpgradeZagaraCommanderShreddingClawsCompleteOnly4266628015TechTreeCheat"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderMetabolicBoost@Use">
-        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUpgradeZagaraCommanderMetabolicBoostCompleteOnly3154718206TechTreeCheat"/>
     </CRequirement>
     <CRequirement id="ZagaraCommanderHardenedCarapace@Use">
-        <EditorCategories value="Race:Zerg,TechType:Upgrade"/>
+        <EditorCategories value="Race:Zagara,TechType:Upgrade"/>
         <NodeArray index="Use" Link="CountUpgradeZagaraCommanderHardenedCarapaceCompleteOnly2346380126TechTreeCheat"/>
     </CRequirement>
 </Catalog>

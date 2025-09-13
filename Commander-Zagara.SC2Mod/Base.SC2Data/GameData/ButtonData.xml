@@ -4,62 +4,62 @@
         <Icon value="Assets\Textures\btn-unit-collection-webby-baneling.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-collection-webby-baneling.dds"/>
         <Hotkey value="Button/Hotkey/Baneling"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderZergling">
         <Icon value="Assets\Textures\btn-unit-collection-webby-zergling.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-collection-webby-zergling.dds"/>
         <Hotkey value="Button/Hotkey/Zergling"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderZergling@3">
         <Icon value="Assets\Textures\btn-upgrade-zerg-rapidgenesis.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-rapidgenesis.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderHardenedCarapace">
         <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderZergling@1">
         <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderZergling@2">
         <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderWeaponZergling@1">
         <Icon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderShreddingClaws">
         <Icon value="Assets\Textures\btn-upgrade-zergling-armorshredding.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zergling-armorshredding.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderWeaponZergling@2">
         <Icon value="Assets\Textures\btn-upgrade-zergling-armorshredding.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zergling-armorshredding.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderAdrenalOverload">
         <Icon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderMetabolicBoost">
         <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
     <CButton id="ZagaraCommanderZergling@4">
         <Icon value="Assets\Textures\btn-upgrade-zerg-zagara-zerglingdodge.dds"/>
         <AlertIcon value="Assets\Textures\btn-upgrade-zerg-zagara-zerglingdodge.dds"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
     </CButton>
 </Catalog>

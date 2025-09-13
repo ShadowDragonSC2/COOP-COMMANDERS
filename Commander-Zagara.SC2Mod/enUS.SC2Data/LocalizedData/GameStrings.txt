@@ -44,6 +44,7 @@ Effect/Name/ZagaraCommanderWeaponZergling@ABArmorNegated=Apply Behavior
 Effect/Name/ZagaraCommanderWeaponZergling@Damage=Damage
 Effect/Name/ZagaraCommanderWeaponZergling@Set=Set
 Effect/Name/ZagaraCommanderZergling=Dodge Chance
+Race/Name/COOPZagara=Zagara
 RequirementNode/Tooltip/CountUpgradeZagaraCommanderAdrenalOverloadCompleteOnly3499318896TechTreeCheat=Evolve Adrenal Overload at the Spawning Pool
 RequirementNode/Tooltip/CountUpgradeZagaraCommanderHardenedCarapaceCompleteOnly2346380126TechTreeCheat=Evolve Hardened Carapace at the Spawning Pool
 RequirementNode/Tooltip/CountUpgradeZagaraCommanderMetabolicBoostCompleteOnly3154718206TechTreeCheat=Evolve Metabolic Boost at the Spawning Pool

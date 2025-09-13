@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CAbilTrain id="ZagaraCommanderMorphZerglingToBaneling">
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <EditorCategories value="Race:Zagara,AbilityorEffectType:Units"/>
         <RefundFraction>
             <Resource index="Minerals" value="-0.75"/>
             <Resource index="Vespene" value="-0.75"/>
@@ -23,7 +23,7 @@
     </CAbilTrain>
     <CAbilMorph id="ZagaraCommanderZerglingBurrow@Down">
         <AbilSetId value="BrwD"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
+        <EditorCategories value="Race:Zagara,AbilityorEffectType:MorphsandBurrows"/>
         <DataCollection value="BurrowHotSSwarmlingDown"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="BurrowDown">
             <Flags index="ToSelection" value="1"/>
@@ -48,7 +48,7 @@
     </CAbilMorph>
     <CAbilMorph id="ZagaraCommanderZerglingBurrow@Up">
         <AbilSetId value="BrwU"/>
-        <EditorCategories value="Race:Zerg,AbilityorEffectType:MorphsandBurrows"/>
+        <EditorCategories value="Race:Zagara,AbilityorEffectType:MorphsandBurrows"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="BurrowUp">
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
