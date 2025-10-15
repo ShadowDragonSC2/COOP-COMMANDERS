@@ -14,54 +14,118 @@ void libBEDD5153_InitLibraries () {
 bool libBEDD5153_InitVariables_completed = false;
 
 void libBEDD5153_InitVariables () {
+    int init_i;
+
     if (libBEDD5153_InitVariables_completed) {
         return;
     }
 
     libBEDD5153_InitVariables_completed = true;
 
+    libBEDD5153_gv_maxCountStrikes = 5;
+    libBEDD5153_gv__height = 12.0;
+    for (init_i = 0; init_i <= 15; init_i += 1) {
+        libBEDD5153_gv_player[init_i].lv_topbar = c_invalidDialogControlId;
+        libBEDD5153_gv_player[init_i].lv_topbarItems = -1;
+    }
 }
 
 // Presets
 // Functions
-void libBEDD5153_gf_SetPlayerRaceCC (int lp_player, string lp_race) {
+int libBEDD5153_gf_GetTopbarItem (int lp_player, string lp_itemName) {
     // Automatic Variable Declarations
-    int auto572C0C88_ae;
-    int auto572C0C88_var;
+    // Implementation
+    return DataTableInstanceGetControl(libBEDD5153_gv_player[lp_player].lv_topbarItems, lp_itemName);
+}
+
+int libBEDD5153_gf_GetTopbar (int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    return libBEDD5153_gv_player[lp_player].lv_topbar;
+}
+
+void libBEDD5153_gf_SetTopbarForPlayer (int lp_player, int lp_frame) {
+    // Automatic Variable Declarations
+    // Implementation
+    libBEDD5153_gv_player[lp_player].lv_topbar = lp_frame;
+}
+
+void libBEDD5153_gf_LinkTopbarItemwithTopbarPlayer (int lp_topbarItem, int lp_player, string lp_nameItem) {
+    // Variable Declarations
+    int lv__items;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv__items = libBEDD5153_gv_player[lp_player].lv_topbarItems;
 
     // Implementation
-    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), PlayerRace(lp_player), "From", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
-    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
-    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, PlayerRace(lp_player), "From", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
-    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
-    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), PlayerRace(lp_player), "From", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (PlayerRace(lp_player)));
-    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (PlayerRace(lp_player)));
-    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, PlayerRace(lp_player), "From", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (PlayerRace(lp_player)));
-    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (PlayerRace(lp_player)));
-    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), PlayerRace(lp_player), "From", null));
-    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null));
-    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, PlayerRace(lp_player), "From", null));
-    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null));
-    PlayerSetRace(lp_player, lp_race);
-    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), PlayerRace(lp_player), "On", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
-    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
-    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, PlayerRace(lp_player), "On", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
-    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
-    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), PlayerRace(lp_player), "On", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (PlayerRace(lp_player)));
-    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (PlayerRace(lp_player)));
-    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, PlayerRace(lp_player), "On", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (PlayerRace(lp_player)));
-    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (PlayerRace(lp_player)));
-    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), PlayerRace(lp_player), "On", null));
-    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null));
-    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, PlayerRace(lp_player), "On", null));
-    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(libBEDD5153_gv_eVENT_Constant_anyPlayer, (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null));
-    auto572C0C88_ae = DataTableValueCount(false);
-    auto572C0C88_var = 1;
-    for ( ; auto572C0C88_var <= auto572C0C88_ae; auto572C0C88_var += 1 ) {
-        TextExpressionSetToken("Param/Expression/lib_BEDD5153_4867A655", "A", StringToText(DataTableValueName(false, auto572C0C88_var)));
-        TextExpressionSetToken("Param/Expression/lib_BEDD5153_4867A655", "B", IntToText(DataTableGetInt(false, DataTableValueName(false, auto572C0C88_var))));
-        TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/lib_BEDD5153_4867A655"), true);
+    if ((lv__items == -1)) {
+        DataTableInstanceCreate();
+        libBEDD5153_gv_player[lp_player].lv_topbarItems = DataTableInstanceLastCreated();
+        lv__items = libBEDD5153_gv_player[lp_player].lv_topbarItems;
     }
+
+    DataTableInstanceSetControl(libBEDD5153_gv_player[lp_player].lv_topbarItems, lp_nameItem, lp_topbarItem);
+}
+
+void libBEDD5153_gf_LinkTopbarwithCaster (int lp_player, unit lp_caster) {
+    // Automatic Variable Declarations
+    // Implementation
+    libNtve_gf_SetDialogItemUnitGroup(libBEDD5153_gv_player[lp_player].lv_topbar, libNtve_gf_ConvertUnitToUnitGroup(lp_caster), PlayerGroupSingle(lp_player));
+}
+
+void libBEDD5153_gf_PlayAnimationonTopbarItem (int lp_player, string lp_itemName, string lp_animationName) {
+    // Variable Declarations
+    int lv_items;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_items = libBEDD5153_gv_player[lp_player].lv_topbarItems;
+
+    // Implementation
+    DialogControlSendAnimationEvent(DataTableInstanceGetControl(lv_items, lp_itemName), PlayerGroupSingle(lp_player), lp_animationName);
+}
+
+void libBEDD5153_gf_PlayAnimationonTopbarItems (int lp_player, string lp_animationName, string lp_itemName, int lp_start, int lp_end, fixed lp_interval, int lp_timeType, bool lp_waitOption) {
+    // Variable Declarations
+    int lv_items;
+    int lv_item;
+    int lv_inc;
+
+    // Automatic Variable Declarations
+    int auto12423057_ae;
+    int auto12423057_ai;
+
+    // Variable Initialization
+    lv_items = libBEDD5153_gv_player[lp_player].lv_topbarItems;
+    lv_inc = 1;
+
+    // Implementation
+    if ((lp_end < lp_start)) {
+        lv_inc = -1;
+    }
+    else if ((lp_end == lp_start)) {
+        lv_inc = 0;
+    }
+    auto12423057_ae = lp_end;
+    auto12423057_ai = lv_inc;
+    lv_item = lp_start;
+    for ( ; ( (auto12423057_ai >= 0 && lv_item <= auto12423057_ae) || (auto12423057_ai < 0 && lv_item >= auto12423057_ae) ) ; lv_item += auto12423057_ai ) {
+        libBEDD5153_gf_PlayAnimationonTopbarItem(lp_player, (lp_itemName + IntToString(lv_item)), lp_animationName);
+        Wait(lp_interval, lp_timeType);
+    }
+}
+
+void libBEDD5153_gf_PlayAnimationonTopbar (int lp_player, string lp_animationName) {
+    // Variable Declarations
+    int lv_topbar;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_topbar = libBEDD5153_gv_player[lp_player].lv_topbar;
+
+    // Implementation
+    DialogControlSendAnimationEvent(lv_topbar, PlayerGroupSingle(lp_player), lp_animationName);
 }
 
 string libBEDD5153_gf_ResponsePRC (string lp_player, string lp_race, string lp_inOut, string lp_parameter) {
@@ -74,10 +138,77 @@ string libBEDD5153_gf_ResponsePRC (string lp_player, string lp_race, string lp_i
     return TriggerEventParamName((libBEDD5153_gv_eVENT_PlayerRaceChanges + "[" + lp_player + "][" + (lp_race) + "][" + (lp_inOut) + "]"), lp_parameter);
 }
 
+string libBEDD5153_gf_ResponseCIT (int lp_player, string lp_itemName, string lp_parameter) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_parameter == null)) {
+        return (libBEDD5153_gv_eVENT_ClickItemTopbar + "[" + IntToString(lp_player) + "][" + lp_itemName + "]");
+    }
+
+    return TriggerEventParamName((libBEDD5153_gv_eVENT_ClickItemTopbar + "[" + IntToString(lp_player) + "][" + lp_itemName + "]"), lp_parameter);
+}
+
+void libBEDD5153_gf_SetPlayerRaceCC (int lp_player, string lp_race) {
+    // Variable Declarations
+    string lv__race;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv__race = PlayerRace(lp_player);
+
+    // Implementation
+    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), lv__race, "From", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
+    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
+    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), lv__race, "From", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
+    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), lv__race, "From", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (lv__race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (lv__race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), lv__race, "From", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (lv__race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (lv__race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), lp_race, "From", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (lp_race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (lp_race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), lp_race, "From", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (lp_race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (lp_race));
+    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), PlayerRace(lp_player), "From", null));
+    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null));
+    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), PlayerRace(lp_player), "From", null));
+    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "From", null));
+    PlayerSetRace(lp_player, lp_race);
+    Wait(0.0625, c_timeReal);
+    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), lv__race, "On", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
+    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
+    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), lv__race, "On", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
+    DataTableSetInt(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_TrigPlayer), lp_player);
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), lp_race, "On", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (lv__race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (lv__race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), lp_race, "On", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (lv__race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_ChangingRace), (lv__race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), lp_race, "On", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (lp_race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (lp_race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), lp_race, "On", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (lp_race));
+    DataTableSetString(false, TriggerEventParamName(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null), libBEDD5153_gv_eVENT_PARAM_ChangedRace), (lp_race));
+    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), PlayerRace(lp_player), "On", null));
+    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString(lp_player), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null));
+    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), PlayerRace(lp_player), "On", null));
+    TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null));
+}
+
+int libBEDD5153_gf_HookupStandardDialogItem (int lp_type, string lp_name) {
+    // Automatic Variable Declarations
+    // Implementation
+    DialogControlHookupStandard(lp_type, lp_name);
+    return DialogControlLastCreated();
+}
+
+void libBEDD5153_gf_ClickItemTopbar (trigger t, int lp_player, string lp_itemName) {
+    // Automatic Variable Declarations
+    // Implementation
+    TriggerAddEventGeneric(t, (libBEDD5153_gv_eVENT_ClickItemTopbar + "[" + IntToString(lp_player) + "][" + lp_itemName + "]"));
+}
+
 void libBEDD5153_gf_PlayerRaceChangesCC (trigger t, int lp_player, string lp_race, string lp_inOut) {
     // Automatic Variable Declarations
     // Implementation
-    TriggerAddEventGeneric(t, (libBEDD5153_gv_eVENT_PlayerRaceChanges + "[" + IntToString(lp_player) + "][" + (lp_race) + "][" + (lp_inOut) + "]"));
     TriggerAddEventGeneric(t, (libBEDD5153_gv_eVENT_PlayerRaceChanges + "[" + IntToString(lp_player) + "][" + (lp_race) + "][" + (lp_inOut) + "]"));
 }
 
@@ -85,6 +216,12 @@ int libBEDD5153_gf_TriggeringPlayerCC () {
     // Automatic Variable Declarations
     // Implementation
     return DataTableGetInt(false, TriggerEventParamName(EventGenericName(), libBEDD5153_gv_eVENT_PARAM_TrigPlayer));
+}
+
+string libBEDD5153_gf_TriggeringItemTopbarCC () {
+    // Automatic Variable Declarations
+    // Implementation
+    return DataTableGetString(false, TriggerEventParamName(EventGenericName(), libBEDD5153_gv_eVENT_PARAM_BtnItem));
 }
 
 string libBEDD5153_gf_ChangedRaceCC () {
@@ -101,6 +238,255 @@ string libBEDD5153_gf_ChangingRaceCC () {
 
 // Triggers
 //--------------------------------------------------------------------------------------------------
+// Trigger: Init Topbars
+//--------------------------------------------------------------------------------------------------
+bool libBEDD5153_gt_InitTopbars_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libBEDD5153_gf_SetTopbarForPlayer(1, libBEDD5153_gf_HookupStandardDialogItem(c_triggerControlTypePanel, "UIContainer/FullscreenLowerContainer/TestTopbar"));
+    libBEDD5153_gf_LinkTopbarItemwithTopbarPlayer(libBEDD5153_gf_HookupStandardDialogItem(c_triggerControlTypeButton, "UIContainer/FullscreenLowerContainer/TestTopbar/item1"), 1, "Merc1");
+    libBEDD5153_gf_LinkTopbarItemwithTopbarPlayer(libBEDD5153_gf_HookupStandardDialogItem(c_triggerControlTypeButton, "UIContainer/FullscreenLowerContainer/TestTopbar/item2"), 1, "Merc2");
+    libBEDD5153_gf_LinkTopbarItemwithTopbarPlayer(libBEDD5153_gf_HookupStandardDialogItem(c_triggerControlTypeButton, "UIContainer/FullscreenLowerContainer/TestTopbar/item3"), 1, "Merc3");
+    libBEDD5153_gf_LinkTopbarItemwithTopbarPlayer(libBEDD5153_gf_HookupStandardDialogItem(c_triggerControlTypeButton, "UIContainer/FullscreenLowerContainer/TestTopbar/item4"), 1, "Merc4");
+    libBEDD5153_gf_PlayAnimationonTopbarItems(1, "Birth", "TychusMerc", 1, 4, 2.0, c_timeReal, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libBEDD5153_gt_InitTopbars_Init () {
+    libBEDD5153_gt_InitTopbars = TriggerCreate("libBEDD5153_gt_InitTopbars_Func");
+    TriggerAddEventMapInit(libBEDD5153_gt_InitTopbars);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: debug
+//--------------------------------------------------------------------------------------------------
+bool libBEDD5153_gt_debug_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int autoEEB0DC57_val;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    autoEEB0DC57_val = EventKeyPressed();
+    if (autoEEB0DC57_val == c_keyQ) {
+        if ((EventKeyControl() == true)) {
+            libBEDD5153_gf_PlayAnimationonTopbarItem(1, "Merc1", "Death");
+        }
+        else {
+            libBEDD5153_gf_PlayAnimationonTopbarItem(1, "Merc1", "Birth");
+        }
+    }
+    else if (autoEEB0DC57_val == c_keyW) {
+        if ((EventKeyControl() == true)) {
+            libBEDD5153_gf_PlayAnimationonTopbarItem(1, "Merc2", "Death");
+        }
+        else {
+            libBEDD5153_gf_PlayAnimationonTopbarItem(1, "Merc2", "Birth");
+        }
+    }
+    else if (autoEEB0DC57_val == c_keyE) {
+        if ((EventKeyControl() == true)) {
+            libBEDD5153_gf_PlayAnimationonTopbarItem(1, "Merc3", "Death");
+        }
+        else {
+            libBEDD5153_gf_PlayAnimationonTopbarItem(1, "Merc3", "Birth");
+        }
+    }
+    else if (autoEEB0DC57_val == c_keyA) {
+        if ((EventKeyControl() == true)) {
+            libBEDD5153_gf_PlayAnimationonTopbarItem(1, "Merc4", "Death");
+        }
+        else {
+            libBEDD5153_gf_PlayAnimationonTopbarItem(1, "Merc4", "Birth");
+        }
+    }
+    else if (autoEEB0DC57_val == c_keyZ) {
+        if ((EventKeyControl() == true)) {
+            libBEDD5153_gf_PlayAnimationonTopbarItems(1, "Death", "Merc", 1, 4, 0.3, c_timeReal, false);
+        }
+        else {
+            libBEDD5153_gf_PlayAnimationonTopbarItems(1, "Birth", "Merc", 1, 4, 0.3, c_timeReal, false);
+        }
+    }
+    else if (autoEEB0DC57_val == c_keyX) {
+        if ((EventKeyControl() == true)) {
+            libBEDD5153_gf_PlayAnimationonTopbarItems(1, "Death", "Merc", 4, 1, 0.1, c_timeReal, false);
+        }
+        else {
+            libBEDD5153_gf_PlayAnimationonTopbarItems(1, "Birth", "Merc", 1, 4, 0.1, c_timeReal, false);
+        }
+    }
+    else if (autoEEB0DC57_val == c_keyC) {
+        libBEDD5153_gf_PlayAnimationonTopbar(1, "Birth");
+    }
+    else if (autoEEB0DC57_val == c_keyV) {
+        libBEDD5153_gf_PlayAnimationonTopbar(1, "Death");
+    }
+    else {
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libBEDD5153_gt_debug_Init () {
+    libBEDD5153_gt_debug = TriggerCreate("libBEDD5153_gt_debug_Func");
+    TriggerAddEventKeyPressed(libBEDD5153_gt_debug, c_playerAny, c_keyNone, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: ClickItem
+//--------------------------------------------------------------------------------------------------
+bool libBEDD5153_gt_ClickItem_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv__p;
+    int lv__item;
+    string lv__name;
+    int lv_item;
+
+    // Automatic Variable Declarations
+    playergroup auto84472D3A_g;
+    int auto8956396E_ae;
+    const int auto8956396E_ai = 1;
+
+    // Variable Initialization
+    lv__name = "";
+    lv_item = c_invalidDialogControlId;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto84472D3A_g = PlayerGroupAll();
+    lv__p = -1;
+    while (true) {
+        lv__p = PlayerGroupNextPlayer(auto84472D3A_g, lv__p);
+        if (lv__p < 0) { break; }
+        auto8956396E_ae = DataTableInstanceValueCount(libBEDD5153_gv_player[lv__p].lv_topbarItems);
+        lv__item = 1;
+        for ( ; ( (auto8956396E_ai >= 0 && lv__item <= auto8956396E_ae) || (auto8956396E_ai < 0 && lv__item >= auto8956396E_ae) ) ; lv__item += auto8956396E_ai ) {
+            lv__name = DataTableInstanceValueName(libBEDD5153_gv_player[lv__p].lv_topbarItems, lv__item);
+            if ((DataTableInstanceValueType(libBEDD5153_gv_player[lv__p].lv_topbarItems, lv__name) != c_dataTypeControl)) {
+                continue;
+            }
+
+            lv_item = DataTableInstanceGetControl(libBEDD5153_gv_player[lv__p].lv_topbarItems, lv__name);
+            if ((EventDialogControl() == lv_item) && (EventDialogControl() == libBEDD5153_gf_GetTopbarItem(lv__p, "Hero1"))) {
+                DataTableSetString(false, libBEDD5153_gf_ResponseCIT(EventPlayer(), lv__name, libBEDD5153_gv_eVENT_PARAM_BtnItem), lv__name);
+                DataTableSetInt(false, libBEDD5153_gf_ResponseCIT(EventPlayer(), lv__name, libBEDD5153_gv_eVENT_PARAM_TrigPlayer), EventPlayer());
+                TriggerSendEvent(libBEDD5153_gf_ResponseCIT(EventPlayer(), lv__name, null));
+            }
+
+        }
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libBEDD5153_gt_ClickItem_Init () {
+    libBEDD5153_gt_ClickItem = TriggerCreate("libBEDD5153_gt_ClickItem_Func");
+    TriggerAddEventDialogControl(libBEDD5153_gt_ClickItem, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Activate targeting
+//--------------------------------------------------------------------------------------------------
+bool libBEDD5153_gt_Activatetargeting_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((PlayerRace(libBEDD5153_gf_TriggeringPlayerCC()) == "Neut"))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libBEDD5153_gf_PlayAnimationonTopbar(libBEDD5153_gf_TriggeringPlayerCC(), "Death");
+    libNtve_gf_SwooshCamera(libBEDD5153_gf_TriggeringPlayerCC(), CameraInfoGetValue(CameraInfoDefault(), c_cameraValueDistance), ((CameraInfoGetValue(CameraInfoDefault(), c_cameraValueDistance)) + libBEDD5153_gv__height), CameraGetTarget(libBEDD5153_gf_TriggeringPlayerCC()), 1.5);
+    libBEDD5153_gv__targetingMode = true;
+    libBEDD5153_gv_countStrikes = 0;
+    TriggerEnable(libBEDD5153_gt_Strike, true);
+    libBEDD5153_gf_PlayAnimationonTopbarItems(1, "Death", "Merc", 1, 4, 0.3, c_timeReal, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libBEDD5153_gt_Activatetargeting_Init () {
+    libBEDD5153_gt_Activatetargeting = TriggerCreate("libBEDD5153_gt_Activatetargeting_Func");
+    libBEDD5153_gf_ClickItemTopbar(libBEDD5153_gt_Activatetargeting, 1, "Merc1");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Strike
+//--------------------------------------------------------------------------------------------------
+bool libBEDD5153_gt_Strike_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    PlayerCreateEffectPoint(EventPlayer(), ("NukeDetonate"), Point(EventMouseClickedPosXWorld(), EventMouseClickedPosYWorld()));
+    libBEDD5153_gv_countStrikes += 1;
+    if ((libBEDD5153_gv_countStrikes >= libBEDD5153_gv_maxCountStrikes)) {
+        TriggerEnable(TriggerGetCurrent(), false);
+        TriggerExecute(libBEDD5153_gt_ExitTargetingMode, true, false);
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libBEDD5153_gt_Strike_Init () {
+    libBEDD5153_gt_Strike = TriggerCreate("libBEDD5153_gt_Strike_Func");
+    TriggerEnable(libBEDD5153_gt_Strike, false);
+    TriggerAddEventMouseClicked(libBEDD5153_gt_Strike, c_playerAny, c_mouseButtonLeft, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Exit Targeting Mode
+//--------------------------------------------------------------------------------------------------
+bool libBEDD5153_gt_ExitTargetingMode_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((libBEDD5153_gv__targetingMode == true))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libBEDD5153_gf_PlayAnimationonTopbar(EventPlayer(), "Birth");
+    libNtve_gf_SwooshCamera(EventPlayer(), ((CameraInfoGetValue(CameraInfoDefault(), c_cameraValueDistance)) + libBEDD5153_gv__height), CameraInfoGetValue(CameraInfoDefault(), c_cameraValueDistance), CameraGetTarget(EventPlayer()), 1.5);
+    libBEDD5153_gv__targetingMode = false;
+    libBEDD5153_gv_countStrikes = 0;
+    TriggerEnable(libBEDD5153_gt_Strike, false);
+    libBEDD5153_gf_PlayAnimationonTopbarItems(1, "Birth", "Merc", 1, 4, 0.3, c_timeReal, false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void libBEDD5153_gt_ExitTargetingMode_Init () {
+    libBEDD5153_gt_ExitTargetingMode = TriggerCreate("libBEDD5153_gt_ExitTargetingMode_Func");
+    TriggerAddEventMouseClicked(libBEDD5153_gt_ExitTargetingMode, c_playerAny, c_mouseButtonRight, true);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Init
 //--------------------------------------------------------------------------------------------------
 bool libBEDD5153_gt_Init_Func (bool testConds, bool runActions) {
@@ -114,94 +500,14 @@ void libBEDD5153_gt_Init_Init () {
     TriggerAddEventMapInit(libBEDD5153_gt_Init);
 }
 
-//--------------------------------------------------------------------------------------------------
-// Trigger: Commander For Player - On
-//--------------------------------------------------------------------------------------------------
-bool libBEDD5153_gt_CommanderForPlayerOn_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    TextExpressionSetToken("Param/Expression/lib_BEDD5153_94F359C5", "B", TextWithColor(PlayerName(libBEDD5153_gf_TriggeringPlayerCC()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(libBEDD5153_gf_TriggeringPlayerCC(), false))));
-    TextExpressionSetToken("Param/Expression/lib_BEDD5153_94F359C5", "A", StringExternal(CatalogFieldValueGet(c_gameCatalogRace, libBEDD5153_gf_ChangedRaceCC(), "Name", c_playerAny)));
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_BEDD5153_94F359C5"));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libBEDD5153_gt_CommanderForPlayerOn_Init () {
-    libBEDD5153_gt_CommanderForPlayerOn = TriggerCreate("libBEDD5153_gt_CommanderForPlayerOn_Func");
-    libBEDD5153_gf_PlayerRaceChangesCC(libBEDD5153_gt_CommanderForPlayerOn, 1, "anyrace", "On");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Commander For Player - From
-//--------------------------------------------------------------------------------------------------
-bool libBEDD5153_gt_CommanderForPlayerFrom_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    TextExpressionSetToken("Param/Expression/lib_BEDD5153_232B3CE1", "B", TextWithColor(PlayerName(libBEDD5153_gf_TriggeringPlayerCC()), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(libBEDD5153_gf_TriggeringPlayerCC(), false))));
-    TextExpressionSetToken("Param/Expression/lib_BEDD5153_232B3CE1", "A", StringExternal(CatalogFieldValueGet(c_gameCatalogRace, libBEDD5153_gf_ChangingRaceCC(), "Name", c_playerAny)));
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_BEDD5153_232B3CE1"));
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libBEDD5153_gt_CommanderForPlayerFrom_Init () {
-    libBEDD5153_gt_CommanderForPlayerFrom = TriggerCreate("libBEDD5153_gt_CommanderForPlayerFrom_Func");
-    libBEDD5153_gf_PlayerRaceChangesCC(libBEDD5153_gt_CommanderForPlayerFrom, 1, ("Zerg"), "On");
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: Change Race
-//--------------------------------------------------------------------------------------------------
-bool libBEDD5153_gt_ChangeRace_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    string lv_race;
-
-    // Automatic Variable Declarations
-    string autoD602B2AA_val;
-
-    // Variable Initialization
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    autoD602B2AA_val = StringWord(EventChatMessage(false), 1);
-    if (autoD602B2AA_val == "terr") {
-        lv_race = ("Terr");
-    }
-    else if (autoD602B2AA_val == "zerg") {
-        lv_race = ("Zerg");
-    }
-    else if (autoD602B2AA_val == "prot") {
-        lv_race = ("Prot");
-    }
-    else {
-    }
-    libBEDD5153_gf_SetPlayerRaceCC(StringToInt(StringWord(EventChatMessage(false), 2)), lv_race);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void libBEDD5153_gt_ChangeRace_Init () {
-    libBEDD5153_gt_ChangeRace = TriggerCreate("libBEDD5153_gt_ChangeRace_Func");
-    TriggerAddEventChatMessage(libBEDD5153_gt_ChangeRace, c_playerAny, "", false);
-}
-
 void libBEDD5153_InitTriggers () {
+    libBEDD5153_gt_InitTopbars_Init();
+    libBEDD5153_gt_debug_Init();
+    libBEDD5153_gt_ClickItem_Init();
+    libBEDD5153_gt_Activatetargeting_Init();
+    libBEDD5153_gt_Strike_Init();
+    libBEDD5153_gt_ExitTargetingMode_Init();
     libBEDD5153_gt_Init_Init();
-    libBEDD5153_gt_CommanderForPlayerOn_Init();
-    libBEDD5153_gt_CommanderForPlayerFrom_Init();
-    libBEDD5153_gt_ChangeRace_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

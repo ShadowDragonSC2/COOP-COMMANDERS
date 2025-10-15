@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CRequirement id="ZeratulCommanderXelNagaDisruptor">
+    <CRequirement id="ZeratulCommanderConstructsBay@Requirement"/>
+    <CRequirement id="ZeratulCommanderConstructsFacility@Requirement"/>
+    <CRequirement id="ZeratulCommanderCoreForge@Requirement"/>
+    <CRequirement id="ZeratulCommanderVoidShrine@Requirement"/>
+    <CRequirement id="ZeratulCommanderXelNagaAbrogator">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
+    <CRequirement id="ZeratulCommanderXelNagaPassageway@Requirement"/>
     <CRequirement id="ZeratulCommanderXelNagaShieldguard">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>

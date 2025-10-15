@@ -2,7 +2,7 @@
 <Catalog>
     <CBehaviorBuff id="ZeratulCommanderDisruptorPhase@TimeLife" parent="TimedLife">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
-        <Duration value="10"/>
+        <Duration value="5"/>
         <ExpireEffect value="ZeratulCommanderDisruptorPhase@Set"/>
     </CBehaviorBuff>
 </Catalog>

@@ -6,6 +6,44 @@
         <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
     </CActorUnit>
+    <CActorUnit id="ZeratulCommanderArtifact" parent="GenericUnitStandard" unitName="ZeratulCommanderArtifact">
+        <EditorCategories value=""/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulartifact1.dds"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderConstructsBay" parent="CommanderGroundUnit" unitName="ZeratulCommanderConstructsBay">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-roboticssupportbay.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderConstructsFacility" parent="CommanderGroundUnit" unitName="ZeratulCommanderConstructsFacility">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-protoss-zeratulroboticsfacility.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-zeratulroboticsfacility.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulroboticsfacility.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-roboticsfacility.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderCoreForge" parent="CommanderGroundUnit" unitName="ZeratulCommanderCoreForge">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-cyberneticscore.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="ZeratulCommanderDisruptorPhase" parent="GenericUnitStandard" unitName="ZeratulCommanderDisruptorPhase">
         <EditorCategories value=""/>
         <HeroIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
@@ -24,6 +62,9 @@
         <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
     </CActorModel>
+    <CActorAction id="ZeratulCommanderMasterWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderMasterWarpBlade@Damage">
+        <EditorCategories value=""/>
+    </CActorAction>
     <CActorAction id="ZeratulCommanderNullBeam@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderNullBeam@CP">
         <EditorCategories value=""/>
         <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
@@ -58,6 +99,31 @@
     <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage">
         <EditorCategories value=""/>
     </CActorAction>
+    <CActorSimple id="ZeratulCommanderShadowCleave@Animation">
+        <EditorCategories value=""/>
+        <On Terms="Abil.ZeratulCommanderShadowCleave.SourceCastStart" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="AnimBracketStart Spell Spell,B,Start Spell,B,End {} ContentPlayOnce"/>
+    </CActorSimple>
+    <CActorModel id="ZeratulCommanderShadowCleave@LaunchModel" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorSound id="ZeratulCommanderShadowCleave@LaunchSound" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
+    </CActorSound>
+    <CActorUnit id="ZeratulCommanderVoidShrine" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidShrine">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-darkshrine.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="ZeratulCommanderVoidTemplar" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidTemplar">
         <EditorCategories value=""/>
         <WalkAnimMoveSpeed value="3"/>
@@ -73,11 +139,22 @@
         <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>
     </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaDisruptor" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaDisruptor">
+    <CActorUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaAbrogator">
         <EditorCategories value=""/>
         <WalkAnimMoveSpeed value="3"/>
         <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldisruptor.dds"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderXelNagaPassageway" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaPassageway">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-gateway.dds"/>
+        </Wireframe>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAirUnit" unitName="ZeratulCommanderXelNagaVoidArray">
         <GroupIcon>
@@ -121,9 +198,18 @@
         <GroupIcon>
             <Image value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
         </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
+        <HeroIcon value="Assets\Textures\wireframe-protoss-zeratul.dds"/>
         <HighlightTooltip value="Unit/Name/Bogus"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
+        <MinimapIcon value="Assets\Textures\ui_minimap_icon_zeratul.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-zeratul.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield03.dds"/>
+        </WireframeShield>
     </CActorUnit>
 </Catalog>

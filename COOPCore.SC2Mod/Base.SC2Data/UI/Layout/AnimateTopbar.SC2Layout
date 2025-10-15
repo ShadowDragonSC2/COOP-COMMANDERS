@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+    <Frame type="Button" name="ItemButtonTemplate">
+        <Frame type="Image" name="NormalImage">
+            <Anchor relative="$parent"/>
+            <Texture val="Assets\Textures\terran-border-button-game.dds"/>
+            <TextureType val="Border"/>
+            <StateCount val="2"/>
+        </Frame>
+
+        <Frame type="Image" name="HoverImage">
+            <Anchor relative="$parent"/>
+            <Texture val="Assets\Textures\terran-border-button-game.dds"/>
+            <TextureType val="Border"/>
+            <StateCount val="2"/>
+        </Frame>
+    </Frame>
+
+    <Frame type="Image" name="BGTemplate">
+        <Anchor relative="$parent"/>
+        <Texture val="Assets\Textures\ui_mission_statusbox01.dds"/>
+        <TextureType val="Border"/>
+    </Frame>
+
+    <Frame type="Button" name="ItemTemplate" template="AnimateTopbar/ItemButtonTemplate">
+        <Anchor side="Left" relative="$sibling-1" pos="Max" offset="10"/>
+        <Width val="75"/>
+        <Height val="65"/>
+
+        <Animation name="AnimateItem">
+            <Event event="Birth" action="DirectionForward,Play" frame="$this"/>
+            <Event event="Death" action="DirectionReverse,Play" frame="$this"/>
+
+            <Controller type="Anchor" end="Pause" frame="$this" side="Top" relative="True">
+                <Key type="Curve" time="0.0" in="Fast" out="Slow" value="-50"/>
+                <Key type="Curve" time="1.0" in="Slow" out="Slow" value="0"/>
+            </Controller>
+            <Controller type="Anchor" end="Pause" frame="$this" side="Bottom" relative="True">
+                <Key type="Curve" time="0.0" in="Fast" out="Slow" value="-50"/>
+                <Key type="Curve" time="1.0" in="Slow" out="Slow" value="0"/>
+            </Controller>
+
+            <Controller type="Fade" end="Pause" frame="$this">
+                <Key type="Curve" time="0.0" value="0"/>
+                <Key type="Curve" time="1.0" value="255"/>
+            </Controller>
+            <Controller type="Animation" end="Stop" frame="$this" animation="AnimateHover">
+                <Key type="Animation" time="0.0" action="Stop"/>
+            </Controller>
+
+        </Animation>
+
+        <Animation name="AnimateHover">
+            <Event event="OnMouseEnter" action="DirectionForward,Play" frame="$this"/>
+            <Event event="OnMouseExit" action="DirectionReverse,Play" frame="$this"/>
+
+            <Controller type="Dimension" end="Pause" frame="$this" dimension="Height" relative="True">
+                <Key type="Curve" inout="Slow" time="0.0" value="0"/>
+                <Key type="Curve" inout="Fast" time="0.2" value="20"/>
+            </Controller>
+        </Animation>
+    </Frame>
+
+    <Frame type="Frame" name="GameUI/UIContainer/FullscreenLowerContainer" file="GameUI">
+        <Frame type="Frame" name="TestTopbar">
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Width val="650"/>
+            <Height val="150"/>
+
+            <Frame type="Button" name="item1" template="AnimateTopbar/ItemTemplate">
+                <Anchor side="Top" relative="$parent/Header" pos="Max" offset="-40"/>
+                <Anchor side="Left" relative="$parent/Header" pos="Min" offset="47"/>
+            </Frame>
+            <Frame type="Button" name="item2" template="AnimateTopbar/ItemTemplate">
+                <Anchor side="Top" relative="$parent/Header" pos="Max" offset="-40"/>
+            </Frame>
+            <Frame type="Button" name="item3" template="AnimateTopbar/ItemTemplate">
+                <Anchor side="Top" relative="$parent/Header" pos="Max" offset="-40"/>
+            </Frame>
+            <Frame type="Button" name="item4" template="AnimateTopbar/ItemTemplate">
+                <Anchor side="Top" relative="$parent/Header" pos="Max" offset="-40"/>
+            </Frame>
+
+            <Frame type="Frame" name="Header">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="-30"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/AbilSection" pos="Max" offset="0"/>
+                <Height val="60"/>
+                <Frame type="Image" name="BG" template="AnimateTopbar/BGTemplate"/>
+            </Frame>
+
+            <Frame type="Frame" name="AbilSection">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="-30"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Width val="225"/>
+                <Height val="125"/>
+                <Frame type="Image" name="BG" template="AnimateTopbar/BGTemplate"/>
+            </Frame>
+
+            <Frame type="Frame" name="ItemContainers">
+                <Anchor side="Top" relative="$parent/Header" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent/Header" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+            </Frame>
+
+            <Animation name="AnimateTopbar">
+                <Event event="OnShown" action="Reset,Play" frame="$this"/>
+                <Event event="Birth" action="DirectionForward,Play" frame="$this"/>
+                <Event event="Death" action="DirectionReverse,Play" frame="$this"/>
+
+                <!-- Header -->
+                <Controller type="Anchor" end="Pause" frame="$this/Header" side="Top" relative="True">
+                    <Key type="Curve" time="0.0" value="-25"/>
+                    <Key type="Curve" inout="Slow" time="0.4" value="-25"/>
+                    <Key type="Curve" inout="Slow" time="1.2" value="0"/>
+                    <Key type="Curve" inout="Slow" time="1.6" value="0"/>
+                </Controller>
+                <Controller type="Anchor" end="Pause" frame="$this/Header" side="Bottom" relative="True">
+                    <Key type="Curve" time="0.0" value="-25"/>
+                    <Key type="Curve" inout="Slow" time="0.4" value="-25"/>
+                    <Key type="Curve" inout="Slow" time="1.2" value="0"/>
+                    <Key type="Curve" inout="Slow" time="1.6" value="0"/>
+                </Controller>
+
+                <!-- AbilSection-->
+                 <Controller type="Anchor" end="Pause" frame="$this/AbilSection" side="Top" relative="True">
+                    <Key type="Curve" in="Slow" out="Fast" time="0.0" value="-50"/>
+                    <Key type="Curve" inout="Slow" time="0.65" value="0"/>
+                 </Controller>
+                 <Controller type="Anchor" end="Pause" frame="$this/AbilSection" side="Bottom" relative="True">
+                    <Key type="Curve" in="Slow" out="Fast" time="0.0" value="-50"/>
+                    <Key type="Curve" inout="Slow" time="0.65" value="0"/>
+                 </Controller>
+
+            </Animation>
+            
+        </Frame>
+    </Frame>
+</Desc>

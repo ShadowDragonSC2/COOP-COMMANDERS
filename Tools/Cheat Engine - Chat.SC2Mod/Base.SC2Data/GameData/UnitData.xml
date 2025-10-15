@@ -6,6 +6,7 @@
             <LayoutButtons Face="CastAbilPoint" Type="AbilCmd" AbilCmd="CastAbilPoint,Execute" Row="0" Column="0"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatBuild2">
         <AbilArray Link="CheatBuild"/>
@@ -27,6 +28,7 @@
             <LayoutButtons Face="BuildCheat30" Type="AbilCmd" AbilCmd="CheatBuild,Build30" Row="2" Column="4"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain">
         <AbilArray Link="CheatTrain"/>
@@ -48,72 +50,85 @@
             <LayoutButtons Face="TrainCheat15" Type="AbilCmd" AbilCmd="CheatTrain,Build15" Row="2" Column="4"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain3x3Air">
         <Footprint value="CheatBuild3x3"/>
         <PlacementFootprint value="CheatBuild3x3"/>
         <EditorCategories value="ObjectType:Other"/>
         <Height value="3.75"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain4x4Air">
         <Footprint value="CheatBuild4x4"/>
         <PlacementFootprint value="CheatBuild4x4"/>
         <EditorCategories value="ObjectType:Other"/>
         <Height value="3.75"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain3x3Ground">
         <Footprint value="CheatBuild3x3"/>
         <PlacementFootprint value="CheatBuild3x3"/>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain5x5Air">
         <Footprint value="CheatBuild5x5"/>
         <PlacementFootprint value="CheatBuild5x5"/>
         <EditorCategories value="ObjectType:Other"/>
         <Height value="3.75"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain4x4Ground">
         <Footprint value="CheatBuild4x4"/>
         <PlacementFootprint value="CheatBuild4x4"/>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain5x5Ground">
         <Footprint value="CheatBuild5x5"/>
         <PlacementFootprint value="CheatBuild5x5"/>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain5x5Resource">
         <Footprint value="CheatBuild5x5"/>
         <PlacementFootprint value="CheatBuild5x5Resource"/>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrainGroundUnit">
         <Footprint value="CheatTrain"/>
         <DeadFootprint value="CheatTrain"/>
         <PlacementFootprint value="CheatTrain"/>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain1x1Ground">
         <Footprint value="CheatBuild1x1"/>
         <PlacementFootprint value="CheatBuild1x1"/>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain1x1Air">
         <Footprint value="CheatBuild1x1"/>
         <PlacementFootprint value="CheatBuild1x1"/>
         <EditorCategories value="ObjectType:Other"/>
         <Height value="3.75"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain2x2Ground">
         <Footprint value="CheatBuild2x2"/>
         <PlacementFootprint value="CheatBuild2x2"/>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain2x2Air">
         <Footprint value="CheatBuild2x2"/>
         <PlacementFootprint value="CheatBuild2x2"/>
         <EditorCategories value="ObjectType:Other"/>
         <Height value="3.75"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain3">
         <AbilArray Link="CheatTrain2"/>
@@ -135,6 +150,7 @@
             <LayoutButtons Face="TrainCheat45" Type="AbilCmd" AbilCmd="CheatTrain2,Build15" Row="2" Column="4"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrain4">
         <AbilArray Link="CheatTrain2"/>
@@ -156,6 +172,7 @@
             <LayoutButtons Face="TrainCheat60" Type="AbilCmd" AbilCmd="CheatTrain2,Build30" Row="2" Column="4"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Other"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
     <CUnit id="CheatTrainAirUnit">
         <Height value="3.75"/>
@@ -163,5 +180,6 @@
         <PlacementFootprint value="CheatTrain"/>
         <EditorCategories value="ObjectType:Other"/>
         <DeadFootprint value="CheatTrain"/>
+        <EditorFlags index="NoPalettes" value="1"/>
     </CUnit>
 </Catalog>

@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilEffectTarget id="ZeratulCommanderPickupArtifact">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <DebugTrace value="1"/>
+        <Effect index="0" value="Suicide"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Range value="4"/>
+        <AutoCastFilters value="Visible;Ally,Neutral,Enemy"/>
+        <AutoCastRange value="4"/>
+        <AutoCastValidatorArray value="ZeratulCommanderZeratul"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderPickupArtifact"/>
+    </CAbilEffectTarget>
     <CAbilEffectTarget id="ZeratulCommanderDisruptorPhase">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
         <Range value="8"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderDisruptorPhase"/>
         <Arc value="360"/>
+        <AINotifyEffect value="ZeratulCommanderDisruptorPhase@CU"/>
     </CAbilEffectTarget>
     <CAbilMorph id="ZeratulCommanderMorphVoidArray">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
@@ -18,4 +31,10 @@
         <ActorKey value="ZeratulCommanderMorphVoidArray"/>
         <InfoArray Unit="ZeratulCommanderXelNagaVoidArray@Alternate"/>
     </CAbilMorph>
+    <CAbilEffectInstant id="ZeratulCommanderShadowCleave">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ZeratulCommanderShadowCleave@Search"/>
+        <Flags index="Transient" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderShadowCleave"/>
+    </CAbilEffectInstant>
 </Catalog>

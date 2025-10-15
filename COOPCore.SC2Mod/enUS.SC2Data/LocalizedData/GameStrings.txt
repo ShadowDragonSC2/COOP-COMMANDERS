@@ -84,8 +84,6 @@ DataCollectionPattern/CommandersAbilityAB/StartImpactModel=Model Start Impact
 DocInfo/DescLong=Completely devoid of any description whatsoever.
 DocInfo/DescShort=Any
 DocInfo/Name=Just Another StarCraft II Mod
-Param/Expression/lib_BEDD5153_232B3CE1=Раса ~B~ переключена с - <c val="FFC600">~A~
 Param/Expression/lib_BEDD5153_4867A655=~A~:~B~
-Param/Expression/lib_BEDD5153_94F359C5=Раса ~B~ установлена на - <c val="FFC600">~A~
 Unit/COOP/LifeArmorName/TerranBuildingPlating=Terran building plating
 Unit/COOP/LifeArmorName/ZergBuildingArmor=Zerg building armor

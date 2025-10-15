@@ -506,7 +506,6 @@
     <objectUsage type="Unit">
         <objects>
             <usage source="External">ObjectFamily</usage>
-            <usage source="External">Race</usage>
             <usage source="Field">CUnit_Race</usage>
             <usage source="External">ObjectType</usage>
         </objects>

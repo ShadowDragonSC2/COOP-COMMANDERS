@@ -7,25 +7,55 @@ include "TriggerLibs/natives"
 
 // Constants
 const string libBEDD5153_gv_eVENT_PlayerRaceChanges = "PlayerRaceChangesCC";
+const string libBEDD5153_gv_eVENT_ClickItemTopbar = "ClickItemTopbarCC";
 const string libBEDD5153_gv_eVENT_PARAM_TrigPlayer = "TrigPlayer";
 const string libBEDD5153_gv_eVENT_PARAM_ChangedRace = "ChangedRace";
 const string libBEDD5153_gv_eVENT_PARAM_ChangingRace = "ChangingRace";
+const string libBEDD5153_gv_eVENT_PARAM_BtnItem = "Btn_Item";
 const string libBEDD5153_gv_eVENT_Constant_anyPlayer = "anyplayer";
 const string libBEDD5153_gv_eVENT_Constant_anyRace = "anyrace";
 
+// Structures
+struct libBEDD5153_gs_Players {
+    int lv_topbar;
+    int lv_topbarItems;
+};
+
+// Variable Declarations
+int libBEDD5153_gv_countStrikes;
+int libBEDD5153_gv_maxCountStrikes;
+bool libBEDD5153_gv__targetingMode;
+fixed libBEDD5153_gv__height;
+libBEDD5153_gs_Players[16] libBEDD5153_gv_player;
+
 // Function Declarations
-void libBEDD5153_gf_SetPlayerRaceCC (int lp_player, string lp_race);
+int libBEDD5153_gf_GetTopbarItem (int lp_player, string lp_itemName);
+int libBEDD5153_gf_GetTopbar (int lp_player);
+void libBEDD5153_gf_SetTopbarForPlayer (int lp_player, int lp_frame);
+void libBEDD5153_gf_LinkTopbarItemwithTopbarPlayer (int lp_topbarItem, int lp_player, string lp_nameItem);
+void libBEDD5153_gf_LinkTopbarwithCaster (int lp_player, unit lp_caster);
+void libBEDD5153_gf_PlayAnimationonTopbarItem (int lp_player, string lp_itemName, string lp_animationName);
+void libBEDD5153_gf_PlayAnimationonTopbarItems (int lp_player, string lp_animationName, string lp_itemName, int lp_start, int lp_end, fixed lp_interval, int lp_timeType, bool lp_waitOption);
+void libBEDD5153_gf_PlayAnimationonTopbar (int lp_player, string lp_animationName);
 string libBEDD5153_gf_ResponsePRC (string lp_player, string lp_race, string lp_inOut, string lp_parameter);
+string libBEDD5153_gf_ResponseCIT (int lp_player, string lp_itemName, string lp_parameter);
+void libBEDD5153_gf_SetPlayerRaceCC (int lp_player, string lp_race);
+int libBEDD5153_gf_HookupStandardDialogItem (int lp_type, string lp_name);
+void libBEDD5153_gf_ClickItemTopbar (trigger t, int lp_player, string lp_itemName);
 void libBEDD5153_gf_PlayerRaceChangesCC (trigger t, int lp_player, string lp_race, string lp_inOut);
 int libBEDD5153_gf_TriggeringPlayerCC ();
+string libBEDD5153_gf_TriggeringItemTopbarCC ();
 string libBEDD5153_gf_ChangedRaceCC ();
 string libBEDD5153_gf_ChangingRaceCC ();
 
 // Trigger Declarations
+trigger libBEDD5153_gt_InitTopbars;
+trigger libBEDD5153_gt_debug;
+trigger libBEDD5153_gt_ClickItem;
+trigger libBEDD5153_gt_Activatetargeting;
+trigger libBEDD5153_gt_Strike;
+trigger libBEDD5153_gt_ExitTargetingMode;
 trigger libBEDD5153_gt_Init;
-trigger libBEDD5153_gt_CommanderForPlayerOn;
-trigger libBEDD5153_gt_CommanderForPlayerFrom;
-trigger libBEDD5153_gt_ChangeRace;
 
 // Library Initialization
 void libBEDD5153_InitVariables ();

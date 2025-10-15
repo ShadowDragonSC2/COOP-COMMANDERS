@@ -1408,11 +1408,7 @@ bool lib6CA20615_gf_CharisInteger (string lp_char) {
     lv__char = StringSub(lp_char, 1, 1);
 
     // Implementation
-    if (((lv__char == "0") || ((StringToInt(lv__char) >= 1) && (StringToInt(lv__char) <= 9)))) {
-        return true;
-    }
-
-    return false;
+    return ((lv__char == "0") || ((StringToInt(lv__char) >= 1) && (StringToInt(lv__char) <= 9)));
 }
 
 bool lib6CA20615_gf_StringIsPlayer (string lp_string) {
@@ -1652,6 +1648,7 @@ bool lib6CA20615_gt_init_Func (bool testConds, bool runActions) {
         lib6CA20615_gv_player_Cheat[auto9CA1A203_var].lv_deathUnits.lv_deathUnits_unitgroup = "select";
         lib6CA20615_gv_player_Cheat[auto9CA1A203_var].lv_deathUnits.lv_deathUnits_Players = "all";
         lib6CA20615_gv_player_Cheat[auto9CA1A203_var].lv_deathUnits.lv_deathUnits_MaxUnits = 500;
+        lib6CA20615_gv_player_Cheat[auto9CA1A203_var].lv_ownerUnitSpawn = auto9CA1A203_var;
         PlayerSetAlliance(auto9CA1A203_var, c_allianceIdVision, 1, true);
         PlayerSetAlliance(auto9CA1A203_var, c_allianceIdControl, 1, true);
         PlayerSetAlliance(auto9CA1A203_var, c_allianceIdPower, 1, true);
@@ -1815,6 +1812,7 @@ bool lib6CA20615_gt_InitSelectRace_Func (bool testConds, bool runActions) {
 
     DialogControlHookupStandard(c_triggerControlTypePanel, ("UIContainer/FullscreenUpperContainer/CheatSelectorRace"));
     lib6CA20615_gv_frameSelectorRace = DialogControlLastCreated();
+    DialogControlSetVisible(lib6CA20615_gv_frameSelectorRace, PlayerGroupAll(), false);
     DialogControlHookupStandard(c_triggerControlTypePanel, ("UIContainer/FullscreenUpperContainer/CheatSelectorRace/ScrollFrame/ContainerFrame"));
     lv_container = DialogControlLastCreated();
     auto0CE45C09_catalog = c_gameCatalogRace;
@@ -2059,34 +2057,6 @@ bool lib6CA20615_gt_TargetModOff_Func (bool testConds, bool runActions) {
 void lib6CA20615_gt_TargetModOff_Init () {
     lib6CA20615_gt_TargetModOff = TriggerCreate("lib6CA20615_gt_TargetModOff_Func");
     TriggerAddEventTargetModeUpdate(lib6CA20615_gt_TargetModOff, c_playerAny, AbilityCommand("CheatTrain", 0), c_targetModeStateOff);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: ChangeOwner
-//--------------------------------------------------------------------------------------------------
-bool lib6CA20615_gt_ChangeOwner_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 1, 3) == "Num")) {
-        lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn = StringToInt(StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5));
-        if ((EventKeyControl() == true) && ((lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn >= 0) && (lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn <= 5))) {
-            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn = StringToInt(("1" + StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5)));
-        }
-
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, IntToText(lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn));
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void lib6CA20615_gt_ChangeOwner_Init () {
-    lib6CA20615_gt_ChangeOwner = TriggerCreate("lib6CA20615_gt_ChangeOwner_Func");
-    TriggerAddEventKeyPressed(lib6CA20615_gt_ChangeOwner, c_playerAny, c_keyNone, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -2568,6 +2538,86 @@ void lib6CA20615_gt_hidedatatablewindow_Init () {
     TriggerAddEventKeyPressed(lib6CA20615_gt_hidedatatablewindow, c_playerAny, c_keyNone, false, lib6CA20615_gv_kEY_OPEN_PANELS_SHIFT, lib6CA20615_gv_kEY_OPEN_PANELS_CTRL, lib6CA20615_gv_kEY_OPEN_PANELS_ALT);
 }
 
+//--------------------------------------------------------------------------------------------------
+// Trigger: Change Owner (Global)
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_ChangeOwnerGlobal_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 1, 3) == "Num")) {
+        lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn = StringToInt(StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5));
+        if ((EventKeyControl() == true) && ((lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn >= 0) && (lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn <= 5))) {
+            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn = StringToInt(("1" + StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5)));
+        }
+
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_ChangeOwnerGlobal_Init () {
+    lib6CA20615_gt_ChangeOwnerGlobal = TriggerCreate("lib6CA20615_gt_ChangeOwnerGlobal_Func");
+    TriggerAddEventKeyPressed(lib6CA20615_gt_ChangeOwnerGlobal, c_playerAny, c_keyNone, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateExclude);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Change Owner (Unit)
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_ChangeOwnerUnit_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unitgroup lv__selects;
+
+    // Automatic Variable Declarations
+    unitgroup auto89130E06_g;
+    int auto89130E06_u;
+    unit auto89130E06_var;
+    unitgroup auto5BF9954E_g;
+    int auto5BF9954E_u;
+    unit auto5BF9954E_var;
+
+    // Variable Initialization
+    lv__selects = UnitGroupSelected(EventPlayer());
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 1, 3) == "Num")) {
+        if ((EventKeyControl() == true) && ((lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn >= 0) && (lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn <= 5))) {
+            auto5BF9954E_g = lv__selects;
+            auto5BF9954E_u = UnitGroupCount(auto5BF9954E_g, c_unitCountAll);
+            for (;; auto5BF9954E_u -= 1) {
+                auto5BF9954E_var = UnitGroupUnitFromEnd(auto5BF9954E_g, auto5BF9954E_u);
+                if (auto5BF9954E_var == null) { break; }
+                UnitSetOwner(auto5BF9954E_var, StringToInt(("1" + StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5))), true);
+            }
+        }
+        else {
+            auto89130E06_g = lv__selects;
+            auto89130E06_u = UnitGroupCount(auto89130E06_g, c_unitCountAll);
+            for (;; auto89130E06_u -= 1) {
+                auto89130E06_var = UnitGroupUnitFromEnd(auto89130E06_g, auto89130E06_u);
+                if (auto89130E06_var == null) { break; }
+                UnitSetOwner(auto89130E06_var, StringToInt(StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5)), true);
+            }
+        }
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_ChangeOwnerUnit_Init () {
+    lib6CA20615_gt_ChangeOwnerUnit = TriggerCreate("lib6CA20615_gt_ChangeOwnerUnit_Func");
+    TriggerAddEventKeyPressed(lib6CA20615_gt_ChangeOwnerUnit, c_playerAny, c_keyNone, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateRequire);
+}
+
 void lib6CA20615_InitTriggers () {
     lib6CA20615_gt_Test_Init();
     lib6CA20615_gt_init_Init();
@@ -2580,7 +2630,6 @@ void lib6CA20615_InitTriggers () {
     lib6CA20615_gt_InitSpawnUnit_Init();
     lib6CA20615_gt_ReviveBuilder_Init();
     lib6CA20615_gt_TargetModOff_Init();
-    lib6CA20615_gt_ChangeOwner_Init();
     lib6CA20615_gt_ChangeCategory_Init();
     lib6CA20615_gt_GenerateCategories_Init();
     lib6CA20615_gt_showspawnerui_Init();
@@ -2592,6 +2641,8 @@ void lib6CA20615_InitTriggers () {
     lib6CA20615_gt_updatedata_Init();
     lib6CA20615_gt_showdatatablewindow_Init();
     lib6CA20615_gt_hidedatatablewindow_Init();
+    lib6CA20615_gt_ChangeOwnerGlobal_Init();
+    lib6CA20615_gt_ChangeOwnerUnit_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

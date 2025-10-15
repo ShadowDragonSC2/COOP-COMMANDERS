@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorUnitType id="ZeratulCommanderZeratul">
+        <WhichUnit Value="Caster"/>
+        <Value value="ZeratulCommanderZeratul"/>
+    </CValidatorUnitType>
+</Catalog>

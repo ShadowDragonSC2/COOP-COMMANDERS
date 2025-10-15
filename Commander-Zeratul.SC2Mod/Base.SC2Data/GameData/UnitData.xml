@@ -6,6 +6,35 @@
         <PlacementFootprint value="Footprint5x5DropOff"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
+    <CUnit id="ZeratulCommanderArtifact" parent="ITEM">
+        <Race value="COOPZeratul"/>
+        <AbilArray Link="ZeratulCommanderPickupArtifact"/>
+        <EditorCategories value="ObjectType:Item,ObjectFamily:Coop,Race:Zeratul"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderConstructsBay" parent="CommanderStructure_Prot">
+        <Race value="COOPZeratul"/>
+        <LifeStart value="550"/>
+        <LifeMax value="550"/>
+        <ShieldsStart value="550"/>
+        <ShieldsMax value="550"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderConstructsFacility" parent="CommanderStructure_Prot">
+        <Race value="COOPZeratul"/>
+        <LifeStart value="550"/>
+        <LifeMax value="550"/>
+        <ShieldsStart value="550"/>
+        <ShieldsMax value="550"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderCoreForge" parent="CommanderStructure_Prot">
+        <Race value="COOPZeratul"/>
+        <LifeStart value="550"/>
+        <LifeMax value="550"/>
+        <ShieldsStart value="550"/>
+        <ShieldsMax value="550"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
+    </CUnit>
     <CUnit id="ZeratulCommanderDisruptorPhase">
         <Race value="COOPZeratul"/>
         <FlagArray index="Turnable" value="0"/>
@@ -27,6 +56,14 @@
         <Race value="COOPZeratul"/>
         <Mover value="StalkerWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Zeratul"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderVoidShrine" parent="CommanderStructure_Prot">
+        <Race value="COOPZeratul"/>
+        <LifeStart value="550"/>
+        <LifeMax value="550"/>
+        <ShieldsStart value="550"/>
+        <ShieldsMax value="550"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
     <CUnit id="ZeratulCommanderVoidTemplar" parent="CommanderGround_Prot">
         <Race value="COOPZeratul"/>
@@ -64,7 +101,7 @@
         <MinimapRadius value="0.65"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
-    <CUnit id="ZeratulCommanderXelNagaDisruptor" parent="CommanderGround_Prot">
+    <CUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGround_Prot">
         <Race value="COOPZeratul"/>
         <Collide index="Small" value="1"/>
         <LifeStart value="100"/>
@@ -87,6 +124,14 @@
             <LayoutButtons Face="ZeratulCommanderDisruptorPhase" Type="AbilCmd" AbilCmd="ZeratulCommanderDisruptorPhase,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <FlagArray index="Turnable" value="0"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderXelNagaPassageway" parent="CommanderStructure_Prot">
+        <Race value="COOPZeratul"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <ShieldsStart value="500"/>
+        <ShieldsMax value="500"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAir_Prot">
         <Race value="COOPZeratul"/>
@@ -180,6 +225,7 @@
     </CUnit>
     <CUnit id="ZeratulCommanderZeratul" parent="CommanderGround_Prot">
         <Race value="COOPZeratul"/>
+        <FlagArray index="Cloaked" value="1"/>
         <LifeStart value="150"/>
         <LifeMax value="150"/>
         <LifeArmor value="1"/>
@@ -188,6 +234,11 @@
         <ShieldsMax value="450"/>
         <ShieldRegenRate value="15"/>
         <Speed value="3"/>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <AbilArray Link="ZeratulCommanderShadowCleave"/>
+        <WeaponArray Link="ZeratulCommanderMasterWarpBlade"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ZeratulCommanderShadowCleave" Type="AbilCmd" AbilCmd="ZeratulCommanderShadowCleave,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
 </Catalog>

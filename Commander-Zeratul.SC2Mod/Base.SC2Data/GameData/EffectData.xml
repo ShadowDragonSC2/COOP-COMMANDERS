@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectCreateUnit id="ZeratulCommanderDisruptorPhase">
+    <CEffectIssueOrder id="ZeratulCommanderDisruptorPhase@Issue">
         <EditorCategories value="Race:Zeratul"/>
-        <WhichLocation Value="TargetPoint"/>
-        <SpawnEffect value="ZeratulCommanderDisruptorPhase@TimeLife"/>
+        <Abil value="move"/>
+        <Target Effect="ZeratulCommanderDisruptorPhase@CU" Value="TargetPoint"/>
+    </CEffectIssueOrder>
+    <CEffectSet id="ZeratulCommanderDisruptorPhase@Set@1">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderDisruptorPhase@TimeLife"/>
+        <EffectArray value="ZeratulCommanderDisruptorPhase@Issue"/>
+    </CEffectSet>
+    <CEffectSet id="ZeratulCommanderDisruptorPhase">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderDisruptorPhase@CU"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectDamage id="ZeratulCommanderMasterWarpBlade@Damage">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="100"/>
+    </CEffectDamage>
+    <CEffectCreateUnit id="ZeratulCommanderDisruptorPhase@CU">
+        <EditorCategories value="Race:Zeratul"/>
+        <WhichLocation Value="CasterUnit"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="ZeratulCommanderDisruptorPhase@Set@1"/>
         <SpawnUnit value="ZeratulCommanderDisruptorPhase"/>
+        <SpawnRange value="1"/>
     </CEffectCreateUnit>
     <CEffectApplyBehavior id="ZeratulCommanderDisruptorPhase@TimeLife">
         <EditorCategories value="Race:Zeratul"/>
+        <WhichUnit Value="Caster"/>
     </CEffectApplyBehavior>
     <CEffectDamage id="ZeratulCommanderDisruptorPhase@Damage">
         <EditorCategories value="Race:Zeratul"/>
@@ -51,6 +77,16 @@
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="20"/>
     </CEffectDamage>
+    <CEffectDamage id="ZeratulCommanderShadowCleave@Damage">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="100"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="ZeratulCommanderShadowCleave@Search">
+        <EditorCategories value="Race:Zeratul"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="ZeratulCommanderShadowCleave@Damage"/>
+    </CEffectEnumArea>
     <CEffectDamage id="ZeratulCommanderWarpBlade@Damage">
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="60"/>

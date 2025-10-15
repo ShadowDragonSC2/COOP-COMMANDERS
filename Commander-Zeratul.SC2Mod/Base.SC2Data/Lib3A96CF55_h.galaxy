@@ -3,10 +3,21 @@ include "TriggerLibs/natives"
 //--------------------------------------------------------------------------------------------------
 // Library: COMMANDER - Zeratul
 //--------------------------------------------------------------------------------------------------
+// Structures
+struct lib3A96CF55_gs_ZeratulPlayers {
+    unit lv_topbar_caster;
+    unit lv_artifact;
+    int lv_numCollectedArtifact;
+};
+
 // Variable Declarations
-unit lib3A96CF55_gv_topBarCaster;
+lib3A96CF55_gs_ZeratulPlayers[16] lib3A96CF55_gv_player;
+
+// Function Declarations
+point lib3A96CF55_gf_CalculatePointFromArtifact (int lp_player);
 
 // Trigger Declarations
+trigger lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards;
 trigger lib3A96CF55_gt_CommanderEnable;
 trigger lib3A96CF55_gt_CommanderDisable;
 trigger lib3A96CF55_gt_ChangeRace;

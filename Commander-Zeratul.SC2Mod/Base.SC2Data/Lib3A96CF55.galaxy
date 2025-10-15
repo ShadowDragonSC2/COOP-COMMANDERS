@@ -24,20 +24,76 @@ void lib3A96CF55_InitVariables () {
 
 }
 
+// Functions
+point lib3A96CF55_gf_CalculatePointFromArtifact (int lp_player) {
+    // Variable Declarations
+    point lv__point;
+    int lv_attempts;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv__point = RegionRandomPoint(RegionPlayableMap());
+
+    // Implementation
+    while ((lv_attempts < 20) && (PathingType(lv__point) != c_pathingGround) && (PointPathingIsConnected(lv__point, PlayerStartLocation(lp_player)) == false)) {
+        lv__point = RegionRandomPoint(RegionPlayableMap());
+        lv_attempts += 1;
+        Wait(0.0625, c_timeReal);
+    }
+    return lv__point;
+}
+
 // Triggers
 //--------------------------------------------------------------------------------------------------
-// Trigger: Commander - Enable
+// Trigger: Playing Attack Sounds Using Attack Towards
 //--------------------------------------------------------------------------------------------------
-bool lib3A96CF55_gt_CommanderEnable_Func (bool testConds, bool runActions) {
+bool lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    unit lv_unit;
+
     // Automatic Variable Declarations
+    // Variable Initialization
+    lv_unit = UnitGroupUnit(UnitSubgroupSelected(EventPlayer()), 1);
+
     // Actions
     if (!runActions) {
         return true;
     }
 
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/lib_3A96CF55_12790481"));
+    if ((EventTargetModeState() == c_targetModeStateOn)) {
+        CatalogFieldValueSet(c_gameCatalogActor, UnitGetType(lv_unit), "SoundArray[" + IntToString(4) + "]", EventPlayer(), "");
+    }
+    else {
+        CatalogFieldValueSet(c_gameCatalogActor, UnitGetType(lv_unit), "SoundArray[" + IntToString(4) + "]", EventPlayer(), CatalogFieldValueGet(c_gameCatalogActor, UnitGetType(lv_unit), "SoundArray[" + IntToString(4) + "]", c_playerAny));
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init () {
+    lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards = TriggerCreate("lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Func");
+    TriggerAddEventTargetModeUpdate(lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards, c_playerAny, AbilityCommand("attack", 0), c_targetModeStateAny);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Commander - Enable
+//--------------------------------------------------------------------------------------------------
+bool lib3A96CF55_gt_CommanderEnable_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((lib3A96CF55_gv_player[libBEDD5153_gf_TriggeringPlayerCC()].lv_topbar_caster == null))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
     UnitCreate(1, "Pylon", 0, libBEDD5153_gf_TriggeringPlayerCC(), RegionGetCenter(RegionPlayableMap()), 270.0);
-    lib3A96CF55_gv_topBarCaster = UnitLastCreated();
+    lib3A96CF55_gv_player[libBEDD5153_gf_TriggeringPlayerCC()].lv_topbar_caster = UnitLastCreated();
     return true;
 }
 
@@ -57,8 +113,17 @@ bool lib3A96CF55_gt_CommanderDisable_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    if ((lib3A96CF55_gv_topBarCaster == null)) {
-        UnitRemove(lib3A96CF55_gv_topBarCaster);
+    TextExpressionSetToken("Param/Expression/lib_3A96CF55_9EE957D9", "A", StringToText((libBEDD5153_gf_ChangingRaceCC())));
+    TextExpressionSetToken("Param/Expression/lib_3A96CF55_9EE957D9", "B", StringToText((libBEDD5153_gf_ChangedRaceCC())));
+    TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/lib_3A96CF55_9EE957D9"), true);
+    if ((lib3A96CF55_gv_player[libBEDD5153_gf_TriggeringPlayerCC()].lv_artifact != null)) {
+        UnitRemove(lib3A96CF55_gv_player[libBEDD5153_gf_TriggeringPlayerCC()].lv_artifact);
+        lib3A96CF55_gv_player[libBEDD5153_gf_TriggeringPlayerCC()].lv_artifact = null;
+    }
+
+    if ((lib3A96CF55_gv_player[libBEDD5153_gf_TriggeringPlayerCC()].lv_topbar_caster != null)) {
+        UnitRemove(lib3A96CF55_gv_player[libBEDD5153_gf_TriggeringPlayerCC()].lv_topbar_caster);
+        lib3A96CF55_gv_player[libBEDD5153_gf_TriggeringPlayerCC()].lv_topbar_caster = null;
     }
 
     return true;
@@ -78,8 +143,6 @@ bool lib3A96CF55_gt_ChangeRace_Func (bool testConds, bool runActions) {
     string lv_race;
 
     // Automatic Variable Declarations
-    string auto322CF5EB_val;
-
     // Variable Initialization
 
     // Actions
@@ -87,23 +150,18 @@ bool lib3A96CF55_gt_ChangeRace_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    auto322CF5EB_val = StringWord(EventChatMessage(false), 1);
-    if (auto322CF5EB_val == "zer") {
-        lv_race = "COOPZeratul";
-    }
-    else {
-    }
-    libBEDD5153_gf_SetPlayerRaceCC(StringToInt(StringWord(EventChatMessage(false), 2)), lv_race);
+    libBEDD5153_gf_SetPlayerRaceCC(StringToInt(StringWord(EventChatMessage(false), 2)), (StringWord(EventChatMessage(false), 3)));
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void lib3A96CF55_gt_ChangeRace_Init () {
     lib3A96CF55_gt_ChangeRace = TriggerCreate("lib3A96CF55_gt_ChangeRace_Func");
-    TriggerAddEventChatMessage(lib3A96CF55_gt_ChangeRace, c_playerAny, "", false);
+    TriggerAddEventChatMessage(lib3A96CF55_gt_ChangeRace, c_playerAny, "changerace", false);
 }
 
 void lib3A96CF55_InitTriggers () {
+    lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init();
     lib3A96CF55_gt_CommanderEnable_Init();
     lib3A96CF55_gt_CommanderDisable_Init();
     lib3A96CF55_gt_ChangeRace_Init();

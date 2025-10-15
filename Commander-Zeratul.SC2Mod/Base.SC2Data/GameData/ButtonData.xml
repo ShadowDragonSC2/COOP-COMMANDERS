@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="ZeratulCommanderConstructsBay">
+        <Icon value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
+    </CButton>
+    <CButton id="ZeratulCommanderConstructsFacility">
+        <Icon value="Assets\Textures\btn-building-protoss-zeratulroboticsfacility.dds"/>
+    </CButton>
+    <CButton id="ZeratulCommanderCoreForge">
+        <Icon value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
+    </CButton>
     <CButton id="ZeratulCommanderDisruptorPhase">
         <Icon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
         <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CButton id="ZeratulCommanderPickupArtifact">
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CButton id="ZeratulCommanderShadowCleave">
+        <Icon value="Assets\Textures\btn-ability-zeratul-hero-shadowcleave.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CButton id="ZeratulCommanderVoidShrine">
+        <Icon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
+    </CButton>
+    <CButton id="ZeratulCommanderXelNagaPassageway">
+        <Icon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
     </CButton>
     <CButton id="ZeratulCommanderXelNagaVoidArray">
         <Icon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>

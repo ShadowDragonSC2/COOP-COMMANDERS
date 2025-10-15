@@ -163,7 +163,6 @@ trigger lib6CA20615_gt_hidespawneruiselectrace;
 trigger lib6CA20615_gt_InitSpawnUnit;
 trigger lib6CA20615_gt_ReviveBuilder;
 trigger lib6CA20615_gt_TargetModOff;
-trigger lib6CA20615_gt_ChangeOwner;
 trigger lib6CA20615_gt_ChangeCategory;
 trigger lib6CA20615_gt_GenerateCategories;
 trigger lib6CA20615_gt_showspawnerui;
@@ -175,6 +174,8 @@ trigger lib6CA20615_gt_hookdatatableview;
 trigger lib6CA20615_gt_updatedata;
 trigger lib6CA20615_gt_showdatatablewindow;
 trigger lib6CA20615_gt_hidedatatablewindow;
+trigger lib6CA20615_gt_ChangeOwnerGlobal;
+trigger lib6CA20615_gt_ChangeOwnerUnit;
 
 // Library Initialization
 void lib6CA20615_InitVariables ();
