@@ -8,6 +8,7 @@
         <MaxLevel value="30"/>
         <LeaderAlias value=""/>
         <Icon value="Assets\Textures\btn-upgrade-zerg-zagara-zerglingdodge.dds"/>
+        <Race value="COOPZagara"/>
     </CUpgrade>
     <CUpgrade id="ZagaraCommanderHardenedCarapace">
         <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
@@ -16,12 +17,13 @@
         <EffectArrayTemplate Reference="Unit,^ParamId^@Burrowed,LifeMax" Value="10"/>
         <EffectArrayTemplate Reference="Unit,^ParamId^@Burrowed,LifeStart" Value="10"/>
         <EditorCategories value="Race:Zagara,UpgradeType:Talents"/>
+        <Race value="COOPZagara"/>
     </CUpgrade>
     <CUpgrade id="ZagaraCommanderShreddingClaws">
         <Flags index="TechTreeCheat" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-zergling-armorshredding.dds"/>
         <Alert value="ResearchComplete"/>
-        <Race value="Zerg"/>
+        <Race value="COOPZagara"/>
         <ScoreResult value="BuildOrder"/>
         <EditorCategories value="Race:Zagara,UpgradeType:Talents"/>
         <AffectedUnitArray value="ZagaraCommanderZergling"/>
@@ -30,7 +32,7 @@
         <Flags index="TechTreeCheat" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
         <Alert value="ResearchComplete"/>
-        <Race value="Zerg"/>
+        <Race value="COOPZagara"/>
         <ScoreResult value="BuildOrder"/>
         <EffectArrayTemplate Reference="Weapon,^ParamId^,RateMultiplier" Value="0.4"/>
         <EditorCategories value="Race:Zagara,UpgradeType:Talents"/>
@@ -39,7 +41,7 @@
         <Flags index="TechTreeCheat" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-zerg-metabolicboost.dds"/>
         <Alert value="ResearchComplete"/>
-        <Race value="Zerg"/>
+        <Race value="COOPZagara"/>
         <ScoreResult value="BuildOrder"/>
         <EffectArrayTemplate Reference="Unit,^ParamId^,Speed" Value="1.746000"/>
         <EditorCategories value="Race:Zagara,UpgradeType:Talents"/>

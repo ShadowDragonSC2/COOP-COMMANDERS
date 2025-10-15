@@ -32,6 +32,7 @@ Model/Name/ZagaraCommanderZergling@DeathUpgrade=Death Upgrade
 Model/Name/ZagaraCommanderZergling@DodgeImpact=Dodge Impact
 Model/Name/ZagaraCommanderZergling@Portrait=Portrait
 Model/Name/ZerglingFuryImpact2=Zergling Fury Impact
+Race/EditorPrefix/COOPZagara=(COOP)
 Requirement/Name/ZagaraCommanderAdrenalOverload=Learn Adrenal Overload
 Requirement/Name/ZagaraCommanderAdrenalOverload@Use=Have Adrenal Overload
 Requirement/Name/ZagaraCommanderBaneling=Requirement

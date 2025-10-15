@@ -6,10 +6,11 @@
         <DamageResponse ModifyFraction="0" ModifyMinimumDamage="1">
             <Kind index="Spell" value="0"/>
         </DamageResponse>
+        <EditorCategories value="Race:Zagara,AbilityorEffectType:Units"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="ZagaraCommanderWeaponZergling@ArmorNegated">
         <InfoIcon value="Assets\Textures\btn-upgrade-zerg-tunnelingclaws.dds"/>
-        <EditorCategories value="AbilityorEffectType:Units,Race:Zerg"/>
+        <EditorCategories value="AbilityorEffectType:Units,Race:Zagara"/>
         <Duration value="10"/>
         <Modification LifeArmorMultiplier="0"/>
     </CBehaviorBuff>

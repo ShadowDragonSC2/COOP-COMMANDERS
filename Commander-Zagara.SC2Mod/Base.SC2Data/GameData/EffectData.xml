@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CEffectDamage id="ZagaraCommanderZergling"/>
+    <CEffectDamage id="ZagaraCommanderZergling">
+        <EditorCategories value="Race:Zagara"/>
+    </CEffectDamage>
     <CEffectSet id="ZagaraCommanderWeaponZergling@Set">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <EffectArray value="ZagaraCommanderWeaponZergling@ABArmorNegated"/>
         <EffectArray value="ZagaraCommanderWeaponZergling@Damage"/>
     </CEffectSet>
     <CEffectDamage id="ZagaraCommanderWeaponZergling@Damage" parent="DU_WEAP">
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <Amount value="5"/>
     </CEffectDamage>
     <CEffectApplyBehavior id="ZagaraCommanderWeaponZergling@ABArmorNegated">
         <ValidatorArray index="0" value="ZagaraCommanderShreddingClaws@Use"/>
-        <EditorCategories value="Race:Zerg"/>
+        <EditorCategories value="Race:Zagara"/>
         <Behavior value="ZagaraCommanderWeaponZergling@ArmorNegated"/>
     </CEffectApplyBehavior>
 </Catalog>
