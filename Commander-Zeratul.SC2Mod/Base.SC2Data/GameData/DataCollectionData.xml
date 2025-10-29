@@ -58,6 +58,8 @@
         <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Issue"/>
         <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Set@1"/>
         <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase"/>
+        <DataRecord Entry="Actor,ZeratulCommanderDisruptorPhase@ImpactSound"/>
+        <DataRecord Entry="Sound,ZeratulCommanderDisruptorPhase@ImpactSound"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderAncientNexus" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Structure"/>
@@ -117,6 +119,16 @@
         <DataRecord Entry="Sound,ZeratulCommanderPhaseDisruptors@AttackImpact"/>
         <DataRecord Entry="Weapon,ZeratulCommanderPhaseDisruptors"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderPredictiveBlink">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
+        <DataRecord Entry="Abil,ZeratulCommanderPredictiveBlink"/>
+        <DataRecord Entry="Button,ZeratulCommanderPredictiveBlink"/>
+        <DataRecord Entry="Effect,ZeratulCommanderPredictiveBlink"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ModelOut"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ModelIn"/>
+        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ModelOut"/>
+        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ModelIn"/>
+    </CDataCollectionUnit>
     <CDataCollectionAbil id="ZeratulCommanderShadowCleave">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Abil,ZeratulCommanderShadowCleave"/>
@@ -152,6 +164,7 @@
         <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@What"/>
         <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Yes"/>
         <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Pissed"/>
+        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@DeathVoice"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderWarpBlade" parent="CommanderWeaponInstant">
         <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Other"/>

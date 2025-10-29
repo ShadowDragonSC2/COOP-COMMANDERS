@@ -33,7 +33,6 @@
     </CEffectCreateUnit>
     <CEffectApplyBehavior id="ZeratulCommanderDisruptorPhase@TimeLife">
         <EditorCategories value="Race:Zeratul"/>
-        <WhichUnit Value="Caster"/>
     </CEffectApplyBehavior>
     <CEffectDamage id="ZeratulCommanderDisruptorPhase@Damage">
         <EditorCategories value="Race:Zeratul"/>
@@ -77,6 +76,14 @@
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="20"/>
     </CEffectDamage>
+    <CEffectTeleport id="ZeratulCommanderPredictiveBlink">
+        <EditorCategories value="Race:Zeratul"/>
+        <WhichUnit Value="Caster"/>
+        <MinDistance value="1.5"/>
+        <Range value="8"/>
+        <TargetLocation Value="TargetPoint"/>
+        <TeleportFlags index="TestFog" value="0"/>
+    </CEffectTeleport>
     <CEffectDamage id="ZeratulCommanderShadowCleave@Damage">
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="100"/>

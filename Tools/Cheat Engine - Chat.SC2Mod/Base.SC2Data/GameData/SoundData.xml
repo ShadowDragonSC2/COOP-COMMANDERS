@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSound id="CConversation__001" parent="VO" Subtitle="CConversation" Line="00001">
+        <Flags index="NeedsUpdate" value="1"/>
+        <Flags index="NeedsTTS" value="1"/>
+    </CSound>
+</Catalog>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+    <!-- Constants -->
+     <Constant name="DistanceBetweeneEditbox" val="5"/>
+     <Constant name="negateDistanceBetweeneEditbox" val="-5"/>
+
+    <!-- Frames -->
+
+    <Frame type="Frame" name="GameUI/UIContainer/FullscreenUpperContainer" file="GameUI">
+        <Frame type="Frame" name="CheatUpgradesList">
+            <Handle val="CheatUpgradesList"/>
+            <Anchor side="Top" relative="$parent" pos="Min" offset="100"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+            <Visible val="False"/>
+
+            <Width val="800"/>
+            <Height val="650"/>
+
+            <Frame type="Frame" name="SearchFrame">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Height val="65"/>
+                <!-- <Frame type="Image" name="BG" template="CheatEngine_GenericTemplate/BGTemplate"/> -->
+
+                <Frame type="EditBox" name="SearchUpgradeForID" template="CheatEngine_TemplatesEditboxes/BaseEditboxTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Max" offset="0"/>
+
+                    <Frame type="Label" name="PlaceholderLabel">
+                        <Text val="Enter ID upgrade..."/>
+                    </Frame>
+                </Frame>
+                <Frame type="EditBox" name="SearchAbilResearchForID" template="CheatEngine_TemplatesEditboxes/BaseEditboxTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent/SearchUpgradeForID" pos="Min" offset="#negateDistanceBetweeneEditbox"/>
+                    
+                    <Frame type="Label" name="PlaceholderLabel">
+                        <Text val="Enter ID research Abil..."/>
+                    </Frame>
+
+                    <StateGroup name="VisibleStates">
+                        <DefaultState val="NotVisible"/>
+                    
+                        <State name="Visible">
+                            <When type="Property" Checked="True" frame="$CheckboxModeSearch" operator="Equal"/>
+                            <Action type="SetProperty" frame="$this" Visible="True" />
+                            <Action type="SetAnchor" frame="$parent/SearchUpgradeForID" side="Left" relative="$parent" pos="Mid" offset="#DistanceBetweeneEditbox"/>
+                        </State>
+                    
+                        <State name="NotVisible">
+                            <When type="Property" Checked="True" frame="$CheckboxModeSearch" operator="NotEqual"/>
+                            <Action type="SetProperty" frame="$this" Visible="False" />
+                            <Action type="SetAnchor" frame="$parent/SearchUpgradeForID" side="Left" relative="$parent" pos="Min" offset="0"/>
+                        </State>
+                    </StateGroup>
+                </Frame>
+            </Frame>
+
+            <Frame type="Frame" name="ContainerCategoryRace">
+                <Anchor side="Top" relative="$parent/SearchFrame" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/Footer" pos="Min" offset="0"/>
+                <Width val="75"/>
+                <Frame type="Image" name="BG" template="CheatEngine_GenericTemplate/BGTemplate"/>
+            </Frame>
+            
+            <Frame type="Frame" name="ContainerAbils">
+                <Anchor side="Top" relative="$parent/SearchFrame" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent/ContainerCategoryRace" pos="Max" offset="#DistanceBetweeneEditbox"/>
+                <Anchor side="Right" relative="$parent/Container" pos="Min" offset="#negateDistanceBetweeneEditbox"/>
+                <Anchor side="Bottom" relative="$parent/Footer" pos="Min" offset="0"/>
+
+                <Frame type="Image" name="BG" template="CheatEngine_GenericTemplate/BGTemplate"/>
+            </Frame>
+
+            <Frame type="ScrollableFrame" name="Container" template="CheatEngine_GenericTemplate/ScrollVerticalTemplate">
+                <Anchor side="Top" relative="$parent/SearchFrame" pos="Max" offset="10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/Footer" pos="Min" offset="0"/>
+                <Frame type="Image" name="BG" template="CheatEngine_GenericTemplate/BGTemplate"/>
+
+                <Frame type="Frame" name="ContainerFrame"/>
+
+                <StateGroup name="VisibleStates">
+                    <DefaultState val="NotVisible"/>
+                
+                    <State name="Visible">
+                        <When type="Property" Checked="True" frame="$CheckboxModeSearch" operator="Equal"/>
+                        <Action type="SetAnchor" frame="$this" side="Left" relative="$parent" pos="0.4" offset="#DistanceBetweeneEditbox"/>
+                    </State>
+                
+                    <State name="NotVisible">
+                        <When type="Property" Checked="True" frame="$CheckboxModeSearch" operator="NotEqual"/>
+                        <Action type="SetAnchor" frame="$this" side="Left" relative="$parent/ContainerCategoryRace" pos="Max" offset="#DistanceBetweeneEditbox"/>
+                    </State>
+                </StateGroup>
+            </Frame>
+
+
+            <Frame type="Frame" name="Footer">
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                <Height val="65"/>
+
+                <Frame type="Frame" name="OptionsFrame">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Right" relative="$parent/SelectPlayerFrame" pos="Min" offset="#negateDistanceBetweeneEditbox"/>
+                    <Frame type="Image" name="BG" template="CheatEngine_GenericTemplate/BGTemplate"/>
+
+                    <Frame type="CheckBox" name="SearchForCatalog" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player1" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player2" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player3" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player4" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player5" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player6" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player7" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player8" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player9" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player10" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player11" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player12" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player13" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player14" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                    <Frame type="CheckBox" name="Player15" template="StandardTemplates/StandardCheckBoxTemplate">
+                        <Anchor side="Left" relative="$sibling-1" pos="Min" offset="38"/>
+                        <Anchor side="Top" relative="$parent" pos="Mid" offset="0"/>
+                        <Anchor side="Bottom" relative="$parent" pos="Mid" offset="0"/>
+                        <Handle val="CheckboxModeSearch"/>
+                    </Frame>
+                </Frame>
+
+                <Frame type="Frame" name="SelectPlayerFrame">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                    <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Bottom" relative="$parent" pos="Max" offset="0"/>
+                    <Anchor side="Left" relative="$parent" pos="0.75" offset="#DistanceBetweeneEditbox"/>
+                    <Frame type="Image" name="BG" template="CheatEngine_GenericTemplate/BGTemplate"/>
+                </Frame>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

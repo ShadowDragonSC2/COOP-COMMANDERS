@@ -323,7 +323,9 @@
     </CDataCollectionPattern>
     <!-- Units Template -->
     <CUnit default="1" id="CommanderUnitBase">
+        <?token id="race" value="Bogus" type="CRaceLink"?>
         <Name value="Unit/Name/COOP/##id##"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <Mob value="Campaign"/>
         <DamageDealtXP value="1"/>
         <DamageTakenXP value="1"/>
@@ -339,9 +341,12 @@
         <ScoreMakeCostFactor index="Vespene" value="1"/>
         <ScoreKillCostFactor index="Minerals" value="1"/>
         <ScoreKillCostFactor index="Vespene" value="1"/>
+        <Race value="##race##"/>
+        <ShieldArmorName value="Unit/ShieldArmorName/##race##PlasmaShields"/>
     </CUnit>
     <CUnit default="1" id="CommanderGround" parent="CommanderUnitBase">
         <FlagArray index="ArmySelect" value="1"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <Speed value="2.25"/>
         <Acceleration value="1000"/>
         <CostCategory value="Army"/>
@@ -362,8 +367,9 @@
         </CardLayouts>
         <CargoSize value="2"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop"/>
-        <StationaryTurningRate value="990"/>
-        <TurningRate value="990"/>
+        <StationaryTurningRate value="999"/>
+        <TurningRate value="999"/>
+        <LifeArmorName value="LifeArmorName/UnitGround/##race##"/>
         <Fidget>
             <ChanceArray index="Anim" value="33"/>
             <ChanceArray index="Idle" value="33"/>
@@ -380,6 +386,7 @@
     </CUnit>
     <CUnit default="1" id="CommanderAir" parent="CommanderUnitBase">
         <FlagArray index="ArmySelect" value="1"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <Speed value="2.25"/>
         <CostCategory value="Army"/>
         <AttackTargetPriority value="20"/>
@@ -393,6 +400,7 @@
             <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
         </CardLayouts>
+        <LifeArmorName value="LifeArmorName/UnitAir/##race##"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop"/>
         <StationaryTurningRate value="990"/>
         <TurningRate value="990"/>
@@ -411,6 +419,7 @@
         <ShieldRegenDelay value="10"/>
     </CUnit>
     <CUnit default="1" id="CommanderStructure" parent="CommanderUnitBase">
+        <LifeArmorName value="LifeArmorName/Structure/##race##"/>
         <TechAliasArray value="Alias_##id##"/>
         <Facing value="45"/>
         <FlagArray index="Turnable" value="0"/>
@@ -446,13 +455,11 @@
         <!--        <AbilArray Link="Deployable"/>-->
     </CUnit>
     <CUnit default="1" id="CommanderStructure_Terr" parent="CommanderStructure">
-        <LifeArmorName value="Unit/COOP/LifeArmorName/TerranBuildingPlating"/>
         <CardLayouts index="0">
             <LayoutButtons Face="SelectBuilder" Type="SelectBuilder" Row="1" Column="3"/>
         </CardLayouts>
     </CUnit>
     <CUnit default="1" id="CommanderStructure_Zerg" parent="CommanderStructure">
-        <LifeArmorName value="Unit/COOP/LifeArmorName/ZergBuildingArmor"/>
         <BehaviorArray Link="OnCreep"/>
         <BehaviorArray Link="ZergBuildingNotOnCreep"/>
         <BehaviorArray Link="ZergBuildingDies6"/>

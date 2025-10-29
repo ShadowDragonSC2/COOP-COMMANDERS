@@ -9,6 +9,7 @@ const int lib6CA20615_ge_ClearSelectionSpawnPanel_Structure = 1;
 
 // Constants
 const int lib6CA20615_gv_sIZE_SELECT_RACE_BUTTON = 60;
+const int lib6CA20615_gv_sIZE_LIST_UPGRADES = 8000;
 const int lib6CA20615_gv_kEY_OPEN_PANELS_ALT = c_keyModifierStateRequire;
 const int lib6CA20615_gv_kEY_OPEN_PANELS_SHIFT = c_keyModifierStateIgnore;
 const int lib6CA20615_gv_kEY_OPEN_PANELS_CTRL = c_keyModifierStateIgnore;
@@ -45,15 +46,25 @@ struct lib6CA20615_gs_Cheat_SpawnUnits {
     int lv_spawnUnit_Amount;
 };
 
+struct lib6CA20615_gs_Panel_UpgradesData {
+    string lv_selectCategory;
+    playergroup lv_selectPlayers;
+};
+
+struct lib6CA20615_gs_Panel_SpawnUnitsData {
+    string lv_selectCategory1;
+    string lv_selectCategory2;
+    string lv_selectRace;
+};
+
 struct lib6CA20615_gs_Player_Cheat {
     lib6CA20615_gs_Cheat_SpawnUnits lv_unitSpawn;
     lib6CA20615_gs_Cheat_DeathUnits lv_deathUnits;
     lib6CA20615_gs_Cheat_Alliance lv_alliance;
+    lib6CA20615_gs_Panel_UpgradesData lv_upgradesData;
+    lib6CA20615_gs_Panel_SpawnUnitsData lv_spawnUnitsData;
     bool lv_targetMode;
     string lv_unitType_Spawn;
-    string lv_selectCategory1;
-    string lv_selectCategory2;
-    string lv_selectRace;
     fixed lv_mouseX;
     fixed lv_mouseY;
     int lv_ownerUnitSpawn;
@@ -86,12 +97,27 @@ struct lib6CA20615_gs_ButtonsRace {
     string lv_race;
 };
 
+struct lib6CA20615_gs_ButtonsUpgrade {
+    int lv_button;
+    int lv_icon;
+    string lv_upgrade;
+};
+
+struct lib6CA20615_gs_UIGiveUpgrade {
+    lib6CA20615_gs_ButtonsUpgrade[8001] lv_buttonUpgrade;
+    int lv_searchUpgradeResearch;
+    int lv_containerListUpgrades;
+    int lv_checkmark_AbilCategory;
+    int[16] lv_check_Players;
+};
+
 // Variable Declarations
 int lib6CA20615_gv_dialog;
 lib6CA20615_gs_button[49] lib6CA20615_gv_button;
 unit lib6CA20615_gv_caster;
 int lib6CA20615_gv_abil;
 int lib6CA20615_gv_kEY_OPEN_PANELS_SPAWNUNIT;
+int lib6CA20615_gv_kEY_OPEN_PANELS_UPGRADES;
 int lib6CA20615_gv_kEY_OPEN_PANELS_DATATABLEVIEW;
 int lib6CA20615_gv_kEY_OPEN_PANELS_RACECHANGER;
 int lib6CA20615_gv_cOUNT_CATEGORIES;
@@ -110,6 +136,9 @@ unit lib6CA20615_gv_builderunit;
 lib6CA20615_gs_ButtonsEditorCategories[51] lib6CA20615_gv_buttonEditorCategory1;
 lib6CA20615_gs_ButtonsEditorCategories[51] lib6CA20615_gv_buttonEditorCategory2;
 int lib6CA20615_gv_uispawner;
+lib6CA20615_gs_UIGiveUpgrade lib6CA20615_gv_uIGiveUpgrades;
+int lib6CA20615_gv_uilistupgrades;
+int lib6CA20615_gv_upgrades_map_table;
 int lib6CA20615_gv_datatable_Window;
 int[16] lib6CA20615_gv_nameDatatable;
 int[16] lib6CA20615_gv_valueDatatable;
@@ -118,13 +147,28 @@ int lib6CA20615_gv_refreshdata_button;
 // Function Declarations
 void lib6CA20615_gf_updatespawnerui ();
 void lib6CA20615_gf_ClearSelection (int lp_clearSelection, int lp_player);
+void lib6CA20615_gf__setSizeContainerFromNumsItems (playergroup lp_players, int lp_itemSize, int lp_containerwidth, int lp_numselements);
+void lib6CA20615_gf__moveCellUpgradeForPlayerGroup (playergroup lp_player, int lp_itemSize, int lp_position, int lp_index);
+void lib6CA20615_gf__fillUpgradetable ();
+void lib6CA20615_gf_RefreshListUpgrade (int lp_player);
+void lib6CA20615_gf_Spawnunit (point lp_point, int lp_originPlayer, string lp_command);
+void lib6CA20615_gf_DeathUnit (int lp_originPlayer, string lp_command);
+void lib6CA20615_gf_ProgressUnit (int lp_originPlayer, string lp_command);
+void lib6CA20615_gf_CopyUnit (int lp_origingplayer);
+void lib6CA20615_gf_PasteUnit (int lp_origingplayer, point lp_spawnpoint, string lp_command);
+void lib6CA20615_gf_Alliance (int lp_originPlayer, string lp_command);
 bool lib6CA20615_gf_footprint1x1 (string lp_entry);
 bool lib6CA20615_gf_footprint2x2 (string lp_entry);
 bool lib6CA20615_gf_footprint3x3 (string lp_entry);
 bool lib6CA20615_gf_footprint4x4 (string lp_entry);
 bool lib6CA20615_gf_footprint5x5 (string lp_entry);
+int lib6CA20615_gf_IntegerOrInteger (int lp_integer1, int lp_integer2, bool lp_condition);
+void lib6CA20615_gf_MoveDialogItemCell (int lp_control, int lp_index, int lp_sizeItem, int lp_sizeParentWidth, int lp_anchor, playergroup lp_players);
 text lib6CA20615_gf_ConvertKeyToText (int lp_key);
 string lib6CA20615_gf_ConvertKeyToString (int lp_key);
+bool lib6CA20615_gf_EntryHasIcon (int lp_catalogType, string lp_catalogEntry);
+string lib6CA20615_gf_IconCatalogEntry (int lp_catalogType, string lp_catalogEntry);
+string lib6CA20615_gf_CheckEditorCategoriesCustom (string lp_category, int lp_catalog, string lp_entry);
 string lib6CA20615_gf_CheckEditorCategoriesObjectType (string lp_unit);
 string lib6CA20615_gf_CheckEditorCategoriesObjectFamily (string lp_unit);
 string lib6CA20615_gf_SearchIconForUnit (string lp_unit);
@@ -133,12 +177,6 @@ string lib6CA20615_gf_RaceOfUnitType (string lp_unitType);
 string lib6CA20615_gf_RaceOfUnit (unit lp_unit);
 unitgroup lib6CA20615_gf_ValueOfCheatUnitGroup (string lp_name);
 playergroup lib6CA20615_gf_ValueOfCheatPlayerGroup (string lp_name);
-void lib6CA20615_gf_Spawnunit (point lp_point, int lp_originPlayer, string lp_command);
-void lib6CA20615_gf_DeathUnit (int lp_originPlayer, string lp_command);
-void lib6CA20615_gf_ProgressUnit (int lp_originPlayer, string lp_command);
-void lib6CA20615_gf_CopyUnit (int lp_origingplayer);
-void lib6CA20615_gf_PasteUnit (int lp_origingplayer, point lp_spawnpoint, string lp_command);
-void lib6CA20615_gf_Alliance (int lp_originPlayer, string lp_command);
 string lib6CA20615_gf_StringIsUnitGrouppreset (string lp_string);
 bool lib6CA20615_gf_StringIsPlayerGrouppreset (string lp_string);
 bool lib6CA20615_gf_CharisInteger (string lp_char);
@@ -170,6 +208,13 @@ trigger lib6CA20615_gt_hidespawnerui;
 trigger lib6CA20615_gt_SelectRace;
 trigger lib6CA20615_gt_ClickUnit;
 trigger lib6CA20615_gt_ReplaceUnit;
+trigger lib6CA20615_gt_InitGiveUpgrade;
+trigger lib6CA20615_gt_refreshlistupgrade;
+trigger lib6CA20615_gt_Giveupgrade;
+trigger lib6CA20615_gt_UpdateViewupgradesintable;
+trigger lib6CA20615_gt_ChangedSelectPlayer;
+trigger lib6CA20615_gt_showupgradesui;
+trigger lib6CA20615_gt_hideupgradesui;
 trigger lib6CA20615_gt_hookdatatableview;
 trigger lib6CA20615_gt_updatedata;
 trigger lib6CA20615_gt_showdatatablewindow;

@@ -1,0 +1,2 @@
+﻿Conversation/CConversation/Group00001=User Choices
+Conversation/CConversation/Line00001=What's my line again?

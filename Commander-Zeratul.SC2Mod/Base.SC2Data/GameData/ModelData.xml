@@ -107,12 +107,14 @@
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
     <CModel id="ZeratulCommanderParticularBeam@AttackImpact" parent="ImpactFX">
-        <Model value="Assets\Effects\Protoss\DarkStalkerMissileImpact\DarkStalkerMissileImpact.m3"/>
+        <Model value="Assets\Effects\Protoss\StalkerMissileImpact\StalkerMissileImpact.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
     <CModel id="ZeratulCommanderParticularBeam@Missile" parent="MissileFX">
-        <Model value="Assets\Effects\Protoss\DarkStalkerMissile\DarkStalkerMissile.m3"/>
+        <Model value="Assets\Effects\Protoss\StalkerMissile\StalkerMissile.m3"/>
         <EditorCategories value="Race:Zeratul"/>
+        <ScaleMax value="0.714000,0.714000,0.714000"/>
+        <ScaleMin value="0.714000,0.714000,0.714000"/>
     </CModel>
     <CModel id="ZeratulCommanderPhaseDisruptors@AttackImpact" parent="ImpactFX">
         <Model value="Assets\COOP\Zeratul\Effects\Immortal_Zeratul_COOP_CannonImpact\Immortal_Zeratul_COOP_CannonImpact.m3"/>
@@ -120,6 +122,14 @@
     </CModel>
     <CModel id="ZeratulCommanderPhaseDisruptors@AttackLaunch" parent="LaunchFX">
         <Model value="Assets\COOP\Zeratul\Effects\Immortal_Zeratul_COOP_CannonLaunch\Immortal_Zeratul_COOP_CannonLaunch.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderPredictiveBlink@ModelIn">
+        <Model value="Assets\COOP\Zeratul\Effects\Stalker_Zeratul_COOP_BlinkIn\Stalker_Zeratul_COOP_BlinkIn.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderPredictiveBlink@ModelOut">
+        <Model value="Assets\COOP\Zeratul\Effects\Stalker_Zeratul_COOP_BlinkOut\Stalker_Zeratul_COOP_BlinkOut.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
     <CModel id="ZeratulCommanderShadowCleave@LaunchModel">

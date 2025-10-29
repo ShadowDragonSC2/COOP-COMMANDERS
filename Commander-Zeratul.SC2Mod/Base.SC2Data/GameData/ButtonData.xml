@@ -17,6 +17,10 @@
     <CButton id="ZeratulCommanderPickupArtifact">
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
+    <CButton id="ZeratulCommanderPredictiveBlink">
+        <Icon value="Assets\Textures\btn-ability-zeratul-stalker-predectiveblink.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
     <CButton id="ZeratulCommanderShadowCleave">
         <Icon value="Assets\Textures\btn-ability-zeratul-hero-shadowcleave.dds"/>
         <EditorCategories value="Race:Zeratul"/>

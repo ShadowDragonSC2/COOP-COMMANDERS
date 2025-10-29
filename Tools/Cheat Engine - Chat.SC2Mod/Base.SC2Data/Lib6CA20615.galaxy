@@ -15,6 +15,7 @@ bool lib6CA20615_InitVariables_completed = false;
 
 void lib6CA20615_InitVariables () {
     int init_i;
+    int init_i1;
 
     if (lib6CA20615_InitVariables_completed) {
         return;
@@ -27,6 +28,7 @@ void lib6CA20615_InitVariables () {
         lib6CA20615_gv_button[init_i].lv_btn = c_invalidDialogControlId;
     }
     lib6CA20615_gv_kEY_OPEN_PANELS_SPAWNUNIT = c_keyS;
+    lib6CA20615_gv_kEY_OPEN_PANELS_UPGRADES = c_keyB;
     lib6CA20615_gv_kEY_OPEN_PANELS_DATATABLEVIEW = c_keyD;
     lib6CA20615_gv_kEY_OPEN_PANELS_RACECHANGER = c_keyV;
     lib6CA20615_gv_mAXIMUM_SIZE_BUFFER = 127;
@@ -39,8 +41,10 @@ void lib6CA20615_InitVariables () {
         lib6CA20615_gv_player_Cheat[init_i].lv_deathUnits.lv_deathUnits_MaxUnits = 1000;
         lib6CA20615_gv_player_Cheat[init_i].lv_deathUnits.lv_lastPlayerGroup = PlayerGroupAll();
         lib6CA20615_gv_player_Cheat[init_i].lv_alliance.lv_alliance_AspectType = "";
-        lib6CA20615_gv_player_Cheat[init_i].lv_selectCategory1 = "Unit";
-        lib6CA20615_gv_player_Cheat[init_i].lv_selectCategory2 = "Structure";
+        lib6CA20615_gv_player_Cheat[init_i].lv_upgradesData.lv_selectCategory = "All";
+        lib6CA20615_gv_player_Cheat[init_i].lv_upgradesData.lv_selectPlayers = PlayerGroupEmpty();
+        lib6CA20615_gv_player_Cheat[init_i].lv_spawnUnitsData.lv_selectCategory1 = "";
+        lib6CA20615_gv_player_Cheat[init_i].lv_spawnUnitsData.lv_selectCategory2 = "";
     }
     lib6CA20615_gv_uI.lv_spawn_Line1 = c_invalidDialogControlId;
     lib6CA20615_gv_uI.lv_spawn_Line2 = c_invalidDialogControlId;
@@ -71,6 +75,18 @@ void lib6CA20615_InitVariables () {
         lib6CA20615_gv_buttonEditorCategory2[init_i].lv_category = "";
     }
     lib6CA20615_gv_uispawner = c_invalidDialogControlId;
+    for (init_i1 = 0; init_i1 <= 8000; init_i1 += 1) {
+        lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[init_i1].lv_button = c_invalidDialogControlId;
+        lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[init_i1].lv_icon = c_invalidDialogControlId;
+    }
+    lib6CA20615_gv_uIGiveUpgrades.lv_searchUpgradeResearch = c_invalidDialogControlId;
+    lib6CA20615_gv_uIGiveUpgrades.lv_containerListUpgrades = c_invalidDialogControlId;
+    lib6CA20615_gv_uIGiveUpgrades.lv_checkmark_AbilCategory = c_invalidDialogControlId;
+    for (init_i1 = 0; init_i1 <= 15; init_i1 += 1) {
+        lib6CA20615_gv_uIGiveUpgrades.lv_check_Players[init_i1] = c_invalidDialogControlId;
+    }
+    lib6CA20615_gv_uilistupgrades = c_invalidDialogControlId;
+    lib6CA20615_gv_upgrades_map_table = -1;
     lib6CA20615_gv_datatable_Window = c_invalidDialogControlId;
     for (init_i = 0; init_i <= 15; init_i += 1) {
         lib6CA20615_gv_nameDatatable[init_i] = c_invalidDialogControlId;
@@ -98,7 +114,7 @@ void lib6CA20615_gf_updatespawnerui () {
     string auto6AE98DDC_val;
 
     // Variable Initialization
-    lv_race = lib6CA20615_gv_player_Cheat[EventPlayer()].lv_selectRace;
+    lv_race = lib6CA20615_gv_player_Cheat[EventPlayer()].lv_spawnUnitsData.lv_selectRace;
 
     // Implementation
     lib6CA20615_gf_ClearSelection(lib6CA20615_ge_ClearSelectionSpawnPanel_Units, EventPlayer());
@@ -117,7 +133,7 @@ void lib6CA20615_gf_updatespawnerui () {
 
         if ((lib6CA20615_gf_RaceOfUnitType(lv_unit) == lv_race) && ((CatalogFieldValueGet(c_gameCatalogUnit, lv_unit, "PlaneArray[" + IntToString(0) + "]", c_playerAny) == "1") || (CatalogFieldValueGet(c_gameCatalogUnit, lv_unit, "PlaneArray[" + IntToString(1) + "]", c_playerAny) == "1"))) {
             auto6AE98DDC_val = lib6CA20615_gf_CheckEditorCategoriesObjectType(lv_unit);
-            if (auto6AE98DDC_val == lib6CA20615_gv_player_Cheat[EventPlayer()].lv_selectCategory1) {
+            if (auto6AE98DDC_val == lib6CA20615_gv_player_Cheat[EventPlayer()].lv_spawnUnitsData.lv_selectCategory1) {
                 libNtve_gf_SetDialogItemImage(lib6CA20615_gv_buttonsUnitSpawn[lv_itunit].lv_icon, (lib6CA20615_gf_SearchIconForUnit(lv_unit)), PlayerGroupSingle(EventPlayer()));
                 TextExpressionSetToken("Param/Expression/lib_6CA20615_D7EB082A", "Title", StringExternal(CatalogFieldValueGet(c_gameCatalogUnit, lv_unit, "Name", c_playerAny)));
                 TextExpressionSetToken("Param/Expression/lib_6CA20615_D7EB082A", "Description", StringExternal(CatalogFieldValueGet(c_gameCatalogUnit, lv_unit, "Description", c_playerAny)));
@@ -127,7 +143,7 @@ void lib6CA20615_gf_updatespawnerui () {
                 lv_itunit += 1;
                 lv_it += 1;
             }
-            else if (auto6AE98DDC_val == lib6CA20615_gv_player_Cheat[EventPlayer()].lv_selectCategory2) {
+            else if (auto6AE98DDC_val == lib6CA20615_gv_player_Cheat[EventPlayer()].lv_spawnUnitsData.lv_selectCategory2) {
                 libNtve_gf_SetDialogItemImage(lib6CA20615_gv_buttonsStructureSpawn[lv_itstructure].lv_icon, (lib6CA20615_gf_SearchIconForUnit(lv_unit)), PlayerGroupSingle(EventPlayer()));
                 TextExpressionSetToken("Param/Expression/lib_6CA20615_A091D0D2", "Title", StringExternal(CatalogFieldValueGet(c_gameCatalogUnit, lv_unit, "Name", c_playerAny)));
                 TextExpressionSetToken("Param/Expression/lib_6CA20615_A091D0D2", "Description", StringExternal(CatalogFieldValueGet(c_gameCatalogUnit, lv_unit, "Description", c_playerAny)));
@@ -173,6 +189,519 @@ void lib6CA20615_gf_ClearSelection (int lp_clearSelection, int lp_player) {
     }
     else {
     }
+}
+
+void lib6CA20615_gf__setSizeContainerFromNumsItems (playergroup lp_players, int lp_itemSize, int lp_containerwidth, int lp_numselements) {
+    // Variable Declarations
+    int lv_p;
+    int lv_itemsinrow;
+    int lv_rows;
+    int lv_height;
+
+    // Automatic Variable Declarations
+    playergroup autoA2C5D560_g;
+
+    // Variable Initialization
+    lv_itemsinrow = (lp_containerwidth / lp_itemSize);
+    lv_rows = CeilingI((lp_numselements / lv_itemsinrow));
+    lv_height = (lv_rows * lp_itemSize);
+
+    // Implementation
+    TextExpressionSetToken("Param/Expression/lib_6CA20615_7BB69365", "A", IntToText(lv_rows));
+    TextExpressionSetToken("Param/Expression/lib_6CA20615_7BB69365", "B", IntToText(lv_height));
+    TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/lib_6CA20615_7BB69365"), true);
+    autoA2C5D560_g = lp_players;
+    lv_p = -1;
+    while (true) {
+        lv_p = PlayerGroupNextPlayer(autoA2C5D560_g, lv_p);
+        if (lv_p < 0) { break; }
+        if ((libNtve_gf_DialogItemIsChecked(lib6CA20615_gv_uIGiveUpgrades.lv_checkmark_AbilCategory, lv_p) == true)) {
+            DialogControlSetSize(lib6CA20615_gv_uIGiveUpgrades.lv_containerListUpgrades, PlayerGroupSingle(lv_p), 450, lv_height);
+        }
+        else {
+            DialogControlSetSize(lib6CA20615_gv_uIGiveUpgrades.lv_containerListUpgrades, PlayerGroupSingle(lv_p), 700, lv_height);
+        }
+    }
+}
+
+void lib6CA20615_gf__moveCellUpgradeForPlayerGroup (playergroup lp_player, int lp_itemSize, int lp_position, int lp_index) {
+    // Variable Declarations
+    int lv_containerWidth;
+    int lv_smallContainerWidth;
+    int lv_p;
+
+    // Automatic Variable Declarations
+    playergroup auto4E2237A9_g;
+
+    // Variable Initialization
+    lv_containerWidth = 700;
+    lv_smallContainerWidth = 450;
+
+    // Implementation
+    auto4E2237A9_g = lp_player;
+    lv_p = -1;
+    while (true) {
+        lv_p = PlayerGroupNextPlayer(auto4E2237A9_g, lv_p);
+        if (lv_p < 0) { break; }
+        if ((libNtve_gf_DialogItemIsChecked(lib6CA20615_gv_uIGiveUpgrades.lv_checkmark_AbilCategory, lv_p) == true)) {
+            lib6CA20615_gf_MoveDialogItemCell(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lp_index].lv_button, lp_position, lp_itemSize, lv_smallContainerWidth, c_anchorTopLeft, PlayerGroupSingle(lv_p));
+        }
+        else {
+            lib6CA20615_gf_MoveDialogItemCell(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lp_index].lv_button, lp_position, lp_itemSize, lv_containerWidth, c_anchorTopLeft, PlayerGroupSingle(lv_p));
+        }
+    }
+}
+
+void lib6CA20615_gf__fillUpgradetable () {
+    // Variable Declarations
+    string lv__upgrade;
+    int lv_it;
+
+    // Automatic Variable Declarations
+    int auto2D03F31F_catalog;
+    int auto2D03F31F_i;
+
+    // Variable Initialization
+
+    // Implementation
+    auto2D03F31F_catalog = c_gameCatalogUpgrade;
+    auto2D03F31F_i = 1;
+    for ( ; auto2D03F31F_i <= CatalogEntryCount(c_gameCatalogUpgrade) ; auto2D03F31F_i += 1 ) {
+        lv__upgrade = CatalogEntryGet(auto2D03F31F_catalog, auto2D03F31F_i);
+        DialogControlCreateInPanelFromTemplate(lib6CA20615_gv_uIGiveUpgrades.lv_containerListUpgrades, c_triggerControlTypeButton, "CheatEngine_TemplatesButtons/GenericSmallButton");
+        lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_it].lv_button = DialogControlLastCreated();
+        libNtve_gf_SaveDataTableInstanceValueDialogItem(lib6CA20615_gv_upgrades_map_table, (lv__upgrade), DialogControlLastCreated());
+        libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringToText((lv__upgrade)), PlayerGroupAll());
+        DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeImage, "Icon");
+        libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), lib6CA20615_gf_IconCatalogEntry(c_gameCatalogUpgrade, lv__upgrade), PlayerGroupAll());
+        lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_it].lv_icon = DialogControlLastCreated();
+        lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_it].lv_upgrade = lv__upgrade;
+        lv_it += 1;
+    }
+}
+
+void lib6CA20615_gf_RefreshListUpgrade (int lp_player) {
+    // Variable Declarations
+    string lv__upgrade;
+    playergroup lv__players;
+    bool lv__AbilSection;
+    int lv_p;
+    int lv_it;
+    int lv_it2;
+
+    // Automatic Variable Declarations
+    int auto788A095B_catalog;
+    int auto788A095B_i;
+
+    // Variable Initialization
+    lv__players = PlayerGroupSingle(lp_player);
+    lv_it = -1;
+
+    // Implementation
+    TriggerDebugOutput(1, StringExternal("Param/Value/lib_6CA20615_90AE62C9"), true);
+    if ((lp_player == c_playerAny)) {
+        lv__players = PlayerGroupAll();
+    }
+    else {
+        lv__AbilSection = libNtve_gf_DialogItemIsChecked(lib6CA20615_gv_uIGiveUpgrades.lv_checkmark_AbilCategory, lp_player);
+    }
+    auto788A095B_catalog = c_gameCatalogUpgrade;
+    auto788A095B_i = 1;
+    for ( ; auto788A095B_i <= CatalogEntryCount(c_gameCatalogUpgrade) ; auto788A095B_i += 1 ) {
+        lv__upgrade = CatalogEntryGet(auto788A095B_catalog, auto788A095B_i);
+        lv_it += 1;
+        if ((lp_player == c_playerAny)) {
+            TriggerDebugOutput(1, StringExternal("Param/Value/lib_6CA20615_D17B506E"), true);
+            DialogControlSetVisible(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_it].lv_button, lv__players, true);
+            lib6CA20615_gf__moveCellUpgradeForPlayerGroup(lv__players, 50, lv_it2, lv_it);
+            lv_it2 += 1;
+        }
+        else if ((StringContains((lv__upgrade), libNtve_gf_DialogItemEditValue(lib6CA20615_gv_uIGiveUpgrades.lv_searchUpgradeResearch, lp_player), c_stringAnywhere, c_stringNoCase) == false) && (libNtve_gf_DialogItemEditValue(lib6CA20615_gv_uIGiveUpgrades.lv_searchUpgradeResearch, lp_player) != "")) {
+            TriggerDebugOutput(1, StringExternal("Param/Value/lib_6CA20615_2A25EE6D"), true);
+            DialogControlSetVisible(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_it].lv_button, lv__players, false);
+        }
+        else if (true) {
+            TriggerDebugOutput(1, StringExternal("Param/Value/lib_6CA20615_32458061"), true);
+            DialogControlSetVisible(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_it].lv_button, lv__players, true);
+            lib6CA20615_gf__moveCellUpgradeForPlayerGroup(lv__players, 50, lv_it2, lv_it);
+            lv_it2 += 1;
+        }
+    }
+    TriggerDebugOutput(1, StringExternal("Param/Value/lib_6CA20615_72A8380F"), true);
+    lib6CA20615_gf__setSizeContainerFromNumsItems(lv__players, 50, lib6CA20615_gf_IntegerOrInteger(400, 650, lv__AbilSection), lv_it2);
+}
+
+void lib6CA20615_gf_Spawnunit (point lp_point, int lp_originPlayer, string lp_command) {
+    // Variable Declarations
+    string lv_unit;
+    int lv_amount;
+    int lv_player;
+    bool lv_birth;
+    int lv_createFlags;
+    bool lv_amount_IsDefined;
+    int lv_index_param;
+
+    // Automatic Variable Declarations
+    const int autoFBE6D5A5_ae = 10;
+    const int autoFBE6D5A5_ai = 1;
+
+    // Variable Initialization
+    lv_unit = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_LastCreatedUnitType;
+    lv_amount = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Amount;
+    lv_player = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Player;
+    lv_birth = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Birth;
+    lv_index_param = 1;
+
+    // Implementation
+    lv_index_param = 1;
+    for ( ; ( (autoFBE6D5A5_ai >= 0 && lv_index_param <= autoFBE6D5A5_ae) || (autoFBE6D5A5_ai < 0 && lv_index_param >= autoFBE6D5A5_ae) ) ; lv_index_param += autoFBE6D5A5_ai ) {
+        if ((StringWord(lp_command, lv_index_param) == "")) {
+            break;
+        }
+
+        if ((lib6CA20615_gf_StringIsString(StringWord(lp_command, lv_index_param)) == true)) {
+            if ((CatalogEntryIsValid(c_gameCatalogUnit, (StringWord(lp_command, lv_index_param))) == true)) {
+                lv_unit = (StringWord(lp_command, lv_index_param));
+            }
+            else {
+                TextExpressionSetToken("Param/Expression/lib_6CA20615_AB8E9B37", "A", StringToText(StringWord(lp_command, lv_index_param)));
+                UIDisplayMessage(PlayerGroupSingle(lp_originPlayer), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_AB8E9B37"));
+                TextExpressionSetToken("Param/Expression/lib_6CA20615_3BC6AB16", "A", StringToText((lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_LastCreatedUnitType)));
+                UIDisplayMessage(PlayerGroupSingle(lp_originPlayer), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_3BC6AB16"));
+            }
+        }
+        else if ((lib6CA20615_gf_StringIsInteger(StringWord(lp_command, lv_index_param)) == true)) {
+            if ((lv_amount_IsDefined == true)) {
+                lv_player = StringToInt(StringWord(lp_command, lv_index_param));
+            }
+            else {
+                lv_amount = StringToInt(StringWord(lp_command, lv_index_param));
+                lv_amount_IsDefined = true;
+            }
+        }
+        else if ((lib6CA20615_gf_StringIsBool(StringWord(lp_command, lv_index_param)) == true)) {
+            lv_birth = libNtve_gf_ConvertStringToBoolean(StringWord(lp_command, lv_index_param));
+        }
+    }
+    if ((lv_birth == true)) {
+        lv_createFlags = c_unitCreateIgnoreBirth;
+    }
+    else {
+        lv_createFlags = 0;
+    }
+    UnitCreate(lv_amount, lv_unit, lv_createFlags, lv_player, lp_point, 270.0);
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_LastCreatedUnitType = lv_unit;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Player = lv_player;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Amount = lv_amount;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Birth = lv_birth;
+}
+
+void lib6CA20615_gf_DeathUnit (int lp_originPlayer, string lp_command) {
+    // Variable Declarations
+    string lv_units;
+    string lv_players;
+    int lv_numberDeath;
+    bool lv_isRemoveUnit;
+    unitgroup lv__units;
+    playergroup lv__players;
+    bool lv__removeUnit;
+    string lv__unitsmode;
+    bool lv_players_IsDefined;
+    bool lv_units_IsDefined;
+    bool lv_number_IsDefined;
+    bool lv_remove_IsDefined;
+    string lv_argument;
+    int lv_index_param;
+    int lv_it;
+    unit lv_unit;
+
+    // Automatic Variable Declarations
+    const int autoC6363538_ae = 10;
+    const int autoC6363538_ai = 1;
+    string autoFAA0C393_val;
+    playergroup auto0D846CB2_g;
+    int auto0D846CB2_var;
+    int auto2E946DD2_ae;
+    const int auto2E946DD2_ai = 1;
+
+    // Variable Initialization
+    lv_units = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_unitgroup;
+    lv_players = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_Players;
+    lv_numberDeath = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_MaxUnits;
+    lv_isRemoveUnit = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_IsRemove;
+    lv__units = UnitGroupEmpty();
+    lv__players = PlayerGroupEmpty();
+    lv__unitsmode = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_unitgroup;
+    lv_argument = "";
+    lv_index_param = 1;
+
+    // Implementation
+    lv_index_param = 1;
+    for ( ; ( (autoC6363538_ai >= 0 && lv_index_param <= autoC6363538_ae) || (autoC6363538_ai < 0 && lv_index_param >= autoC6363538_ae) ) ; lv_index_param += autoC6363538_ai ) {
+        lv_argument = StringWord(lp_command, lv_index_param);
+        if ((lv_argument == "")) {
+            break;
+        }
+
+        if (((StringCase(lv_argument, false) == "numselect") || (lib6CA20615_gf_StringIsInteger(lv_argument) == true)) && (lv_number_IsDefined == false)) {
+            if ((StringCase(lv_argument, false) == "numselect")) {
+                lv_numberDeath = UnitGroupCount(UnitGroupSelected(lp_originPlayer), c_unitCountAlive);
+            }
+            else if ((lib6CA20615_gf_StringIsInteger(lv_argument) == true)) {
+                lv_numberDeath = StringToInt(lv_argument);
+            }
+            lv_number_IsDefined = true;
+        }
+        else if ((lib6CA20615_gf_StringIsPlayerGrouppreset(lv_argument) == true) && (lv_players_IsDefined == false)) {
+            if ((StringCase(lv_argument, false) == "all")) {
+                lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_lastPlayerGroup = PlayerGroupAll();
+            }
+            else if ((lib6CA20615_gf_StringIsPlayer(lv_argument) == true)) {
+                lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_lastPlayerGroup = PlayerGroupSingle(StringToInt(lv_argument));
+            }
+            else if ((lib6CA20615_gf_ValueOfCheatPlayerGroup(lv_argument) != null)) {
+                lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_lastPlayerGroup = lib6CA20615_gf_ValueOfCheatPlayerGroup(lv_argument);
+            }
+            lv_players_IsDefined = true;
+        }
+        else if ((lib6CA20615_gf_StringIsUnitGrouppreset(lv_argument) != "") && (lv_units_IsDefined == false)) {
+            if ((lib6CA20615_gf_ValueOfCheatUnitGroup(lv_argument) != null)) {
+                lv_units = "unitvar";
+                lv__unitsmode = lv_argument;
+            }
+            else if ((lib6CA20615_gf_StringIsUnitGrouppreset(lv_argument) == "all")) {
+                lv_units = "all";
+            }
+            else if ((lib6CA20615_gf_StringIsUnitGrouppreset(lv_argument) == "select")) {
+                lv_units = "select";
+            }
+            lv_units_IsDefined = true;
+        }
+        else if ((lib6CA20615_gf_StringIsBool(lv_argument) == true) && (lv_remove_IsDefined == false)) {
+            lv__removeUnit = libNtve_gf_ConvertStringToBoolean(lv_argument);
+            lv_isRemoveUnit = lv__removeUnit;
+        }
+    }
+    autoFAA0C393_val = lv_units;
+    if (autoFAA0C393_val == "select") {
+        lv__units = UnitGroupSelected(lp_originPlayer);
+    }
+    else if (autoFAA0C393_val == "all") {
+        lv__units = UnitGroup(null, c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
+    }
+    else if (autoFAA0C393_val == "unitvar") {
+        lv__units = lib6CA20615_gf_ValueOfCheatUnitGroup(lv__unitsmode);
+    }
+    else {
+    }
+    lv__players = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_lastPlayerGroup;
+    auto0D846CB2_g = PlayerGroupAll();
+    auto0D846CB2_var = -1;
+    while (true) {
+        auto0D846CB2_var = PlayerGroupNextPlayer(auto0D846CB2_g, auto0D846CB2_var);
+        if (auto0D846CB2_var < 0) { break; }
+        if ((PlayerGroupHasPlayer(lv__players, auto0D846CB2_var) == false)) {
+            UnitGroupRemoveUnitGroup(lv__units, UnitGroup(null, auto0D846CB2_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
+        }
+
+    }
+    auto2E946DD2_ae = MinI(lv_numberDeath, UnitGroupCount(lv__units, c_unitCountAlive));
+    lv_it = 1;
+    for ( ; ( (auto2E946DD2_ai >= 0 && lv_it <= auto2E946DD2_ae) || (auto2E946DD2_ai < 0 && lv_it >= auto2E946DD2_ae) ) ; lv_it += auto2E946DD2_ai ) {
+        lv_unit = UnitGroupRandomUnit(lv__units, c_unitCountAlive);
+        if ((lv_isRemoveUnit == true)) {
+            UnitRemove(lv_unit);
+        }
+        else {
+            UnitKill(lv_unit);
+        }
+    }
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_unitgroup = lv_units;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_Players = lv_players;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_MaxUnits = lv_numberDeath;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_IsRemove = lv_isRemoveUnit;
+}
+
+void lib6CA20615_gf_ProgressUnit (int lp_originPlayer, string lp_command) {
+    // Automatic Variable Declarations
+}
+
+void lib6CA20615_gf_CopyUnit (int lp_origingplayer) {
+    // Variable Declarations
+    unitgroup lv_selectedunits;
+    unit lv_unit;
+    string lv_behavior;
+    string lv_stats_array;
+    string lv_unit_array;
+
+    // Automatic Variable Declarations
+    unitgroup auto79671B27_g;
+    int auto79671B27_u;
+
+    // Variable Initialization
+    lv_selectedunits = UnitGroupSelected(lp_origingplayer);
+    lv_stats_array = "";
+    lv_unit_array = "";
+
+    // Implementation
+    auto79671B27_g = lv_selectedunits;
+    auto79671B27_u = UnitGroupCount(auto79671B27_g, c_unitCountAll);
+    for (;; auto79671B27_u -= 1) {
+        lv_unit = UnitGroupUnitFromEnd(auto79671B27_g, auto79671B27_u);
+        if (lv_unit == null) { break; }
+        DataTableSetString(true, (lib6CA20615_gv_unitsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER)), ((DataTableGetString(true, (lib6CA20615_gv_unitsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER))) + (UnitGetType(lv_unit))) + ","));
+        DataTableSetString(true, (lib6CA20615_gv_unitsStatsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER)), (DataTableGetString(true, (lib6CA20615_gv_unitsStatsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER))) + (FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropLife, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropLifeMax, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropLifeRegen, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropShields, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropShieldsMax, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropShieldsRegen, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropEnergy, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropEnergyMax, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropEnergyRegen, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropKills, c_unitPropCurrent), 0) + "," + IntToString(UnitGetOwner(lv_unit)) + "|")));
+        DataTableSetString(true, (lib6CA20615_gv_unitsOrientationBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER)), (DataTableGetString(true, (lib6CA20615_gv_unitsOrientationBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER))) + (FixedToString(DistanceBetweenPoints(UnitGroupCenterOfGroup(lv_selectedunits), UnitGetPosition(lv_unit)), c_fixedPrecisionAny) + "," + FixedToString(AngleBetweenPoints(UnitGroupCenterOfGroup(lv_selectedunits), UnitGetPosition(lv_unit)), c_fixedPrecisionAny) + "," + FixedToString(UnitGetFacing(lv_unit), c_fixedPrecisionAny) + "|")));
+    }
+    TextExpressionSetToken("Param/Expression/lib_6CA20615_A238C292", "A", StringToText((lib6CA20615_gv_unitsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER))));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_A238C292"));
+    lib6CA20615_gv_cURRENT_SIZE_BUFFER += 1;
+}
+
+void lib6CA20615_gf_PasteUnit (int lp_origingplayer, point lp_spawnpoint, string lp_command) {
+    // Variable Declarations
+    string lv_units;
+    string lv_stats;
+    string lv_orientation;
+    string lv_statseveryunit;
+    string lv_orientationeveryunit;
+    point lv_spawnpoint;
+    int lv_it;
+    unit lv_created_unit;
+    fixed lv_distance;
+    fixed lv_angle;
+    fixed lv_facing;
+
+    // Automatic Variable Declarations
+    const int auto80F3CE8F_ae = 1000;
+    const int auto80F3CE8F_ai = 1;
+
+    // Variable Initialization
+    lv_units = "";
+    lv_stats = "";
+    lv_orientation = "";
+    lv_statseveryunit = "";
+    lv_orientationeveryunit = "";
+    lv_spawnpoint = lp_spawnpoint;
+
+    // Implementation
+    if ((DataTableValueExists(true, (lib6CA20615_gv_unitsBuffer + lp_command)) == false)) {
+        TextExpressionSetToken("Param/Expression/lib_6CA20615_62412B26", "A", StringToText((lib6CA20615_gv_unitsBuffer + lp_command)));
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_62412B26"));
+        return ;
+    }
+
+    lv_units = DataTableGetString(true, (lib6CA20615_gv_unitsBuffer + lp_command));
+    lv_units = StringReplaceWord(lv_units, ",", " ", c_stringReplaceAll, c_stringCase);
+    lv_stats = DataTableGetString(true, (lib6CA20615_gv_unitsStatsBuffer + lp_command));
+    lv_stats = StringReplaceWord(lv_stats, "|", " ", c_stringReplaceAll, c_stringCase);
+    lv_orientation = DataTableGetString(true, (lib6CA20615_gv_unitsOrientationBuffer + lp_command));
+    lv_orientation = StringReplaceWord(lv_orientation, "|", " ", c_stringReplaceAll, c_stringCase);
+    lv_it = 1;
+    for ( ; ( (auto80F3CE8F_ai >= 0 && lv_it <= auto80F3CE8F_ae) || (auto80F3CE8F_ai < 0 && lv_it >= auto80F3CE8F_ae) ) ; lv_it += auto80F3CE8F_ai ) {
+        if ((StringWord(lv_units, lv_it) == "")) {
+            break;
+        }
+
+        lv_statseveryunit = StringWord(lv_stats, lv_it);
+        lv_statseveryunit = StringReplaceWord(lv_statseveryunit, ",", " ", c_stringReplaceAll, c_stringCase);
+        lv_orientationeveryunit = StringWord(lv_orientation, lv_it);
+        lv_distance = StringToFixed(StringWord(StringReplaceWord(lv_orientationeveryunit, ",", " ", c_stringReplaceAll, c_stringCase), 1));
+        lv_angle = StringToFixed(StringWord(StringReplaceWord(lv_orientationeveryunit, ",", " ", c_stringReplaceAll, c_stringCase), 2));
+        lv_facing = StringToFixed(StringWord(StringReplaceWord(lv_orientationeveryunit, ",", " ", c_stringReplaceAll, c_stringCase), 3));
+        UnitCreate(1, (StringWord(lv_units, lv_it)), c_unitCreateIgnorePlacement, StringToInt(StringWord(lv_statseveryunit, 11)), PointWithOffsetPolar(lp_spawnpoint, lv_distance, lv_angle), lv_facing);
+        lv_created_unit = UnitLastCreated();
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropLife, StringToFixed(StringWord(lv_statseveryunit, 1)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropLifeMax, StringToFixed(StringWord(lv_statseveryunit, 2)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropLifeRegen, StringToFixed(StringWord(lv_statseveryunit, 3)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropShields, StringToFixed(StringWord(lv_statseveryunit, 4)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropShieldsMax, StringToFixed(StringWord(lv_statseveryunit, 5)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropShieldsRegen, StringToFixed(StringWord(lv_statseveryunit, 6)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropEnergy, StringToFixed(StringWord(lv_statseveryunit, 7)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropEnergyMax, StringToFixed(StringWord(lv_statseveryunit, 8)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropEnergyRegen, StringToFixed(StringWord(lv_statseveryunit, 9)));
+        UnitSetPropertyFixed(lv_created_unit, c_unitPropKills, StringToFixed(StringWord(lv_statseveryunit, 10)));
+    }
+}
+
+void lib6CA20615_gf_Alliance (int lp_originPlayer, string lp_command) {
+    // Variable Declarations
+    int lv_player1;
+    int lv_player2;
+    string lv_aspect;
+    bool lv_oneShot;
+    bool lv_p1_IsDefined;
+    bool lv_p2_IsDefined;
+    bool lv_aspect_IsDefined;
+    bool lv_oneShot_IsDefined;
+    int lv_index_Param;
+    string lv_argument;
+    int lv__aspect;
+
+    // Automatic Variable Declarations
+    const int autoE584A681_ae = 10;
+    const int autoE584A681_ai = 1;
+    string autoD44A42C8_val;
+
+    // Variable Initialization
+    lv_player1 = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_P1;
+    lv_player2 = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_P2;
+    lv_aspect = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_AspectType;
+    lv_oneShot = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_OneShot;
+    lv_argument = "";
+    lv__aspect = libNtve_ge_AllianceSetting_Ally;
+
+    // Implementation
+    lv_index_Param = 1;
+    for ( ; ( (autoE584A681_ai >= 0 && lv_index_Param <= autoE584A681_ae) || (autoE584A681_ai < 0 && lv_index_Param >= autoE584A681_ae) ) ; lv_index_Param += autoE584A681_ai ) {
+        lv_argument = StringWord(lp_command, lv_index_Param);
+        if ((lv_argument == "")) {
+            break;
+        }
+
+        if ((lib6CA20615_gf_StringIsInteger(lv_argument) == true) && (lv_p1_IsDefined == false)) {
+            lv_player1 = StringToInt(lv_argument);
+            lv_p1_IsDefined = true;
+        }
+        else if ((lib6CA20615_gf_StringIsInteger(lv_argument) == true) && (lv_p2_IsDefined == false)) {
+            lv_player2 = StringToInt(lv_argument);
+            lv_p2_IsDefined = true;
+        }
+        else if ((lib6CA20615_gf_StringIsString(lv_argument) == true) && (lv_aspect_IsDefined == false)) {
+            lv_aspect = StringCase(lv_argument, false);
+            lv_aspect_IsDefined = true;
+        }
+        else if ((lib6CA20615_gf_StringIsBool(lv_argument) == true) && (lv_oneShot_IsDefined == false)) {
+            lv_oneShot = libNtve_gf_ConvertStringToBoolean(lv_argument);
+            lv_oneShot_IsDefined = true;
+        }
+    }
+    autoD44A42C8_val = StringCase(lv_aspect, false);
+    if (autoD44A42C8_val == "ally") {
+        lv__aspect = libNtve_ge_AllianceSetting_Ally;
+    }
+    else if (autoD44A42C8_val == "enemy") {
+        lv__aspect = libNtve_ge_AllianceSetting_Enemy;
+    }
+    else if (autoD44A42C8_val == "neutral") {
+        lv__aspect = libNtve_ge_AllianceSetting_Neutral;
+    }
+    else {
+    }
+    TextExpressionSetToken("Param/Expression/lib_6CA20615_0762B21C", "A", IntToText(lv_player1));
+    TextExpressionSetToken("Param/Expression/lib_6CA20615_0762B21C", "B", IntToText(lv_player2));
+    TextExpressionSetToken("Param/Expression/lib_6CA20615_0762B21C", "C", StringToText(lv_aspect));
+    TextExpressionSetToken("Param/Expression/lib_6CA20615_0762B21C", "D", libNtve_gf_ConvertBooleanToText(lv_oneShot));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_0762B21C"));
+    libNtve_gf_SetAllianceOneWay(lv_player1, lv_player2, lv__aspect);
+    if ((lv_oneShot == true)) {
+        libNtve_gf_SetAllianceOneWay(lv_player2, lv_player1, lv__aspect);
+    }
+
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_P1 = lv_player1;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_P2 = lv_player2;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_AspectType = lv_aspect;
+    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_OneShot = lv_oneShot;
 }
 
 bool lib6CA20615_gf_footprint1x1 (string lp_entry) {
@@ -228,6 +757,33 @@ bool lib6CA20615_gf_footprint5x5 (string lp_entry) {
     else {
         return false;
     }
+}
+
+int lib6CA20615_gf_IntegerOrInteger (int lp_integer1, int lp_integer2, bool lp_condition) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((lp_condition == true)) {
+        return lp_integer1;
+    }
+    else {
+        return lp_integer2;
+    }
+}
+
+void lib6CA20615_gf_MoveDialogItemCell (int lp_control, int lp_index, int lp_sizeItem, int lp_sizeParentWidth, int lp_anchor, playergroup lp_players) {
+    // Variable Declarations
+    int lv_maxnumsinrow;
+    int lv_x;
+    int lv_y;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_maxnumsinrow = (lp_sizeParentWidth / lp_sizeItem);
+    lv_x = (ModI(lp_index, lv_maxnumsinrow) * lp_sizeItem);
+    lv_y = ((lp_index / lv_maxnumsinrow) * lp_sizeItem);
+
+    // Implementation
+    DialogControlSetPosition(lp_control, lp_players, lp_anchor, lv_x, lv_y);
 }
 
 text lib6CA20615_gf_ConvertKeyToText (int lp_key) {
@@ -858,6 +1414,63 @@ string lib6CA20615_gf_ConvertKeyToString (int lp_key) {
     }
 }
 
+bool lib6CA20615_gf_EntryHasIcon (int lp_catalogType, string lp_catalogEntry) {
+    // Automatic Variable Declarations
+    // Implementation
+    return (CatalogFieldValueGet(lp_catalogType, lp_catalogEntry, "Icon", c_playerAny) != "");
+}
+
+string lib6CA20615_gf_IconCatalogEntry (int lp_catalogType, string lp_catalogEntry) {
+    // Variable Declarations
+    string lv__img;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv__img = (CatalogFieldValueGet(c_gameCatalogUpgrade, lp_catalogEntry, "Icon", c_playerAny));
+
+    // Implementation
+    if ((lp_catalogType == c_gameCatalogUpgrade)) {
+        if (lib6CA20615_gf_EntryHasIcon(c_gameCatalogUpgrade, lp_catalogEntry)) {
+            lv__img = (CatalogFieldValueGet(lp_catalogType, lp_catalogEntry, "Icon", c_playerAny));
+        }
+        else {
+            lv__img = ("Assets\\Textures\\btn-missing-kaeo.dds");
+        }
+    }
+    return lv__img;
+}
+
+string lib6CA20615_gf_CheckEditorCategoriesCustom (string lp_category, int lp_catalog, string lp_entry) {
+    // Variable Declarations
+    string lv_eC;
+    int lv_word;
+
+    // Automatic Variable Declarations
+    const int autoC6DCC900_ae = 50;
+    const int autoC6DCC900_ai = 1;
+
+    // Variable Initialization
+    lv_eC = CatalogFieldValueGet(lp_catalog, lp_entry, "EditorCategories", c_playerAny);
+
+    // Implementation
+    lv_eC = StringReplaceWord(lv_eC, ",", " ", c_stringReplaceAll, c_stringCase);
+    lv_eC = StringReplaceWord(lv_eC, ":", " ", c_stringReplaceAll, c_stringCase);
+    lv_word = 1;
+    for ( ; ( (autoC6DCC900_ai >= 0 && lv_word <= autoC6DCC900_ae) || (autoC6DCC900_ai < 0 && lv_word >= autoC6DCC900_ae) ) ; lv_word += autoC6DCC900_ai ) {
+        if ((StringWord(lv_eC, lv_word) == "")) {
+            lv_eC = "";
+            break;
+        }
+
+        if ((StringWord(lv_eC, lv_word) == lp_category)) {
+            lv_eC = StringWord(lv_eC, (lv_word + 1));
+            break;
+        }
+
+    }
+    return lv_eC;
+}
+
 string lib6CA20615_gf_CheckEditorCategoriesObjectType (string lp_unit) {
     // Variable Declarations
     string lv_eC;
@@ -999,379 +1612,6 @@ playergroup lib6CA20615_gf_ValueOfCheatPlayerGroup (string lp_name) {
     }
 
     return null;
-}
-
-void lib6CA20615_gf_Spawnunit (point lp_point, int lp_originPlayer, string lp_command) {
-    // Variable Declarations
-    string lv_unit;
-    int lv_amount;
-    int lv_player;
-    bool lv_birth;
-    int lv_createFlags;
-    bool lv_amount_IsDefined;
-    int lv_index_param;
-
-    // Automatic Variable Declarations
-    const int autoFBE6D5A5_ae = 10;
-    const int autoFBE6D5A5_ai = 1;
-
-    // Variable Initialization
-    lv_unit = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_LastCreatedUnitType;
-    lv_amount = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Amount;
-    lv_player = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Player;
-    lv_birth = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Birth;
-    lv_index_param = 1;
-
-    // Implementation
-    lv_index_param = 1;
-    for ( ; ( (autoFBE6D5A5_ai >= 0 && lv_index_param <= autoFBE6D5A5_ae) || (autoFBE6D5A5_ai < 0 && lv_index_param >= autoFBE6D5A5_ae) ) ; lv_index_param += autoFBE6D5A5_ai ) {
-        if ((StringWord(lp_command, lv_index_param) == "")) {
-            break;
-        }
-
-        if ((lib6CA20615_gf_StringIsString(StringWord(lp_command, lv_index_param)) == true)) {
-            if ((CatalogEntryIsValid(c_gameCatalogUnit, (StringWord(lp_command, lv_index_param))) == true)) {
-                lv_unit = (StringWord(lp_command, lv_index_param));
-            }
-            else {
-                TextExpressionSetToken("Param/Expression/lib_6CA20615_AB8E9B37", "A", StringToText(StringWord(lp_command, lv_index_param)));
-                UIDisplayMessage(PlayerGroupSingle(lp_originPlayer), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_AB8E9B37"));
-                TextExpressionSetToken("Param/Expression/lib_6CA20615_3BC6AB16", "A", StringToText((lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_LastCreatedUnitType)));
-                UIDisplayMessage(PlayerGroupSingle(lp_originPlayer), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_3BC6AB16"));
-            }
-        }
-        else if ((lib6CA20615_gf_StringIsInteger(StringWord(lp_command, lv_index_param)) == true)) {
-            if ((lv_amount_IsDefined == true)) {
-                lv_player = StringToInt(StringWord(lp_command, lv_index_param));
-            }
-            else {
-                lv_amount = StringToInt(StringWord(lp_command, lv_index_param));
-                lv_amount_IsDefined = true;
-            }
-        }
-        else if ((lib6CA20615_gf_StringIsBool(StringWord(lp_command, lv_index_param)) == true)) {
-            lv_birth = libNtve_gf_ConvertStringToBoolean(StringWord(lp_command, lv_index_param));
-        }
-    }
-    if ((lv_birth == true)) {
-        lv_createFlags = c_unitCreateIgnoreBirth;
-    }
-    else {
-        lv_createFlags = 0;
-    }
-    UnitCreate(lv_amount, lv_unit, lv_createFlags, lv_player, lp_point, 270.0);
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_LastCreatedUnitType = lv_unit;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Player = lv_player;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Amount = lv_amount;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_unitSpawn.lv_spawnUnit_Birth = lv_birth;
-}
-
-void lib6CA20615_gf_DeathUnit (int lp_originPlayer, string lp_command) {
-    // Variable Declarations
-    string lv_units;
-    string lv_players;
-    int lv_numberDeath;
-    bool lv_isRemoveUnit;
-    unitgroup lv__units;
-    playergroup lv__players;
-    bool lv__removeUnit;
-    string lv__unitsmode;
-    bool lv_players_IsDefined;
-    bool lv_units_IsDefined;
-    bool lv_number_IsDefined;
-    bool lv_remove_IsDefined;
-    string lv_argument;
-    int lv_index_param;
-    int lv_it;
-    unit lv_unit;
-
-    // Automatic Variable Declarations
-    const int autoC6363538_ae = 10;
-    const int autoC6363538_ai = 1;
-    string autoFAA0C393_val;
-    playergroup auto0D846CB2_g;
-    int auto0D846CB2_var;
-    int auto2E946DD2_ae;
-    const int auto2E946DD2_ai = 1;
-
-    // Variable Initialization
-    lv_units = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_unitgroup;
-    lv_players = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_Players;
-    lv_numberDeath = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_MaxUnits;
-    lv_isRemoveUnit = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_IsRemove;
-    lv__units = UnitGroupEmpty();
-    lv__players = PlayerGroupEmpty();
-    lv__unitsmode = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_unitgroup;
-    lv_argument = "";
-    lv_index_param = 1;
-
-    // Implementation
-    lv_index_param = 1;
-    for ( ; ( (autoC6363538_ai >= 0 && lv_index_param <= autoC6363538_ae) || (autoC6363538_ai < 0 && lv_index_param >= autoC6363538_ae) ) ; lv_index_param += autoC6363538_ai ) {
-        lv_argument = StringWord(lp_command, lv_index_param);
-        if ((lv_argument == "")) {
-            break;
-        }
-
-        if (((StringCase(lv_argument, false) == "numselect") || (lib6CA20615_gf_StringIsInteger(lv_argument) == true)) && (lv_number_IsDefined == false)) {
-            if ((StringCase(lv_argument, false) == "numselect")) {
-                lv_numberDeath = UnitGroupCount(UnitGroupSelected(lp_originPlayer), c_unitCountAlive);
-            }
-            else if ((lib6CA20615_gf_StringIsInteger(lv_argument) == true)) {
-                lv_numberDeath = StringToInt(lv_argument);
-            }
-            lv_number_IsDefined = true;
-        }
-        else if ((lib6CA20615_gf_StringIsPlayerGrouppreset(lv_argument) == true) && (lv_players_IsDefined == false)) {
-            if ((StringCase(lv_argument, false) == "all")) {
-                lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_lastPlayerGroup = PlayerGroupAll();
-            }
-            else if ((lib6CA20615_gf_StringIsPlayer(lv_argument) == true)) {
-                lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_lastPlayerGroup = PlayerGroupSingle(StringToInt(lv_argument));
-            }
-            else if ((lib6CA20615_gf_ValueOfCheatPlayerGroup(lv_argument) != null)) {
-                lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_lastPlayerGroup = lib6CA20615_gf_ValueOfCheatPlayerGroup(lv_argument);
-            }
-            lv_players_IsDefined = true;
-        }
-        else if ((lib6CA20615_gf_StringIsUnitGrouppreset(lv_argument) != "") && (lv_units_IsDefined == false)) {
-            if ((lib6CA20615_gf_ValueOfCheatUnitGroup(lv_argument) != null)) {
-                lv_units = "unitvar";
-                lv__unitsmode = lv_argument;
-            }
-            else if ((lib6CA20615_gf_StringIsUnitGrouppreset(lv_argument) == "all")) {
-                lv_units = "all";
-            }
-            else if ((lib6CA20615_gf_StringIsUnitGrouppreset(lv_argument) == "select")) {
-                lv_units = "select";
-            }
-            lv_units_IsDefined = true;
-        }
-        else if ((lib6CA20615_gf_StringIsBool(lv_argument) == true) && (lv_remove_IsDefined == false)) {
-            lv__removeUnit = libNtve_gf_ConvertStringToBoolean(lv_argument);
-            lv_isRemoveUnit = lv__removeUnit;
-        }
-    }
-    autoFAA0C393_val = lv_units;
-    if (autoFAA0C393_val == "select") {
-        lv__units = UnitGroupSelected(lp_originPlayer);
-    }
-    else if (autoFAA0C393_val == "all") {
-        lv__units = UnitGroup(null, c_playerAny, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0);
-    }
-    else if (autoFAA0C393_val == "unitvar") {
-        lv__units = lib6CA20615_gf_ValueOfCheatUnitGroup(lv__unitsmode);
-    }
-    else {
-    }
-    lv__players = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_lastPlayerGroup;
-    auto0D846CB2_g = PlayerGroupAll();
-    auto0D846CB2_var = -1;
-    while (true) {
-        auto0D846CB2_var = PlayerGroupNextPlayer(auto0D846CB2_g, auto0D846CB2_var);
-        if (auto0D846CB2_var < 0) { break; }
-        if ((PlayerGroupHasPlayer(lv__players, auto0D846CB2_var) == false)) {
-            UnitGroupRemoveUnitGroup(lv__units, UnitGroup(null, auto0D846CB2_var, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
-        }
-
-    }
-    auto2E946DD2_ae = MinI(lv_numberDeath, UnitGroupCount(lv__units, c_unitCountAlive));
-    lv_it = 1;
-    for ( ; ( (auto2E946DD2_ai >= 0 && lv_it <= auto2E946DD2_ae) || (auto2E946DD2_ai < 0 && lv_it >= auto2E946DD2_ae) ) ; lv_it += auto2E946DD2_ai ) {
-        lv_unit = UnitGroupRandomUnit(lv__units, c_unitCountAlive);
-        if ((lv_isRemoveUnit == true)) {
-            UnitRemove(lv_unit);
-        }
-        else {
-            UnitKill(lv_unit);
-        }
-    }
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_unitgroup = lv_units;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_Players = lv_players;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_MaxUnits = lv_numberDeath;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_deathUnits.lv_deathUnits_IsRemove = lv_isRemoveUnit;
-}
-
-void lib6CA20615_gf_ProgressUnit (int lp_originPlayer, string lp_command) {
-    // Automatic Variable Declarations
-}
-
-void lib6CA20615_gf_CopyUnit (int lp_origingplayer) {
-    // Variable Declarations
-    unitgroup lv_selectedunits;
-    unit lv_unit;
-    string lv_behavior;
-    string lv_stats_array;
-    string lv_unit_array;
-
-    // Automatic Variable Declarations
-    unitgroup auto79671B27_g;
-    int auto79671B27_u;
-
-    // Variable Initialization
-    lv_selectedunits = UnitGroupSelected(lp_origingplayer);
-    lv_stats_array = "";
-    lv_unit_array = "";
-
-    // Implementation
-    auto79671B27_g = lv_selectedunits;
-    auto79671B27_u = UnitGroupCount(auto79671B27_g, c_unitCountAll);
-    for (;; auto79671B27_u -= 1) {
-        lv_unit = UnitGroupUnitFromEnd(auto79671B27_g, auto79671B27_u);
-        if (lv_unit == null) { break; }
-        DataTableSetString(true, (lib6CA20615_gv_unitsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER)), ((DataTableGetString(true, (lib6CA20615_gv_unitsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER))) + (UnitGetType(lv_unit))) + ","));
-        DataTableSetString(true, (lib6CA20615_gv_unitsStatsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER)), (DataTableGetString(true, (lib6CA20615_gv_unitsStatsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER))) + (FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropLife, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropLifeMax, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropLifeRegen, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropShields, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropShieldsMax, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropShieldsRegen, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropEnergy, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropEnergyMax, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropEnergyRegen, c_unitPropCurrent), 2) + "," + FixedToString(UnitGetPropertyFixed(lv_unit, c_unitPropKills, c_unitPropCurrent), 0) + "," + IntToString(UnitGetOwner(lv_unit)) + "|")));
-        DataTableSetString(true, (lib6CA20615_gv_unitsOrientationBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER)), (DataTableGetString(true, (lib6CA20615_gv_unitsOrientationBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER))) + (FixedToString(DistanceBetweenPoints(UnitGroupCenterOfGroup(lv_selectedunits), UnitGetPosition(lv_unit)), c_fixedPrecisionAny) + "," + FixedToString(AngleBetweenPoints(UnitGroupCenterOfGroup(lv_selectedunits), UnitGetPosition(lv_unit)), c_fixedPrecisionAny) + "," + FixedToString(UnitGetFacing(lv_unit), c_fixedPrecisionAny) + "|")));
-    }
-    TextExpressionSetToken("Param/Expression/lib_6CA20615_A238C292", "A", StringToText((lib6CA20615_gv_unitsBuffer + IntToString(lib6CA20615_gv_cURRENT_SIZE_BUFFER))));
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_A238C292"));
-    lib6CA20615_gv_cURRENT_SIZE_BUFFER += 1;
-}
-
-void lib6CA20615_gf_PasteUnit (int lp_origingplayer, point lp_spawnpoint, string lp_command) {
-    // Variable Declarations
-    string lv_units;
-    string lv_stats;
-    string lv_orientation;
-    string lv_statseveryunit;
-    string lv_orientationeveryunit;
-    point lv_spawnpoint;
-    int lv_it;
-    unit lv_created_unit;
-    fixed lv_distance;
-    fixed lv_angle;
-    fixed lv_facing;
-
-    // Automatic Variable Declarations
-    const int auto80F3CE8F_ae = 1000;
-    const int auto80F3CE8F_ai = 1;
-
-    // Variable Initialization
-    lv_units = "";
-    lv_stats = "";
-    lv_orientation = "";
-    lv_statseveryunit = "";
-    lv_orientationeveryunit = "";
-    lv_spawnpoint = lp_spawnpoint;
-
-    // Implementation
-    if ((DataTableValueExists(true, (lib6CA20615_gv_unitsBuffer + lp_command)) == false)) {
-        TextExpressionSetToken("Param/Expression/lib_6CA20615_62412B26", "A", StringToText((lib6CA20615_gv_unitsBuffer + lp_command)));
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_62412B26"));
-        return ;
-    }
-
-    lv_units = DataTableGetString(true, (lib6CA20615_gv_unitsBuffer + lp_command));
-    lv_units = StringReplaceWord(lv_units, ",", " ", c_stringReplaceAll, c_stringCase);
-    lv_stats = DataTableGetString(true, (lib6CA20615_gv_unitsStatsBuffer + lp_command));
-    lv_stats = StringReplaceWord(lv_stats, "|", " ", c_stringReplaceAll, c_stringCase);
-    lv_orientation = DataTableGetString(true, (lib6CA20615_gv_unitsOrientationBuffer + lp_command));
-    lv_orientation = StringReplaceWord(lv_orientation, "|", " ", c_stringReplaceAll, c_stringCase);
-    lv_it = 1;
-    for ( ; ( (auto80F3CE8F_ai >= 0 && lv_it <= auto80F3CE8F_ae) || (auto80F3CE8F_ai < 0 && lv_it >= auto80F3CE8F_ae) ) ; lv_it += auto80F3CE8F_ai ) {
-        if ((StringWord(lv_units, lv_it) == "")) {
-            break;
-        }
-
-        lv_statseveryunit = StringWord(lv_stats, lv_it);
-        lv_statseveryunit = StringReplaceWord(lv_statseveryunit, ",", " ", c_stringReplaceAll, c_stringCase);
-        lv_orientationeveryunit = StringWord(lv_orientation, lv_it);
-        lv_distance = StringToFixed(StringWord(StringReplaceWord(lv_orientationeveryunit, ",", " ", c_stringReplaceAll, c_stringCase), 1));
-        lv_angle = StringToFixed(StringWord(StringReplaceWord(lv_orientationeveryunit, ",", " ", c_stringReplaceAll, c_stringCase), 2));
-        lv_facing = StringToFixed(StringWord(StringReplaceWord(lv_orientationeveryunit, ",", " ", c_stringReplaceAll, c_stringCase), 3));
-        UnitCreate(1, (StringWord(lv_units, lv_it)), c_unitCreateIgnorePlacement, StringToInt(StringWord(lv_statseveryunit, 11)), PointWithOffsetPolar(lp_spawnpoint, lv_distance, lv_angle), lv_facing);
-        lv_created_unit = UnitLastCreated();
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropLife, StringToFixed(StringWord(lv_statseveryunit, 1)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropLifeMax, StringToFixed(StringWord(lv_statseveryunit, 2)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropLifeRegen, StringToFixed(StringWord(lv_statseveryunit, 3)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropShields, StringToFixed(StringWord(lv_statseveryunit, 4)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropShieldsMax, StringToFixed(StringWord(lv_statseveryunit, 5)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropShieldsRegen, StringToFixed(StringWord(lv_statseveryunit, 6)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropEnergy, StringToFixed(StringWord(lv_statseveryunit, 7)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropEnergyMax, StringToFixed(StringWord(lv_statseveryunit, 8)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropEnergyRegen, StringToFixed(StringWord(lv_statseveryunit, 9)));
-        UnitSetPropertyFixed(lv_created_unit, c_unitPropKills, StringToFixed(StringWord(lv_statseveryunit, 10)));
-    }
-}
-
-void lib6CA20615_gf_Alliance (int lp_originPlayer, string lp_command) {
-    // Variable Declarations
-    int lv_player1;
-    int lv_player2;
-    string lv_aspect;
-    bool lv_oneShot;
-    bool lv_p1_IsDefined;
-    bool lv_p2_IsDefined;
-    bool lv_aspect_IsDefined;
-    bool lv_oneShot_IsDefined;
-    int lv_index_Param;
-    string lv_argument;
-    int lv__aspect;
-
-    // Automatic Variable Declarations
-    const int autoE584A681_ae = 10;
-    const int autoE584A681_ai = 1;
-    string autoD44A42C8_val;
-
-    // Variable Initialization
-    lv_player1 = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_P1;
-    lv_player2 = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_P2;
-    lv_aspect = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_AspectType;
-    lv_oneShot = lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_OneShot;
-    lv_argument = "";
-    lv__aspect = libNtve_ge_AllianceSetting_Ally;
-
-    // Implementation
-    lv_index_Param = 1;
-    for ( ; ( (autoE584A681_ai >= 0 && lv_index_Param <= autoE584A681_ae) || (autoE584A681_ai < 0 && lv_index_Param >= autoE584A681_ae) ) ; lv_index_Param += autoE584A681_ai ) {
-        lv_argument = StringWord(lp_command, lv_index_Param);
-        if ((lv_argument == "")) {
-            break;
-        }
-
-        if ((lib6CA20615_gf_StringIsInteger(lv_argument) == true) && (lv_p1_IsDefined == false)) {
-            lv_player1 = StringToInt(lv_argument);
-            lv_p1_IsDefined = true;
-        }
-        else if ((lib6CA20615_gf_StringIsInteger(lv_argument) == true) && (lv_p2_IsDefined == false)) {
-            lv_player2 = StringToInt(lv_argument);
-            lv_p2_IsDefined = true;
-        }
-        else if ((lib6CA20615_gf_StringIsString(lv_argument) == true) && (lv_aspect_IsDefined == false)) {
-            lv_aspect = StringCase(lv_argument, false);
-            lv_aspect_IsDefined = true;
-        }
-        else if ((lib6CA20615_gf_StringIsBool(lv_argument) == true) && (lv_oneShot_IsDefined == false)) {
-            lv_oneShot = libNtve_gf_ConvertStringToBoolean(lv_argument);
-            lv_oneShot_IsDefined = true;
-        }
-    }
-    autoD44A42C8_val = StringCase(lv_aspect, false);
-    if (autoD44A42C8_val == "ally") {
-        lv__aspect = libNtve_ge_AllianceSetting_Ally;
-    }
-    else if (autoD44A42C8_val == "enemy") {
-        lv__aspect = libNtve_ge_AllianceSetting_Enemy;
-    }
-    else if (autoD44A42C8_val == "neutral") {
-        lv__aspect = libNtve_ge_AllianceSetting_Neutral;
-    }
-    else {
-    }
-    TextExpressionSetToken("Param/Expression/lib_6CA20615_0762B21C", "A", IntToText(lv_player1));
-    TextExpressionSetToken("Param/Expression/lib_6CA20615_0762B21C", "B", IntToText(lv_player2));
-    TextExpressionSetToken("Param/Expression/lib_6CA20615_0762B21C", "C", StringToText(lv_aspect));
-    TextExpressionSetToken("Param/Expression/lib_6CA20615_0762B21C", "D", libNtve_gf_ConvertBooleanToText(lv_oneShot));
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_0762B21C"));
-    libNtve_gf_SetAllianceOneWay(lv_player1, lv_player2, lv__aspect);
-    if ((lv_oneShot == true)) {
-        libNtve_gf_SetAllianceOneWay(lv_player2, lv_player1, lv__aspect);
-    }
-
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_P1 = lv_player1;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_P2 = lv_player2;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_AspectType = lv_aspect;
-    lib6CA20615_gv_player_Cheat[lp_originPlayer].lv_alliance.lv_alliance_OneShot = lv_oneShot;
 }
 
 string lib6CA20615_gf_StringIsUnitGrouppreset (string lp_string) {
@@ -1659,6 +1899,7 @@ bool lib6CA20615_gt_init_Func (bool testConds, bool runActions) {
     TriggerExecute(lib6CA20615_gt_hookdatatableview, true, false);
     TriggerExecute(lib6CA20615_gt_InitSpawnUnit, true, false);
     TriggerExecute(lib6CA20615_gt_InitSelectRace, true, false);
+    TriggerExecute(lib6CA20615_gt_InitGiveUpgrade, true, false);
     Wait(2.0, c_timeGame);
     TextExpressionSetToken("Param/Expression/lib_6CA20615_C4B20E5E", "A", lib6CA20615_gf_ConvertKeyToText(c_keyAlt));
     TextExpressionSetToken("Param/Expression/lib_6CA20615_C4B20E5E", "B", lib6CA20615_gf_ConvertKeyToText(lib6CA20615_gv_kEY_OPEN_PANELS_SPAWNUNIT));
@@ -1824,9 +2065,9 @@ bool lib6CA20615_gt_InitSelectRace_Func (bool testConds, bool runActions) {
         lib6CA20615_gv_buttonSelectRace[lv_it].lv_race = lv_race;
         DialogControlSetPosition(DialogControlLastCreated(), PlayerGroupAll(), c_anchorLeft, lv_x, 0);
         lv_x += lib6CA20615_gv_sIZE_SELECT_RACE_BUTTON;
+        libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal(CatalogFieldValueGet(c_gameCatalogRace, lv_race, "Name", c_playerAny)), PlayerGroupAll());
         DialogControlHookup(DialogControlLastCreated(), c_triggerControlTypeImage, "RaceIcon");
         libNtve_gf_SetDialogItemImage(DialogControlLastCreated(), (CatalogFieldValueGet(c_gameCatalogRace, lv_race, "RaceIcon", c_playerAny)), PlayerGroupAll());
-        libNtve_gf_SetDialogItemTooltip(DialogControlLastCreated(), StringExternal(CatalogFieldValueGet(c_gameCatalogRace, lv_race, "Name", c_playerAny)), PlayerGroupAll());
         lv_it += 1;
     }
     DialogControlSetSize(lv_container, PlayerGroupAll(), (lib6CA20615_gv_sIZE_SELECT_RACE_BUTTON * lv_it), 0);
@@ -2086,7 +2327,7 @@ bool lib6CA20615_gt_ChangeCategory_Func (bool testConds, bool runActions) {
     for ( ; ( (auto87686BF6_ai >= 0 && lv_iter <= auto87686BF6_ae) || (auto87686BF6_ai < 0 && lv_iter >= auto87686BF6_ae) ) ; lv_iter += auto87686BF6_ai ) {
         if ((EventDialogControl() == lib6CA20615_gv_buttonEditorCategory1[lv_iter].lv_button)) {
             libNtve_gf_SetDialogItemToggled(EventDialogControl(), true, PlayerGroupSingle(EventPlayer()));
-            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_selectCategory1 = lib6CA20615_gv_buttonEditorCategory1[lv_iter].lv_category;
+            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_spawnUnitsData.lv_selectCategory1 = lib6CA20615_gv_buttonEditorCategory1[lv_iter].lv_category;
             auto0CAD4103_ae = lib6CA20615_gv_cOUNT_CATEGORIES;
             auto0CAD4103_var = 0;
             for ( ; auto0CAD4103_var <= auto0CAD4103_ae; auto0CAD4103_var += 1 ) {
@@ -2101,7 +2342,7 @@ bool lib6CA20615_gt_ChangeCategory_Func (bool testConds, bool runActions) {
 
         if ((EventDialogControl() == lib6CA20615_gv_buttonEditorCategory2[lv_iter].lv_button)) {
             libNtve_gf_SetDialogItemToggled(EventDialogControl(), true, PlayerGroupSingle(EventPlayer()));
-            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_selectCategory2 = lib6CA20615_gv_buttonEditorCategory2[lv_iter].lv_category;
+            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_spawnUnitsData.lv_selectCategory2 = lib6CA20615_gv_buttonEditorCategory2[lv_iter].lv_category;
             auto4E94FB5D_ae = lib6CA20615_gv_cOUNT_CATEGORIES;
             auto4E94FB5D_var = 0;
             for ( ; auto4E94FB5D_var <= auto4E94FB5D_ae; auto4E94FB5D_var += 1 ) {
@@ -2256,7 +2497,7 @@ bool lib6CA20615_gt_SelectRace_Func (bool testConds, bool runActions) {
     auto26DC52E1_var = 1;
     for ( ; auto26DC52E1_var <= auto26DC52E1_ae; auto26DC52E1_var += 1 ) {
         if ((EventDialogControl() == lib6CA20615_gv_buttonsRace[auto26DC52E1_var].lv_dialogItem)) {
-            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_selectRace = (lib6CA20615_gv_buttonsRace[auto26DC52E1_var].lv_race);
+            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_spawnUnitsData.lv_selectRace = (lib6CA20615_gv_buttonsRace[auto26DC52E1_var].lv_race);
             lib6CA20615_gf_updatespawnerui();
             break;
         }
@@ -2416,6 +2657,291 @@ bool lib6CA20615_gt_ReplaceUnit_Func (bool testConds, bool runActions) {
 void lib6CA20615_gt_ReplaceUnit_Init () {
     lib6CA20615_gt_ReplaceUnit = TriggerCreate("lib6CA20615_gt_ReplaceUnit_Func");
     TriggerAddEventUnitCreated(lib6CA20615_gt_ReplaceUnit, null, "CheatTrain", null);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Init - Give Upgrade
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_InitGiveUpgrade_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    string lv__upgrade;
+    int lv_x;
+    int lv_y;
+    int lv_it;
+
+    // Automatic Variable Declarations
+    const int autoA79FC90F_ae = 15;
+    int autoA79FC90F_var;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/FullscreenUpperContainer/CheatUpgradesList");
+    lib6CA20615_gv_uilistupgrades = DialogControlLastCreated();
+    DialogControlHookupStandard(c_triggerControlTypeEditBox, "UIContainer/FullscreenUpperContainer/CheatUpgradesList/SearchFrame/SearchUpgradeForID");
+    lib6CA20615_gv_uIGiveUpgrades.lv_searchUpgradeResearch = DialogControlLastCreated();
+    DialogControlHookupStandard(c_triggerControlTypePanel, "UIContainer/FullscreenUpperContainer/CheatUpgradesList/Container/ContainerFrame");
+    lib6CA20615_gv_uIGiveUpgrades.lv_containerListUpgrades = DialogControlLastCreated();
+    DialogControlHookupStandard(c_triggerControlTypeCheckBox, "UIContainer/FullscreenUpperContainer/CheatUpgradesList/Footer/OptionsFrame/SearchForCatalog");
+    lib6CA20615_gv_uIGiveUpgrades.lv_checkmark_AbilCategory = DialogControlLastCreated();
+    autoA79FC90F_var = 1;
+    for ( ; autoA79FC90F_var <= autoA79FC90F_ae; autoA79FC90F_var += 1 ) {
+        DialogControlHookupStandard(c_triggerControlTypeCheckBox, ("UIContainer/FullscreenUpperContainer/CheatUpgradesList/Footer/OptionsFrame/Player" + IntToString(autoA79FC90F_var)));
+        lib6CA20615_gv_uIGiveUpgrades.lv_check_Players[autoA79FC90F_var] = DialogControlLastCreated();
+    }
+    DataTableInstanceCreate();
+    lib6CA20615_gv_upgrades_map_table = DataTableInstanceLastCreated();
+    lib6CA20615_gf__fillUpgradetable();
+    lib6CA20615_gf_RefreshListUpgrade(c_playerAny);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_InitGiveUpgrade_Init () {
+    lib6CA20615_gt_InitGiveUpgrade = TriggerCreate("lib6CA20615_gt_InitGiveUpgrade_Func");
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: refresh list upgrade
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_refreshlistupgrade_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!(((EventDialogControl() == lib6CA20615_gv_uIGiveUpgrades.lv_searchUpgradeResearch) || (EventDialogControl() == lib6CA20615_gv_uIGiveUpgrades.lv_checkmark_AbilCategory)))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lib6CA20615_gf_RefreshListUpgrade(EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_refreshlistupgrade_Init () {
+    lib6CA20615_gt_refreshlistupgrade = TriggerCreate("lib6CA20615_gt_refreshlistupgrade_Func");
+    TriggerAddEventDialogControl(lib6CA20615_gt_refreshlistupgrade, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeTextChanged);
+    TriggerAddEventDialogControl(lib6CA20615_gt_refreshlistupgrade, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeChecked);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Give upgrade
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_Giveupgrade_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_index;
+
+    // Automatic Variable Declarations
+    const int auto068CF560_ae = lib6CA20615_gv_sIZE_LIST_UPGRADES;
+    const int auto068CF560_ai = 1;
+    playergroup autoF559166C_g;
+    int autoF559166C_var;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_index = 0;
+    for ( ; ( (auto068CF560_ai >= 0 && lv_index <= auto068CF560_ae) || (auto068CF560_ai < 0 && lv_index >= auto068CF560_ae) ) ; lv_index += auto068CF560_ai ) {
+        if ((lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_index].lv_button == c_invalidDialogControlId)) {
+            break;
+        }
+
+        if ((EventDialogControl() == lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_index].lv_button)) {
+            autoF559166C_g = lib6CA20615_gv_player_Cheat[EventPlayer()].lv_upgradesData.lv_selectPlayers;
+            autoF559166C_var = -1;
+            while (true) {
+                autoF559166C_var = PlayerGroupNextPlayer(autoF559166C_g, autoF559166C_var);
+                if (autoF559166C_var < 0) { break; }
+                if ((TechTreeUpgradeCount(autoF559166C_var, lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_index].lv_upgrade, c_techCountCompleteOnly) > 0)) {
+                    TechTreeUpgradeAddLevel(autoF559166C_var, lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_index].lv_upgrade, -1);
+                }
+                else {
+                    TechTreeUpgradeAddLevel(autoF559166C_var, lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lv_index].lv_upgrade, 1);
+                }
+            }
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_Giveupgrade_Init () {
+    lib6CA20615_gt_Giveupgrade = TriggerCreate("lib6CA20615_gt_Giveupgrade_Func");
+    TriggerAddEventDialogControl(lib6CA20615_gt_Giveupgrade, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Update View upgrades in table
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_UpdateViewupgradesintable_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_outplayer;
+    playergroup lv_players;
+    text lv_tooltip;
+
+    // Automatic Variable Declarations
+    playergroup auto04241583_g;
+    playergroup auto979679E0_g;
+    int auto979679E0_var;
+    playergroup auto9B6286F8_g;
+    int auto9B6286F8_var;
+
+    // Variable Initialization
+    lv_players = PlayerGroupEmpty();
+    lv_tooltip = StringToText("");
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto04241583_g = PlayerGroupAll();
+    lv_outplayer = -1;
+    while (true) {
+        lv_outplayer = PlayerGroupNextPlayer(auto04241583_g, lv_outplayer);
+        if (lv_outplayer < 0) { break; }
+        lv_tooltip = StringToText("");
+        auto979679E0_g = PlayerGroupAll();
+        auto979679E0_var = -1;
+        while (true) {
+            auto979679E0_var = PlayerGroupNextPlayer(auto979679E0_g, auto979679E0_var);
+            if (auto979679E0_var < 0) { break; }
+            if ((TechTreeUpgradeCount(auto979679E0_var, EventUpgradeName(), c_techCountCompleteOnly) > 0)) {
+                PlayerGroupAdd(lv_players, auto979679E0_var);
+            }
+
+        }
+        UIDisplayMessage(PlayerGroupSingle(lv_outplayer), c_messageAreaDebug, IntToText(PlayerGroupCount(lv_players)));
+        TextExpressionSetToken("Param/Expression/lib_6CA20615_511DE2F2", "A", StringToText((EventUpgradeName())));
+        lv_tooltip = TextExpressionAssemble("Param/Expression/lib_6CA20615_511DE2F2");
+        auto9B6286F8_g = lv_players;
+        auto9B6286F8_var = -1;
+        while (true) {
+            auto9B6286F8_var = PlayerGroupNextPlayer(auto9B6286F8_g, auto9B6286F8_var);
+            if (auto9B6286F8_var < 0) { break; }
+            lv_tooltip = (lv_tooltip + StringExternal("Param/Value/lib_6CA20615_085F0DF3") + TextWithColor(PlayerName(auto9B6286F8_var), libNtve_gf_ConvertPlayerColorToColor(PlayerGetColorIndex(auto9B6286F8_var, false))));
+        }
+        if ((PlayerGroupCount(lv_players) > 0)) {
+            libNtve_gf_SetDialogItemColor(libNtve_gf_ValueFromDataTableInstanceDialogItem(lib6CA20615_gv_upgrades_map_table, (EventUpgradeName())), Color(149*100/255,150*100/255,151*100/255), PlayerGroupSingle(lv_outplayer));
+        }
+        else {
+            libNtve_gf_SetDialogItemColor(libNtve_gf_ValueFromDataTableInstanceDialogItem(lib6CA20615_gv_upgrades_map_table, (EventUpgradeName())), Color(100,100,100), PlayerGroupSingle(lv_outplayer));
+        }
+        libNtve_gf_SetDialogItemTooltip(libNtve_gf_ValueFromDataTableInstanceDialogItem(lib6CA20615_gv_upgrades_map_table, (EventUpgradeName())), lv_tooltip, PlayerGroupSingle(lv_outplayer));
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_UpdateViewupgradesintable_Init () {
+    lib6CA20615_gt_UpdateViewupgradesintable = TriggerCreate("lib6CA20615_gt_UpdateViewupgradesintable_Func");
+    TriggerAddEventUpgradeLevelChanged(lib6CA20615_gt_UpdateViewupgradesintable, c_playerAny);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Changed Select Player
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_ChangedSelectPlayer_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    const int auto118F4225_ae = 15;
+    int auto118F4225_var;
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto118F4225_var = 1;
+    for ( ; auto118F4225_var <= auto118F4225_ae; auto118F4225_var += 1 ) {
+        if ((EventDialogControl() == lib6CA20615_gv_uIGiveUpgrades.lv_check_Players[auto118F4225_var])) {
+            if ((libNtve_gf_DialogItemIsChecked(EventDialogControl(), EventPlayer()) == true)) {
+                PlayerGroupAdd(lib6CA20615_gv_player_Cheat[EventPlayer()].lv_upgradesData.lv_selectPlayers, auto118F4225_var);
+                TextExpressionSetToken("Param/Expression/lib_6CA20615_7DE60422", "A", PlayerName(auto118F4225_var));
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_7DE60422"));
+            }
+            else {
+                PlayerGroupRemove(lib6CA20615_gv_player_Cheat[EventPlayer()].lv_upgradesData.lv_selectPlayers, auto118F4225_var);
+                TextExpressionSetToken("Param/Expression/lib_6CA20615_B926CDB0", "A", PlayerName(auto118F4225_var));
+                UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, TextExpressionAssemble("Param/Expression/lib_6CA20615_B926CDB0"));
+            }
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_ChangedSelectPlayer_Init () {
+    lib6CA20615_gt_ChangedSelectPlayer = TriggerCreate("lib6CA20615_gt_ChangedSelectPlayer_Func");
+    TriggerAddEventDialogControl(lib6CA20615_gt_ChangedSelectPlayer, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeChecked);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: show upgrades ui
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_showupgradesui_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((EventKeyPressed() == lib6CA20615_gv_kEY_OPEN_PANELS_UPGRADES))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlSetVisible(lib6CA20615_gv_uilistupgrades, PlayerGroupSingle(EventPlayer()), true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_showupgradesui_Init () {
+    lib6CA20615_gt_showupgradesui = TriggerCreate("lib6CA20615_gt_showupgradesui_Func");
+    TriggerAddEventKeyPressed(lib6CA20615_gt_showupgradesui, c_playerAny, c_keyNone, true, lib6CA20615_gv_kEY_OPEN_PANELS_SHIFT, lib6CA20615_gv_kEY_OPEN_PANELS_CTRL, lib6CA20615_gv_kEY_OPEN_PANELS_ALT);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: hide upgrades ui
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_hideupgradesui_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Conditions
+    if (testConds) {
+        if (!((EventKeyPressed() == lib6CA20615_gv_kEY_OPEN_PANELS_UPGRADES))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    DialogControlSetVisible(lib6CA20615_gv_uilistupgrades, PlayerGroupSingle(EventPlayer()), false);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_hideupgradesui_Init () {
+    lib6CA20615_gt_hideupgradesui = TriggerCreate("lib6CA20615_gt_hideupgradesui_Func");
+    TriggerAddEventKeyPressed(lib6CA20615_gt_hideupgradesui, c_playerAny, c_keyNone, false, lib6CA20615_gv_kEY_OPEN_PANELS_SHIFT, lib6CA20615_gv_kEY_OPEN_PANELS_CTRL, lib6CA20615_gv_kEY_OPEN_PANELS_ALT);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -2637,6 +3163,13 @@ void lib6CA20615_InitTriggers () {
     lib6CA20615_gt_SelectRace_Init();
     lib6CA20615_gt_ClickUnit_Init();
     lib6CA20615_gt_ReplaceUnit_Init();
+    lib6CA20615_gt_InitGiveUpgrade_Init();
+    lib6CA20615_gt_refreshlistupgrade_Init();
+    lib6CA20615_gt_Giveupgrade_Init();
+    lib6CA20615_gt_UpdateViewupgradesintable_Init();
+    lib6CA20615_gt_ChangedSelectPlayer_Init();
+    lib6CA20615_gt_showupgradesui_Init();
+    lib6CA20615_gt_hideupgradesui_Init();
     lib6CA20615_gt_hookdatatableview_Init();
     lib6CA20615_gt_updatedata_Init();
     lib6CA20615_gt_showdatatablewindow_Init();

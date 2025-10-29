@@ -399,8 +399,9 @@ Reward/Name/RaynorCommanderTacticalJump=Raynor Commander - Tactical Jump
 Reward/Name/RaynorCommanderTechLabMorphBarrack=Raynor Commander - Tech Lab Morph
 Reward/Name/RaynorCommanderTorpedoes=Raynor Commander - Torpedoes
 Reward/Name/RaynorCommanderYamatoGun=Raynor Commander - Yamato Gun
-UI/HelpMenuDialogTechGlossary_Control_Unit/Category/RaynorCommanderUnits=Командир Рейнор
-Unit/Category/RaynorCommanderUnits=Commander Raynor
+UI/HelpMenuDialogTechGlossary_Control_Glossary/Category/COOPRaynor=Войска Рейнора
+Hotkey/Category/COOPRaynor=Commander Raynor
+Glossary/Category/COOPRaynor=Commander Raynor
 Unit/Description/RaynorCommanderMedic=Легкая единица поддержки. Может использовать способность <c val="FFE1AE"><d stringref="Abil/Name/RaynorCommanderHeal"/></c>
 Unit/LifeArmorName/TerranBuildingPlating=Terran Building Plating
 Unit/Name/COOP/RaynorCommanderArmory=Armory

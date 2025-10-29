@@ -31,6 +31,11 @@
         <ActorKey value="ZeratulCommanderMorphVoidArray"/>
         <InfoArray Unit="ZeratulCommanderXelNagaVoidArray@Alternate"/>
     </CAbilMorph>
+    <CAbilEffectTarget id="ZeratulCommanderPredictiveBlink">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <Range value="500"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderPredictiveBlink"/>
+    </CAbilEffectTarget>
     <CAbilEffectInstant id="ZeratulCommanderShadowCleave">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
         <Effect index="0" value="ZeratulCommanderShadowCleave@Search"/>

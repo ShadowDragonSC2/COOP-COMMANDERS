@@ -62,6 +62,10 @@
         <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
     </CActorModel>
+    <CActorSound id="ZeratulCommanderDisruptorPhase@ImpactSound" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
+    </CActorSound>
     <CActorAction id="ZeratulCommanderMasterWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderMasterWarpBlade@Damage">
         <EditorCategories value=""/>
     </CActorAction>
@@ -99,6 +103,14 @@
     <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage">
         <EditorCategories value=""/>
     </CActorAction>
+    <CActorModel id="ZeratulCommanderPredictiveBlink@ModelIn" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderPredictiveBlink.Start" Send="Create"/>
+        <HostSiteOps Ops="SOpAttachCenterStationary" HoldPosition="1"/>
+    </CActorModel>
+    <CActorModel id="ZeratulCommanderPredictiveBlink@ModelOut" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+    </CActorModel>
     <CActorSimple id="ZeratulCommanderShadowCleave@Animation">
         <EditorCategories value=""/>
         <On Terms="Abil.ZeratulCommanderShadowCleave.SourceCastStart" Send="Create"/>
@@ -129,6 +141,8 @@
         <WalkAnimMoveSpeed value="3"/>
         <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldarktemplar.dds"/>
+        <DeathArray index="Normal" SoundLink="DarkTemplar_DeathFX"/>
+        <DeathArray index="Freeze" SoundLink="ZeratulCommanderVoidTemplar@DeathVoice"/>
     </CActorUnit>
     <CActorAction id="ZeratulCommanderWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderWarpBlade@Damage">
         <EditorCategories value=""/>

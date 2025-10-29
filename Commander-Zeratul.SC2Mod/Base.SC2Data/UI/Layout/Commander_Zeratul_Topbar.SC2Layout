@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+
+    <Frame type="Frame" name="GameUI/UIContainer/FullscreenUpperContainer" file="GameUI">
+        <Frame type="CommandPanel" name="Topbar_Zeratul" template="CommandPanel/CommandPanelTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+
+            <Frame type="Frame" name="CommandTooltip">
+                <Anchor side="Bottom" relative="$this" pos="Min" offset="0"/>
+                <Anchor side="Top" relative="$parent" pos="Max" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+            </Frame>
+        </Frame>
+    </Frame>
+</Desc>

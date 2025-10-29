@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="EditBox" name="BaseEditboxTemplate">
+        <Insets top="0" left="5" right="-5" bottom="0"/>
+        <Style val="@CheatEngine_UI_Placeholder"/>
+        <Frame type="Image" name="Image">
+            <Anchor relative="$parent"/>
+            <Texture val="@CheatEngine/UI/BaseEditbox"/>
+            <TextureType val="Border"/>
+            <ColorAdjustMode val="Desaturate"/>
+            <AdjustmentColor val="3e9766"/>
+        </Frame>
+
+        <Frame type="Label" name="PlaceholderLabel">
+            <Style val="@CheatEngine_UI_Placeholder"/>
+            <Alpha val="150"/>
+            <Anchor relative="$parent" offset="-15"/>
+        </Frame>
+
+        <StateGroup name="visiblePlaceholder">
+            <State name="placeholderShow">
+                <When type="Property" Text="" frame="$this" operator="Equal"/>
+                <Action type="SetProperty" frame="$this/PlaceholderLabel" Visible="True"/>
+            </State>
+        
+            <State name="placeholderHide">
+                <When type="Property" Text="" frame="$this" operator="NotEqual"/>
+                <Action type="SetProperty" frame="$this/PlaceholderLabel" Visible="False"/>
+            </State>
+        </StateGroup>
+    </Frame>
+</Desc>

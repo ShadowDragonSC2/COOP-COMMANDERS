@@ -9,7 +9,7 @@ PhysicsMaterial=Water
 Sound=##unitName##_Ambience
 parent=CommanderUnitBase
 default=CommanderAirUnit
-Actor=PhysicsDeathsSwarmAir,PhysicsDeathsVoidAir,UnitDeathModelWithDeathMotionFlier
+Actor=UnitDeathModelWithDeathMotionFlier
 default=CommanderGroundUnit
 Actor=PhysicsDeathsSwarmGround,PhysicsDeathsVoidGround,UnitDeathModelWithDeathMotionGround,UnloadDropAnim
 

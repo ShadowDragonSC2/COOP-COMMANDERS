@@ -13,10 +13,14 @@ Param/Expression/lib_6CA20615_0762B21C=p1: ~A~<n/>p2: ~B~<n/>aspect: ~C~<n/>ones
 Param/Expression/lib_6CA20615_1B3DECFC=Data Table: ~A~<n/>Orientation: ~B~
 Param/Expression/lib_6CA20615_2B42AD6F=Data Table: ~A~<n/>Orientation: ~B~
 Param/Expression/lib_6CA20615_3BC6AB16=Текущая единица <c val="FFFF80">~A~</c>.
+Param/Expression/lib_6CA20615_511DE2F2=~A~<n/><n/>
 Param/Expression/lib_6CA20615_62412B26=Группа <c val="FFFF80">~A~</c> не найдена
+Param/Expression/lib_6CA20615_7BB69365=rows: ~A~, height: ~B~
+Param/Expression/lib_6CA20615_7DE60422=Добавлен ~A~
 Param/Expression/lib_6CA20615_A091D0D2=<s val="@@InfoPaneUnitName">~Title~</s><n/><s val="@@InfoPaneUnitSubtitle">~Description~</n></n>ID: ~ID~ </s>
 Param/Expression/lib_6CA20615_A238C292=Добавлена группа <c val="FFFF80">~A~</c> буфер
 Param/Expression/lib_6CA20615_AB8E9B37=Единица <c val="FFFF80">~A~</c> не найдена.
+Param/Expression/lib_6CA20615_B926CDB0=Убран ~A~
 Param/Expression/lib_6CA20615_C4B20E5E=Press <c val="FFC600">~A~ ~B~</c> for opened debug window
 Param/Expression/lib_6CA20615_D7EB082A=<s val="@@InfoPaneUnitName">~Title~</s><n/><s val="@@InfoPaneUnitSubtitle">~Description~</n></n>ID: ~ID~ </s>
 Param/Expression/lib_6CA20615_DDD97C4F=Data Table: ~A~
@@ -26,6 +30,7 @@ Param/Value/lib_6CA20615_010EDDF0=C
 Param/Value/lib_6CA20615_043B888D=Down
 Param/Value/lib_6CA20615_053876B7=Air Unit
 Param/Value/lib_6CA20615_07BE93E1=Page Down
+Param/Value/lib_6CA20615_085F0DF3= 
 Param/Value/lib_6CA20615_088901BB=F11
 Param/Value/lib_6CA20615_09F2B4B1=Down
 Param/Value/lib_6CA20615_0AF987C1=<
@@ -55,14 +60,17 @@ Param/Value/lib_6CA20615_250CBC92=Num *
 Param/Value/lib_6CA20615_254AC970=F1
 Param/Value/lib_6CA20615_26DB1234=G
 Param/Value/lib_6CA20615_284DE276=F6
+Param/Value/lib_6CA20615_2A25EE6D=2
 Param/Value/lib_6CA20615_2BE0F2AA=C
 Param/Value/lib_6CA20615_2E8356F4=;
 Param/Value/lib_6CA20615_2F99EFEE=1
 Param/Value/lib_6CA20615_305984B3=Num 4
+Param/Value/lib_6CA20615_32458061=3
 Param/Value/lib_6CA20615_336BBBC8=V
 Param/Value/lib_6CA20615_33EC857E=F7
 Param/Value/lib_6CA20615_368E6DA9=O
 Param/Value/lib_6CA20615_36CDBB7D=\
+Param/Value/lib_6CA20615_36E44099=123
 Param/Value/lib_6CA20615_3720160B=Next Track
 Param/Value/lib_6CA20615_373AEBB6=P
 Param/Value/lib_6CA20615_3BED5836=X
@@ -109,6 +117,7 @@ Param/Value/lib_6CA20615_6E6C513B=1
 Param/Value/lib_6CA20615_6F1799C4=F
 Param/Value/lib_6CA20615_6F8F8435=Next Track
 Param/Value/lib_6CA20615_71D4A551=K
+Param/Value/lib_6CA20615_72A8380F== Ending Iterates Upgrades  =
 Param/Value/lib_6CA20615_761503FE=Enter
 Param/Value/lib_6CA20615_76D4D242=\
 Param/Value/lib_6CA20615_76FC68D5=V
@@ -138,11 +147,13 @@ Param/Value/lib_6CA20615_8F6BF195=Prev Track
 Param/Value/lib_6CA20615_901CAC2F=Esc
 Param/Value/lib_6CA20615_903AFC01=Num 8
 Param/Value/lib_6CA20615_907FD51D=Num +
+Param/Value/lib_6CA20615_90AE62C9== Starting Refresh =
 Param/Value/lib_6CA20615_91874582=Left
 Param/Value/lib_6CA20615_9200339A=Ctrl
 Param/Value/lib_6CA20615_95A634AA=Num /
 Param/Value/lib_6CA20615_960246F1=Y
 Param/Value/lib_6CA20615_966FFE8E=Num 7
+Param/Value/lib_6CA20615_97A036FD=
 Param/Value/lib_6CA20615_99D6EFA3=P
 Param/Value/lib_6CA20615_9AD1F9C2=Up
 Param/Value/lib_6CA20615_9D442B78=Target Mode - off
@@ -161,6 +172,7 @@ Param/Value/lib_6CA20615_AC07642C=O
 Param/Value/lib_6CA20615_ADD43399=Space
 Param/Value/lib_6CA20615_B019F154=F8
 Param/Value/lib_6CA20615_B1112F15=F5
+Param/Value/lib_6CA20615_B1A7E6F9=
 Param/Value/lib_6CA20615_B50C36F7=J
 Param/Value/lib_6CA20615_B5515991=Prev Track
 Param/Value/lib_6CA20615_B591CB25=;
@@ -189,6 +201,7 @@ Param/Value/lib_6CA20615_CCD57F39=S
 Param/Value/lib_6CA20615_CEED52EA=[
 Param/Value/lib_6CA20615_D0159E0B=T
 Param/Value/lib_6CA20615_D13DDCF8=/
+Param/Value/lib_6CA20615_D17B506E=1
 Param/Value/lib_6CA20615_D1CE208F=Backspace
 Param/Value/lib_6CA20615_D2499C45=Q
 Param/Value/lib_6CA20615_D2B5920F=None

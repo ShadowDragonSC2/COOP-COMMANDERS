@@ -23,7 +23,7 @@
         <ScoreKill value="250"/>
         <SubgroupPriority value="3"/>
         <MinimapRadius value="1.75"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderDuskWingsRockets@Missile" parent="MISSILE">
         <Race value="COOPRaynor"/>
@@ -109,7 +109,7 @@
         <GlossaryWeakArray value="SiegeTankSieged"/>
         <GlossaryWeakArray value="Baneling"/>
         <GlossaryWeakArray value="Colossus"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderBattlecruiser" parent="CommanderAir_Terr">
         <Name value="Unit/Name/RaynorCommanderBattlecruiser"/>
@@ -154,7 +154,7 @@
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
         <AIEvalFactor value="0.9"/>
         <Mass value="0.6"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="110"/>
         <GlossaryStrongArray value="Thor"/>
         <GlossaryStrongArray value="Mutalisk"/>
@@ -162,7 +162,7 @@
         <GlossaryWeakArray value="VikingFighter"/>
         <GlossaryWeakArray value="Corruptor"/>
         <GlossaryWeakArray value="VoidRay"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderBackslashRockets@Missile" parent="MISSILE">
         <Race value="COOPRaynor"/>
@@ -210,7 +210,7 @@
         <SubgroupPriority value="11"/>
         <MinimapRadius value="0.75"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="100"/>
         <GlossaryStrongArray value="SiegeTankSieged"/>
         <GlossaryStrongArray value="Ultralisk"/>
@@ -218,7 +218,7 @@
         <GlossaryWeakArray value="VikingFighter"/>
         <GlossaryWeakArray value="Hydralisk"/>
         <GlossaryWeakArray value="Phoenix"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderCommandCenter@Fly">
         <Name value="Unit/Name/CommandCenter"/>
@@ -342,7 +342,7 @@
         <TacticalAIThink value="AIThinkCommandCenter"/>
         <TechAliasArray index="0" value="Alias_CommandCenter"/>
         <GlossaryPriority value="30"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <TechTreeProducedUnitArray value="SCV"/>
         <TechTreeProducedUnitArray value="PlanetaryFortress"/>
         <TechTreeProducedUnitArray value="OrbitalCommand"/>
@@ -408,7 +408,7 @@
         <LeaderAlias value=""/>
         <GlossaryCategory value="Unit/Category/TerranUnits"/>
         <GlossaryPriority value="315"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <KillDisplay value="Never"/>
         <RankDisplay value="Never"/>
     </CUnit>
@@ -438,9 +438,9 @@
         <DamageTakenXP value="100"/>
         <WeaponArray Link="RaynorCommanderDuskWingsRockets"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Coop,Race:Raynor"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="250"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderHyperion">
         <Subtitle value="Unit/Subtitle/RaynorCommanderHyperion"/>
@@ -495,9 +495,9 @@
         <MinimapRadius value="0"/>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Coop,Race:Raynor"/>
         <Mass value="0.6"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="260"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <RankDisplay value="Always"/>
     </CUnit>
     <CUnit id="RaynorCommanderRefinery" parent="CommanderStructure_Terr">
@@ -574,7 +574,7 @@
         <SeparationRadius value="0.2"/>
         <MinimapRadius value="0.25"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="81"/>
         <GlossaryStrongArray value="Marine"/>
         <GlossaryStrongArray value="Marauder"/>
@@ -644,7 +644,7 @@
         <MinimapRadius value="1"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
         <TechAliasArray value="Alias_RaynorTechLab"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderReactorBarrack">
         <Name value="Unit/Name/RaynorCommanderTechLab"/>
@@ -713,7 +713,7 @@
         <HotkeyAlias value="RaynorCommanderTechLab"/>
         <SelectAlias value="RaynorCommanderTechLab"/>
         <TechAliasArray value="Alias_RaynorTechLab"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <AIEvaluateAlias value="BarracksReactor"/>
         <ReviveInfoBase>
             <Charge Link="TechLab/Revive"/>
@@ -787,7 +787,7 @@
         <HotkeyAlias value="RaynorCommanderTechLab"/>
         <SelectAlias value="RaynorCommanderTechLab"/>
         <TechAliasArray value="Alias_RaynorTechLab"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <AIEvaluateAlias value="FactoryReactor"/>
         <ReviveInfoBase>
             <Charge Link="TechLab/Revive"/>
@@ -861,7 +861,7 @@
         <HotkeyAlias value="RaynorCommanderTechLab"/>
         <SelectAlias value="RaynorCommanderTechLab"/>
         <TechAliasArray value="Alias_RaynorTechLab"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <AIEvaluateAlias value="StarportReactor"/>
         <ReviveInfoBase>
             <Charge Link="TechLab/Revive"/>
@@ -913,7 +913,7 @@
         <SubgroupPriority value="12"/>
         <MinimapRadius value="0.625"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="80"/>
         <GlossaryStrongArray value="Zergling"/>
         <GlossaryStrongArray value="Zealot"/>
@@ -921,7 +921,7 @@
         <GlossaryWeakArray value="Roach"/>
         <GlossaryWeakArray value="Colossus"/>
         <GlossaryWeakArray value="SiegeTank"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <Fidget>
             <ChanceArray index="Anim" value="0"/>
             <ChanceArray index="Idle" value="100"/>
@@ -1036,7 +1036,7 @@
         <TacticalAI value="Factory"/>
         <TechAliasArray index="0" value="Alias_Factory"/>
         <GlossaryAlias value=""/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <TechTreeProducedUnitArray value="Hellion"/>
         <TechTreeProducedUnitArray value="SiegeTank"/>
         <TechTreeProducedUnitArray value="Thor"/>
@@ -1113,7 +1113,7 @@
         <HotkeyAlias value="RaynorCommanderTechLab"/>
         <SelectAlias value="RaynorCommanderTechLab"/>
         <TechAliasArray value="Alias_RaynorTechLab"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <AIEvaluateAlias value="TechLab"/>
         <ReviveInfoBase>
             <Charge Link="TechLab/Revive"/>
@@ -1192,7 +1192,7 @@
         <HotkeyAlias value="RaynorCommanderTechLab"/>
         <SelectAlias value="RaynorCommanderTechLab"/>
         <TechAliasArray value="Alias_RaynorTechLab"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <AIEvaluateAlias value="TechLab"/>
         <ReviveInfoBase>
             <Charge Link="TechLab/Revive"/>
@@ -1300,7 +1300,7 @@
         <MinimapRadius value="1.75"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
         <TechAliasArray index="0" value="Alias_Barracks"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <TechTreeProducedUnitArray value="Marine"/>
         <TechTreeProducedUnitArray value="Marauder"/>
         <TechTreeProducedUnitArray value="Reaper"/>
@@ -1309,7 +1309,7 @@
     <CUnit id="RaynorCommanderFirebat" parent="CommanderGround">
         <Race value="COOPRaynor"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <LifeStart value="150"/>
@@ -1328,7 +1328,7 @@
             <LayoutButtons Face="RaynorCommanderHeal" Type="AbilCmd" AbilCmd="RaynorCommanderHeal,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Biological" value="1"/>
         <LifeStart value="60"/>
@@ -1353,7 +1353,7 @@
         <Race value="COOPRaynor"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
         <WeaponArray Link="RaynorCommanderPunisherGrenades"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <Attributes index="Armored" value="1"/>
         <Attributes index="Biological" value="1"/>
         <LifeStart value="125"/>
@@ -1397,9 +1397,9 @@
             <LayoutButtons Face="RaynorCommanderStimpack" Type="AbilCmd" AbilCmd="RaynorCommanderStimpack,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="20"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <LateralAcceleration value="46.0625"/>
         <RepairTime value="20"/>
         <KillXP value="10"/>
@@ -1486,9 +1486,9 @@
         <SubgroupPriority value="6"/>
         <MinimapRadius value="0.375"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="10"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderTechLab">
         <DeathRevealRadius value="3"/>
@@ -1552,7 +1552,7 @@
         <MinimapRadius value="1"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
         <TechAliasArray value="Alias_RaynorTechLab"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderTechLabStarport">
         <Name value="Unit/Name/RaynorCommanderTechLab"/>
@@ -1628,7 +1628,7 @@
         <HotkeyAlias value="RaynorCommanderTechLab"/>
         <SelectAlias value="RaynorCommanderTechLab"/>
         <TechAliasArray value="Alias_RaynorTechLab"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <AIEvaluateAlias value="TechLab"/>
         <ReviveInfoBase>
             <Charge Link="TechLab/Revive"/>
@@ -1701,7 +1701,7 @@
         <TacticalAI value="SiegeTank"/>
         <AIEvalFactor value="1.5"/>
         <TechAliasArray value="Alias_SiegeTankRaynor"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="60"/>
         <GlossaryStrongArray value="Marine"/>
         <GlossaryStrongArray value="Hydralisk"/>
@@ -1709,7 +1709,7 @@
         <GlossaryWeakArray value="Banshee"/>
         <GlossaryWeakArray value="Mutalisk"/>
         <GlossaryWeakArray value="Immortal"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <Fidget>
             <ChanceArray index="Anim" value="33"/>
             <ChanceArray index="Idle" value="33"/>
@@ -1787,7 +1787,7 @@
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
         <TacticalAI value="Starport"/>
         <TechAliasArray value="Alias_Starport"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <TechTreeProducedUnitArray value="VikingFighter"/>
         <TechTreeProducedUnitArray value="Medivac"/>
         <TechTreeProducedUnitArray value="Liberator"/>
@@ -1910,7 +1910,7 @@
         <SelectAlias value="RaynorCommanderSiegeTank"/>
         <SubgroupAlias value="RaynorCommanderSiegeTank"/>
         <TechAliasArray value="Alias_SiegeTankRaynor"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderHyperionYamatoGun@Missile" parent="MISSILE">
         <Race value="COOPRaynor"/>
@@ -1959,7 +1959,7 @@
         <SelectAlias value="VikingAssault"/>
         <SubgroupAlias value="VikingAssault"/>
         <TechAliasArray value="Alias_Viking"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="90"/>
         <GlossaryStrongArray value="Battlecruiser"/>
         <GlossaryStrongArray value="Corruptor"/>
@@ -1967,7 +1967,7 @@
         <GlossaryWeakArray value="Marine"/>
         <GlossaryWeakArray value="Mutalisk"/>
         <GlossaryWeakArray value="Stalker"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderViking@Alternate" parent="CommanderGround_Terr">
         <Name value="Unit/Name/VikingFighter"/>
@@ -2018,10 +2018,10 @@
         <LeaderAlias value="VikingFighter"/>
         <HotkeyAlias value="RaynorCommanderViking"/>
         <TechAliasArray value="Alias_Viking"/>
-        <GlossaryCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
         <GlossaryPriority value="91"/>
         <GlossaryAlias value="RaynorCommanderViking"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
         <Fidget>
             <ChanceArray index="Anim" value="15"/>
             <ChanceArray index="Idle" value="55"/>
@@ -2074,7 +2074,7 @@
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
         <TacticalAI value="SupplyDepot"/>
         <GlossaryPriority value="248"/>
-        <HotkeyCategory value="Unit/Category/RaynorCommanderUnits"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
     </CUnit>
     <CUnit id="RaynorCommanderSupplyDepot@Alternate" parent="CommanderStructure_Terr">
         <Name value="Unit/Name/RaynorCommanderSupplyDepot"/>

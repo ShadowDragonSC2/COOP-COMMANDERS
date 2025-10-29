@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CSound id="ZeratulCommanderDisruptorPhase@ImpactSound" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Disruptor_Discharge_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Disruptor_Discharge_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Disruptor_Discharge_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Disruptor_Discharge_06.wav" FacialGroup=""/>
+    </CSound>
     <CSound id="ZeratulCommanderMasterWarpBlade@AttackImpact" parent="Combat">
         <EditorCategories value="Race:Zeratul"/>
     </CSound>
@@ -59,6 +66,14 @@
         <AssetArray File="Assets\Sounds\Protoss\Zeratul\Zeratul_AC_Cleave_03.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Zeratul\Zeratul_AC_Cleave_04.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Zeratul\Zeratul_AC_Cleave_06.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderVoidTemplar@DeathVoice" parent="DeathVoice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death00.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death01.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death02.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death03.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death04.wav" FacialGroup=""/>
     </CSound>
     <CSound id="ZeratulCommanderVoidTemplar@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>

@@ -1,1 +1,2 @@
-﻿Button/Hotkey/ZeratulCommanderShadowCleave=Q
+﻿Button/Hotkey/ZeratulCommanderPredictiveBlink=Q
+Button/Hotkey/ZeratulCommanderShadowCleave=Q

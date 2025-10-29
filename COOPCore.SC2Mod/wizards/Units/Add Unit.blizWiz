@@ -40,14 +40,27 @@
     <condition id="IsHighlightSound" input="SoundHighlight" empty="0"/>
 
 
-    <!-- Inputs -->
+    <condition id="spaces" input="UnitID" value=" " match="contain" nocase="0"/>
+    <condition id="notspaces" logic="not">
+        <condition id="spaces"/>
+    </condition>
+    
+    <validate type="error">
+        <condition id="notspaces"/>
+        <text>В поле Unit ID не может быть пробелов</text>
+    </validate>
 
+    <macro id="RemoveSpaces" replaceSrc=" " replaceDst="">^UnitName^</macro>
+
+    <!-- Inputs -->
         <!-- Page 1 -->
             <input id="UnitName" type="CString">
                 <name>Unit Name</name>
+                
             </input>
             <input id="UnitID" type="CString">
                 <name>Unit ID</name>
+                <simpletext/>
             </input>
             <input id="race" type="CRaceLink">
                 <name>Race Unit</name>
@@ -237,6 +250,12 @@
     <macro id="UnitParentCommander">Commander^parent^</macro>
     <macro id="EntryName">^Commander^ Commander - ^UnitName^</macro>
 
+    <macro id="UnitBuildText">^BtnText^ ^UnitName^</macro>
+
+    <macro id="UnitType_Unit">Unit</macro>
+    <macro id="UnitType_Structure">Structure</macro>
+    <macro id="UnitType"></macro>
+
     <!-- Entries -->
     <entry catalog="DataCollection" type="CDataCollectionUnit">
         <id>^UnitIDCommander^</id>
@@ -417,19 +436,7 @@
     <entry catalog="Actor" type="CActorUnit">
         <id>^UnitIDCommander^</id>
         <condition id="selectStructure"/>
-        <parentid>CommanderBaseUnit</parentid>
-        <token id="unitName">
-            <value>^UnitIDCommander^</value>
-        </token>
-        <field id="Name">
-            <value>^UnitName^</value>
-        </field>
-    </entry>
-    <entry catalog="Actor" type="CActorUnit">
-        <id>^UnitIDCommander^</id>
-        <allowmodify/>
-        <condition id="selectStructure"/>
-        <parentid>CommanderUnitBase</parentid>
+        <parentid>CommanderGroundUnit</parentid>
         <token id="unitName">
             <value>^UnitIDCommander^</value>
         </token>
@@ -724,10 +731,10 @@
     <entry catalog="Button" type="CButton">
         <id>^UnitIDCommander^</id>
         <field id="Name">
-            <value>^BtnText^</value>
+            <value>^UnitBuildText^</value>
         </field>
         <field id="Icon">
-            <value>^BtnIcon^</value>
+            <value>^UnitIcon^</value>
         </field>
         <field id="Tooltip">
             <value>^BtnTooltip^</value>
@@ -736,6 +743,7 @@
 
     <entry catalog="Requirement" type="CRequirement">
         <id>^UnitIDCommander^@Requirement</id>
+        <name>Requirement</name>
     </entry>
 
     

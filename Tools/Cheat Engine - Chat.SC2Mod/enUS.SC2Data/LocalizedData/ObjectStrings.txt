@@ -38,6 +38,7 @@ Footprint/Name/CheatBuild4x4=CheatBuild 4x4
 Footprint/Name/CheatBuild5x5=CheatBuild 5x5
 Footprint/Name/CheatBuild5x5Resource=CheatBuild 5x5
 Footprint/Name/CheatTrain=Cheat Train
+Sound/Name/CConversation__001=CConversation__001
 Unit/EditorSuffix/CheatBuild=(Row 1)
 Unit/EditorSuffix/CheatBuild2=(Row 2)
 Unit/EditorSuffix/CheatTrain=(Row 1)
