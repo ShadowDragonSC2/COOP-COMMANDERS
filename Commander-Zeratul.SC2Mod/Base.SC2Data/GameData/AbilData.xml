@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilEffectTarget id="ZeratulCommanderBlinkVoidTemplar">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ZeratulCommanderBlinkVoidTemplar@Set"/>
+        <Flags index="BestUnit" value="0"/>
+        <Range value="500"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderBlinkVoidTemplar"/>
+    </CAbilEffectTarget>
+    <CAbilBuild id="ZeratulCommanderBuildProbe">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <InfoArray index="Build1" Unit="ZeratulCommanderAncientNexus">
+            <Button DefaultButtonFace="ZeratulCommanderAncientNexus"/>
+        </InfoArray>
+        <InfoArray index="Build2" Unit="ZeratulCommanderXelNagaPassageway">
+            <Button DefaultButtonFace="ZeratulCommanderXelNagaPassageway"/>
+        </InfoArray>
+        <InfoArray index="Build3" Unit="ZeratulCommanderCoreForge">
+            <Button DefaultButtonFace="ZeratulCommanderCoreForge"/>
+        </InfoArray>
+        <InfoArray index="Build4" Unit="ZeratulCommanderConstructsFacility">
+            <Button DefaultButtonFace="ZeratulCommanderConstructsFacility"/>
+        </InfoArray>
+        <InfoArray index="Build5" Unit="ZeratulCommanderConstructsBay">
+            <Button DefaultButtonFace="ZeratulCommanderConstructsBay"/>
+        </InfoArray>
+        <InfoArray index="Build6" Unit="ZeratulCommanderVoidShrine">
+            <Button DefaultButtonFace="ZeratulCommanderVoidShrine"/>
+        </InfoArray>
+        <FlagArray index="IgnoreUnitBuildTime" value="0"/>
+        <FlagArray index="PeonDisableCollision" value="1"/>
+        <FlagArray index="PeonMaintained" value="0"/>
+    </CAbilBuild>
     <CAbilEffectTarget id="ZeratulCommanderPickupArtifact">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
         <DebugTrace value="1"/>
@@ -34,7 +65,18 @@
     <CAbilEffectTarget id="ZeratulCommanderPredictiveBlink">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
         <Range value="500"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderPredictiveBlink"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderPredictiveBlink">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <AbilSetId value="Blnk"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Arc value="360"/>
+        <Cost>
+            <Cooldown TimeUse="11.28"/>
+        </Cost>
+        <Effect index="0" value="ZeratulCommanderPredictiveBlink@Teleport"/>
+        <AINotifyEffect value="ZeratulCommanderPredictiveBlink@Teleport"/>
     </CAbilEffectTarget>
     <CAbilEffectInstant id="ZeratulCommanderShadowCleave">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>

@@ -3,4 +3,5 @@
 <Actor id="SYSTEM_ActorConfig"/>
 <Race id="COOPZeratul"/>
 <Unit id="Pylon"/>
+<Unit id="ZeratulCommanderAncientNexus"/>
 </Preload>

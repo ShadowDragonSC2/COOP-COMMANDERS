@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CSound id="ZeratulCommanderBlinkVoidTemplar@ImpactSound" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_Blink0.wav" FacialGroup=""/>
+    </CSound>
     <CSound id="ZeratulCommanderDisruptorPhase@ImpactSound" parent="Spell">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="Assets\Sounds\Disruptor_Discharge_01.wav" FacialGroup=""/>
@@ -58,6 +62,10 @@
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch0.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch1.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch2.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderPredictiveBlink@ImpactSound" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_Blink0.wav" FacialGroup=""/>
     </CSound>
     <CSound id="ZeratulCommanderShadowCleave@LaunchSound" parent="Spell">
         <EditorCategories value="Race:Zeratul"/>

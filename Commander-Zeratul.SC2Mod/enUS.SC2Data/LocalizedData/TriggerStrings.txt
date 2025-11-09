@@ -11,6 +11,7 @@ Structure/Name/lib_3A96CF55_EDFCB123=Zeratul Players
 Trigger/Name/lib_3A96CF55_05B104F3=Commander - Enable
 Trigger/Name/lib_3A96CF55_3343A385=Playing Attack Sounds Using Attack Towards
 Trigger/Name/lib_3A96CF55_3B38B554=Artifact Spawn (Init)
+Trigger/Name/lib_3A96CF55_4864156D=test
 Trigger/Name/lib_3A96CF55_ADA63520=Change Race
 Trigger/Name/lib_3A96CF55_D02D4832=Commander - Disable
 Variable/Name/lib_3A96CF55_02B6602D=Topbar_caster

@@ -4,6 +4,7 @@
         <Footprint value="Footprint5x5Contour"/>
         <PlacementFootprint value="Footprint5x5DropOff"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
+        <BuildTime value="35"/>
     </CUnit>
     <CUnit id="ZeratulCommanderArtifact" parent="ITEM">
         <AbilArray Link="ZeratulCommanderPickupArtifact"/>
@@ -30,6 +31,10 @@
         <ShieldsStart value="550"/>
         <ShieldsMax value="550"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderVengeanceoftheVoid">
+        <Race value="COOPZeratul"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop"/>
     </CUnit>
     <CUnit id="ZeratulCommanderVoidShrine" parent="CommanderStructure_Prot" race="COOPZeratul">
         <LifeStart value="550"/>
@@ -58,6 +63,10 @@
         <CostResource index="Vespene" value="50"/>
         <WeaponArray Link="ZeratulCommanderWarpBlade"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <AbilArray Link="ZeratulCommanderBlinkVoidTemplar"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ZeratulCommanderBlinkVoidTemplar" Type="AbilCmd" AbilCmd="ZeratulCommanderBlinkVoidTemplar,Execute" Row="2" Column="0"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
@@ -167,8 +176,8 @@
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
+        <LifeStart value="20"/>
+        <LifeMax value="20"/>
         <ShieldsStart value="100"/>
         <ShieldsMax value="100"/>
         <Speed value="2.9492"/>
@@ -184,6 +193,21 @@
         <InnerRadius value="0.5"/>
         <MinimapRadius value="0.65"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <AbilArray Link="ZeratulCommanderBuildProbe"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ProtossBuild" Type="Submenu" SubmenuCardId="0002" Row="2" Column="0"/>
+            <LayoutButtons Face="ProtossBuildAdvanced" Type="Submenu" SubmenuCardId="0003" Row="2" Column="1"/>
+        </CardLayouts>
+        <CardLayouts CardId="0002">
+            <LayoutButtons Face="ZeratulCommanderAncientNexus" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build1" Row="0" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderXelNagaPassageway" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build2" Row="1" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderCoreForge" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build3" Row="2" Column="0"/>
+        </CardLayouts>
+        <CardLayouts CardId="0003">
+            <LayoutButtons Face="ZeratulCommanderConstructsBay" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build5" Row="0" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderConstructsFacility" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build4" Row="0" Column="1"/>
+            <LayoutButtons Face="ZeratulCommanderVoidShrine" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build6" Row="1" Column="0"/>
+        </CardLayouts>
     </CUnit>
     <CUnit id="ZeratulCommanderZeratul" parent="CommanderGround_Prot" race="COOPZeratul">
         <FlagArray index="Cloaked" value="1"/>

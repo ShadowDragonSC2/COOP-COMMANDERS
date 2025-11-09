@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectCreatePersistent id="ZeratulCommanderBlinkVoidTemplar@CP">
+        <EditorCategories value="Race:Zeratul"/>
+        <WhichLocation Effect="ZeratulCommanderBlinkVoidTemplar@Set" Value="SourcePoint"/>
+        <OffsetVectorStartLocation Effect="ZeratulCommanderBlinkVoidTemplar@Set" Value="SourcePoint"/>
+        <OffsetVectorEndLocation Effect="ZeratulCommanderBlinkVoidTemplar@Set" Value="CasterUnit"/>
+        <InitialEffect value="ZeratulCommanderBlinkVoidTemplar@Search"/>
+        <InitialOffset value="0,-4,0"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="ZeratulCommanderBlinkVoidTemplar@Damage">
+        <ValidatorArray value="CC_TargetBehindCaster"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="100"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="ZeratulCommanderBlinkVoidTemplar@Facing">
+        <EditorCategories value="Race:Zeratul"/>
+        <ImpactUnit Value="Caster"/>
+        <FacingLocation Effect="ZeratulCommanderBlinkVoidTemplar@Set" Value="TargetPoint"/>
+        <FacingType value="LookAt"/>
+    </CEffectModifyUnit>
+    <CEffectEnumArea id="ZeratulCommanderBlinkVoidTemplar@Search">
+        <EditorCategories value="Race:Zeratul"/>
+        <DebugTrace value="1"/>
+        <SearchFilters value="Ground,Visible;Self,Player,Ally,Neutral,Structure,Item,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray RectangleWidth="1" RectangleHeight="12" Effect="ZeratulCommanderBlinkVoidTemplar@Damage"/>
+    </CEffectEnumArea>
+    <CEffectSet id="ZeratulCommanderBlinkVoidTemplar@Set">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderBlinkVoidTemplar@Facing"/>
+        <EffectArray value="ZeratulCommanderBlinkVoidTemplar@Teleport"/>
+        <EffectArray value="ZeratulCommanderBlinkVoidTemplar@CP"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectTeleport id="ZeratulCommanderBlinkVoidTemplar@Teleport">
+        <ValidatorArray value="CasterNotFungalGrowthed"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <PlacementAround Value="CasterUnit"/>
+        <PlacementRange value="11"/>
+        <Range value="11"/>
+        <TargetLocation Value="TargetPoint"/>
+        <TeleportFlags index="TestCliff" value="1"/>
+    </CEffectTeleport>
+    <CEffectCreateUnit id="ZeratulCommanderVengeanceoftheVoid@CU">
+        <EditorCategories value="Race:Zeratul"/>
+    </CEffectCreateUnit>
     <CEffectIssueOrder id="ZeratulCommanderDisruptorPhase@Issue">
         <EditorCategories value="Race:Zeratul"/>
         <Abil value="move"/>
@@ -58,6 +105,7 @@
         <PeriodicEffectArray value="ZeratulCommanderNullBeam@Damage"/>
         <PeriodicPeriodArray value="1"/>
         <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
     </CEffectCreatePersistent>
     <CEffectDamage id="ZeratulCommanderNullBeam@Damage">
         <EditorCategories value="Race:Zeratul"/>
@@ -76,13 +124,16 @@
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="20"/>
     </CEffectDamage>
-    <CEffectTeleport id="ZeratulCommanderPredictiveBlink">
+    <CEffectTeleport id="ZeratulCommanderPredictiveBlink@Teleport">
         <EditorCategories value="Race:Zeratul"/>
         <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
         <MinDistance value="1.5"/>
-        <Range value="8"/>
+        <PlacementAround Value="CasterUnit"/>
+        <PlacementRange value="11"/>
+        <Range value="11"/>
         <TargetLocation Value="TargetPoint"/>
-        <TeleportFlags index="TestFog" value="0"/>
+        <TeleportFlags index="TestCliff" value="1"/>
     </CEffectTeleport>
     <CEffectDamage id="ZeratulCommanderShadowCleave@Damage">
         <EditorCategories value="Race:Zeratul"/>

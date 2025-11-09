@@ -1,2 +1,3 @@
-﻿Button/Hotkey/ZeratulCommanderPredictiveBlink=Q
+﻿Button/Hotkey/ZeratulCommanderBlinkVoidTemplar=Q
+Button/Hotkey/ZeratulCommanderPredictiveBlink=Q
 Button/Hotkey/ZeratulCommanderShadowCleave=Q

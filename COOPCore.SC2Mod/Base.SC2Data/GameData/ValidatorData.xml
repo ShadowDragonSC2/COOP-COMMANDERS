@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Catalog>
+    <CValidatorLocationArc id="CC_TargetBehindCaster">
+        <WhichLocation Value="CasterUnit"/>
+        <Arc value="180"/>
+        <Value Value="TargetUnit"/>
+        <Find value="1"/>
+    </CValidatorLocationArc>
+</Catalog>

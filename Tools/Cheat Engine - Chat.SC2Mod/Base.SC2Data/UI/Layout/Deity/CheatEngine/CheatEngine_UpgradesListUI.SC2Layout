@@ -69,6 +69,19 @@
                 <Anchor side="Bottom" relative="$parent/Footer" pos="Min" offset="0"/>
                 <Width val="75"/>
                 <Frame type="Image" name="BG" template="CheatEngine_GenericTemplate/BGTemplate"/>
+
+                <Frame type="Button" name="Category0" template="CheatEngine_TemplatesButtons/EditorCategoryButtonMediumTemplate">
+                    <Anchor side="Top" relative="$parent" pos="Min" offset="10"/>
+                </Frame>
+                <Frame type="Button" name="Category1" template="CheatEngine_TemplatesButtons/EditorCategoryButtonMediumTemplate">
+                    <Anchor side="Top" relative="$sibling-1" pos="Max" offset="10"/>
+                </Frame>
+                <Frame type="Button" name="Category2" template="CheatEngine_TemplatesButtons/EditorCategoryButtonMediumTemplate">
+                    <Anchor side="Top" relative="$sibling-1" pos="Max" offset="10"/>
+                </Frame>
+                <Frame type="Button" name="Category3" template="CheatEngine_TemplatesButtons/EditorCategoryButtonMediumTemplate">
+                    <Anchor side="Top" relative="$sibling-1" pos="Max" offset="10"/>
+                </Frame>
             </Frame>
             
             <Frame type="Frame" name="ContainerAbils">

@@ -76,6 +76,26 @@ void lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: test
+//--------------------------------------------------------------------------------------------------
+bool lib3A96CF55_gt_test_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZeratulCommanderAncientNexus", c_unitCreateConstruct, 1, CameraGetTarget(1));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib3A96CF55_gt_test_Init () {
+    lib3A96CF55_gt_test = TriggerCreate("lib3A96CF55_gt_test_Func");
+    TriggerAddEventKeyPressed(lib3A96CF55_gt_test, c_playerAny, c_keyN, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Commander - Enable
 //--------------------------------------------------------------------------------------------------
 bool lib3A96CF55_gt_CommanderEnable_Func (bool testConds, bool runActions) {
@@ -162,6 +182,7 @@ void lib3A96CF55_gt_ChangeRace_Init () {
 
 void lib3A96CF55_InitTriggers () {
     lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init();
+    lib3A96CF55_gt_test_Init();
     lib3A96CF55_gt_CommanderEnable_Init();
     lib3A96CF55_gt_CommanderDisable_Init();
     lib3A96CF55_gt_ChangeRace_Init();

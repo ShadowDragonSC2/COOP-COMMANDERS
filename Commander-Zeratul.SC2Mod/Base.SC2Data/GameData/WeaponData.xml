@@ -10,6 +10,8 @@
         <EditorCategories value="Race:Zeratul"/>
         <Range value="6"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
+        <LegacyOptions index="KeepChanneling" value="0"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ZeratulCommanderParticularBeam" parent="CommanderWeapon_Missile">
         <EditorCategories value="Race:Zeratul"/>

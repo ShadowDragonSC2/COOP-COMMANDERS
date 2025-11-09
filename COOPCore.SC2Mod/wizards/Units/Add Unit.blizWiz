@@ -2,7 +2,7 @@
 <wizard id="AddUnit">
     <name>Add Unit</name>
     <category>COOP Commanders/Unit</category>
-    <objecttypes create="Unit"/>
+    <objecttypes create="Unit" view="Unit"/>
 
     <!-- condtitions -->
     <condition id="selectGround" input="parent" value="Ground"/>
@@ -134,6 +134,14 @@
             <input id="Armor" type="real32">
                 <name>Unit Armor</name>
                 <layout column="2"/>
+            </input>
+            <input id="UnitRadius" type="real32">
+                <name>Unit Radius</name>
+                <tooltip>Определяет все основные параметры радиусов в самой единице</tooltip>
+            </input>
+            <input id="VisualRadius" type="real32">
+                <name>Visual Radius</name>
+                <tooltip>Определяет все основные параметры радиусов для модели единицы</tooltip>
             </input>
 
         <!-- Page 2 -->
@@ -353,12 +361,12 @@
     <entry catalog="Unit" type="CUnit">
         <id>^UnitIDCommander^</id>
         <parentid>^UnitParentCommander^_^raceCommander^</parentid>
+        <token id="race">
+            <value>^race^</value>
+        </token>
 
         <field id="Name">
             <value>^UnitName^</value>
-        </field>
-        <field id="Race">
-            <value>^race^</value>
         </field>
         <field id="LifeStart">
             <condition id="life_0"/>
@@ -399,6 +407,15 @@
         <field id="LifeArmor">
             <condition id="armor_0"/>
             <value>^Armor^</value>
+        </field>
+        <field id="Radius">
+            <value>^UnitRadius^</value>
+        </field>
+        <field id="MinimapRadius">
+            <value>^UnitRadius^</value>
+        </field>
+        <field id="SeparationRadius">
+            <value>^UnitRadius^</value>
         </field>
 
         <field id="EditorCategories">

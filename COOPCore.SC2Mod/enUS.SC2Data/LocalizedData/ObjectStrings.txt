@@ -28,3 +28,4 @@ Unit/Name/COOP/CommanderStructure_Terr=Commander Structure - Terran
 Unit/Name/COOP/CommanderStructure_Zerg=Commander Structure - Zerg
 Unit/Name/COOP/CommanderUnitBase=Commander Unit - Base
 User/Name/COMMANDERMastery=COMMANDER - Mastery
+Validator/Name/CC_TargetBehindCaster=Target Behind Caster

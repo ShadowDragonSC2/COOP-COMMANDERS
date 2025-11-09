@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CActorEventMacroRunnable id="BuildMacro_COOPZeratul">
+        <EditorCategories value=""/>
+    </CActorEventMacroRunnable>
+    <CActorModel id="Build_COOPZeratul" parent="ProtossBuildingBuild">
+        <EditorCategories value=""/>
+    </CActorModel>
+    <CActorSiteOpForward id="SOpForwardScopeLaunch">
+        <HostForward Subject="::scope.Launch"/>
+    </CActorSiteOpForward>
+    <CActorSiteOpForward id="SOpForwardZeratulDarkTemplar">
+        <HostForward Subject="ZeratulCommanderVoidTemplar"/>
+    </CActorSiteOpForward>
     <CActorUnit id="ZeratulCommanderAncientNexus" parent="CommanderUnitBase" unitName="ZeratulCommanderAncientNexus">
         <EditorCategories value=""/>
-        <PortraitModel value="ZeratulCommander@PortraitStructure"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
+        <On Terms="UnitConstruction.ZeratulCommanderAncientNexus.Start" Send="Create Build_COOPZeratul"/>
+        <EventDataSound Name="BuildingWarpIn" Actor="UnitSound" Sound="Protoss_BuildingWarpIn"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderArtifact" parent="GenericUnitStandard" unitName="ZeratulCommanderArtifact">
         <EditorCategories value=""/>
         <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulartifact1.dds"/>
     </CActorUnit>
+    <CActorModel id="ZeratulCommanderBlinkVoidTemplar@ImpactModel" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Stop" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin SOpForwardScopeLaunch"/>
+    </CActorModel>
+    <CActorSound id="ZeratulCommanderBlinkVoidTemplar@ImpactSound" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Stop" Send="Create"/>
+    </CActorSound>
+    <CActorModel id="ZeratulCommanderBlinkVoidTemplar@LaunchModel" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Start" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary SOpForwardZeratulDarkTemplar"/>
+    </CActorModel>
+    <CActorRange id="ZeratulCommanderBlinkVoidTemplar@Range" parent="RangeAbil" abil="ZeratulCommanderBlinkVoidTemplar">
+        <EditorCategories value=""/>
+        <Abil Link=""/>
+        <Range value="11.000000"/>
+    </CActorRange>
     <CActorUnit id="ZeratulCommanderConstructsBay" parent="CommanderGroundUnit" unitName="ZeratulCommanderConstructsBay">
         <GroupIcon>
             <Image value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
@@ -96,20 +129,42 @@
         <EditorCategories value=""/>
         <LaunchSiteOps Ops="SOpAttachWeapon"/>
         <Missile value="ZeratulCommanderParticularBeam@Missile"/>
+        <On Terms="Effect.ZeratulCommanderParticularBeam@Damage.Start" Send="RefSet ::Host ::Sender"/>
     </CActorAction>
     <CActorMissile id="ZeratulCommanderParticularBeam@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderParticularBeam@Missile">
         <EditorCategories value=""/>
+        <On Terms="ActorCreation" Send="SetLocalTintColor 221,255,26"/>
     </CActorMissile>
     <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage">
         <EditorCategories value=""/>
     </CActorAction>
-    <CActorModel id="ZeratulCommanderPredictiveBlink@ModelIn" parent="ModelAnimationStyleOneShot">
+    <CActorAction id="ZeratulCommanderBlinkVoidTemplar@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderBlinkVoidTemplar@Damage">
         <EditorCategories value=""/>
-        <On Terms="Effect.ZeratulCommanderPredictiveBlink.Start" Send="Create"/>
-        <HostSiteOps Ops="SOpAttachCenterStationary" HoldPosition="1"/>
+    </CActorAction>
+    <CActorModel id="ZeratulCommanderPredictiveBlink@ImpactModel" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
-    <CActorModel id="ZeratulCommanderPredictiveBlink@ModelOut" parent="ModelAnimationStyleOneShot">
+    <CActorSound id="ZeratulCommanderPredictiveBlink@ImpactSound" parent="SoundOneShot">
         <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Stop" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+    </CActorSound>
+    <CActorModel id="ZeratulCommanderPredictiveBlink@LaunchModel" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Start; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
     </CActorModel>
     <CActorSimple id="ZeratulCommanderShadowCleave@Animation">
         <EditorCategories value=""/>
@@ -118,13 +173,14 @@
     </CActorSimple>
     <CActorModel id="ZeratulCommanderShadowCleave@LaunchModel" parent="ModelAnimationStyleOneShot">
         <EditorCategories value=""/>
-        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
         <HostSiteOps Ops="SOpAttachCenter"/>
     </CActorModel>
     <CActorSound id="ZeratulCommanderShadowCleave@LaunchSound" parent="SoundOneShot">
         <EditorCategories value=""/>
-        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
     </CActorSound>
+    <CActorUnit id="ZeratulCommanderVengeanceoftheVoid" parent="GenericUnitStandard" unitName="ZeratulCommanderVengeanceoftheVoid">
+        <EditorCategories value=""/>
+    </CActorUnit>
     <CActorUnit id="ZeratulCommanderVoidShrine" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidShrine">
         <GroupIcon>
             <Image value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
@@ -193,7 +249,8 @@
         <EditorCategories value=""/>
         <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulstalker.dds"/>
-        <WalkAnimMoveSpeed value="3"/>
+        <WalkAnimMoveSpeed value="3.1328"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaShieldguard">
         <EditorCategories value=""/>
@@ -225,5 +282,6 @@
             <Image value="Assets\Textures\wireframe-protoss-zeratul-shield02.dds"/>
             <Image value="Assets\Textures\wireframe-protoss-zeratul-shield03.dds"/>
         </WireframeShield>
+        <GlossaryAnim value="stand"/>
     </CActorUnit>
 </Catalog>

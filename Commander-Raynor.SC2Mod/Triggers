@@ -422,25 +422,6 @@
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000120"/>
         </Element>
         <Element Type="FunctionCall" Id="35807538">
-            <FunctionDef Type="FunctionDef" Library="BEDD5153" Id="FCDD4537"/>
-            <Parameter Type="Param" Library="DD453873" Id="29DD49DB"/>
-            <Parameter Type="Param" Library="DD453873" Id="3E4ADFD3"/>
-            <Parameter Type="Param" Library="DD453873" Id="BE3B14A5"/>
-        </Element>
-        <Element Type="Param" Id="29DD49DB">
-            <ParameterDef Type="ParamDef" Library="BEDD5153" Id="C392A831"/>
-            <Value>1</Value>
-            <ValueType Type="int"/>
-        </Element>
-        <Element Type="Param" Id="3E4ADFD3">
-            <ParameterDef Type="ParamDef" Library="BEDD5153" Id="3DC6E5FB"/>
-            <Value>COOPRaynor</Value>
-            <ValueType Type="gamelink"/>
-            <ValueGameType Type="Race"/>
-        </Element>
-        <Element Type="Param" Id="BE3B14A5">
-            <ParameterDef Type="ParamDef" Library="BEDD5153" Id="22F8B85C"/>
-            <Preset Type="PresetValue" Library="BEDD5153" Id="5F3F0BD5"/>
         </Element>
         <Element Type="FunctionCall" Id="9F986CFE">
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000116"/>

@@ -1,22 +1,26 @@
-﻿Abil/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
+﻿Abil/Name/ZeratulCommanderBlinkVoidTemplar=Blink
+Abil/Name/ZeratulCommanderBuildProbe=Zeratul Commander - Build Probe
+Abil/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Abil/Name/ZeratulCommanderMorphVoidArray=Flight
 Abil/Name/ZeratulCommanderMorphVoidArray@Phased=Phased
 Abil/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Abil/Name/ZeratulCommanderPredictiveBlink=Predictive Blink
 Abil/Name/ZeratulCommanderShadowCleave=Shadow Cleave
-Button/Name/ZeratulCommanderConstructsBay=Warp In Constructs Bay
-Button/Name/ZeratulCommanderConstructsFacility=Warp In Constructs Facility
-Button/Name/ZeratulCommanderCoreForge=Build Core Forge
+Button/Name/ZeratulCommanderAncientNexus=Build <d stringref="Unit,ZeratulCommanderAncientNexus,Name"/>
+Button/Name/ZeratulCommanderBlinkVoidTemplar=<d stringref="Abil,ZeratulCommanderBlinkVoidTemplar,Name"/>
+Button/Name/ZeratulCommanderConstructsBay=Build <d stringref="Unit,ZeratulCommanderConstructsBay,Name"/>
+Button/Name/ZeratulCommanderConstructsFacility=Build <d stringref="Unit,ZeratulCommanderConstructsFacility,Name"/>
+Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderCoreForge,Name"/>
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Button/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
-Button/Name/ZeratulCommanderPredictiveBlink=Predictive Blink
+Button/Name/ZeratulCommanderPredictiveBlink=<d stringref="Abil,ZeratulCommanderPredictiveBlink,Name"/>
 Button/Name/ZeratulCommanderShadowCleave=Shadow Cleave
-Button/Name/ZeratulCommanderVoidShrine=Warp In Void Shrine
-Button/Name/ZeratulCommanderXelNagaPassageway=Build Passageway
-Button/Name/ZeratulCommanderXelNagaVoidArray=Вызвать "Вестника пустоты"
-Button/Name/ZeratulCommanderZeratul=Train Zeratul
+Button/Name/ZeratulCommanderVoidShrine=Build <d stringref="Unit,ZeratulCommanderVoidShrine,Name"/>
+Button/Name/ZeratulCommanderXelNagaPassageway=Build <d stringref="Unit,ZeratulCommanderXelNagaPassageway,Name"/>
+Button/Name/ZeratulCommanderXelNagaVoidArray=Warp In <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/>
+Button/Name/ZeratulCommanderZeratul=Warp In <d stringref="Unit,ZeratulCommanderZeratul,Name"/>
 Button/Tooltip/ZeratulCommanderConstructsBay=
-Button/Tooltip/ZeratulCommanderConstructsFacility=Build xel'naga robotic constructs<n/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaEnforcers,Name"/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaVoidArrays,Name"/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaWatchers,Name"/>
+Button/Tooltip/ZeratulCommanderConstructsFacility=Build xel'naga robotic constructs:<n/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaEnforcer,Name"/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaWatcher,Name"/>
 Button/Tooltip/ZeratulCommanderCoreForge=
 Button/Tooltip/ZeratulCommanderShadowCleave=Deals <d ref="effect,ZeratulCommanderShadowCleave@Damage,Amount"/> damage to nearby enemies. Hits both ground and air.
 Button/Tooltip/ZeratulCommanderVoidShrine=Contains Artifact upgrades for <d stringref="Unit,ZeratulCommanderVoidTemplar,Name"/>
@@ -26,6 +30,8 @@ Button/Tooltip/ZeratulCommanderXelNagaVoidArray@Alternate=
 Button/Tooltip/ZeratulCommanderZeratul=
 DataCollection/Name/ZeratulCommanderAncientNexus=Zeratul Commander - Ancient Nexus
 DataCollection/Name/ZeratulCommanderArtifact=Artifact
+DataCollection/Name/ZeratulCommanderBlinkVoidTemplar=Zeratul Commander - Blink Void Templar
+DataCollection/Name/ZeratulCommanderBuildProbe=Zeratul Commander - Build Probe
 DataCollection/Name/ZeratulCommanderConstructsBay=Zeratul Commander - Constructs Bay
 DataCollection/Name/ZeratulCommanderConstructsFacility=Zeratul Commander - Constructs Facility
 DataCollection/Name/ZeratulCommanderCoreForge=Zeratul Commander - Core Forge
@@ -37,6 +43,7 @@ DataCollection/Name/ZeratulCommanderParticularBeam=Zeratul Commander - Particula
 DataCollection/Name/ZeratulCommanderPhaseDisruptors=Zeratul Commander - Phase Disruptors
 DataCollection/Name/ZeratulCommanderPredictiveBlink=Zeratul Commander - Predictive Blink
 DataCollection/Name/ZeratulCommanderShadowCleave=Zeratul Commander - Shadow Cleave
+DataCollection/Name/ZeratulCommanderVengeanceoftheVoid=ZeratulCommander - Vengeance of the Void
 DataCollection/Name/ZeratulCommanderVoidShrine=Zeratul Commander - Void Shrine
 DataCollection/Name/ZeratulCommanderVoidTemplar=Zeratul Commander - Void Templar
 DataCollection/Name/ZeratulCommanderWarpBlade=Zeratul Commander - Warp Blade
@@ -51,6 +58,12 @@ DataCollection/Name/ZeratulCommanderZeratul=Zeratul Commander - Zeratul
 DataCollectionPattern/CommanderData/BuildingLarge/Model=Building Model (Large)
 DataCollectionPattern/CommanderData/BuildingPortrait/Model=Building Portrait
 DataCollectionPattern/CommanderData/BuildingSmall/Model=Building Model (Small)
+Effect/Name/ZeratulCommanderBlinkVoidTemplar@CP=CP
+Effect/Name/ZeratulCommanderBlinkVoidTemplar@Damage=Damage
+Effect/Name/ZeratulCommanderBlinkVoidTemplar@Facing=Facing
+Effect/Name/ZeratulCommanderBlinkVoidTemplar@Search=Search
+Effect/Name/ZeratulCommanderBlinkVoidTemplar@Set=Set
+Effect/Name/ZeratulCommanderBlinkVoidTemplar@Teleport=Teleport
 Effect/Name/ZeratulCommanderDisruptorPhase=Set @ Initial
 Effect/Name/ZeratulCommanderDisruptorPhase@CU=CU
 Effect/Name/ZeratulCommanderDisruptorPhase@Damage=Damage
@@ -65,9 +78,10 @@ Effect/Name/ZeratulCommanderNullBeam@Damage=Damage
 Effect/Name/ZeratulCommanderParticularBeam@Damage=Damage
 Effect/Name/ZeratulCommanderParticularBeam@LM=Launch Missile
 Effect/Name/ZeratulCommanderPhaseDisruptors@Damage=Damage
-Effect/Name/ZeratulCommanderPredictiveBlink=Teleport
+Effect/Name/ZeratulCommanderPredictiveBlink@Teleport=Teleport
 Effect/Name/ZeratulCommanderShadowCleave@Damage=Damage
 Effect/Name/ZeratulCommanderShadowCleave@Search=Search
+Effect/Name/ZeratulCommanderVengeanceoftheVoid@CU=CU
 Effect/Name/ZeratulCommanderWarpBlade@Damage=Damage
 Glossary/Category/COOPZeratul=Войска Зератула
 Hotkey/Category/COOPZeratul=Командир Зератул
@@ -96,7 +110,9 @@ Unit/Name/COOP/ZeratulCommanderZeratul=Zeratul
 Unit/Name/ZeratulCommanderArtifact=Artifact
 Unit/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Unit/Name/ZeratulCommanderParticularBeam@Missile=Missile
+Unit/Name/ZeratulCommanderVengeanceoftheVoid=Vengeance of the Void
 Unit/ShieldArmorName/COOPZeratulPlasmaShields=Void shields
+Upgrade/Name/ZeratulCommanderVengeanceoftheVoid=Vengeance of the void
 Weapon/Name/ZeratulCommanderMasterWarpBlade=Master Warp Blade
 Weapon/Name/ZeratulCommanderNullBeam=Null Beam
 Weapon/Name/ZeratulCommanderParticularBeam=Particular Beam

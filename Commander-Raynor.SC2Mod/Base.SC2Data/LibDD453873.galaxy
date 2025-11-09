@@ -95,7 +95,6 @@ bool libDD453873_gt_InitializeRaynorCommander_Func (bool testConds, bool runActi
 void libDD453873_gt_InitializeRaynorCommander_Init () {
     libDD453873_gt_InitializeRaynorCommander = TriggerCreate("libDD453873_gt_InitializeRaynorCommander_Func");
     TriggerAddEventMapInit(libDD453873_gt_InitializeRaynorCommander);
-    libBEDD5153_gf_PlayerCommanderChanges(libDD453873_gt_InitializeRaynorCommander, 1, "COOPRaynor", "On");
 }
 
 //--------------------------------------------------------------------------------------------------

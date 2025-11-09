@@ -16,6 +16,7 @@
         <GlossaryAnim value="Spell"/>
         <WalkAnimMoveSpeed value="2.25"/>
         <Macros value="TerrainSquibAnimations"/>
+        <!-- Sound Arrays -->
         <SoundArray index="Birth" value="##unitName##@Birth"/>
         <SoundArray index="Ready" value="##unitName##@Ready"/>
         <SoundArray index="Help" value="##unitName##@Help"/>
@@ -143,25 +144,28 @@
     <CDataCollection default="1" id="COOPCommanders">
         <EditorCategories value="DataGroup:Mechanic,Race:Neutral,ObjectType:Other"/>
     </CDataCollection>
-    <CDataCollectionAbil default="1" id="CommanderAbilityBuild">
+    <CDataCollectionUnit default="1" id="CommanderAbilityBuild">
         <EditorIconSource value="Abil"/>
         <Pattern value="CommanderAbilities_Build"/>
         <EditorCategories value="DataGroup:Template,Race:Neutral,DataFamily:Coop"/>
-    </CDataCollectionAbil>
-    <CDataCollectionAbil default="1" id="CommanderAbilityAB">
+    </CDataCollectionUnit>
+    <CDataCollectionUnit default="1" id="CommanderAbilityAB">
         <EditorIconSource value="Abil"/>
         <Pattern value="CommanderAbilities_ABEffectInstant"/>
         <EditorCategories value="DataGroup:Template,Race:Neutral,DataFamily:Coop"/>
-    </CDataCollectionAbil>
-    <CDataCollectionAbil default="1" id="CommanderAbilityBeam">
+    </CDataCollectionUnit>
+    <CDataCollectionUnit default="1" id="CommanderAbilityBeam">
         <EditorCategories value="DataGroup:Template,Race:Neutral,DataFamily:Coop"/>
         <EditorIconSource value="Abil"/>
         <Pattern value="CommanderAbilities_Beam"/>
-    </CDataCollectionAbil>
-    <CDataCollectionAbil default="1" id="CommanderAbilityMorph">
+    </CDataCollectionUnit>
+    <CDataCollectionUnit default="1" id="CommanderAbilityMorph">
         <EditorIconSource value="Abil"/>
         <Pattern value="CommanderAbilities_Morph"/>
-    </CDataCollectionAbil>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit default="1" id="CommanderAbilityTeleport">
+        <Pattern value="CommanderAbilities_Teleport"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit default="1" id="CommanderWeaponInstant">
         <EditorIconSource value="Weapon"/>
         <Pattern value="CommanderWeapon_Instant"/>
@@ -190,46 +194,6 @@
         <Pattern value="CommanderUpgrade_LevelStats"/>
     </CDataCollectionUpgrade>
     <!-- DataCollection Pattern -->
-    <CDataCollectionPattern default="1" id="CommanderWeapon">
-        <Fields Reference="Model,^ParamId^@AttackLaunch,Model" NameOverride="DataCollectionPattern/CommanderWeapon/LaunchModel"/>
-        <Fields Reference="Sound,^ParamId^@AttackLaunch,AssetArray" NameOverride="DataCollectionPattern/CommanderWeapon/LaunchSound"/>
-        <Fields Reference="Model,^ParamId^@AttackImpact,Model" NameOverride="DataCollectionPattern/CommanderWeapon/ImpactModel"/>
-        <Fields Reference="Sound,^ParamId^@AttackImpact,AssetArray" NameOverride="DataCollectionPattern/CommanderWeapon/ImpactSound"/>
-        <Fields Reference="Effect,^ParamId^@Damage,Amount" NameOverride="DataCollectionPattern/CommanderWeapon/DamageAmount"/>
-        <Fields Reference="Effect,^ParamId^@Damage,AreaArray" NameOverride="DataCollectionPattern/CommanderWeapon/DamageArea"/>
-        <Fields Reference="Behavior,^ParamId^,Modification.AttackSpeedMultiplier" NameOverride="DataCollectionPattern/CommanderWeapon/DebuffAttackSpeed"/>
-        <Fields Reference="Behavior,^ParamId^,Modification.MoveSpeedMultiplier" NameOverride="DataCollectionPattern/CommanderWeapon/DebuffSpeed"/>
-        <Fields Reference="DataCollection,^ParamId^,UpgradeInfoWeapon[0].DamagePerDice" NameOverride="DataCollectionPattern/CommanderWeapon/DamagePerDice_00"/>
-        <Fields Reference="DataCollection,^ParamId^,UpgradeInfoWeapon[1].DamagePerDice" NameOverride="DataCollectionPattern/CommanderWeapon/DamagePerDice_01"/>
-        <Fields Reference="DataCollection,^ParamId^,UpgradeInfoWeapon[2].DamagePerDice" NameOverride="DataCollectionPattern/CommanderWeapon/DamagePerDice_02"/>
-        <Fields Reference="DataCollection,^ParamId^,UpgradeInfoWeapon[3].DamagePerDice" NameOverride="DataCollectionPattern/CommanderWeapon/DamagePerDice_03"/>
-        <Fields Reference="DataCollection,^ParamId^,TechInfoUpgradeUsed" NameOverride="DataCollectionPattern/CommanderWeapon/TechInfoUpgradeUsed"/>
-        <Fields Reference="Weapon,^ParamId^,Period"/>
-        <Fields Reference="Weapon,^ParamId^,Range"/>
-        <Fields Reference="Weapon,^ParamId^,TargetFilters"/>
-        <Fields Reference="Weapon,^ParamId^,DisplayName"/>
-        <Fields Reference="Weapon,^ParamId^,Icon"/>
-        <Fields Reference="Weapon,^ParamId^,DisplayEffect"/>
-    </CDataCollectionPattern>
-    <CDataCollectionPattern id="CommanderAbilities_ABEffectInstant">
-        <Fields Reference="Sound,^ParamId^@Cast,AssetArray" NameOverride="DataCollectionPattern/CommandersAbilityAB/SoundCast"/>
-        <Fields Reference="Sound,^ParamId^@Finish,AssetArray" NameOverride="DataCollectionPattern/CommandersAbilityAB/SoundFinish"/>
-        <Fields Reference="Actor,^ParamId^@StartImpact,Model" NameOverride="DataCollectionPattern/CommandersAbilityAB/StartImpactModel"/>
-        <Fields Reference="Actor,^ParamId^@EndImpact,Model" NameOverride="DataCollectionPattern/CommandersAbilityAB/EndImpactModel"/>
-        <Fields Reference="Abil,^ParamId^,Name"/>
-        <Fields Reference="Abil,^ParamId^,Cost"/>
-        <Fields Reference="Abil,^ParamId^,CmdButtonArray.Requirements"/>
-        <Fields Reference="Effect,^ParamId^@AB,Behavior"/>
-        <Fields Reference="Behavior,^ParamId^,Modification.AttackSpeedMultiplier"/>
-        <Fields Reference="Behavior,^ParamId^,Modification.MoveSpeedMultiplier"/>
-        <Fields Reference="Button,^ParamId^,Name" NameOverride="DataCollectionPattern/CommandersAbilityAB/ButtonName"/>
-        <Fields Reference="Button,^ParamId^,Tooltip" NameOverride="DataCollectionPattern/CommandersAbilityAB/ButtonTooltip"/>
-        <Fields Reference="Button,^ParamId^,Icon" NameOverride="DataCollectionPattern/CommandersAbilityAB/ButtonIcon"/>
-        <Fields Reference="Button,^ParamId^,AlertIcon" NameOverride="DataCollectionPattern/CommandersAbilityAB/ButtonAlertIcon"/>
-    </CDataCollectionPattern>
-    <CDataCollectionPattern id="CommanderAbilities_Build">
-        <Fields Reference="Abil,^ParamId^,InfoArray"/>
-    </CDataCollectionPattern>
     <CDataCollectionPattern id="CommanderUnits">
         <Fields Reference="Actor,^ParamId^,UnitIcon"/>
         <Fields Reference="Actor,^ParamId^,LifeArmorIcon"/>
@@ -277,11 +241,6 @@
         <Fields Reference="Sound,^ParamId^@What,AssetArray" NameOverride="DataCollectionPattern/CommanderUnitsMorphing/Sounds/What"/>
         <Fields Reference="Sound,^ParamId^@Yes,AssetArray" NameOverride="DataCollectionPattern/CommanderUnitsMorphing/Sounds/Yes"/>
     </CDataCollectionPattern>
-    <CDataCollectionPattern id="CommanderWeapon_Instant" parent="CommanderWeapon"/>
-    <CDataCollectionPattern id="CommanderAbilities_Morph">
-        <Fields Reference="Abil,^ParamId^@Siege,InfoArray[0].Unit" NameOverride="DataCollectionPattern/CommanderAbilitiesMorph/SiegeUnit"/>
-        <Fields Reference="Abil,^ParamId^@Unsiege,InfoArray[0].Unit" NameOverride="DataCollectionPattern/CommanderAbilitiesMorph/UnsiegeUnit"/>
-    </CDataCollectionPattern>
     <CDataCollectionPattern id="CommanderUnits_Morphing" parent="CommanderUnits">
         <Fields Reference="Unit,^ParamId^@Alternate,LifeStart" NameOverride="DataCollectionPattern/CommanderUnitsMorphing/LifeStart"/>
         <Fields Reference="Unit,^ParamId^@Alternate,ShieldStart" NameOverride="DataCollectionPattern/CommanderUnitsMorphing/ShieldStart"/>
@@ -300,6 +259,74 @@
         <Fields Reference="Unit,^ParamId^@Alternate,Food" NameOverride="DataCollectionPattern/CommanderUnitsMorphing/Food"/>
         <Fields Reference="Unit,^ParamId^@Alternate,Sight" NameOverride="DataCollectionPattern/CommanderUnitsMorphing/Sight"/>
     </CDataCollectionPattern>
+    <CDataCollectionPattern id="CommanderAbilities">
+        <Fields index="0" Reference="Abil,^ParamId^,Name"/>
+        <Fields Reference="Abil,^ParamId^,Cost"/>
+        <Fields Reference="Abil,^ParamId^,CmdButtonArray.Requirements"/>
+        <Fields Reference="Abil,^ParamId^,AbilSetId"/>
+        <Fields Reference="Abil,^ParamId^,Flags[BestUnit]" NameOverride="DataCollectionPattern/CommanderAbility/Flags/BestUnit"/>
+        <Fields Reference="Button,^ParamId^,Name" NameOverride="DataCollectionPattern/CommanderAbility/ButtonName"/>
+        <Fields Reference="Button,^ParamId^,Tooltip" NameOverride="DataCollectionPattern/CommanderAbility/ButtonTooltip"/>
+        <Fields Reference="Button,^ParamId^,Icon" NameOverride="DataCollectionPattern/CommanderAbility/ButtonIcon"/>
+        <Fields Reference="Button,^ParamId^,AlertIcon" NameOverride="DataCollectionPattern/CommanderAbility/ButtonAlertIcon"/>
+    </CDataCollectionPattern>
+    <CDataCollectionPattern id="CommanderAbilities_AbilTarget" parent="CommanderAbilities">
+        <Fields Reference="Model,^ParamId^@ImpactModel,Model" NameOverride="DataCollectionPattern/CommanderAbilities/AbilTarget/ImpactModel"/>
+        <Fields Reference="Model,^ParamId^@LaunchModel,Model" NameOverride="DataCollectionPattern/CommanderAbilities/AbilTarget/LaunchModel"/>
+        <Fields Reference="Sound,^ParamId^@ImpactSound,AssetArray" NameOverride="DataCollectionPattern/CommanderAbilities/AbilTarget/ImpactSounds"/>
+        <Fields Reference="Sound,^ParamId^@LaunchSound,AssetArray" NameOverride="DataCollectionPattern/CommanderAbilities/AbilTarget/LaunchSounds"/>
+    </CDataCollectionPattern>
+    <CDataCollectionPattern id="CommanderAbilities_AbilInstant" parent="CommanderAbilities"/>
+    <CDataCollectionPattern id="CommanderAbilities_ABEffectInstant" parent="CommanderAbilities_AbilInstant">
+        <Fields Reference="Sound,^ParamId^@Cast,AssetArray" NameOverride="DataCollectionPattern/CommandersAbilityAB/SoundCast"/>
+        <Fields Reference="Sound,^ParamId^@Finish,AssetArray" NameOverride="DataCollectionPattern/CommandersAbilityAB/SoundFinish"/>
+        <Fields Reference="Actor,^ParamId^@StartImpact,Model" NameOverride="DataCollectionPattern/CommandersAbilityAB/StartImpactModel"/>
+        <Fields Reference="Actor,^ParamId^@EndImpact,Model" NameOverride="DataCollectionPattern/CommandersAbilityAB/EndImpactModel"/>
+        <Fields Reference="Effect,^ParamId^@AB,Behavior"/>
+        <Fields Reference="Behavior,^ParamId^,Modification.AttackSpeedMultiplier"/>
+        <Fields Reference="Behavior,^ParamId^,Modification.MoveSpeedMultiplier"/>
+    </CDataCollectionPattern>
+    <CDataCollectionPattern id="CommanderAbilities_Build">
+        <Fields Reference="Abil,^ParamId^,InfoArray"/>
+    </CDataCollectionPattern>
+    <CDataCollectionPattern id="CommanderAbilities_Beam" parent="CommanderAbilities"/>
+    <CDataCollectionPattern id="CommanderAbilities_Morph">
+        <Fields Reference="Abil,^ParamId^@Siege,InfoArray[0].Unit" NameOverride="DataCollectionPattern/CommanderAbilitiesMorph/SiegeUnit"/>
+        <Fields Reference="Abil,^ParamId^@Unsiege,InfoArray[0].Unit" NameOverride="DataCollectionPattern/CommanderAbilitiesMorph/UnsiegeUnit"/>
+    </CDataCollectionPattern>
+    <CDataCollectionPattern id="CommanderAbilities_Teleport" parent="CommanderAbilities_AbilTarget">
+        <Fields Reference="Effect,^ParamId^@Teleport,MinDistance"/>
+        <Fields Reference="Effect,^ParamId^@Teleport,Range" NameOverride="DataCollectionPattern/CommanderAbilities/Teleport/Range"/>
+        <Fields Reference="Effect,^ParamId^@Teleport,PlacementRange"/>
+        <Fields Reference="Effect,^ParamId^@Teleport,TeleportFlags"/>
+        <Fields Reference="Effect,^ParamId^@Teleport,WhichUnit"/>
+        <Fields Reference="Effect,^ParamId^@Teleport,ClearQueuedOrders"/>
+        <Fields Reference="Effect,^ParamId^@Damage,Amount"/>
+        <Fields Reference="Effect,^ParamId^@Damage,Death"/>
+        <Fields Reference="Effect,^ParamId^@Search,AreaArray[0].RectangleWidth"/>
+        <Fields Reference="Effect,^ParamId^@Search,SearchFilters"/>
+    </CDataCollectionPattern>
+    <CDataCollectionPattern id="CommanderWeapon">
+        <Fields Reference="Model,^ParamId^@AttackLaunch,Model" NameOverride="DataCollectionPattern/CommanderWeapon/LaunchModel"/>
+        <Fields Reference="Sound,^ParamId^@AttackLaunch,AssetArray" NameOverride="DataCollectionPattern/CommanderWeapon/LaunchSound"/>
+        <Fields Reference="Model,^ParamId^@AttackImpact,Model" NameOverride="DataCollectionPattern/CommanderWeapon/ImpactModel"/>
+        <Fields Reference="Sound,^ParamId^@AttackImpact,AssetArray" NameOverride="DataCollectionPattern/CommanderWeapon/ImpactSound"/>
+        <Fields Reference="Effect,^ParamId^@Damage,Amount" NameOverride="DataCollectionPattern/CommanderWeapon/DamageAmount"/>
+        <Fields Reference="Effect,^ParamId^@Damage,AreaArray" NameOverride="DataCollectionPattern/CommanderWeapon/DamageArea"/>
+        <Fields Reference="Behavior,^ParamId^,Modification.AttackSpeedMultiplier" NameOverride="DataCollectionPattern/CommanderWeapon/DebuffAttackSpeed"/>
+        <Fields Reference="Behavior,^ParamId^,Modification.MoveSpeedMultiplier" NameOverride="DataCollectionPattern/CommanderWeapon/DebuffSpeed"/>
+        <Fields Reference="DataCollection,^ParamId^,UpgradeInfoWeapon[0].DamagePerDice" NameOverride="DataCollectionPattern/CommanderWeapon/DamagePerDice_00"/>
+        <Fields Reference="DataCollection,^ParamId^,UpgradeInfoWeapon[1].DamagePerDice" NameOverride="DataCollectionPattern/CommanderWeapon/DamagePerDice_01"/>
+        <Fields Reference="DataCollection,^ParamId^,UpgradeInfoWeapon[2].DamagePerDice" NameOverride="DataCollectionPattern/CommanderWeapon/DamagePerDice_02"/>
+        <Fields Reference="DataCollection,^ParamId^,UpgradeInfoWeapon[3].DamagePerDice" NameOverride="DataCollectionPattern/CommanderWeapon/DamagePerDice_03"/>
+        <Fields Reference="DataCollection,^ParamId^,TechInfoUpgradeUsed" NameOverride="DataCollectionPattern/CommanderWeapon/TechInfoUpgradeUsed"/>
+        <Fields Reference="Weapon,^ParamId^,Period"/>
+        <Fields Reference="Weapon,^ParamId^,Range"/>
+        <Fields Reference="Weapon,^ParamId^,TargetFilters"/>
+        <Fields Reference="Weapon,^ParamId^,DisplayName"/>
+        <Fields Reference="Weapon,^ParamId^,Icon"/>
+        <Fields Reference="Weapon,^ParamId^,DisplayEffect"/>
+    </CDataCollectionPattern>
     <CDataCollectionPattern id="CommanderWeapon_InstantAOE" parent="CommanderWeapon">
         <Fields Reference="Effect,^ParamId^,AreaArray" NameOverride="DataCollectionPattern/CommanderWeapon/DamageArea"/>
         <Fields Reference="Effect,^ParamId^,SearchFilters" NameOverride="DataCollectionPattern/CommanderWeapon/DamageSearchFilters"/>
@@ -308,7 +335,7 @@
         <Fields Reference="Mover,^ParamId^@Weapon,MotionPhases.MaxSpeed" NameOverride="DataCollectionPattern/CommanderWeapon/SpeedMissile"/>
         <Fields Reference="Model,^ParamId^@Missile,Model" NameOverride="DataCollectionPattern/CommanderWeapon/MissileModel"/>
     </CDataCollectionPattern>
-    <CDataCollectionPattern id="CommanderAbilities_Beam"/>
+    <CDataCollectionPattern id="CommanderWeapon_Instant" parent="CommanderWeapon"/>
     <CDataCollectionPattern id="CommanderUpgrade_LevelStats">
         <Fields index="0" Reference="Upgrade,^ParamId^@Level1,EffectArrayTemplate" NameOverride="DataCollectionPattern/CommanderUpgradeLvlStats/LvL1"/>
         <Fields Reference="Upgrade,^ParamId^@Level2,EffectArrayTemplate" NameOverride="DataCollectionPattern/CommanderUpgradeLvlStats/LvL2"/>
@@ -323,7 +350,7 @@
     </CDataCollectionPattern>
     <!-- Units Template -->
     <CUnit default="1" id="CommanderUnitBase">
-        <?token id="race" value="Bogus" type="CRaceLink"?>
+        <?token id="race" type="CRaceLink" value="Bogus"?>
         <Name value="Unit/Name/COOP/##id##"/>
         <HotkeyCategory value="Hotkey/Category/##race##"/>
         <Mob value="Campaign"/>
@@ -367,8 +394,8 @@
         </CardLayouts>
         <CargoSize value="2"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop"/>
-        <StationaryTurningRate value="999"/>
-        <TurningRate value="999"/>
+        <StationaryTurningRate value="998.9648"/>
+        <TurningRate value="998.9648"/>
         <LifeArmorName value="LifeArmorName/UnitGround/##race##"/>
         <Fidget>
             <ChanceArray index="Anim" value="33"/>

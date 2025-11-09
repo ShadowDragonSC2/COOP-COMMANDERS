@@ -67,4 +67,54 @@
             <TextureType val="Normal"/>
         </Frame>
     </Frame>
+
+    <Frame type="Button" name="EditorCategoryButtonMediumTemplate">
+        <Anchor side="Left" relative="$parent" pos="Mid" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Mid" offset="0"/>
+        <Width val="70"/>
+        <Height val="70"/>
+
+        <Frame type="Image" name="NormalImage">
+            <Anchor relative="$parent"/>
+            <Texture val="@CheatEngine/UI/EditorCategoryMediumButton"/>
+            <ColorAdjustMode val="Colorize"/>
+            <AdjustmentColor val="#ChatDividerColor_Terr"/>
+        </Frame>
+        <Frame type="Image" name="HoverImage">
+            <Anchor relative="$parent"/>
+            <Texture val="@CheatEngine/UI/EditorCategoryMediumButtonOver"/>
+            <ColorAdjustMode val="Colorize"/>
+            <AdjustmentColor val="#ChatDividerColor_Terr"/>
+        </Frame>
+        <Frame type="Image" name="Icon">
+            <Anchor relative="$parent" offset="-10"/>
+            <TextureType val="Normal"/>
+            <AcceptsMouse val="False"/>
+        </Frame>
+
+        <StateGroup name="VisibleIcon">
+            <State name="Visible">
+                <When type="Property" frame="$this/Icon" Texture="" operator="Equal"/>
+                <Action type="SetProperty" Visible="False" frame="$this/Icon"/>
+            </State>
+        
+            <State name="NotVisible">
+                <When type="Property" frame="$this/Icon" Texture="" operator="NotEqual"/>
+                <Action type="SetProperty" Visible="True" frame="$this/Icon"/>
+            </State>
+        </StateGroup>
+
+        <StateGroup name="VisibleButton">
+            <State name="Visible">
+                <When type="Property" frame="$this" Tooltip="" operator="Equal"/>
+                <Action type="SetProperty" frame="$this" Visible="False" />
+            </State>
+        
+            <State name="NotVisible">
+                <When type="Property" frame="$this" Tooltip="" operator="NotEqual"/>
+                <Action type="SetProperty" frame="$this" Visible="True" />
+            </State>
+        </StateGroup>
+        
+    </Frame>
 </Desc>

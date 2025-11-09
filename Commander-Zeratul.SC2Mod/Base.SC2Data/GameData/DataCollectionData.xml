@@ -1,10 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CDataCollectionUnit id="ZeratulCommanderBlinkVoidTemplar" parent="CommanderAbilityTeleport">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
+        <DataRecord Entry="Abil,ZeratulCommanderBlinkVoidTemplar"/>
+        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@ImpactModel"/>
+        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
+        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
+        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@Range"/>
+        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@Attack"/>
+        <DataRecord Entry="Button,ZeratulCommanderBlinkVoidTemplar"/>
+        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Set"/>
+        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@CP"/>
+        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Search"/>
+        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Damage"/>
+        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Facing"/>
+        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Teleport"/>
+        <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@ImpactModel"/>
+        <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
+        <DataRecord Entry="Sound,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderVengeanceoftheVoid">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
+        <DataRecord Entry="Upgrade,ZeratulCommanderVengeanceoftheVoid"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVengeanceoftheVoid@CU"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderArtifact" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Artifact"/>
         <DataRecord Entry="Actor,ZeratulCommanderArtifact"/>
         <DataRecord Entry="Model,ZeratulCommanderArtifact"/>
         <DataRecord Entry="Unit,ZeratulCommanderArtifact"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderBuildProbe">
+        <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Zeratul,ObjectType:Other"/>
+        <DataRecord Entry="Abil,ZeratulCommanderBuildProbe"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderConstructsBay" parent="CommanderUnit">
         <EditorCategories value="ObjectType:Structure,DataGroup:Unit,Race:Zeratul"/>
@@ -70,6 +98,8 @@
         <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Build"/>
         <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Portrait"/>
         <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Building"/>
+        <DataRecord Entry="Button,ZeratulCommanderAncientNexus"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Birth"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderMasterWarpBlade" parent="CommanderWeaponInstant">
         <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Other"/>
@@ -123,11 +153,14 @@
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Abil,ZeratulCommanderPredictiveBlink"/>
         <DataRecord Entry="Button,ZeratulCommanderPredictiveBlink"/>
-        <DataRecord Entry="Effect,ZeratulCommanderPredictiveBlink"/>
-        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ModelOut"/>
-        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ModelIn"/>
-        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ModelOut"/>
-        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ModelIn"/>
+        <DataRecord Entry="Effect,ZeratulCommanderPredictiveBlink@Teleport"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@LaunchModel"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ImpactModel"/>
+        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@LaunchModel"/>
+        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ImpactModel"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ImpactSound"/>
+        <DataRecord Entry="Sound,ZeratulCommanderPredictiveBlink@ImpactSound"/>
+        <Pattern value="CommanderAbilities_Teleport"/>
     </CDataCollectionUnit>
     <CDataCollectionAbil id="ZeratulCommanderShadowCleave">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>

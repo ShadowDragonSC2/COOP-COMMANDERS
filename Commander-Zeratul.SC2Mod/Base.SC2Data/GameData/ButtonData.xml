@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CButton id="ZeratulCommanderAncientNexus">
+        <Icon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CButton id="ZeratulCommanderBlinkVoidTemplar">
+        <Icon value="Assets\Textures\btn-ability-zeratul-darktemplar-blink.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
     <CButton id="ZeratulCommanderConstructsBay">
         <Icon value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
     </CButton>
     <CButton id="ZeratulCommanderConstructsFacility">
         <Icon value="Assets\Textures\btn-building-protoss-zeratulroboticsfacility.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
     </CButton>
     <CButton id="ZeratulCommanderCoreForge">
         <Icon value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
     </CButton>
     <CButton id="ZeratulCommanderDisruptorPhase">
         <Icon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
@@ -27,14 +38,18 @@
     </CButton>
     <CButton id="ZeratulCommanderVoidShrine">
         <Icon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
     </CButton>
     <CButton id="ZeratulCommanderXelNagaPassageway">
         <Icon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
     </CButton>
     <CButton id="ZeratulCommanderXelNagaVoidArray">
         <Icon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
     </CButton>
     <CButton id="ZeratulCommanderZeratul">
         <Icon value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
     </CButton>
 </Catalog>
