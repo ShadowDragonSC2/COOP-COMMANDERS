@@ -85,14 +85,15 @@ bool lib3A96CF55_gt_test_Func (bool testConds, bool runActions) {
         return true;
     }
 
-    libNtve_gf_CreateUnitsWithDefaultFacing(1, "ZeratulCommanderAncientNexus", c_unitCreateConstruct, 1, CameraGetTarget(1));
+    TextExpressionSetToken("Param/Expression/lib_3A96CF55_D0D8AD81", "A", StringToText((EventPlayerEffectUsed())));
+    TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/lib_3A96CF55_D0D8AD81"), true);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void lib3A96CF55_gt_test_Init () {
     lib3A96CF55_gt_test = TriggerCreate("lib3A96CF55_gt_test_Func");
-    TriggerAddEventKeyPressed(lib3A96CF55_gt_test, c_playerAny, c_keyN, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
+    TriggerAddEventPlayerEffectUsed(lib3A96CF55_gt_test, 1, null);
 }
 
 //--------------------------------------------------------------------------------------------------

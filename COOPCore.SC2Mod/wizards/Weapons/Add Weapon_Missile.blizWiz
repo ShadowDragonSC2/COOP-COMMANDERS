@@ -3,4 +3,124 @@
     <name>Add Weapon - Missile</name>
     <category>COOP Commanders/Not implemented/Weapon</category>
     <objecttypes create="Weapon"/>
+    <instructions>
+        Визард для создания оружий со снарядами
+    </instructions>
+
+    <!-- Conditions -->
+    <condition id="ForCommander" input="iscommander:isCommander" value="1"/>
+    <condition id="NotForCommander" input="iscommander:isCommander" value="0"/>
+    <!-- Inputs -->
+
+    <input id="WeaponName" type="CString">
+        <name>Name</name>
+    </input>
+    <input id="WeaponID" type="CString">
+        <name>Weapon ID</name>
+        <simpletext/>
+    </input>
+
+    <input id="iscommander" type="Wizard:CommanderWizardSetting">
+    </input>
+
+    <input id="Period" type="real32">
+        <name>Period</name>
+        <layout column="2"/>
+    </input>
+    <input id="Damage" type="real32">
+        <name>Amount Damage</name>
+        <layout column="2"/>
+    </input>
+    <input id="filters" type="WizardRadio">
+        <name>Target Type</name>
+        <item value="Ground" text="Only Ground"/>
+        <item value="Air" text="Only Air"/>
+        <item value="Reqiured: Ground;Air" text="Ground and Air"/>
+        <item value="" text="Ground or Air"/>
+        <layout column="2"/>
+    </input>
+
+    <input id="Icon" type="CImagePath">
+        <name>Icon</name>
+        <layout column="3"/>
+    </input>
+
+    <!-- Macros -->
+    <macro id="Name">^iscommander:Commander^ Commander - ^WeaponName^</macro>
+
+    <macro id="onlyWeapID">^WeaponID^</macro>
+    <macro id="forcommander">^iscommander:Commander^Commander^WeaponID^</macro>
+
+    <macro id="WeaponLM">^WeaponID^@LM</macro>
+    <macro id="WeaponDamage">^WeaponID^@Damage</macro>
+
+    <!-- Entries -->
+
+    <entry catalog="DataCollection" type="CDataCollectionUnit">
+        <id>^WeaponID^</id>
+
+        <field id="Name">
+            <value>^Name^</value>
+        </field>
+
+        <field id="DataRecord">
+            <index>^VALUEINDEX^</index>
+            <value>Weapon,^WeaponID^</value>
+        </field>
+        <field id="DataRecord">
+            <index>^VALUEINDEX^</index>
+            <value>Effect,^WeaponLM^</value>
+        </field>
+        <field id="DataRecord">
+            <index>^VALUEINDEX^</index>
+            <value>Effect,^WeaponDamage^</value>
+        </field>
+    </entry>
+
+    <entry catalog="Weapon" type="CWeapon">
+        <condition id="NotForCommander"/>
+        <id>^onlyWeapID^</id>
+        <parentid>CommanderWeapon_Missile</parentid>
+
+        <field id="Name">
+            <value>^Name^</value>
+        </field>
+        <field id="Effect">
+            <value>^WeaponLM^</value>
+        </field>
+    </entry>
+    <entry catalog="Weapon" type="CWeapon">
+        <condition id="ForCommander"/>
+        <id>^forcommander^</id>
+        <parentid>CommanderWeapon_Missile</parentid>
+
+        <field id="Name">
+            <value>^Name^</value>
+        </field>
+        <field id="Effect">
+            <value>^WeaponLM^</value>
+        </field>
+    </entry>
+
+    <entry catalog="Effect" type="CEffectLaunchMissile">
+        <id>^WeaponLM^</id>
+
+        <field id="Name">
+            <value>LM</value>
+        </field>
+        <field id="ImpactEffect">
+            <value>^WeaponDamage^</value>
+        </field>
+    </entry>
+    <entry catalog="Effect" type="CEffectDamage">
+        <id>^WeaponDamage^</id>
+
+        <field id="Name">
+            <value>Damage</value>
+        </field>
+        <field id="Amount">
+            <value>^Damage^</value>
+        </field>
+    </entry>
+
 </wizard>

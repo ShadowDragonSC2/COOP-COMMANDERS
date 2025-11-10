@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectApplyForce id="ZeratulCommanderAnnihilationCannon@AF">
+        <EditorCategories value="Race:Zeratul"/>
+        <WhichLocation Effect="ZeratulCommanderAnnihilationCannon@LM" Value="TargetUnit"/>
+        <Amount value="10000"/>
+        <MassFraction value="3"/>
+    </CEffectApplyForce>
+    <CEffectCreatePersistent id="ZeratulCommanderAnnihilationCannon@CP">
+        <EditorCategories value="Race:Zeratul"/>
+        <WhichLocation Value="TargetUnit"/>
+        <InitialEffect value="ZeratulCommanderAnnihilationCannon@AF"/>
+        <PeriodCount value="50"/>
+        <PeriodicEffectArray value="ZeratulCommanderAnnihilationCannon@AF"/>
+        <PeriodicPeriodArray value="0.1"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="ZeratulCommanderAnnihilationCannon@Damage">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="ZeratulCommanderAnnihilationCannon@LM">
+        <EditorCategories value="Race:Zeratul"/>
+        <ImpactEffect value="ZeratulCommanderAnnihilationCannon@Set"/>
+        <AmmoUnit value="ZeratulCommanderAnnihilationCannon@Missile"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="ZeratulCommanderAnnihilationCannon@Set">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderAnnihilationCannon@Damage"/>
+        <EffectArray value="ZeratulCommanderAnnihilationCannon@CP"/>
+    </CEffectSet>
     <CEffectCreatePersistent id="ZeratulCommanderBlinkVoidTemplar@CP">
         <EditorCategories value="Race:Zeratul"/>
         <WhichLocation Effect="ZeratulCommanderBlinkVoidTemplar@Set" Value="SourcePoint"/>
@@ -22,7 +50,6 @@
     </CEffectModifyUnit>
     <CEffectEnumArea id="ZeratulCommanderBlinkVoidTemplar@Search">
         <EditorCategories value="Race:Zeratul"/>
-        <DebugTrace value="1"/>
         <SearchFilters value="Ground,Visible;Self,Player,Ally,Neutral,Structure,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray RectangleWidth="1" RectangleHeight="12" Effect="ZeratulCommanderBlinkVoidTemplar@Damage"/>
     </CEffectEnumArea>

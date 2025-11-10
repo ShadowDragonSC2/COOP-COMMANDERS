@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wizard id="CommanderWizardSetting">
+    <hidden/>
+
+    <condition id="ForCommander" input="isCommander" value="1"/>
+    
+    <input id="isCommander" type="WizardCheckbox">
+        <name>This is Commander?</name>
+        <default value="1"/>
+    </input>
+    <input id="Commander" type="WizardMenu">
+        <name>Командир</name>
+        <condition id="ForCommander"/>
+        <item text="Рейнор" value="Raynor"/>
+        <item text="Керриган" value="Kerrigan"/>
+        <item text="Артанис" value="Artanis"/>
+        <item text="Свонн" value="Swann"/>
+        <item text="Загара" value="Zagara"/>
+        <item text="Воразун" value="Vorazun"/>
+        <item text="Каракс" value="Karax"/>
+        <item text="Абатур" value="Abathur"/>
+        <item text="Аларак" value="Alarak"/>
+        <item text="Нова" value="Nova"/>
+        <item text="Стуков" value="Stukov"/>
+        <item text="Феникс" value="Fenix"/>
+        <item text="Дехака" value="Dehaka"/>
+        <item text="Хар и Хорнер" value="HanHorner"/>
+        <item text="Тайкус" value="Tychus"/>
+        <item text="Зератул" value="Zeratul"/>
+        <item text="Стетманн" value="Stetmann"/>
+        <item text="Арктур Менгск" value="ArcturusMengsk"/>
+    </input>
+</wizard>

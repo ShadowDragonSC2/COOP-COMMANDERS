@@ -6,6 +6,11 @@
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
         <BuildTime value="35"/>
     </CUnit>
+    <CUnit id="ZeratulCommanderAnnihilationCannon@Missile" parent="MISSILE">
+        <Race value="COOPZeratul"/>
+        <Mover value="MissileDefault"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop"/>
+    </CUnit>
     <CUnit id="ZeratulCommanderArtifact" parent="ITEM">
         <AbilArray Link="ZeratulCommanderPickupArtifact"/>
         <EditorCategories value="ObjectType:Item,ObjectFamily:Coop,Race:Zeratul"/>
@@ -84,6 +89,7 @@
         <CostResource index="Vespene" value="50"/>
         <RepairTime value="21"/>
         <WeaponArray Link="ZeratulCommanderPhaseDisruptors"/>
+        <WeaponArray Link="ZeratulCommanderAnnihilationCannon"/>
         <Radius value="0.625"/>
         <SeparationRadius value="0.625"/>
         <InnerRadius value="0.5"/>

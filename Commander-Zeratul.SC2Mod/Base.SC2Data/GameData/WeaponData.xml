@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CWeaponLegacy id="ZeratulCommanderAnnihilationCannon" parent="CommanderWeapon_Missile">
+        <EditorCategories value="Race:Zeratul"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-oraclepulsarcannonon.dds"/>
+        <TargetFilters value="Air,Visible;Ground,Missile,Dead,Hidden"/>
+        <Range value="10"/>
+    </CWeaponLegacy>
     <CWeaponLegacy id="ZeratulCommanderMasterWarpBlade" parent="CommanderWeapon_Instant">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <TargetFilters value="Ground,Visible;Missile,Dead,Hidden"/>
@@ -17,12 +23,13 @@
         <EditorCategories value="Race:Zeratul"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="6"/>
+        <Range value="7"/>
         <Period value="1"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ZeratulCommanderPhaseDisruptors" parent="CommanderWeapon_Instant">
         <EditorCategories value="Race:Zeratul"/>
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <TargetFilters value="Visible;Air,Missile,Dead,Hidden"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ZeratulCommanderWarpBlade" parent="CommanderWeapon_Melee">
         <EditorCategories value="Race:Zeratul"/>

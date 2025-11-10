@@ -2,6 +2,8 @@
 Actor/Name/Build_COOPZeratul=Build_COOP Zeratul
 Actor/Name/SOpForwardScopeLaunch=SOp Forward Scope Launch
 Actor/Name/ZeratulCommanderAncientNexus=Ancient Nexus
+Actor/Name/ZeratulCommanderAnnihilationCannon@Attack=Attack
+Actor/Name/ZeratulCommanderAnnihilationCannon@Missile=Missile
 Actor/Name/ZeratulCommanderArtifact=Artifact
 Actor/Name/ZeratulCommanderBlinkVoidTemplar@Attack=Attack
 Actor/Name/ZeratulCommanderBlinkVoidTemplar@ImpactModel=Impact
@@ -51,6 +53,7 @@ Model/Name/ZeratulCommanderAncientNexus@Build=Build
 Model/Name/ZeratulCommanderAncientNexus@Building=Building
 Model/Name/ZeratulCommanderAncientNexus@Death=Death
 Model/Name/ZeratulCommanderAncientNexus@Portrait=Portrait
+Model/Name/ZeratulCommanderAnnihilationCannon@Missile=Missile
 Model/Name/ZeratulCommanderArtifact=Artifact
 Model/Name/ZeratulCommanderBlinkVoidTemplar@ImpactModel=Impact Model
 Model/Name/ZeratulCommanderBlinkVoidTemplar@LaunchModel=Launch Model

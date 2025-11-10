@@ -18,6 +18,14 @@
         <On Terms="UnitConstruction.ZeratulCommanderAncientNexus.Start" Send="Create Build_COOPZeratul"/>
         <EventDataSound Name="BuildingWarpIn" Actor="UnitSound" Sound="Protoss_BuildingWarpIn"/>
     </CActorUnit>
+    <CActorAction id="ZeratulCommanderAnnihilationCannon@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderAnnihilationCannon@Damage" effectLaunch="ZeratulCommanderAnnihilationCannon@LM">
+        <EditorCategories value=""/>
+        <LaunchSiteOps Ops="SOpAttachWeapon"/>
+        <Missile value="ZeratulCommanderAnnihilationCannon@Missile"/>
+    </CActorAction>
+    <CActorMissile id="ZeratulCommanderAnnihilationCannon@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderAnnihilationCannon@Missile">
+        <EditorCategories value=""/>
+    </CActorMissile>
     <CActorUnit id="ZeratulCommanderArtifact" parent="GenericUnitStandard" unitName="ZeratulCommanderArtifact">
         <EditorCategories value=""/>
         <HighlightTooltip value="Unit/Name/Bogus"/>
@@ -174,9 +182,11 @@
     <CActorModel id="ZeratulCommanderShadowCleave@LaunchModel" parent="ModelAnimationStyleOneShot">
         <EditorCategories value=""/>
         <HostSiteOps Ops="SOpAttachCenter"/>
+        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
     </CActorModel>
     <CActorSound id="ZeratulCommanderShadowCleave@LaunchSound" parent="SoundOneShot">
         <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
     </CActorSound>
     <CActorUnit id="ZeratulCommanderVengeanceoftheVoid" parent="GenericUnitStandard" unitName="ZeratulCommanderVengeanceoftheVoid">
         <EditorCategories value=""/>

@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CDataCollectionUnit id="ZeratulCommanderAnnihilationCannon" parent="CommanderWeaponMissile">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Projectile"/>
+        <DataRecord Entry="Actor,ZeratulCommanderAnnihilationCannon@Missile"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Damage"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@LM"/>
+        <DataRecord Entry="Model,ZeratulCommanderAnnihilationCannon@Missile"/>
+        <DataRecord Entry="Unit,ZeratulCommanderAnnihilationCannon@Missile"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderAnnihilationCannon"/>
+        <DataRecord Entry="Actor,ZeratulCommanderAnnihilationCannon@Attack"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@AF"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Set"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@CP"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderBlinkVoidTemplar" parent="CommanderAbilityTeleport">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Abil,ZeratulCommanderBlinkVoidTemplar"/>
@@ -149,7 +162,7 @@
         <DataRecord Entry="Sound,ZeratulCommanderPhaseDisruptors@AttackImpact"/>
         <DataRecord Entry="Weapon,ZeratulCommanderPhaseDisruptors"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderPredictiveBlink">
+    <CDataCollectionUnit id="ZeratulCommanderPredictiveBlink" parent="CommanderAbilityTeleport">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Abil,ZeratulCommanderPredictiveBlink"/>
         <DataRecord Entry="Button,ZeratulCommanderPredictiveBlink"/>
@@ -160,9 +173,8 @@
         <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ImpactModel"/>
         <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ImpactSound"/>
         <DataRecord Entry="Sound,ZeratulCommanderPredictiveBlink@ImpactSound"/>
-        <Pattern value="CommanderAbilities_Teleport"/>
     </CDataCollectionUnit>
-    <CDataCollectionAbil id="ZeratulCommanderShadowCleave">
+    <CDataCollectionUnit id="ZeratulCommanderShadowCleave" parent="CommanderAbilityAB">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Abil,ZeratulCommanderShadowCleave"/>
         <DataRecord Entry="Effect,ZeratulCommanderShadowCleave@Search"/>
@@ -173,8 +185,7 @@
         <DataRecord Entry="Button,ZeratulCommanderShadowCleave"/>
         <DataRecord Entry="Actor,ZeratulCommanderShadowCleave@Animation"/>
         <DataRecord Entry="Actor,ZeratulCommanderShadowCleave@LaunchSound"/>
-        <Pattern value="CommanderAbilities_ABEffectInstant"/>
-    </CDataCollectionAbil>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderVoidShrine" parent="CommanderUnit">
         <EditorCategories value="ObjectType:Structure,DataGroup:Unit,Race:Zeratul"/>
         <DataRecord Entry="Button,ZeratulCommanderVoidShrine"/>

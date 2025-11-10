@@ -3,6 +3,10 @@
     <CModel id="Build_COOPZeratul" parent="ProtossBuildingBuildBase">
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
+    <CModel id="ZeratulCommanderAnnihilationCannon@Missile" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Effects\Immortal_Zeratul_COOP_CannonMissile\Immortal_Zeratul_COOP_CannonMissile.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderArtifact" parent="Unit">
         <Model value="Assets\COOP\Zeratul\Units\ArtifactPickup1_Zeratul_COOP\ArtifactPickup1_Zeratul_COOP.m3"/>
         <EditorCategories value="Race:Zeratul"/>
