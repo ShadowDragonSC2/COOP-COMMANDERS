@@ -19,6 +19,10 @@
         <DataRecord Entry="Sound,ArtanisCommanderDragoon@What"/>
         <DataRecord Entry="Sound,ArtanisCommanderDragoon@Yes"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit id="ArtanisCommanderGateway" parent="CommanderUnit">
+        <EditorCategories value="ObjectType:Unit,DataGroup:Structure,Race:Artanis"/>
+        <DataRecord Entry="Button,ArtanisCommanderGateway"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ArtanisCommanderZealot" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Artanis,ObjectType:Unit"/>
         <DataRecord Entry="Unit,ArtanisCommanderZealot"/>

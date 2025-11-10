@@ -12,6 +12,18 @@
         <Model value="Assets\Portraits\Protoss\Aiur_DragoonEx2_Portrait\Aiur_DragoonEx2_Portrait.m3"/>
         <EditorCategories value="Race:Artanis"/>
     </CModel>
+    <CModel id="ArtanisCommanderGateway">
+        <Model value="Assets\Buildings\Protoss\GatewayEx1\GatewayEx1.m3"/>
+        <EditorCategories value="Race:Artanis"/>
+    </CModel>
+    <CModel id="ArtanisCommanderGateway@Death" parent="UnitDeath">
+        <Model value="Assets\Buildings\Protoss\GatewayDeathEx1\GatewayDeathEx1.m3"/>
+        <EditorCategories value="Race:Artanis"/>
+    </CModel>
+    <CModel id="ArtanisCommanderGateway@Portrait" parent="Portrait">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <EditorCategories value="Race:Artanis"/>
+    </CModel>
     <CModel id="ArtanisCommanderZealot">
         <Model value="Assets\Units\Protoss\Zealot\Zealot.m3"/>
         <EditorCategories value="Race:Artanis"/>

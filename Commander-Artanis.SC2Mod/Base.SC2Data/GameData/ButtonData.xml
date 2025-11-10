@@ -5,6 +5,9 @@
         <AlertIcon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
         <EditorCategories value="Race:Artanis"/>
     </CButton>
+    <CButton id="ArtanisCommanderGateway">
+        <Icon value="Assets\Textures\btn-building-protoss-gateway.dds"/>
+    </CButton>
     <CButton id="ArtanisCommanderWhirlwind">
         <Icon value="Assets\Textures\BTN-Ability-Protoss-Whirlwind.dds"/>
         <EditorCategories value="Race:Artanis"/>

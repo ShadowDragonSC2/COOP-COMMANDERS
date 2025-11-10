@@ -11,6 +11,18 @@
             <Image value="Assets\Textures\wireframe-protoss-dragoon.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorUnit id="ArtanisCommanderGateway" parent="CommanderGroundUnit" unitName="ArtanisCommanderGateway">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-protoss-gateway.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-gateway.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-armor-protoss-buildingplating.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-gateway.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-gateway.dds"/>
+        </Wireframe>
+    </CActorUnit>
     <CActorUnit id="ArtanisCommanderZealot" parent="CommanderGroundUnit" unitName="ArtanisCommanderZealot">
         <GroupIcon>
             <Image value="Assets\Textures\btn-unit-protoss-zealot.dds"/>
