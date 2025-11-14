@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CRequirement id="ArtanisCommanderGateway@Requirement"/>
     <CRequirement id="ArtanisCommanderWhirlwind@Requirement">
         <EditorCategories value="Race:Artanis,TechType:Ability"/>
         <NodeArray index="Use" Link="CountUpgradeArtanisCommander_level4CompleteOnly"/>

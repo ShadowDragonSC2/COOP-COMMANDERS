@@ -1,0 +1,5 @@
+﻿Category/Name/lib_8932BBC1_1E68283C=Guardian Shell
+Category/Name/lib_8932BBC1_F6FD80A8=Artanis_commander
+Library/Name/8932BBC1=COOP-COMMANDERS
+Trigger/Name/lib_8932BBC1_405C82D7=GuardianShell
+Variable/Name/lib_8932BBC1_401B3991=Artanis_player

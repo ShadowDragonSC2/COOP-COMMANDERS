@@ -35,6 +35,14 @@
         <ShieldsStart value="80"/>
         <ShieldsMax value="80"/>
     </CUnit>
+    <CUnit id="ArtanisCommanderGateway" parent="CommanderStructure_Prot">
+        <Race value="Prot"/>
+        <LifeStart value="500"/>
+        <LifeMax value="500"/>
+        <ShieldsStart value="3"/>
+        <ShieldsMax value="3"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Artanis"/>
+    </CUnit>
     <CUnit id="ArtanisCommanderZealot" parent="CommanderGround_Prot">
         <AbilArray Link="ArtanisCommanderCharge"/>
         <AbilArray Link="ArtanisCommanderWhirlwind"/>

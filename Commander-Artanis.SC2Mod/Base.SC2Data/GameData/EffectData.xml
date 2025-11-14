@@ -82,4 +82,11 @@
         <AmmoUnit value="PhasedisruptorWeapon"/>
         <EditorCategories value="Race:Artanis"/>
     </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="GuardShield">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="GuardShieldDebuff">
+        <EditorCategories value="Race:Protoss"/>
+    </CEffectApplyBehavior>
 </Catalog>
