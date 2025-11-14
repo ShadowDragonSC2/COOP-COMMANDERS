@@ -13,6 +13,16 @@
         <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Set"/>
         <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@CP"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderAvatarOfEssence" parent="CommanderUnit">
+        <EditorCategories value="ObjectType:AbilityTopbars,DataGroup:Unit,Race:Zeratul"/>
+        <DataRecord Entry="Button,ZeratulCommanderAvatarOfEssence"/>
+        <DataRecord Entry="Actor,ZeratulCommanderAvatarOfEssence"/>
+        <DataRecord Entry="Model,ZeratulCommanderAvatarOfEssence@Death"/>
+        <DataRecord Entry="Model,ZeratulCommanderAvatarOfEssence@Portrait"/>
+        <DataRecord Entry="Model,ZeratulCommanderAvatarOfEssence"/>
+        <DataRecord Entry="Requirement,ZeratulCommanderAvatarOfEssence@Requirement"/>
+        <DataRecord Entry="Unit,ZeratulCommanderAvatarOfEssence"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderBlinkVoidTemplar" parent="CommanderAbilityTeleport">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Abil,ZeratulCommanderBlinkVoidTemplar"/>
@@ -31,6 +41,11 @@
         <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@ImpactModel"/>
         <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
         <DataRecord Entry="Sound,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderDevolutionWave">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:AbilityTopbars"/>
+        <DataRecord Entry="Abil,ZeratulCommanderDevolutionWave"/>
+        <DataRecord Entry="Button,ZeratulCommanderDevolutionWave"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderVengeanceoftheVoid">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>

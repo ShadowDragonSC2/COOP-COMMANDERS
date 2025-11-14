@@ -234,6 +234,7 @@
             <ValueType Type="int"/>
         </Element>
         <Element Type="Trigger" Id="4864156D">
+            <Disabled/>
             <Event Type="FunctionCall" Library="3A96CF55" Id="BD2E5C93"/>
             <Action Type="FunctionCall" Library="3A96CF55" Id="67C2C5D8"/>
         </Element>
@@ -1035,6 +1036,7 @@
         </Element>
         <Element Type="Category" Id="C64EEEA9">
             <Item Type="Trigger" Library="3A96CF55" Id="3B38B554"/>
+            <Item Type="Category" Library="3A96CF55" Id="5B1688D9"/>
         </Element>
         <Element Type="Trigger" Id="3B38B554">
             <Disabled/>
@@ -1271,6 +1273,101 @@
         <Element Type="Param" Id="D337B93E">
             <ParameterDef Type="ParamDef" Library="Ntve" Id="4A15EC5F"/>
             <Preset Type="PresetValue" Library="Ntve" Id="D6EA4D09"/>
+        </Element>
+        <Element Type="Category" Id="5B1688D9">
+            <Item Type="Comment" Library="3A96CF55" Id="E4AA2DB4"/>
+            <Item Type="Trigger" Library="3A96CF55" Id="1AAC797B"/>
+            <Item Type="FunctionDef" Library="3A96CF55" Id="9FD6E8AF"/>
+        </Element>
+        <Element Type="Comment" Id="E4AA2DB4">
+            <Comment>
+                Триггеры, отвечающие за волну деградации 
+                &quot;Аватара Эссенции&quot;
+            </Comment>
+        </Element>
+        <Element Type="Trigger" Id="1AAC797B">
+        </Element>
+        <Element Type="FunctionDef" Id="9FD6E8AF">
+            <Disabled/>
+            <FlagCall/>
+            <ReturnType>
+                <Type Value="bool"/>
+            </ReturnType>
+            <Parameter Type="ParamDef" Library="3A96CF55" Id="25DE6EAF"/>
+            <Variable Type="Variable" Library="3A96CF55" Id="44B0F1EA"/>
+            <Variable Type="Comment" Library="3A96CF55" Id="4CB1F481"/>
+            <Variable Type="Variable" Library="3A96CF55" Id="EC10A0E4"/>
+            <Variable Type="Variable" Library="3A96CF55" Id="8CDA2B1C"/>
+            <FunctionCall Type="FunctionCall" Library="3A96CF55" Id="B7983870"/>
+        </Element>
+        <Element Type="ParamDef" Id="25DE6EAF">
+            <ParameterType>
+                <Type Value="unit"/>
+            </ParameterType>
+            <Default Type="Param" Library="3A96CF55" Id="E04A73DC"/>
+        </Element>
+        <Element Type="Param" Id="E04A73DC">
+            <Preset Type="PresetValue" Library="Ntve" Id="D6EA4D09"/>
+        </Element>
+        <Element Type="Variable" Id="44B0F1EA">
+            <VariableType>
+                <Type Value="gamelink"/>
+                <GameType Value="Race"/>
+            </VariableType>
+            <Value Type="Param" Library="3A96CF55" Id="FFD697EB"/>
+        </Element>
+        <Element Type="Param" Id="FFD697EB">
+            <FunctionCall Type="FunctionCall" Library="3A96CF55" Id="87F6E463"/>
+        </Element>
+        <Element Type="FunctionCall" Id="87F6E463">
+            <FunctionDef Type="FunctionDef" Library="6CA20615" Id="18D65647"/>
+            <Parameter Type="Param" Library="3A96CF55" Id="0487A2E9"/>
+        </Element>
+        <Element Type="Param" Id="0487A2E9">
+            <ParameterDef Type="ParamDef" Library="6CA20615" Id="568B6164"/>
+            <Parameter Type="ParamDef" Library="3A96CF55" Id="25DE6EAF"/>
+        </Element>
+        <Element Type="Comment" Id="4CB1F481">
+            <Comment>
+                Comment
+            </Comment>
+        </Element>
+        <Element Type="Variable" Id="EC10A0E4">
+            <VariableType>
+                <Type Value="gamelink"/>
+                <GameType Value="Unit"/>
+            </VariableType>
+            <Value Type="Param" Library="3A96CF55" Id="AF51999B"/>
+        </Element>
+        <Element Type="Param" Id="AF51999B">
+            <Preset Type="PresetValue" Library="Ntve" Id="C9DCA6C0"/>
+        </Element>
+        <Element Type="Variable" Id="8CDA2B1C">
+            <VariableType>
+                <Type Value="string"/>
+            </VariableType>
+            <Value Type="Param" Library="3A96CF55" Id="BF95E218"/>
+        </Element>
+        <Element Type="Param" Id="BF95E218">
+            <ValueType Type="string"/>
+        </Element>
+        <Element Type="FunctionCall" Id="B7983870">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="B6E64ADB"/>
+            <Parameter Type="Param" Library="3A96CF55" Id="63CF3811"/>
+            <Parameter Type="Param" Library="3A96CF55" Id="AA7C8BD7"/>
+            <FunctionCall Type="FunctionCall" Library="3A96CF55" Id="6FA32EB5"/>
+        </Element>
+        <Element Type="Param" Id="63CF3811">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="A6DB4F62"/>
+            <Preset Type="PresetValue" Library="Ntve" Id="00000533"/>
+        </Element>
+        <Element Type="Param" Id="AA7C8BD7">
+            <ParameterDef Type="ParamDef" Library="Ntve" Id="6E41F08A"/>
+            <Variable Type="Variable" Library="3A96CF55" Id="EC10A0E4"/>
+        </Element>
+        <Element Type="FunctionCall" Id="6FA32EB5">
+            <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000137"/>
+            <SubFunctionType Type="SubFuncType" Library="Ntve" Id="132D0A8E"/>
         </Element>
         <Element Type="Category" Id="4D32349B">
         </Element>

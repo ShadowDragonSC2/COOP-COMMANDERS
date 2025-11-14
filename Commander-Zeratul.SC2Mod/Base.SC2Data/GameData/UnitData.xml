@@ -16,6 +16,21 @@
         <EditorCategories value="ObjectType:Item,ObjectFamily:Coop,Race:Zeratul"/>
         <Race value="COOPZeratul"/>
     </CUnit>
+    <CUnit id="ZeratulCommanderAvatarOfEssence" parent="CommanderGround_Prot" race="COOPZeratul">
+        <Collide index="Ground" value="0"/>
+        <Collide index="Colossus" value="1"/>
+        <Collide index="ForceField" value="0"/>
+        <Collide index="Locust" value="0"/>
+        <LifeStart value="2800"/>
+        <LifeMax value="2800"/>
+        <LifeArmor value="4"/>
+        <Speed value="2"/>
+        <Radius value="2"/>
+        <SeparationRadius value="2"/>
+        <MinimapRadius value="2"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <GlossaryPriority value="525"/>
+    </CUnit>
     <CUnit id="ZeratulCommanderConstructsBay" parent="CommanderStructure_Prot" race="COOPZeratul">
         <LifeStart value="550"/>
         <LifeMax value="550"/>
@@ -72,6 +87,7 @@
         <CardLayouts index="0">
             <LayoutButtons Face="ZeratulCommanderBlinkVoidTemplar" Type="AbilCmd" AbilCmd="ZeratulCommanderBlinkVoidTemplar,Execute" Row="2" Column="0"/>
         </CardLayouts>
+        <GlossaryPriority value="45"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
@@ -96,6 +112,7 @@
         <MinimapRadius value="0.65"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
         <CargoSize value="4"/>
+        <GlossaryPriority value="85"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
@@ -119,6 +136,7 @@
             <LayoutButtons Face="ZeratulCommanderDisruptorPhase" Type="AbilCmd" AbilCmd="ZeratulCommanderDisruptorPhase,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <FlagArray index="Turnable" value="0"/>
+        <GlossaryPriority value="65"/>
     </CUnit>
     <CUnit id="ZeratulCommanderDisruptorPhase">
         <FlagArray index="Turnable" value="0"/>
@@ -159,6 +177,7 @@
         <CardLayouts index="0">
             <LayoutButtons Face="ZeratulCommanderPredictiveBlink" Type="AbilCmd" AbilCmd="ZeratulCommanderPredictiveBlink,Execute" Row="2" Column="0"/>
         </CardLayouts>
+        <GlossaryPriority value="25"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
@@ -179,6 +198,7 @@
         <InnerRadius value="0.5"/>
         <MinimapRadius value="0.65"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <GlossaryPriority value="20"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
@@ -214,6 +234,7 @@
             <LayoutButtons Face="ZeratulCommanderConstructsFacility" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build4" Row="0" Column="1"/>
             <LayoutButtons Face="ZeratulCommanderVoidShrine" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build6" Row="1" Column="0"/>
         </CardLayouts>
+        <GlossaryPriority value="5"/>
     </CUnit>
     <CUnit id="ZeratulCommanderZeratul" parent="CommanderGround_Prot" race="COOPZeratul">
         <FlagArray index="Cloaked" value="1"/>
@@ -231,6 +252,7 @@
             <LayoutButtons Face="ZeratulCommanderShadowCleave" Type="AbilCmd" AbilCmd="ZeratulCommanderShadowCleave,Execute" Row="2" Column="0"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Coop,Race:Zeratul"/>
+        <GlossaryPriority value="500"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAir_Prot" race="COOPZeratul">
         <LifeStart value="200"/>
@@ -248,6 +270,7 @@
         <CardLayouts index="0">
             <LayoutButtons Face="CommanderZeratulLevel09" Type="AbilCmd" AbilCmd="ZeratulCommanderMorphVoidArray@Phased,Execute" Row="2" Column="0"/>
         </CardLayouts>
+        <GlossaryPriority value="80"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaVoidArray@Alternate" parent="ZeratulCommanderXelNagaVoidArray">
         <Speed value="0"/>

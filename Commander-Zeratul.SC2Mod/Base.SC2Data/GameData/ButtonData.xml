@@ -4,6 +4,9 @@
         <Icon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
+    <CButton id="ZeratulCommanderAvatarOfEssence">
+        <Icon value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
+    </CButton>
     <CButton id="ZeratulCommanderBlinkVoidTemplar">
         <Icon value="Assets\Textures\btn-ability-zeratul-darktemplar-blink.dds"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -19,6 +22,10 @@
     </CButton>
     <CButton id="ZeratulCommanderCoreForge">
         <Icon value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CButton id="ZeratulCommanderDevolutionWave">
+        <Icon value="Assets\Textures\btn-ability-zeratul-avatarofessence-devolutionwave.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
     <CButton id="ZeratulCommanderDisruptorPhase">

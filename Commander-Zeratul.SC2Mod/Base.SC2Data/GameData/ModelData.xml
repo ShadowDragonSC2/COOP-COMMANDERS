@@ -11,6 +11,19 @@
         <Model value="Assets\COOP\Zeratul\Units\ArtifactPickup1_Zeratul_COOP\ArtifactPickup1_Zeratul_COOP.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
+    <CModel id="ZeratulCommanderAvatarOfEssence">
+        <Model value="Assets\COOP\Zeratul\Units\Construct_Essence_Zeratul_COOP\Construct_Essence_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <UnitGlossaryCamera value="Star2CameraHigher22"/>
+    </CModel>
+    <CModel id="ZeratulCommanderAvatarOfEssence@Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Zeratul\Units\Construct_Essence_Zeratul_COOP_Death\Construct_Essence_Zeratul_COOP_Death.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderAvatarOfEssence@Portrait" parent="Portrait">
+        <Model value="Assets\COOP\Zeratul\Portraits\Construct_Essence_Zeratul_COOP_Portrait\Construct_Essence_Zeratul_COOP_Portrait.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderBlinkVoidTemplar@ImpactModel">
         <Model value="Assets\Effects\Protoss\ZeratulBlinkIn\ZeratulBlinkIn.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -330,6 +343,7 @@
         <Tipability value="1.000000"/>
         <TipabilityLength value="0.300000"/>
         <TipabilityWidth value="0.400000"/>
+        <UnitGlossaryCamera value="Star2CameraMid05"/>
     </CModel>
     <CModel id="ZeratulCommanderXelNagaProbe@Death" parent="UnitDeath">
         <Model value="Assets\COOP\Zeratul\Units\Probe_Zeratul_COOP_Death\Probe_Zeratul_COOP_Death.m3"/>

@@ -1,4 +1,5 @@
 include "TriggerLibs/NativeLib"
+include "Lib6CA20615"
 include "LibBEDD5153"
 
 include "Lib3A96CF55_h"
@@ -9,6 +10,7 @@ include "Lib3A96CF55_h"
 // External Library Initialization
 void lib3A96CF55_InitLibraries () {
     libNtve_InitVariables();
+    lib6CA20615_InitVariables();
     libBEDD5153_InitVariables();
 }
 
@@ -73,27 +75,6 @@ bool lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Func (bool testConds, 
 void lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init () {
     lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards = TriggerCreate("lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Func");
     TriggerAddEventTargetModeUpdate(lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards, c_playerAny, AbilityCommand("attack", 0), c_targetModeStateAny);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: test
-//--------------------------------------------------------------------------------------------------
-bool lib3A96CF55_gt_test_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    TextExpressionSetToken("Param/Expression/lib_3A96CF55_D0D8AD81", "A", StringToText((EventPlayerEffectUsed())));
-    TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/lib_3A96CF55_D0D8AD81"), true);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void lib3A96CF55_gt_test_Init () {
-    lib3A96CF55_gt_test = TriggerCreate("lib3A96CF55_gt_test_Func");
-    TriggerAddEventPlayerEffectUsed(lib3A96CF55_gt_test, 1, null);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -181,12 +162,25 @@ void lib3A96CF55_gt_ChangeRace_Init () {
     TriggerAddEventChatMessage(lib3A96CF55_gt_ChangeRace, c_playerAny, "changerace", false);
 }
 
+//--------------------------------------------------------------------------------------------------
+// Trigger: Devolve Units
+//--------------------------------------------------------------------------------------------------
+bool lib3A96CF55_gt_DevolveUnits_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib3A96CF55_gt_DevolveUnits_Init () {
+    lib3A96CF55_gt_DevolveUnits = TriggerCreate("lib3A96CF55_gt_DevolveUnits_Func");
+}
+
 void lib3A96CF55_InitTriggers () {
     lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init();
-    lib3A96CF55_gt_test_Init();
     lib3A96CF55_gt_CommanderEnable_Init();
     lib3A96CF55_gt_CommanderDisable_Init();
     lib3A96CF55_gt_ChangeRace_Init();
+    lib3A96CF55_gt_DevolveUnits_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

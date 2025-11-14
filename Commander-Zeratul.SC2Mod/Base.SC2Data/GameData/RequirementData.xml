@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CRequirement id="ZeratulCommanderAvatarOfEssence@Requirement"/>
     <CRequirement id="ZeratulCommanderConstructsBay@Requirement"/>
     <CRequirement id="ZeratulCommanderConstructsFacility@Requirement"/>
     <CRequirement id="ZeratulCommanderCoreForge@Requirement"/>

@@ -1,5 +1,6 @@
 ﻿Abil/Name/ZeratulCommanderBlinkVoidTemplar=Blink
 Abil/Name/ZeratulCommanderBuildProbe=Zeratul Commander - Build Probe
+Abil/Name/ZeratulCommanderDevolutionWave=Devolution Wave
 Abil/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Abil/Name/ZeratulCommanderMorphVoidArray=Flight
 Abil/Name/ZeratulCommanderMorphVoidArray@Phased=Phased
@@ -7,10 +8,12 @@ Abil/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Abil/Name/ZeratulCommanderPredictiveBlink=Predictive Blink
 Abil/Name/ZeratulCommanderShadowCleave=Shadow Cleave
 Button/Name/ZeratulCommanderAncientNexus=Build <d stringref="Unit,ZeratulCommanderAncientNexus,Name"/>
+Button/Name/ZeratulCommanderAvatarOfEssence=<d stringref="Unit,ZeratulCommanderAvatarOfEssence,Name"> Avatar of Essence
 Button/Name/ZeratulCommanderBlinkVoidTemplar=<d stringref="Abil,ZeratulCommanderBlinkVoidTemplar,Name"/>
 Button/Name/ZeratulCommanderConstructsBay=Build <d stringref="Unit,ZeratulCommanderConstructsBay,Name"/>
 Button/Name/ZeratulCommanderConstructsFacility=Build <d stringref="Unit,ZeratulCommanderConstructsFacility,Name"/>
 Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderCoreForge,Name"/>
+Button/Name/ZeratulCommanderDevolutionWave=<d stringref="Abil,ZeratulCommanderDevolutionWave,Name"/>
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Button/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Button/Name/ZeratulCommanderPredictiveBlink=<d stringref="Abil,ZeratulCommanderPredictiveBlink,Name"/>
@@ -19,6 +22,7 @@ Button/Name/ZeratulCommanderVoidShrine=Build <d stringref="Unit,ZeratulCommander
 Button/Name/ZeratulCommanderXelNagaPassageway=Build <d stringref="Unit,ZeratulCommanderXelNagaPassageway,Name"/>
 Button/Name/ZeratulCommanderXelNagaVoidArray=Warp In <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/>
 Button/Name/ZeratulCommanderZeratul=Warp In <d stringref="Unit,ZeratulCommanderZeratul,Name"/>
+Button/Tooltip/ZeratulCommanderAvatarOfEssence=
 Button/Tooltip/ZeratulCommanderConstructsBay=
 Button/Tooltip/ZeratulCommanderConstructsFacility=Build xel'naga robotic constructs:<n/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaEnforcer,Name"/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/><n/>- <d stringref="Unit,ZeratulCommanderXelNagaWatcher,Name"/>
 Button/Tooltip/ZeratulCommanderCoreForge=
@@ -31,11 +35,13 @@ Button/Tooltip/ZeratulCommanderZeratul=
 DataCollection/Name/ZeratulCommanderAncientNexus=Zeratul Commander - Ancient Nexus
 DataCollection/Name/ZeratulCommanderAnnihilationCannon=Zeratul Commander - Annihilation Cannon
 DataCollection/Name/ZeratulCommanderArtifact=Artifact
+DataCollection/Name/ZeratulCommanderAvatarOfEssence=Zeratul Commander - Avatar of Essence
 DataCollection/Name/ZeratulCommanderBlinkVoidTemplar=Zeratul Commander - Blink Void Templar
 DataCollection/Name/ZeratulCommanderBuildProbe=Zeratul Commander - Build Probe
 DataCollection/Name/ZeratulCommanderConstructsBay=Zeratul Commander - Constructs Bay
 DataCollection/Name/ZeratulCommanderConstructsFacility=Zeratul Commander - Constructs Facility
 DataCollection/Name/ZeratulCommanderCoreForge=Zeratul Commander - Core Forge
+DataCollection/Name/ZeratulCommanderDevolutionWave=Devolution Wave
 DataCollection/Name/ZeratulCommanderDisruptorPhase=Zeratul Commander - Disruptor Phase
 DataCollection/Name/ZeratulCommanderMasterWarpBlade=Zeratul Commander - Master Warp Blade
 DataCollection/Name/ZeratulCommanderMorphVoidArray=Zeratul Commander - Morph Void Array
@@ -100,6 +106,7 @@ Race/Name/COOPZeratul=Zeratul
 UI/HelpMenuDialogTechGlossary_Control_Glossary/Category/COOPZeratul=Войска Зератула
 Unit/LifeArmorName/COOPZeratulArmor=Void armor
 Unit/Name/COOP/ZeratulCommanderAncientNexus=Ancient Nexus
+Unit/Name/COOP/ZeratulCommanderAvatarOfEssence=Avatar of Essence
 Unit/Name/COOP/ZeratulCommanderConstructsBay=Constructs Bay
 Unit/Name/COOP/ZeratulCommanderConstructsFacility=Constructs Facility
 Unit/Name/COOP/ZeratulCommanderCoreForge=Core Forge

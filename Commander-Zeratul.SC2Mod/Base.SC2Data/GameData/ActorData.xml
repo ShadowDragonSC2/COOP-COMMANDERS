@@ -31,6 +31,15 @@
         <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulartifact1.dds"/>
     </CActorUnit>
+    <CActorUnit id="ZeratulCommanderAvatarOfEssence" parent="CommanderGroundUnit" unitName="ZeratulCommanderAvatarOfEssence">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
+    </CActorUnit>
     <CActorModel id="ZeratulCommanderBlinkVoidTemplar@ImpactModel" parent="ModelAnimationStyleOneShot">
         <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Stop" Send="Create"/>

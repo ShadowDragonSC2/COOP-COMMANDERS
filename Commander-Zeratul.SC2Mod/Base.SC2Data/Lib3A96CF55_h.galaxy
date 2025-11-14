@@ -18,10 +18,10 @@ point lib3A96CF55_gf_CalculatePointFromArtifact (int lp_player);
 
 // Trigger Declarations
 trigger lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards;
-trigger lib3A96CF55_gt_test;
 trigger lib3A96CF55_gt_CommanderEnable;
 trigger lib3A96CF55_gt_CommanderDisable;
 trigger lib3A96CF55_gt_ChangeRace;
+trigger lib3A96CF55_gt_DevolveUnits;
 
 // Library Initialization
 void lib3A96CF55_InitVariables ();
