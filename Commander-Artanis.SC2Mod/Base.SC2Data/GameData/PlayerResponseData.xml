@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CPlayerResponseUnitDamage id="GuardShield">
+        <Handled value="GuardShield"/>
+        <ValidatorArray value="NotGuardianShell"/>
+        <Fatal value="1"/>
+        <ModifyFraction value="0"/>
+    </CPlayerResponseUnitDamage>
+</Catalog>

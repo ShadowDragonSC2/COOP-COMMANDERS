@@ -58,4 +58,12 @@
     <CActorMissile id="PhasedisruptorWeaponMissile" parent="GenericAttackMissile" unitName="PhasedisruptorWeapon">
         <Model value="PhasedisruptorMissileModel"/>
     </CActorMissile>
+    <CActorModel id="GuardShield" parent="ModelAnimationStyleContinuous">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.GuardShield.On" Send="Create"/>
+        <On Terms="Behavior.GuardShield.Off" Send="AnimBracketStop BSD"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <AutoScaleFactor value="0.500000"/>
+    </CActorModel>
 </Catalog>

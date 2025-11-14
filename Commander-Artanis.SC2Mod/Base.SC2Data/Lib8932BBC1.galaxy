@@ -1,0 +1,76 @@
+include "TriggerLibs/NativeLib"
+
+include "Lib8932BBC1_h"
+
+//--------------------------------------------------------------------------------------------------
+// Library: COOP-COMMANDERS
+//--------------------------------------------------------------------------------------------------
+// External Library Initialization
+void lib8932BBC1_InitLibraries () {
+    libNtve_InitVariables();
+}
+
+// Triggers
+//--------------------------------------------------------------------------------------------------
+// Trigger: GuardianShell
+//--------------------------------------------------------------------------------------------------
+bool lib8932BBC1_gt_GuardianShell_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    int lv_artanis_player;
+
+    // Automatic Variable Declarations
+    const int auto60C41B45_ae = 15;
+    const int auto60C41B45_ai = 1;
+    playergroup auto7586AF55_g;
+    int auto7586AF55_var;
+
+    // Variable Initialization
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lv_artanis_player = 1;
+    for ( ; ( (auto60C41B45_ai >= 0 && lv_artanis_player <= auto60C41B45_ae) || (auto60C41B45_ai < 0 && lv_artanis_player >= auto60C41B45_ae) ) ; lv_artanis_player += auto60C41B45_ai ) {
+        if ((PlayerRace(lv_artanis_player) == "Prot")) {
+            PlayerAddResponse(lv_artanis_player, "GuardShield");
+            auto7586AF55_g = PlayerGroupAlliance(c_playerGroupAlly, lv_artanis_player);
+            auto7586AF55_var = -1;
+            while (true) {
+                auto7586AF55_var = PlayerGroupNextPlayer(auto7586AF55_g, auto7586AF55_var);
+                if (auto7586AF55_var < 0) { break; }
+                PlayerAddResponse(lv_artanis_player, "GuardShield");
+            }
+        }
+
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib8932BBC1_gt_GuardianShell_Init () {
+    lib8932BBC1_gt_GuardianShell = TriggerCreate("lib8932BBC1_gt_GuardianShell_Func");
+    TriggerAddEventMapInit(lib8932BBC1_gt_GuardianShell);
+}
+
+void lib8932BBC1_InitTriggers () {
+    lib8932BBC1_gt_GuardianShell_Init();
+}
+
+//--------------------------------------------------------------------------------------------------
+// Library Initialization
+//--------------------------------------------------------------------------------------------------
+bool lib8932BBC1_InitLib_completed = false;
+
+void lib8932BBC1_InitLib () {
+    if (lib8932BBC1_InitLib_completed) {
+        return;
+    }
+
+    lib8932BBC1_InitLib_completed = true;
+
+    lib8932BBC1_InitLibraries();
+    lib8932BBC1_InitTriggers();
+}
+
