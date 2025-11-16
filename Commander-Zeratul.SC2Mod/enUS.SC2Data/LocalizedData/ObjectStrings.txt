@@ -50,6 +50,7 @@ Actor/Name/ZeratulCommanderXelNagaVoidArray@Turret=Turret
 Actor/Name/ZeratulCommanderXelnagaAmbusher=Xel'Naga Ambusher
 Actor/Name/ZeratulCommanderZeratul=Zeratul
 Behavior/Name/ZeratulCommanderDisruptorPhase@TimeLife=Time Life
+Behavior/Name/ZeratulCommanderForceCannon=Force Cannon
 DataCollectionPattern/Name/CommanderData=Commander Data
 Model/Name/Build_COOPZeratul=Build_COOP Zeratul
 Model/Name/ZeratulCommanderAncientNexus=Ancient Nexus

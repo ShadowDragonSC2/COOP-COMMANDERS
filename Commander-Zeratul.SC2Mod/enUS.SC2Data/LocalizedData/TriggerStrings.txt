@@ -16,6 +16,7 @@ Trigger/Name/lib_3A96CF55_1AAC797B=Devolve Units
 Trigger/Name/lib_3A96CF55_3343A385=Playing Attack Sounds Using Attack Towards
 Trigger/Name/lib_3A96CF55_3B38B554=Artifact Spawn (Init)
 Trigger/Name/lib_3A96CF55_4864156D=test
+Trigger/Name/lib_3A96CF55_8011BC76=init
 Trigger/Name/lib_3A96CF55_ADA63520=Change Race
 Trigger/Name/lib_3A96CF55_D02D4832=Commander - Disable
 Variable/Name/lib_3A96CF55_02B6602D=Topbar_caster

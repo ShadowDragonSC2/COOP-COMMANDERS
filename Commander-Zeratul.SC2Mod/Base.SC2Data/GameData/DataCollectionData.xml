@@ -51,6 +51,15 @@
         <DataRecord Entry="Effect,ZeratulCommanderDevolutionWave@TriggerHandler"/>
         <DataRecord Entry="Model,ZeratulCommanderDevolutionWave@ImpactModel"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderForceCannon">
+        <EditorCategories value="DataGroup:Buff,Race:Zeratul,ObjectType:Projectile"/>
+        <DataRecord Entry="Behavior,ZeratulCommanderForceCannon"/>
+        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@Set"/>
+        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@LM"/>
+        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@CP"/>
+        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@Set@1"/>
+        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@Teleport"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderVengeanceoftheVoid">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Upgrade,ZeratulCommanderVengeanceoftheVoid"/>

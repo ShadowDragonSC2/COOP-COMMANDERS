@@ -122,6 +122,27 @@ void lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
+// Trigger: init
+//--------------------------------------------------------------------------------------------------
+bool lib3A96CF55_gt_init_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    Wait(0.5, c_timeGame);
+    PlayerSetAlliance(1, c_allianceIdPushable, 3, true);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib3A96CF55_gt_init_Init () {
+    lib3A96CF55_gt_init = TriggerCreate("lib3A96CF55_gt_init_Func");
+    TriggerAddEventMapInit(lib3A96CF55_gt_init);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Commander - Enable
 //--------------------------------------------------------------------------------------------------
 bool lib3A96CF55_gt_CommanderEnable_Func (bool testConds, bool runActions) {
@@ -228,6 +249,7 @@ void lib3A96CF55_gt_DevolveUnits_Init () {
 
 void lib3A96CF55_InitTriggers () {
     lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init();
+    lib3A96CF55_gt_init_Init();
     lib3A96CF55_gt_CommanderEnable_Init();
     lib3A96CF55_gt_CommanderDisable_Init();
     lib3A96CF55_gt_ChangeRace_Init();

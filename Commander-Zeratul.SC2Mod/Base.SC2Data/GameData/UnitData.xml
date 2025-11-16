@@ -121,6 +121,7 @@
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
         <CargoSize value="4"/>
         <GlossaryPriority value="85"/>
+        <BehaviorArray Link="ZeratulCommanderForceCannon"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>

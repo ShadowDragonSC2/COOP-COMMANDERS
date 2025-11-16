@@ -5,4 +5,8 @@
         <Duration value="5"/>
         <ExpireEffect value="ZeratulCommanderDisruptorPhase@Set"/>
     </CBehaviorBuff>
+    <CBehaviorAttackModifier id="ZeratulCommanderForceCannon">
+        <EditorCategories value="AbilityorEffectType:Units,Race:Zeratul"/>
+        <PreImpactEffect value="ZeratulCommanderForceCannon@Set"/>
+    </CBehaviorAttackModifier>
 </Catalog>

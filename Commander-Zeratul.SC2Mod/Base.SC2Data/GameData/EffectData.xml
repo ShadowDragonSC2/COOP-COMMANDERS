@@ -80,6 +80,28 @@
     <CEffectSet id="ZeratulCommanderDevolutionWave@TriggerHandler">
         <EditorCategories value="Race:Zeratul"/>
     </CEffectSet>
+    <CEffectCreatePersistent id="ZeratulCommanderForceCannon@CP">
+        <EditorCategories value="Race:Zeratul"/>
+        <InitialEffect value="ZeratulCommanderForceCannon@LM"/>
+        <InitialOffset value="0,10,0"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="ZeratulCommanderForceCannon@LM">
+        <EditorCategories value="Race:Zeratul"/>
+        <ImpactEffect value="ZeratulCommanderForceCannon@Set@1"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="ZeratulCommanderForceCannon@Set">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="MakePrecursor"/>
+        <EffectArray value="ZeratulCommanderForceCannon@CP"/>
+    </CEffectSet>
+    <CEffectSet id="ZeratulCommanderForceCannon@Set@1">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderForceCannon@Teleport"/>
+        <EffectArray value="RemovePrecursor"/>
+    </CEffectSet>
+    <CEffectTeleport id="ZeratulCommanderForceCannon@Teleport">
+        <EditorCategories value="Race:Zeratul"/>
+    </CEffectTeleport>
     <CEffectCreateUnit id="ZeratulCommanderVengeanceoftheVoid@CU">
         <EditorCategories value="Race:Zeratul"/>
     </CEffectCreateUnit>

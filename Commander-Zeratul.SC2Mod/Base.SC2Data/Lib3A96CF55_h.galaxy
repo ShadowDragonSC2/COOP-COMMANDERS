@@ -19,6 +19,7 @@ string lib3A96CF55_gf_PreviousUnitEvolve (unit lp_unit);
 
 // Trigger Declarations
 trigger lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards;
+trigger lib3A96CF55_gt_init;
 trigger lib3A96CF55_gt_CommanderEnable;
 trigger lib3A96CF55_gt_CommanderDisable;
 trigger lib3A96CF55_gt_ChangeRace;
