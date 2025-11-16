@@ -64,6 +64,10 @@
         <Model value="Assets\COOP\Zeratul\Portraits\DarkVoice_Zeratul_COOP_Portrait\DarkVoice_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
+    <CModel id="ZeratulCommanderDevolutionWave@ImpactModel">
+        <Model value="Assets\COOP\Zeratul\Effects\Construct_Essence_Zeratul_COOP_DevolutionWave\Construct_Essence_Zeratul_COOP_DevolutionWave.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderDisruptorPhase" parent="Unit">
         <Model value="Assets\COOP\Zeratul\Effects\Disruptor_Zeratul_COOP_PhaseMode\Disruptor_Zeratul_COOP_PhaseMode.m3"/>
         <EditorCategories value="Race:Zeratul"/>

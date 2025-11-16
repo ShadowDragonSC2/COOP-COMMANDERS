@@ -15,6 +15,7 @@ lib3A96CF55_gs_ZeratulPlayers[16] lib3A96CF55_gv_player;
 
 // Function Declarations
 point lib3A96CF55_gf_CalculatePointFromArtifact (int lp_player);
+string lib3A96CF55_gf_PreviousUnitEvolve (unit lp_unit);
 
 // Trigger Declarations
 trigger lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards;

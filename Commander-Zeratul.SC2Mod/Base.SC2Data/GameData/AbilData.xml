@@ -6,6 +6,7 @@
         <Flags index="BestUnit" value="0"/>
         <Range value="500"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderBlinkVoidTemplar"/>
+        <Arc value="360"/>
     </CAbilEffectTarget>
     <CAbilBuild id="ZeratulCommanderBuildProbe">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
@@ -34,6 +35,7 @@
     <CAbilEffectInstant id="ZeratulCommanderDevolutionWave">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderDevolutionWave"/>
+        <Effect index="0" value="ZeratulCommanderDevolutionWave@Search"/>
     </CAbilEffectInstant>
     <CAbilEffectTarget id="ZeratulCommanderPickupArtifact">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CMoverMissile id="COOPZeratul_Invisible">
+        <PathMode value="Scaler"/>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="1000"/>
+            <MaxSpeed value="125"/>
+            <IgnoresTerrain value="1"/>
+            <ThrowBandYaw value="-360,-360,-360,-360"/>
+            <ThrowBandPitch value="-360,-360,-360,-360"/>
+            <Overlays/>
+            <Overlays/>
+        </MotionPhases>
+    </CMoverMissile>
+</Catalog>

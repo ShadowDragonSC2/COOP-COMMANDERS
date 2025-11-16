@@ -45,6 +45,50 @@ point lib3A96CF55_gf_CalculatePointFromArtifact (int lp_player) {
     return lv__point;
 }
 
+string lib3A96CF55_gf_PreviousUnitEvolve (unit lp_unit) {
+    // Variable Declarations
+    string lv_raceUnit;
+    int lv_priorityoriginunit;
+    string lv_category;
+    int lv_prioritycurrentunit;
+    int lv_priorityoldunit;
+    string lv_unitentry;
+    string lv_result;
+    bool lv_firstlow;
+
+    // Automatic Variable Declarations
+    int autoB7983870_catalog;
+    int autoB7983870_i;
+
+    // Variable Initialization
+    lv_raceUnit = lib6CA20615_gf_RaceOfUnit(lp_unit);
+    lv_priorityoriginunit = CatalogFieldValueGetAsInt(c_gameCatalogUnit, UnitGetType(lp_unit), "GlossaryPriority", c_playerAny);
+    lv_category = CatalogFieldValueGet(c_gameCatalogUnit, UnitGetType(lp_unit), "GlossaryCategory", c_playerAny);
+    lv_prioritycurrentunit = lv_priorityoriginunit;
+
+    // Implementation
+    autoB7983870_catalog = c_gameCatalogUnit;
+    autoB7983870_i = 1;
+    for ( ; autoB7983870_i <= CatalogEntryCount(c_gameCatalogUnit) ; autoB7983870_i += 1 ) {
+        lv_unitentry = CatalogEntryGet(autoB7983870_catalog, autoB7983870_i);
+        if (((lv_raceUnit != lib6CA20615_gf_RaceOfUnitType(lv_unitentry)) || (lv_category != CatalogFieldValueGet(c_gameCatalogUnit, lv_unitentry, "GlossaryCategory", c_playerAny)) || (UnitTypeGetProperty(lv_unitentry, c_unitPropSuppliesUsed) == 0.0) || (UnitTypeGetProperty(lv_unitentry, c_unitPropSuppliesUsed) == 0.0))) {
+            continue;
+        }
+
+        lv_prioritycurrentunit = CatalogFieldValueGetAsInt(c_gameCatalogUnit, lv_unitentry, "GlossaryPriority", c_playerAny);
+        if ((lv_priorityoldunit < lv_prioritycurrentunit) && (lv_prioritycurrentunit < lv_priorityoriginunit)) {
+            lv_priorityoldunit = lv_prioritycurrentunit;
+            lv_result = lv_unitentry;
+            TextExpressionSetToken("Param/Expression/lib_3A96CF55_EE8FE678", "A", IntToText(lv_priorityoldunit));
+            TextExpressionSetToken("Param/Expression/lib_3A96CF55_EE8FE678", "B", IntToText(lv_prioritycurrentunit));
+            TextExpressionSetToken("Param/Expression/lib_3A96CF55_EE8FE678", "C", IntToText(lv_priorityoriginunit));
+            TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/lib_3A96CF55_EE8FE678"), true);
+        }
+
+    }
+    return lv_result;
+}
+
 // Triggers
 //--------------------------------------------------------------------------------------------------
 // Trigger: Playing Attack Sounds Using Attack Towards
@@ -167,12 +211,19 @@ void lib3A96CF55_gt_ChangeRace_Init () {
 //--------------------------------------------------------------------------------------------------
 bool lib3A96CF55_gt_DevolveUnits_Func (bool testConds, bool runActions) {
     // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    libNtve_gf_ReplaceUnit(EventPlayerEffectUsedUnit(c_effectUnitTarget), lib3A96CF55_gf_PreviousUnitEvolve(EventPlayerEffectUsedUnit(c_effectUnitTarget)), libNtve_ge_ReplaceUnitOptions_OldUnitsRelative);
     return true;
 }
 
 //--------------------------------------------------------------------------------------------------
 void lib3A96CF55_gt_DevolveUnits_Init () {
     lib3A96CF55_gt_DevolveUnits = TriggerCreate("lib3A96CF55_gt_DevolveUnits_Func");
+    TriggerAddEventPlayerEffectUsed(lib3A96CF55_gt_DevolveUnits, c_playerAny, "ZeratulCommanderDevolutionWave@TriggerHandler");
 }
 
 void lib3A96CF55_InitTriggers () {

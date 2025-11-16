@@ -33,7 +33,6 @@
         <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@Attack"/>
         <DataRecord Entry="Button,ZeratulCommanderBlinkVoidTemplar"/>
         <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Set"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@CP"/>
         <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Search"/>
         <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Damage"/>
         <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Facing"/>
@@ -41,11 +40,16 @@
         <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@ImpactModel"/>
         <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
         <DataRecord Entry="Sound,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
+        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@LM"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderDevolutionWave">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:AbilityTopbars"/>
         <DataRecord Entry="Abil,ZeratulCommanderDevolutionWave"/>
         <DataRecord Entry="Button,ZeratulCommanderDevolutionWave"/>
+        <DataRecord Entry="Actor,ZeratulCommanderDevolutionWave@ImpactModel"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDevolutionWave@Search"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDevolutionWave@TriggerHandler"/>
+        <DataRecord Entry="Model,ZeratulCommanderDevolutionWave@ImpactModel"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderVengeanceoftheVoid">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>

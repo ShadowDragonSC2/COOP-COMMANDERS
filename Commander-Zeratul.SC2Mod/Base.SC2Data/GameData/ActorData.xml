@@ -6,6 +6,10 @@
     <CActorModel id="Build_COOPZeratul" parent="ProtossBuildingBuild">
         <EditorCategories value=""/>
     </CActorModel>
+    <CActorMissile id="COOPZeratul_Invisible" parent="GenericAttackMissile" unitName="COOPZeratul_Invisible">
+        <EditorCategories value=""/>
+        <Model value="Marine"/>
+    </CActorMissile>
     <CActorSiteOpForward id="SOpForwardScopeLaunch">
         <HostForward Subject="::scope.Launch"/>
     </CActorSiteOpForward>
@@ -42,7 +46,6 @@
     </CActorUnit>
     <CActorModel id="ZeratulCommanderBlinkVoidTemplar@ImpactModel" parent="ModelAnimationStyleOneShot">
         <EditorCategories value=""/>
-        <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Stop" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOrigin SOpForwardScopeLaunch"/>
     </CActorModel>
@@ -52,7 +55,6 @@
     </CActorSound>
     <CActorModel id="ZeratulCommanderBlinkVoidTemplar@LaunchModel" parent="ModelAnimationStyleOneShot">
         <EditorCategories value=""/>
-        <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Start" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary SOpForwardZeratulDarkTemplar"/>
     </CActorModel>
@@ -94,6 +96,10 @@
             <Image value="Assets\Textures\wireframe-protoss-cyberneticscore.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorModel id="ZeratulCommanderDevolutionWave@ImpactModel" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderDevolutionWave@Search.Start" Send="Create"/>
+    </CActorModel>
     <CActorUnit id="ZeratulCommanderDisruptorPhase" parent="GenericUnitStandard" unitName="ZeratulCommanderDisruptorPhase">
         <EditorCategories value=""/>
         <HeroIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
@@ -155,8 +161,11 @@
     <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage">
         <EditorCategories value=""/>
     </CActorAction>
-    <CActorAction id="ZeratulCommanderBlinkVoidTemplar@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderBlinkVoidTemplar@Damage">
+    <CActorAction id="ZeratulCommanderBlinkVoidTemplar@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderBlinkVoidTemplar@Search" effectLaunch="ZeratulCommanderBlinkVoidTemplar@Teleport">
         <EditorCategories value=""/>
+        <Missile value="COOPZeratul_Invisible"/>
+        <LaunchAssets Model="ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
+        <ImpactMap index="None" Model="ZeratulCommanderBlinkVoidTemplar@ImpactModel"/>
     </CActorAction>
     <CActorModel id="ZeratulCommanderPredictiveBlink@ImpactModel" parent="ModelAnimationStyleOneShot">
         <InheritType value="OneShot"/>

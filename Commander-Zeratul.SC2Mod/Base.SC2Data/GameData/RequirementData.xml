@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CRequirement id="ZeratulCommanderAvatarOfEssence@Requirement"/>
-    <CRequirement id="ZeratulCommanderConstructsBay@Requirement"/>
-    <CRequirement id="ZeratulCommanderConstructsFacility@Requirement"/>
-    <CRequirement id="ZeratulCommanderCoreForge@Requirement"/>
-    <CRequirement id="ZeratulCommanderVoidShrine@Requirement"/>
+    <CRequirement id="ZeratulCommanderAvatarOfEssence@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
+    <CRequirement id="ZeratulCommanderConstructsBay@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
+    <CRequirement id="ZeratulCommanderConstructsFacility@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
+    <CRequirement id="ZeratulCommanderCoreForge@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
+    <CRequirement id="ZeratulCommanderVoidShrine@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
     <CRequirement id="ZeratulCommanderXelNagaAbrogator">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
-    <CRequirement id="ZeratulCommanderXelNagaPassageway@Requirement"/>
+    <CRequirement id="ZeratulCommanderXelNagaPassageway@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
     <CRequirement id="ZeratulCommanderXelNagaShieldguard">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
-    <CRequirement id="ZeratulCommanderXelNagaVoidArray@Requirement"/>
+    <CRequirement id="ZeratulCommanderXelNagaVoidArray@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
     <CRequirement id="ZeratulCommanderXelnagaAmbusher">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
     <CRequirement id="ZeratulCommanderXelNagaProbe">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
-    <CRequirement id="ZeratulCommanderZeratul@Requirement"/>
+    <CRequirement id="ZeratulCommanderZeratul@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
 </Catalog>
