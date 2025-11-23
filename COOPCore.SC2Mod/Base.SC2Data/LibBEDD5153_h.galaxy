@@ -4,6 +4,8 @@ include "TriggerLibs/natives"
 // Library: COOP Core
 //--------------------------------------------------------------------------------------------------
 // Preset Declarations
+const int libBEDD5153_ge_StringOperator__2B = 0;
+const int libBEDD5153_ge_StringOperator__2D = 1;
 
 // Constants
 const string libBEDD5153_gv_eVENT_PlayerRaceChanges = "PlayerRaceChangesCC";
@@ -40,6 +42,7 @@ void libBEDD5153_gf_PlayAnimationonTopbar (int lp_player, string lp_animationNam
 string libBEDD5153_gf_ResponsePRC (string lp_player, string lp_race, string lp_inOut, string lp_parameter);
 string libBEDD5153_gf_ResponseCIT (int lp_player, string lp_itemName, string lp_parameter);
 void libBEDD5153_gf_SetPlayerRaceCC (int lp_player, string lp_race);
+void libBEDD5153_gf_ModifyVariableString (string lp_variable, int lp_operator, string lp_value);
 int libBEDD5153_gf_HookupStandardDialogItem (int lp_type, string lp_name);
 void libBEDD5153_gf_ClickItemTopbar (trigger t, int lp_player, string lp_itemName);
 void libBEDD5153_gf_PlayerRaceChangesCC (trigger t, int lp_player, string lp_race, string lp_inOut);

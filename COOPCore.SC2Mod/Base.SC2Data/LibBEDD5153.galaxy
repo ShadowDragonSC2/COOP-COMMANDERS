@@ -193,6 +193,22 @@ void libBEDD5153_gf_SetPlayerRaceCC (int lp_player, string lp_race) {
     TriggerSendEvent(libBEDD5153_gf_ResponsePRC(IntToString((c_playerAny)), (libBEDD5153_gv_eVENT_Constant_anyRace), "On", null));
 }
 
+void libBEDD5153_gf_ModifyVariableString (string lp_variable, int lp_operator, string lp_value) {
+    // Automatic Variable Declarations
+    int autoDF8C0A4F_val;
+
+    // Implementation
+    autoDF8C0A4F_val = lp_operator;
+    if (autoDF8C0A4F_val == libBEDD5153_ge_StringOperator__2B) {
+        lp_variable = (lp_variable + lp_value);
+    }
+    else if (autoDF8C0A4F_val == libBEDD5153_ge_StringOperator__2D) {
+        lp_variable = StringReplaceWord(lp_variable, lp_value, "", c_stringReplaceAll, c_stringCase);
+    }
+    else {
+    }
+}
+
 int libBEDD5153_gf_HookupStandardDialogItem (int lp_type, string lp_name) {
     // Automatic Variable Declarations
     // Implementation

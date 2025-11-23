@@ -18,12 +18,17 @@ void lib3A96CF55_InitLibraries () {
 bool lib3A96CF55_InitVariables_completed = false;
 
 void lib3A96CF55_InitVariables () {
+    int init_i;
+
     if (lib3A96CF55_InitVariables_completed) {
         return;
     }
 
     lib3A96CF55_InitVariables_completed = true;
 
+    for (init_i = 0; init_i <= 15; init_i += 1) {
+        lib3A96CF55_gv_player[init_i].lv_unitsincatalogwithrace = -1;
+    }
 }
 
 // Functions
@@ -89,6 +94,44 @@ string lib3A96CF55_gf_PreviousUnitEvolve (unit lp_unit) {
     return lv_result;
 }
 
+void lib3A96CF55_gf_updateplayerunitentries (int lp_player) {
+    // Variable Declarations
+    int lv_datatable;
+    string lv_race;
+    string lv__unit;
+    string lv_list_units;
+
+    // Automatic Variable Declarations
+    int autoC2E54554_catalog;
+    int autoC2E54554_i;
+
+    // Variable Initialization
+    lv_datatable = lib3A96CF55_gv_player[lp_player].lv_unitsincatalogwithrace;
+    lv_race = PlayerRace(lp_player);
+    lv_list_units = "";
+
+    // Implementation
+    if ((lv_datatable == -1)) {
+        DataTableInstanceCreate();
+        lib3A96CF55_gv_player[lp_player].lv_unitsincatalogwithrace = DataTableInstanceLastCreated();
+        lv_datatable = lib3A96CF55_gv_player[lp_player].lv_unitsincatalogwithrace;
+    }
+    else {
+        DataTableInstanceClear(lv_datatable);
+    }
+    autoC2E54554_catalog = c_gameCatalogUnit;
+    autoC2E54554_i = 1;
+    for ( ; autoC2E54554_i <= CatalogEntryCount(c_gameCatalogUnit) ; autoC2E54554_i += 1 ) {
+        lv__unit = CatalogEntryGet(autoC2E54554_catalog, autoC2E54554_i);
+        if ((lib6CA20615_gf_RaceOfUnitType(lv__unit) != lv_race)) {
+            continue;
+        }
+
+        libBEDD5153_gf_ModifyVariableString(lv_list_units, libBEDD5153_ge_StringOperator__2B, ((lv__unit) + " "));
+    }
+    TriggerDebugOutput(1, StringToText(lv_list_units), true);
+}
+
 // Triggers
 //--------------------------------------------------------------------------------------------------
 // Trigger: Playing Attack Sounds Using Attack Towards
@@ -133,6 +176,7 @@ bool lib3A96CF55_gt_init_Func (bool testConds, bool runActions) {
 
     Wait(0.5, c_timeGame);
     PlayerSetAlliance(1, c_allianceIdPushable, 3, true);
+    lib3A96CF55_gf_updateplayerunitentries(1);
     return true;
 }
 
@@ -247,6 +291,19 @@ void lib3A96CF55_gt_DevolveUnits_Init () {
     TriggerAddEventPlayerEffectUsed(lib3A96CF55_gt_DevolveUnits, c_playerAny, "ZeratulCommanderDevolutionWave@TriggerHandler");
 }
 
+//--------------------------------------------------------------------------------------------------
+// Trigger: Devolve Units #2
+//--------------------------------------------------------------------------------------------------
+bool lib3A96CF55_gt_DevolveUnits2_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib3A96CF55_gt_DevolveUnits2_Init () {
+    lib3A96CF55_gt_DevolveUnits2 = TriggerCreate("lib3A96CF55_gt_DevolveUnits2_Func");
+}
+
 void lib3A96CF55_InitTriggers () {
     lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init();
     lib3A96CF55_gt_init_Init();
@@ -254,6 +311,7 @@ void lib3A96CF55_InitTriggers () {
     lib3A96CF55_gt_CommanderDisable_Init();
     lib3A96CF55_gt_ChangeRace_Init();
     lib3A96CF55_gt_DevolveUnits_Init();
+    lib3A96CF55_gt_DevolveUnits2_Init();
 }
 
 //--------------------------------------------------------------------------------------------------
