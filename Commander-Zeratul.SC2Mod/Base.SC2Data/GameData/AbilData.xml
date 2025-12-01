@@ -84,6 +84,14 @@
         <Effect index="0" value="ZeratulCommanderPredictiveBlink@Teleport"/>
         <AINotifyEffect value="ZeratulCommanderPredictiveBlink@Teleport"/>
     </CAbilEffectTarget>
+    <CAbilEffectInstant id="ZeratulCommanderProphecy">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ZeratulCommanderProphecy@Switch"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderProphecy"/>
+        <Cost>
+            <Cooldown Location="Player" TimeUse="10"/>
+        </Cost>
+    </CAbilEffectInstant>
     <CAbilEffectInstant id="ZeratulCommanderShadowCleave">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
         <Effect index="0" value="ZeratulCommanderShadowCleave@Search"/>

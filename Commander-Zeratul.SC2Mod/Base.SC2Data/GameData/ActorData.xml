@@ -192,6 +192,21 @@
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
         <ModelFlags index="AllowHitTest" value="0"/>
     </CActorModel>
+    <CActorAction id="ZeratulCommanderProphecy@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderProphecy@Handler">
+        <EditorCategories value=""/>
+        <Beam value="ZeratulCommanderProphecy@Beam"/>
+        <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
+        <BeamScope value="Caster"/>
+    </CActorAction>
+    <CActorBeamSimple id="ZeratulCommanderProphecy@Beam" parent="BeamSimpleAnimationStyleOneShot">
+        <EditorCategories value=""/>
+    </CActorBeamSimple>
+    <CActorModel id="ZeratulCommanderProphecy@Model" parent="ModelAnimationStyleContinuous">
+        <EditorCategories value=""/>
+        <On Terms="Effect.ZeratulCommanderProphecy@CP.Start" Send="Create"/>
+        <On Terms="Effect.ZeratulCommanderProphecy@CP.Stop; FromEffectTreeDescendant" Send="AnimBracketStop BSD"/>
+        <ModelFlags index="AutomateGlobalLoops" value="1"/>
+    </CActorModel>
     <CActorSimple id="ZeratulCommanderShadowCleave@Animation">
         <EditorCategories value=""/>
         <On Terms="Abil.ZeratulCommanderShadowCleave.SourceCastStart" Send="Create"/>
@@ -206,6 +221,12 @@
         <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
     </CActorSound>
+    <CActorUnit id="ZeratulCommanderTesseractCannon" parent="CommanderGroundUnit" unitName="ZeratulCommanderTesseractCannon">
+        <EditorCategories value=""/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\protossbuildingarmor.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
+    </CActorUnit>
     <CActorUnit id="ZeratulCommanderVengeanceoftheVoid" parent="GenericUnitStandard" unitName="ZeratulCommanderVengeanceoftheVoid">
         <EditorCategories value=""/>
     </CActorUnit>
@@ -264,9 +285,15 @@
         <Wireframe>
             <Image value="Assets\Textures\wireframe-protoss-warpprism00.dds"/>
         </Wireframe>
-        <On Terms="UnitBirth.ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
-        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work,Start Stand,Work Stand,Work,End"/>
-        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray" Send="AnimBracketStop Morph"/>
+        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work Stand,Work,Start {} ContentPlayOnce"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray" Send="Create"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderXelNagaVoidArray@Alternate" parent="ZeratulCommanderXelNagaVoidArray" unitName="ZeratulCommanderXelNagaVoidArray@Alternate">
+        <EditorCategories value=""/>
+        <On index="69" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work,Start Stand,Work Stand,Work,End ContentForceLooping"/>
+        <On index="70" Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
+        <On index="71" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
     </CActorUnit>
     <CActorTurret id="ZeratulCommanderXelNagaVoidArray@Turret">
         <EditorCategories value=""/>
@@ -312,4 +339,12 @@
         </WireframeShield>
         <GlossaryAnim value="stand"/>
     </CActorUnit>
+    <CActorUnit id="ZeratulCommanderProphecyCamera" parent="GenericUnitStandard" unitName="ZeratulCommanderProphecyCamera">
+        <EditorCategories value=""/>
+        <HostSiteOps Ops="ZeratulCommanderSOpProphecyCameraOffset SOpPointToCamera"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+    </CActorUnit>
+    <CActorSiteOpLocalOffset id="ZeratulCommanderSOpProphecyCameraOffset">
+        <LocalOffset value="0.000000,-29.000000,40.000000"/>
+    </CActorSiteOpLocalOffset>
 </Catalog>

@@ -3,4 +3,6 @@
 <Actor id="SYSTEM_ActorConfig"/>
 <Race id="COOPZeratul"/>
 <Unit id="Pylon"/>
+<Unit id="ZeratulCommanderArtifact"/>
+<Unit id="ZeratulCommanderProphecyCamera"/>
 </Preload>

@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CValidatorLocationEnumArea id="ZeratulCommanderProphecy@Nearby">
+        <WhichLocation Value="SourcePoint"/>
+        <AreaArray Radius="13" Validator="ZeratulCommanderProphecy@UnitType"/>
+        <LaunchLocation Value="SourcePoint"/>
+        <SearchFilters value="-;Missile,Dead"/>
+    </CValidatorLocationEnumArea>
+    <CValidatorUnitType id="ZeratulCommanderProphecy@UnitType">
+        <Value value="ZeratulCommanderArtifact"/>
+    </CValidatorUnitType>
     <CValidatorUnitType id="ZeratulCommanderZeratul">
         <WhichUnit Value="Caster"/>
         <Value value="ZeratulCommanderZeratul"/>

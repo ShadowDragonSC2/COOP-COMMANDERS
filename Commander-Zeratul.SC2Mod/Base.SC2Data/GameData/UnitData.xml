@@ -40,17 +40,17 @@
         </CardLayouts>
     </CUnit>
     <CUnit id="ZeratulCommanderConstructsBay" parent="CommanderStructure_Prot" race="COOPZeratul">
-        <LifeStart value="550"/>
-        <LifeMax value="550"/>
-        <ShieldsStart value="550"/>
-        <ShieldsMax value="550"/>
+        <LifeStart value="450"/>
+        <LifeMax value="450"/>
+        <ShieldsStart value="800"/>
+        <ShieldsMax value="800"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
     <CUnit id="ZeratulCommanderConstructsFacility" parent="CommanderStructure_Prot" race="COOPZeratul">
-        <LifeStart value="550"/>
-        <LifeMax value="550"/>
-        <ShieldsStart value="550"/>
-        <ShieldsMax value="550"/>
+        <LifeStart value="450"/>
+        <LifeMax value="450"/>
+        <ShieldsStart value="850"/>
+        <ShieldsMax value="850"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
     <CUnit id="ZeratulCommanderCoreForge" parent="CommanderStructure_Prot" race="COOPZeratul">
@@ -60,6 +60,7 @@
         <ShieldsMax value="550"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
+    <CUnit id="ZeratulCommanderTesseractCannon" parent="CommanderStructure_Prot" race="COOPZeratul"/>
     <CUnit id="ZeratulCommanderVengeanceoftheVoid">
         <Race value="COOPZeratul"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop"/>
@@ -256,9 +257,11 @@
         <ShieldRegenRate value="15"/>
         <Speed value="3"/>
         <AbilArray Link="ZeratulCommanderShadowCleave"/>
+        <AbilArray Link="ZeratulCommanderProphecy"/>
         <WeaponArray Link="ZeratulCommanderMasterWarpBlade"/>
         <CardLayouts index="0">
             <LayoutButtons Face="ZeratulCommanderShadowCleave" Type="AbilCmd" AbilCmd="ZeratulCommanderShadowCleave,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderProphecy" Type="AbilCmd" AbilCmd="ZeratulCommanderProphecy,Execute" Row="2" Column="1"/>
         </CardLayouts>
         <EditorCategories value="ObjectType:Hero,ObjectFamily:Coop,Race:Zeratul"/>
         <GlossaryPriority value="500"/>
@@ -294,5 +297,14 @@
         <Mover value="StalkerWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Zeratul"/>
         <Race value="COOPZeratul"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderProphecyCamera">
+        <Race value="COOPZeratul"/>
+        <FlagArray index="Unselectable" value="1"/>
+        <FlagArray index="Untargetable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectFamily:Coop,ObjectType:Other,Race:Zeratul"/>
+        <LeaderAlias value=""/>
     </CUnit>
 </Catalog>

@@ -6,6 +6,7 @@ Abil/Name/ZeratulCommanderMorphVoidArray=Flight
 Abil/Name/ZeratulCommanderMorphVoidArray@Phased=Phased
 Abil/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Abil/Name/ZeratulCommanderPredictiveBlink=Predictive Blink
+Abil/Name/ZeratulCommanderProphecy=Prophetic vision
 Abil/Name/ZeratulCommanderShadowCleave=Shadow Cleave
 Button/Name/ZeratulCommanderAncientNexus=Build <d stringref="Unit,ZeratulCommanderAncientNexus,Name"/>
 Button/Name/ZeratulCommanderAvatarOfEssence=<d stringref="Unit,ZeratulCommanderAvatarOfEssence,Name"> Avatar of Essence
@@ -17,7 +18,9 @@ Button/Name/ZeratulCommanderDevolutionWave=<d stringref="Abil,ZeratulCommanderDe
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Button/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Button/Name/ZeratulCommanderPredictiveBlink=<d stringref="Abil,ZeratulCommanderPredictiveBlink,Name"/>
+Button/Name/ZeratulCommanderProphecy=<d stringref="Abil,ZeratulCommanderPropehcy,Name"/>
 Button/Name/ZeratulCommanderShadowCleave=Shadow Cleave
+Button/Name/ZeratulCommanderTesseractCannon=Warp In <d stringref="Unit,ZeratulCommanderTesseractCannon,Name"/>
 Button/Name/ZeratulCommanderVoidShrine=Build <d stringref="Unit,ZeratulCommanderVoidShrine,Name"/>
 Button/Name/ZeratulCommanderXelNagaPassageway=Build <d stringref="Unit,ZeratulCommanderXelNagaPassageway,Name"/>
 Button/Name/ZeratulCommanderXelNagaVoidArray=Warp In <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/>
@@ -34,7 +37,7 @@ Button/Tooltip/ZeratulCommanderXelNagaVoidArray@Alternate=
 Button/Tooltip/ZeratulCommanderZeratul=
 DataCollection/Name/ZeratulCommanderAncientNexus=Zeratul Commander - Ancient Nexus
 DataCollection/Name/ZeratulCommanderAnnihilationCannon=Zeratul Commander - Annihilation Cannon
-DataCollection/Name/ZeratulCommanderArtifact=Artifact
+DataCollection/Name/ZeratulCommanderArtifact=Zeratul Commander - Artifact
 DataCollection/Name/ZeratulCommanderAvatarOfEssence=Zeratul Commander - Avatar of Essence
 DataCollection/Name/ZeratulCommanderBlinkVoidTemplar=Zeratul Commander - Blink Void Templar
 DataCollection/Name/ZeratulCommanderBuildProbe=Zeratul Commander - Build Probe
@@ -50,7 +53,9 @@ DataCollection/Name/ZeratulCommanderNullBeam=Zeratul Commander - Null Beam
 DataCollection/Name/ZeratulCommanderParticularBeam=Zeratul Commander - Particular Beam
 DataCollection/Name/ZeratulCommanderPhaseDisruptors=Zeratul Commander - Phase Disruptors
 DataCollection/Name/ZeratulCommanderPredictiveBlink=Zeratul Commander - Predictive Blink
+DataCollection/Name/ZeratulCommanderProphecy=Zeratul Commander - Prophecy
 DataCollection/Name/ZeratulCommanderShadowCleave=Zeratul Commander - Shadow Cleave
+DataCollection/Name/ZeratulCommanderTesseractCannon=Zeratul Commander - Tesseract Cannon
 DataCollection/Name/ZeratulCommanderVengeanceoftheVoid=ZeratulCommander - Vengeance of the Void
 DataCollection/Name/ZeratulCommanderVoidShrine=Zeratul Commander - Void Shrine
 DataCollection/Name/ZeratulCommanderVoidTemplar=Zeratul Commander - Void Templar
@@ -99,6 +104,13 @@ Effect/Name/ZeratulCommanderParticularBeam@Damage=Damage
 Effect/Name/ZeratulCommanderParticularBeam@LM=LM
 Effect/Name/ZeratulCommanderPhaseDisruptors@Damage=Damage
 Effect/Name/ZeratulCommanderPredictiveBlink@Teleport=Teleport
+Effect/Name/ZeratulCommanderProphecy@CP=CP
+Effect/Name/ZeratulCommanderProphecy@DP=DP
+Effect/Name/ZeratulCommanderProphecy@Handler=Trigger Handler
+Effect/Name/ZeratulCommanderProphecy@RB=Remove Behavior
+Effect/Name/ZeratulCommanderProphecy@Search=Search
+Effect/Name/ZeratulCommanderProphecy@Set=Set
+Effect/Name/ZeratulCommanderProphecy@Switch=Switch
 Effect/Name/ZeratulCommanderShadowCleave@Damage=Damage
 Effect/Name/ZeratulCommanderShadowCleave@Search=Search
 Effect/Name/ZeratulCommanderVengeanceoftheVoid@CU=CU
@@ -119,6 +131,7 @@ Unit/Name/COOP/ZeratulCommanderAvatarOfEssence=Avatar of Essence
 Unit/Name/COOP/ZeratulCommanderConstructsBay=Constructs Bay
 Unit/Name/COOP/ZeratulCommanderConstructsFacility=Constructs Facility
 Unit/Name/COOP/ZeratulCommanderCoreForge=Core Forge
+Unit/Name/COOP/ZeratulCommanderTesseractCannon=Tesseract Cannon
 Unit/Name/COOP/ZeratulCommanderVoidShrine=Void Shrine
 Unit/Name/COOP/ZeratulCommanderVoidTemplar=Void templar
 Unit/Name/COOP/ZeratulCommanderXelNagaAbrogator=Xel'Naga Disruptor
@@ -135,6 +148,7 @@ Unit/Name/ZeratulCommanderAnnihilationCannon@Missile=Missile
 Unit/Name/ZeratulCommanderArtifact=Artifact
 Unit/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Unit/Name/ZeratulCommanderParticularBeam@Missile=Missile
+Unit/Name/ZeratulCommanderProphecyCamera=Prophecy Camera
 Unit/Name/ZeratulCommanderVengeanceoftheVoid=Vengeance of the Void
 Unit/ShieldArmorName/COOPZeratulPlasmaShields=Void shields
 Upgrade/Name/ZeratulCommanderVengeanceoftheVoid=Vengeance of the void

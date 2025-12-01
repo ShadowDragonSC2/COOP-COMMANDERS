@@ -28,6 +28,28 @@
         <EffectArray value="ZeratulCommanderAnnihilationCannon@Damage"/>
         <EffectArray value="ZeratulCommanderAnnihilationCannon@CP"/>
     </CEffectSet>
+    <CEffectCreatePersistent id="ZeratulCommanderProphecy@CP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Flags index="Channeled" value="1"/>
+        <Flags index="PersistUntilDestroyed" value="1"/>
+    </CEffectCreatePersistent>
+    <CEffectDestroyPersistent id="ZeratulCommanderProphecy@DP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Effect value="ZeratulCommanderProphecy@CP"/>
+    </CEffectDestroyPersistent>
+    <CEffectRemoveBehavior id="ZeratulCommanderProphecy@RB">
+        <EditorCategories value="Race:Zeratul"/>
+    </CEffectRemoveBehavior>
+    <CEffectSet id="ZeratulCommanderProphecy@Set">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderProphecy@CP"/>
+        <EffectArray value="ZeratulCommanderProphecy@RB"/>
+    </CEffectSet>
+    <CEffectSwitch id="ZeratulCommanderProphecy@Switch">
+        <EditorCategories value="Race:Zeratul"/>
+        <CaseArray Validator="ZeratulCommanderProphecy@Nearby" Effect="ZeratulCommanderProphecy@Search"/>
+        <CaseArray Effect="ZeratulCommanderProphecy@CP" FallThrough="1"/>
+    </CEffectSwitch>
     <CEffectDamage id="ZeratulCommanderBlinkVoidTemplar@Damage">
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="100"/>
@@ -102,6 +124,16 @@
     <CEffectTeleport id="ZeratulCommanderForceCannon@Teleport">
         <EditorCategories value="Race:Zeratul"/>
     </CEffectTeleport>
+    <CEffectEnumArea id="ZeratulCommanderProphecy@Search">
+        <EditorCategories value="Race:Zeratul"/>
+        <AreaArray MaxCount="1" Radius="13" Effect="ZeratulCommanderProphecy@Handler"/>
+        <DebugTrace value="1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <SearchFilters value="Invulnerable;Ally,Neutral,Enemy"/>
+    </CEffectEnumArea>
+    <CEffectModifyUnit id="ZeratulCommanderProphecy@Handler">
+        <EditorCategories value="Race:Zeratul"/>
+    </CEffectModifyUnit>
     <CEffectCreateUnit id="ZeratulCommanderVengeanceoftheVoid@CU">
         <EditorCategories value="Race:Zeratul"/>
     </CEffectCreateUnit>

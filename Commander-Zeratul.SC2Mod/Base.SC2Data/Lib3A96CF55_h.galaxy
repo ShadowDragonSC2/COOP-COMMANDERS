@@ -7,6 +7,7 @@ include "TriggerLibs/natives"
 struct lib3A96CF55_gs_ZeratulPlayers {
     unit lv_topbar_caster;
     unit lv_artifact;
+    unit lv_cameraArtifact;
     int lv_numCollectedArtifact;
     int lv_unitsincatalogwithrace;
 };
@@ -16,11 +17,13 @@ lib3A96CF55_gs_ZeratulPlayers[16] lib3A96CF55_gv_player;
 
 // Function Declarations
 point lib3A96CF55_gf_CalculatePointFromArtifact (int lp_player);
+void lib3A96CF55_gf_PlaceArtifact (point lp_point, int lp_player);
 string lib3A96CF55_gf_PreviousUnitEvolve (unit lp_unit);
 void lib3A96CF55_gf_updateplayerunitentries (int lp_player);
 
 // Trigger Declarations
 trigger lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards;
+trigger lib3A96CF55_gt_spawnartifact;
 trigger lib3A96CF55_gt_init;
 trigger lib3A96CF55_gt_CommanderEnable;
 trigger lib3A96CF55_gt_CommanderDisable;

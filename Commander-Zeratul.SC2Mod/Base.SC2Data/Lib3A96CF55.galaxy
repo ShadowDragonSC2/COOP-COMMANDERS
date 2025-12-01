@@ -50,6 +50,27 @@ point lib3A96CF55_gf_CalculatePointFromArtifact (int lp_player) {
     return lv__point;
 }
 
+void lib3A96CF55_gf_PlaceArtifact (point lp_point, int lp_player) {
+    // Automatic Variable Declarations
+    // Implementation
+    if ((UnitIsValid(lib3A96CF55_gv_player[lp_player].lv_artifact) == true)) {
+        UnitSetPosition(lib3A96CF55_gv_player[lp_player].lv_artifact, lp_point, false);
+    }
+    else {
+        UnitCreate(1, "ZeratulCommanderArtifact", 0, lp_player, lp_point, libNtve_gf_RandomAngle());
+        lib3A96CF55_gv_player[lp_player].lv_artifact = UnitLastCreated();
+    }
+    if ((UnitIsValid(lib3A96CF55_gv_player[lp_player].lv_cameraArtifact) == true)) {
+        UnitSetPosition(lib3A96CF55_gv_player[lp_player].lv_cameraArtifact, lp_point, false);
+    }
+    else {
+        UnitCreate(1, "ZeratulCommanderProphecyCamera", 0, lp_player, UnitGetPosition(lib3A96CF55_gv_player[lp_player].lv_artifact), 270.0);
+        lib3A96CF55_gv_player[lp_player].lv_cameraArtifact = UnitLastCreated();
+        libNtve_gf_ShowHideUnit(lib3A96CF55_gv_player[lp_player].lv_cameraArtifact, false);
+        CameraSetChannel(lp_player, lib3A96CF55_gv_player[lp_player].lv_cameraArtifact, "Camera_Basic", 1, 1.0);
+    }
+}
+
 string lib3A96CF55_gf_PreviousUnitEvolve (unit lp_unit) {
     // Variable Declarations
     string lv_raceUnit;
@@ -162,6 +183,26 @@ bool lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Func (bool testConds, 
 void lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init () {
     lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards = TriggerCreate("lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Func");
     TriggerAddEventTargetModeUpdate(lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards, c_playerAny, AbilityCommand("attack", 0), c_targetModeStateAny);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: spawn artifact
+//--------------------------------------------------------------------------------------------------
+bool lib3A96CF55_gt_spawnartifact_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    lib3A96CF55_gf_PlaceArtifact(CameraGetTarget(EventPlayer()), EventPlayer());
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib3A96CF55_gt_spawnartifact_Init () {
+    lib3A96CF55_gt_spawnartifact = TriggerCreate("lib3A96CF55_gt_spawnartifact_Func");
+    TriggerAddEventChatMessage(lib3A96CF55_gt_spawnartifact, c_playerAny, "art", true);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -306,6 +347,7 @@ void lib3A96CF55_gt_DevolveUnits2_Init () {
 
 void lib3A96CF55_InitTriggers () {
     lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init();
+    lib3A96CF55_gt_spawnartifact_Init();
     lib3A96CF55_gt_init_Init();
     lib3A96CF55_gt_CommanderEnable_Init();
     lib3A96CF55_gt_CommanderDisable_Init();

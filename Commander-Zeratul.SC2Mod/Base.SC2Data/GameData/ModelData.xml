@@ -168,9 +168,26 @@
         <ScaleMax value="0.690000,0.690000,0.690000"/>
         <ScaleMin value="0.690000,0.690000,0.690000"/>
     </CModel>
+    <CModel id="ZeratulCommanderProphecy@Beam">
+        <Model value="Assets\Effects\Protoss\SoulHunterBeam\SoulHunterBeam.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderProphecy@Model">
+        <Model value="Assets\COOP\Zeratul\Portraits\Prophecy_Zeratul_COOP_Portrait\Prophecy_Zeratul_COOP_Portrait.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderShadowCleave@LaunchModel">
         <Model value="Assets\Effects\Protoss\Zeratul_ShadowBlade\Zeratul_ShadowBlade.m3"/>
         <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderTesseractCannon" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Buildings\PhotonCannon_Zeratul_COOP\PhotonCannon_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderTesseractCannon@Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Zeratul\Buildings\PhotonCannon_Zeratul_COOP_Death\PhotonCannon_Zeratul_COOP_Death.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <VariationCount value="2"/>
     </CModel>
     <CModel id="ZeratulCommanderVengeanceoftheVoid" parent="MissileFX">
         <EditorCategories value="Race:Zeratul"/>
@@ -387,5 +404,9 @@
         <Model value="Assets\Portraits\Protoss\ZeratulPortrait\ZeratulPortrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
         <RequiredAnims value="Assets\Portraits\Protoss\ZeratulPortrait_RequiredAnims\ZeratulPortrait_RequiredAnims.m3a"/>
+    </CModel>
+    <CModel id="ZeratulCommanderProphecyCamera">
+        <Model value="Assets\COOP\Zeratul\Camera\Prophecy_Zeratul_COOP_Camera\Prophecy_Zeratul_COOP_Camera.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
     </CModel>
 </Catalog>

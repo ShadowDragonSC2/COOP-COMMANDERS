@@ -2,3 +2,4 @@
 Button/Hotkey/ZeratulCommanderDevolutionWave=Q
 Button/Hotkey/ZeratulCommanderPredictiveBlink=Q
 Button/Hotkey/ZeratulCommanderShadowCleave=Q
+Button/Hotkey/ZeratulCommanderTesseractCannon=Z

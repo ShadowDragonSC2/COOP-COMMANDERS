@@ -60,6 +60,33 @@
         <DataRecord Entry="Effect,ZeratulCommanderForceCannon@Set@1"/>
         <DataRecord Entry="Effect,ZeratulCommanderForceCannon@Teleport"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderProphecy">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
+        <DataRecord Entry="Abil,ZeratulCommanderProphecy"/>
+        <DataRecord Entry="Button,ZeratulCommanderProphecy"/>
+        <DataRecord Entry="Effect,ZeratulCommanderProphecy@Search"/>
+        <DataRecord Entry="Effect,ZeratulCommanderProphecy@Handler"/>
+        <DataRecord Entry="Validator,ZeratulCommanderProphecy@UnitType"/>
+        <DataRecord Entry="Actor,ZeratulCommanderProphecy@Beam"/>
+        <DataRecord Entry="Actor,ZeratulCommanderProphecy@Attack"/>
+        <DataRecord Entry="Model,ZeratulCommanderProphecy@Beam"/>
+        <DataRecord Entry="Effect,ZeratulCommanderProphecy@Switch"/>
+        <DataRecord Entry="Validator,ZeratulCommanderProphecy@Nearby"/>
+        <DataRecord Entry="Effect,ZeratulCommanderProphecy@CP"/>
+        <DataRecord Entry="Effect,ZeratulCommanderProphecy@Set"/>
+        <DataRecord Entry="Effect,ZeratulCommanderProphecy@RB"/>
+        <DataRecord Entry="Effect,ZeratulCommanderProphecy@DP"/>
+        <DataRecord Entry="Actor,ZeratulCommanderProphecy@Model"/>
+        <DataRecord Entry="Model,ZeratulCommanderProphecy@Model"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderTesseractCannon" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,ZeratulCommanderTesseractCannon"/>
+        <DataRecord Entry="Unit,ZeratulCommanderTesseractCannon"/>
+        <DataRecord Entry="Button,ZeratulCommanderTesseractCannon"/>
+        <DataRecord Entry="Model,ZeratulCommanderTesseractCannon"/>
+        <DataRecord Entry="Model,ZeratulCommanderTesseractCannon@Death"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderVengeanceoftheVoid">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Upgrade,ZeratulCommanderVengeanceoftheVoid"/>
@@ -300,6 +327,9 @@
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaVoidArray@Pissed"/>
         <DataRecord Entry="Unit,ZeratulCommanderXelNagaVoidArray"/>
         <DataRecord Entry="Unit,ZeratulCommanderXelNagaVoidArray@Alternate"/>
+        <DataRecord Entry="Actor,ZeratulCommanderXelNagaVoidArray@Turret"/>
+        <DataRecord Entry="Actor,ZeratulCommanderXelNagaVoidArray@Alternate"/>
+        <DataRecord Entry="Turret,ZeratulCommanderXelNagaVoidArray@Alternate"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
