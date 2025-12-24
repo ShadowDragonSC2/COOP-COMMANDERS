@@ -28,6 +28,7 @@
         <value>Spray</value>
         <value>Decal</value>
         <value>AbilityTopbars</value>
+        <value>Passive</value>
     </category>
     <category name="FieldType">
         <value>Ability</value>

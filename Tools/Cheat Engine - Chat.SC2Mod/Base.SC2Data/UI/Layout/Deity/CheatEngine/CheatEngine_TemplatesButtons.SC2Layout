@@ -117,4 +117,12 @@
         </StateGroup>
         
     </Frame>
+
+    <Frame type="Button" name="CheckedButtonTemplate" template="StandardBattlenetTemplates/BattlenetMediumButtonTemplate">
+        <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+        <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+        <Width val="0"/>
+        <Height val="50"/>
+        <Toggleable val="True"/>
+    </Frame>
 </Desc>

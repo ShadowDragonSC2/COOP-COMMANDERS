@@ -269,6 +269,7 @@
         <Fields Reference="Button,^ParamId^,Tooltip" NameOverride="DataCollectionPattern/CommanderAbility/ButtonTooltip"/>
         <Fields Reference="Button,^ParamId^,Icon" NameOverride="DataCollectionPattern/CommanderAbility/ButtonIcon"/>
         <Fields Reference="Button,^ParamId^,AlertIcon" NameOverride="DataCollectionPattern/CommanderAbility/ButtonAlertIcon"/>
+        <Fields Reference="Effect,^ParamId^@Effects,EffectArray" NameOverride="DataCollectionPattern/CommanderAbility/BonusEffects"/>
     </CDataCollectionPattern>
     <CDataCollectionPattern id="CommanderAbilities_AbilTarget" parent="CommanderAbilities">
         <Fields Reference="Model,^ParamId^@ImpactModel,Model" NameOverride="DataCollectionPattern/CommanderAbilities/AbilTarget/ImpactModel"/>

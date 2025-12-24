@@ -14,7 +14,92 @@
         <Anchor relative="$parent"/>
     </Frame>
 
-    <!-- -->
+    <!-- Frames -->
+
+    <Frame type="Frame" name="CheckerListPlayer">
+        <Frame type="Button" name="player0" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+            <Text val="{$PlayerName0/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player1" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName1/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player2" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName2/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player3" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName3/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player4" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName4/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player5" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName5/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player6" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName6/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player7" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName7/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player8" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName8/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player9" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName9/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player10" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName10/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player11" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName11/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player12" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName12/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player13" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName13/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player14" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName14/@StringValue}"/>
+        </Frame>
+        <Frame type="Button" name="player15" template="CheatEngine_TemplatesButtons/CheckedButtonTemplate">
+            <Anchor side="Top" relative="$sibling-1" pos="Max" offset="0"/>
+            <Anchor side="Left" relative="$parent/player0" pos="Min" offset="0"/>
+            <Text val="{$PlayerName15/@StringValue}"/>
+        </Frame>
+    </Frame>
+
+    <!-- Scrollable Frame -->
 
     <Frame type="ScrollableFrame" name="ScrollVerticalTemplate">
         <AcceptsMouse val="True"/>
@@ -26,7 +111,6 @@
             <Orientation val="Vertical"/>
             <StepValue val="50"/>
             <Width val="#scrollwidth"/>
-            <Continuous val="True"/>
  
             <Frame type="Image" name="Image">
                 <Anchor relative="$parent"/>
@@ -116,5 +200,6 @@
         </Frame>
 
     </Frame>
+
     
 </Desc>

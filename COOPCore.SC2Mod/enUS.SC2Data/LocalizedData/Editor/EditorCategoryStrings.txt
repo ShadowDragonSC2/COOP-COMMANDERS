@@ -227,6 +227,7 @@ EDSTR_CATEGORY_ObjectType_Terrain=Terrain
 EDSTR_CATEGORY_ObjectType_Unit=Unit
 EDSTR_CATEGORY_ObjectType_Water=Water
 EDSTR_CATEGORY_ObjectType_AbilityTopbars=Abilities Top bars
+EDSTR_CATEGORY_ObjectType_Passive=Passive Abilities
 EDSTR_CATEGORY_Race=Race
 EDSTR_CATEGORY_Race_Commoner=Commoner
 EDSTR_CATEGORY_Race_Creeps=Creeps

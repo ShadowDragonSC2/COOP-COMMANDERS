@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="Frame" name="GameUI/UIContainer/FullscreenUpperContainer" file="GameUI">
+        <Frame type="Frame" name="CheatPlayerAliance">
+            <Anchor side="Top" relative="$parent" pos="Min" offset="50"/>
+            <Anchor side="Left" relative="$parent" pos="Min" offset="50"/>
+            <Width val="350"/>
+            <Height val="700"/>
+            <Visible val="False"/>
+            
+            <Frame type="Image" name="BG" template="CheatEngine_GenericTemplate/BGTemplate"/>
+
+            <Frame type="Pulldown" name="SelectPlayer" template="StandardTemplates/StandardPulldownTemplate">
+                <Anchor side="Top" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Height val="50"/>
+            </Frame>
+
+            <Frame type="Pulldown" name="SelectAspect" template="StandardTemplates/StandardPulldownTemplate">
+                <Anchor side="Top" relative="$parent/SelectPlayer" pos="Max" offset="0"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="0"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="0"/>
+                <Height val="50"/>
+                <SelectedIndex val="1"/>
+            </Frame>
+
+            <Frame type="ScrollableFrame" name="ContainerPlayers" template="CheatEngine_GenericTemplate/ScrollVerticalTemplate">
+                <Anchor side="Top" relative="$parent/SelectAspect" pos="Max" offset="5"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+                <Anchor side="Right" relative="$parent" pos="Max" offset="-15"/>
+                <Anchor side="Bottom" relative="$parent/MirrorAspect" pos="Min" offset="-5"/>
+                <Frame type="ScrollBar" name="ScrollBar">
+                    <StepValue val="{$parent/ContainerFrame/Players/player0/@Height}"/>
+                    <Continuous val="False"/>
+                </Frame>
+                <Frame type="Frame" name="ContainerFrame">
+                    <Anchor side="Bottom" relative="$this/Players/player15" pos="Max" offset="0"/>
+                    <Frame type="Frame" name="Players" template="CheatEngine_GenericTemplate/CheckerListPlayer">
+                        <Anchor relative="$parent"/>
+                    </Frame>
+                </Frame>
+            </Frame>
+
+            <Frame type="CheckBox" name="MirrorAspect" template="StandardTemplates/StandardCheckBoxTemplate">
+                <Anchor side="Bottom" relative="$parent" pos="Max" offset="-10"/>
+                <Anchor side="Left" relative="$parent" pos="Min" offset="15"/>
+            </Frame>
+
+            <Frame type="Label" name="Label">
+                <Anchor side="Top" relative="$parent/MirrorAspect" pos="Min" offset="0"/>
+                <Anchor side="Left" relative="$parent/MirrorAspect" pos="Max" offset="0"/>
+                <Anchor side="Bottom" relative="$parent/MirrorAspect" pos="Max" offset="0"/>
+                <Text val="Зеркально"/>
+            </Frame>
+
+        </Frame>
+    </Frame>
+</Desc>

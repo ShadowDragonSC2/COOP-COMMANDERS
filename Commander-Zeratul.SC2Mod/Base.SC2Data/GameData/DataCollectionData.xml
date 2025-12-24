@@ -88,9 +88,21 @@
         <DataRecord Entry="Model,ZeratulCommanderTesseractCannon@Death"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderVengeanceoftheVoid">
-        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Passive"/>
         <DataRecord Entry="Upgrade,ZeratulCommanderVengeanceoftheVoid"/>
         <DataRecord Entry="Effect,ZeratulCommanderVengeanceoftheVoid@CU"/>
+        <DataRecord Entry="Actor,ZeratulCommanderVengeanceoftheVoid"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVengeanceoftheVoid@Interval"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVengeanceoftheVoid@Search"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVengeanceoftheVoid@Damage"/>
+        <DataRecord Entry="Model,ZeratulCommanderVengeanceoftheVoid"/>
+        <DataRecord Entry="Unit,ZeratulCommanderVengeanceoftheVoid"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVengeanceoftheVoid@Set"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVengeanceoftheVoid@CU@Suicide"/>
+        <DataRecord Entry="Actor,ZeratulCommanderVengeanceoftheVoid@Attack"/>
+        <DataRecord Entry="Actor,ZeratulCommanderVengeanceoftheVoid@AttackBeam"/>
+        <DataRecord Entry="Model,ZeratulCommanderVengeanceoftheVoid@AttackBeam"/>
+        <DataRecord Entry="Button,ZeratulCommanderVengeanceoftheVoid"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderArtifact" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Artifact"/>
@@ -228,6 +240,7 @@
         <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ImpactModel"/>
         <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ImpactSound"/>
         <DataRecord Entry="Sound,ZeratulCommanderPredictiveBlink@ImpactSound"/>
+        <DataRecord Entry="Effect,ZeratulCommanderPredictiveBlink@Effects"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderShadowCleave" parent="CommanderAbilityAB">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>

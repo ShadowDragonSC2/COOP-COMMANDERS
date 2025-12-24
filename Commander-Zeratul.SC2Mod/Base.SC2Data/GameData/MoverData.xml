@@ -5,7 +5,7 @@
         <MotionPhases>
             <Driver value="Guidance"/>
             <Acceleration value="1000"/>
-            <MaxSpeed value="125"/>
+            <MaxSpeed value="100"/>
             <IgnoresTerrain value="1"/>
             <ThrowBandYaw value="-360,-360,-360,-360"/>
             <ThrowBandPitch value="-360,-360,-360,-360"/>

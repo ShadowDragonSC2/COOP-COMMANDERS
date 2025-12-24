@@ -51,6 +51,11 @@
         <Icon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
+    <CButton id="ZeratulCommanderVengeanceoftheVoid">
+        <Icon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
     <CButton id="ZeratulCommanderVoidShrine">
         <Icon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
         <EditorCategories value="Race:Zeratul"/>

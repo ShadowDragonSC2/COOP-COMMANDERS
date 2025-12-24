@@ -23,6 +23,7 @@ void lib3A96CF55_gf_updateplayerunitentries (int lp_player);
 
 // Trigger Declarations
 trigger lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards;
+trigger lib3A96CF55_gt_test;
 trigger lib3A96CF55_gt_spawnartifact;
 trigger lib3A96CF55_gt_init;
 trigger lib3A96CF55_gt_CommanderEnable;

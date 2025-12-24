@@ -28,6 +28,12 @@
         <EffectArray value="ZeratulCommanderAnnihilationCannon@Damage"/>
         <EffectArray value="ZeratulCommanderAnnihilationCannon@CP"/>
     </CEffectSet>
+    <CEffectSet id="ZeratulCommanderPredictiveBlink@Effects">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderVengeanceoftheVoid@CU"/>
+        <EffectArray value="CorsairMPDisruptionWebCreatePersistent"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
     <CEffectCreatePersistent id="ZeratulCommanderProphecy@CP">
         <EditorCategories value="Race:Zeratul"/>
         <Flags index="Channeled" value="1"/>
@@ -53,7 +59,6 @@
     <CEffectDamage id="ZeratulCommanderBlinkVoidTemplar@Damage">
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="100"/>
-        <Death value="Eviscerate"/>
     </CEffectDamage>
     <CEffectModifyUnit id="ZeratulCommanderBlinkVoidTemplar@Facing">
         <EditorCategories value="Race:Zeratul"/>
@@ -68,12 +73,15 @@
         <SearchEffect value="ZeratulCommanderBlinkVoidTemplar@Search"/>
         <SearchFlags index="DynamicSearchArea" value="1"/>
         <AmmoUnit value="COOPZeratul_Invisible"/>
+        <Flags index="PlacementIgnoreCliffTest" value="1"/>
     </CEffectLaunchMissile>
     <CEffectEnumArea id="ZeratulCommanderBlinkVoidTemplar@Search">
         <EditorCategories value="Race:Zeratul"/>
         <SearchFilters value="Ground,Visible;Self,Player,Ally,Neutral,Structure,Item,Stasis,Dead,Hidden,Invulnerable"/>
         <AreaArray RectangleWidth="1.5" Effect="ZeratulCommanderBlinkVoidTemplar@Damage"/>
-        <DebugTrace value="1"/>
+        <TargetSorts>
+            <SortArray value="TSRandom"/>
+        </TargetSorts>
     </CEffectEnumArea>
     <CEffectSet id="ZeratulCommanderBlinkVoidTemplar@Set">
         <EditorCategories value="Race:Zeratul"/>
@@ -84,7 +92,7 @@
     <CEffectTeleport id="ZeratulCommanderBlinkVoidTemplar@Teleport">
         <ValidatorArray value="CasterNotFungalGrowthed"/>
         <EditorCategories value="Race:Zeratul"/>
-        <WhichUnit Value="Caster"/>
+        <WhichUnit Value="Source"/>
         <ClearQueuedOrders value="0"/>
         <PlacementAround Value="CasterUnit"/>
         <PlacementRange value="11"/>
@@ -136,6 +144,9 @@
     </CEffectModifyUnit>
     <CEffectCreateUnit id="ZeratulCommanderVengeanceoftheVoid@CU">
         <EditorCategories value="Race:Zeratul"/>
+        <WhichLocation Value="SourcePoint"/>
+        <SpawnEffect value="ZeratulCommanderVengeanceoftheVoid@Interval"/>
+        <SpawnUnit value="ZeratulCommanderVengeanceoftheVoid"/>
     </CEffectCreateUnit>
     <CEffectIssueOrder id="ZeratulCommanderDisruptorPhase@Issue">
         <EditorCategories value="Race:Zeratul"/>
@@ -224,6 +235,7 @@
         <Range value="11"/>
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestCliff" value="1"/>
+        <TeleportEffect value="ZeratulCommanderPredictiveBlink@Effects"/>
     </CEffectTeleport>
     <CEffectDamage id="ZeratulCommanderShadowCleave@Damage">
         <EditorCategories value="Race:Zeratul"/>
@@ -235,6 +247,31 @@
         <SearchFilters value="Ground;Self,Player,Ally,Neutral,Dead,Hidden,Invulnerable"/>
         <AreaArray Radius="3" Effect="ZeratulCommanderShadowCleave@Damage"/>
     </CEffectEnumArea>
+    <CEffectDamage id="ZeratulCommanderVengeanceoftheVoid@CU@Suicide">
+        <EditorCategories value="Race:Zeratul"/>
+        <ImpactLocation Effect="ZeratulCommanderVengeanceoftheVoid@Interval" Value="TargetUnit"/>
+        <Flags index="Kill" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="ZeratulCommanderVengeanceoftheVoid@Damage">
+        <EditorCategories value="Race:Zeratul"/>
+        <LaunchLocation Effect="ZeratulCommanderVengeanceoftheVoid@Interval" Value="TargetUnit"/>
+        <Amount value="13"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="ZeratulCommanderVengeanceoftheVoid@Interval">
+        <EditorCategories value="Race:Zeratul"/>
+        <ExpireDelay value="5"/>
+        <ExpireEffect value="ZeratulCommanderVengeanceoftheVoid@Set"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="ZeratulCommanderVengeanceoftheVoid@Search">
+        <EditorCategories value="Race:Zeratul"/>
+        <SearchFilters value="Visible;Self,Player,Ally,Neutral,User1,Missile,Item,Dead,Hidden,Invulnerable,MapBoss"/>
+        <AreaArray MaxCount="1" Radius="8" Effect="ZeratulCommanderVengeanceoftheVoid@Damage"/>
+    </CEffectEnumArea>
+    <CEffectSet id="ZeratulCommanderVengeanceoftheVoid@Set">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderVengeanceoftheVoid@Search"/>
+        <EffectArray value="ZeratulCommanderVengeanceoftheVoid@CU@Suicide"/>
+    </CEffectSet>
     <CEffectDamage id="ZeratulCommanderWarpBlade@Damage">
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="60"/>

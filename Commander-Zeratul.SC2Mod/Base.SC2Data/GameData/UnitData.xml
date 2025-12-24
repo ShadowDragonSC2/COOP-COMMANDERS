@@ -64,6 +64,7 @@
     <CUnit id="ZeratulCommanderVengeanceoftheVoid">
         <Race value="COOPZeratul"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop"/>
+        <Height value="1.25"/>
     </CUnit>
     <CUnit id="ZeratulCommanderVoidShrine" parent="CommanderStructure_Prot" race="COOPZeratul">
         <LifeStart value="550"/>
@@ -186,6 +187,7 @@
         <AbilArray Link="ZeratulCommanderPredictiveBlink"/>
         <CardLayouts index="0">
             <LayoutButtons Face="ZeratulCommanderPredictiveBlink" Type="AbilCmd" AbilCmd="ZeratulCommanderPredictiveBlink,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderVengeanceoftheVoid" Type="Passive" Row="1" Column="2"/>
         </CardLayouts>
         <GlossaryPriority value="25"/>
     </CUnit>

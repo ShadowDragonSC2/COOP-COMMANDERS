@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Desc>
+    <Include path="UI/Layout/Deity/CheatEngine/CheatEngine_RefData.SC2Layout"/>
+
     <Include path="UI/Layout/Deity/CheatEngine/CheatEngine_TemplatesButtons.SC2Layout"/>
     <Include path="UI/Layout/Deity/CheatEngine/CheatEngine_TemplatesEditboxes.SC2Layout"/>
     <Include path="UI/Layout/Deity/CheatEngine/CheatEngine_GenericTemplate.SC2Layout"/>
@@ -7,5 +9,6 @@
     <Include path="UI/Layout/Deity/CheatEngine/CheatEngine_SpawnerUI.SC2Layout"/>
     <Include path="UI/Layout/Deity/CheatEngine/CheatEngine_DataTable.SC2Layout"/>
     <Include path="UI/Layout/Deity/CheatEngine/CheatEngine_UpgradesListUI.SC2Layout"/>
+    <Include path="UI/Layout/Deity/CheatEngine/CheatEngine_PlayerAliance.SC2Layout"/>
     <Include path="UI/Layout/Deity/CheatEngine/CheatEngine.SC2Layout"/>
 </Desc>

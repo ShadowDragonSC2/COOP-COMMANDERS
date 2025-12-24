@@ -97,5 +97,8 @@
         <Effect index="0" value="ZeratulCommanderShadowCleave@Search"/>
         <Flags index="Transient" value="1"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderShadowCleave"/>
+        <Cost>
+            <Cooldown TimeUse="10"/>
+        </Cost>
     </CAbilEffectInstant>
 </Catalog>

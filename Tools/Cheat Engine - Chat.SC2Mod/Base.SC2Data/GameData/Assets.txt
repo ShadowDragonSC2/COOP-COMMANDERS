@@ -9,4 +9,4 @@ CheatEngine/UI/EditorCategoryMediumButtonOver=Assets\Textures\sc2_ui_coop_fenix_
 
 CheatEngine/UI/BaseEditbox=Assets\Textures\ui_research_frame_contentbox.dds
 
-UI/RaceIcon/Neut=Assets\Textures\ui_battlenet_glue_icons_random_norm
+UI/RaceIcon/Neut=Assets\Textures\ui_battlenet_glue_icons_random_normal.dds

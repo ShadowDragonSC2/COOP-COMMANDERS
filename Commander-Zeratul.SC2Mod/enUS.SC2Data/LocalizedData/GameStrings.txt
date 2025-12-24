@@ -21,6 +21,7 @@ Button/Name/ZeratulCommanderPredictiveBlink=<d stringref="Abil,ZeratulCommanderP
 Button/Name/ZeratulCommanderProphecy=<d stringref="Abil,ZeratulCommanderPropehcy,Name"/>
 Button/Name/ZeratulCommanderShadowCleave=Shadow Cleave
 Button/Name/ZeratulCommanderTesseractCannon=Warp In <d stringref="Unit,ZeratulCommanderTesseractCannon,Name"/>
+Button/Name/ZeratulCommanderVengeanceoftheVoid=Vegeance of the Void
 Button/Name/ZeratulCommanderVoidShrine=Build <d stringref="Unit,ZeratulCommanderVoidShrine,Name"/>
 Button/Name/ZeratulCommanderXelNagaPassageway=Build <d stringref="Unit,ZeratulCommanderXelNagaPassageway,Name"/>
 Button/Name/ZeratulCommanderXelNagaVoidArray=Warp In <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/>
@@ -46,7 +47,7 @@ DataCollection/Name/ZeratulCommanderConstructsFacility=Zeratul Commander - Const
 DataCollection/Name/ZeratulCommanderCoreForge=Zeratul Commander - Core Forge
 DataCollection/Name/ZeratulCommanderDevolutionWave=Zeratul Commander - Devolution Wave
 DataCollection/Name/ZeratulCommanderDisruptorPhase=Zeratul Commander - Disruptor Phase
-DataCollection/Name/ZeratulCommanderForceCannon=Zeratul Commander = Force Cannon
+DataCollection/Name/ZeratulCommanderForceCannon=Zeratul Commander - Force Cannon
 DataCollection/Name/ZeratulCommanderMasterWarpBlade=Zeratul Commander - Master Warp Blade
 DataCollection/Name/ZeratulCommanderMorphVoidArray=Zeratul Commander - Morph Void Array
 DataCollection/Name/ZeratulCommanderNullBeam=Zeratul Commander - Null Beam
@@ -56,7 +57,7 @@ DataCollection/Name/ZeratulCommanderPredictiveBlink=Zeratul Commander - Predicti
 DataCollection/Name/ZeratulCommanderProphecy=Zeratul Commander - Prophecy
 DataCollection/Name/ZeratulCommanderShadowCleave=Zeratul Commander - Shadow Cleave
 DataCollection/Name/ZeratulCommanderTesseractCannon=Zeratul Commander - Tesseract Cannon
-DataCollection/Name/ZeratulCommanderVengeanceoftheVoid=ZeratulCommander - Vengeance of the Void
+DataCollection/Name/ZeratulCommanderVengeanceoftheVoid=Zeratul Commander - Vengeance of the Void
 DataCollection/Name/ZeratulCommanderVoidShrine=Zeratul Commander - Void Shrine
 DataCollection/Name/ZeratulCommanderVoidTemplar=Zeratul Commander - Void Templar
 DataCollection/Name/ZeratulCommanderWarpBlade=Zeratul Commander - Warp Blade
@@ -103,6 +104,7 @@ Effect/Name/ZeratulCommanderNullBeam@Damage=Damage
 Effect/Name/ZeratulCommanderParticularBeam@Damage=Damage
 Effect/Name/ZeratulCommanderParticularBeam@LM=LM
 Effect/Name/ZeratulCommanderPhaseDisruptors@Damage=Damage
+Effect/Name/ZeratulCommanderPredictiveBlink@Effects=Effects
 Effect/Name/ZeratulCommanderPredictiveBlink@Teleport=Teleport
 Effect/Name/ZeratulCommanderProphecy@CP=CP
 Effect/Name/ZeratulCommanderProphecy@DP=DP
@@ -114,14 +116,19 @@ Effect/Name/ZeratulCommanderProphecy@Switch=Switch
 Effect/Name/ZeratulCommanderShadowCleave@Damage=Damage
 Effect/Name/ZeratulCommanderShadowCleave@Search=Search
 Effect/Name/ZeratulCommanderVengeanceoftheVoid@CU=CU
+Effect/Name/ZeratulCommanderVengeanceoftheVoid@CU@Suicide=Kill Sphere
+Effect/Name/ZeratulCommanderVengeanceoftheVoid@Damage=Damage
+Effect/Name/ZeratulCommanderVengeanceoftheVoid@Interval=Interval
+Effect/Name/ZeratulCommanderVengeanceoftheVoid@Search=Search
+Effect/Name/ZeratulCommanderVengeanceoftheVoid@Set=Set
 Effect/Name/ZeratulCommanderWarpBlade@Damage=Damage
 Glossary/Category/COOPZeratul=Войска Зератула
 Hotkey/Category/COOPZeratul=Командир Зератул
 LifeArmorName/UnitAir/COOPZeratul=Обшивка из пустоты
 LifeArmorName/UnitGround/COOPZeratul=Броня пустоты
+Param/Expression/lib_3A96CF55_43B03107=--- ~C~<n/>Caster: ~A~<n/>Target: ~B~
 Param/Expression/lib_3A96CF55_731B1C58=event ~A~
 Param/Expression/lib_3A96CF55_9EE957D9=~A~ == ~B~
-Param/Expression/lib_3A96CF55_D0D8AD81=~A~
 Param/Expression/lib_3A96CF55_EE8FE678=~A~ - ~B~ - ~C~
 Race/Name/COOPZeratul=Zeratul
 UI/HelpMenuDialogTechGlossary_Control_Glossary/Category/COOPZeratul=Войска Зератула

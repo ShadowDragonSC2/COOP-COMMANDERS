@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Desc>
+    <Frame type="GameUI" name="GameUI" file="GameUI">
+        <Frame type="DataRefFrame" name="refPlayerName0">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="0"/>
+            <Handle val="PlayerName0"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName1">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="1"/>
+            <Handle val="PlayerName1"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName2">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="2"/>
+            <Handle val="PlayerName2"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName3">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="3"/>
+            <Handle val="PlayerName3"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName4">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="4"/>
+            <Handle val="PlayerName4"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName5">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="5"/>
+            <Handle val="PlayerName5"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName6">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="6"/>
+            <Handle val="PlayerName6"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName7">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="7"/>
+            <Handle val="PlayerName7"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName8">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="8"/>
+            <Handle val="PlayerName8"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName9">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="9"/>
+            <Handle val="PlayerName9"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName10">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="10"/>
+            <Handle val="PlayerName10"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName11">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="11"/>
+            <Handle val="PlayerName11"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName12">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="12"/>
+            <Handle val="PlayerName12"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName13">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="13"/>
+            <Handle val="PlayerName13"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName14">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="14"/>
+            <Handle val="PlayerName14"/>
+        </Frame>
+        <Frame type="DataRefFrame" name="refPlayerName15">
+            <Anchor relative="$parent" side="top" pos="0" offset="100"/>
+            <Anchor relative="$parent" side="Left" pos="0" offset="0"/>
+            <Argument name="GameValue" val="PlayerName"/>
+            <PlayerId val="15"/>
+            <Handle val="PlayerName15"/>
+        </Frame>
+    </Frame>
+</Desc>
