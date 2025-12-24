@@ -2,7 +2,7 @@
 <Catalog>
     <CAbilEffectTarget id="ZeratulCommanderBlinkVoidTemplar">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
-        <Effect index="0" value="ZeratulCommanderBlinkVoidTemplar@Set"/>
+        <Effect index="0" value="ZeratulCommanderBlinkVoidTemplar@Teleport"/>
         <Flags index="BestUnit" value="0"/>
         <Range value="500"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderBlinkVoidTemplar"/>

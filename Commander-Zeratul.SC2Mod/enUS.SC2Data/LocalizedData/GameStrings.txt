@@ -16,12 +16,14 @@ Button/Name/ZeratulCommanderConstructsFacility=Build <d stringref="Unit,ZeratulC
 Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderCoreForge,Name"/>
 Button/Name/ZeratulCommanderDevolutionWave=<d stringref="Abil,ZeratulCommanderDevolutionWave,Name"/>
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
+Button/Name/ZeratulCommanderForceCannon=Force Cannon
 Button/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Button/Name/ZeratulCommanderPredictiveBlink=<d stringref="Abil,ZeratulCommanderPredictiveBlink,Name"/>
 Button/Name/ZeratulCommanderProphecy=<d stringref="Abil,ZeratulCommanderPropehcy,Name"/>
 Button/Name/ZeratulCommanderShadowCleave=Shadow Cleave
 Button/Name/ZeratulCommanderTesseractCannon=Warp In <d stringref="Unit,ZeratulCommanderTesseractCannon,Name"/>
 Button/Name/ZeratulCommanderVengeanceoftheVoid=Vegeance of the Void
+Button/Name/ZeratulCommanderVoidFury=Void Fury
 Button/Name/ZeratulCommanderVoidShrine=Build <d stringref="Unit,ZeratulCommanderVoidShrine,Name"/>
 Button/Name/ZeratulCommanderXelNagaPassageway=Build <d stringref="Unit,ZeratulCommanderXelNagaPassageway,Name"/>
 Button/Name/ZeratulCommanderXelNagaVoidArray=Warp In <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/>
@@ -58,6 +60,7 @@ DataCollection/Name/ZeratulCommanderProphecy=Zeratul Commander - Prophecy
 DataCollection/Name/ZeratulCommanderShadowCleave=Zeratul Commander - Shadow Cleave
 DataCollection/Name/ZeratulCommanderTesseractCannon=Zeratul Commander - Tesseract Cannon
 DataCollection/Name/ZeratulCommanderVengeanceoftheVoid=Zeratul Commander - Vengeance of the Void
+DataCollection/Name/ZeratulCommanderVoidFury=Zeratul Commander - Void Fury
 DataCollection/Name/ZeratulCommanderVoidShrine=Zeratul Commander - Void Shrine
 DataCollection/Name/ZeratulCommanderVoidTemplar=Zeratul Commander - Void Templar
 DataCollection/Name/ZeratulCommanderWarpBlade=Zeratul Commander - Warp Blade
@@ -72,16 +75,11 @@ DataCollection/Name/ZeratulCommanderZeratul=Zeratul Commander - Zeratul
 DataCollectionPattern/CommanderData/BuildingLarge/Model=Building Model (Large)
 DataCollectionPattern/CommanderData/BuildingPortrait/Model=Building Portrait
 DataCollectionPattern/CommanderData/BuildingSmall/Model=Building Model (Small)
-Effect/Name/ZeratulCommanderAnnihilationCannon@AF=AF
-Effect/Name/ZeratulCommanderAnnihilationCannon@CP=CP
 Effect/Name/ZeratulCommanderAnnihilationCannon@Damage=Damage
+Effect/Name/ZeratulCommanderAnnihilationCannon@Effects=Effects
 Effect/Name/ZeratulCommanderAnnihilationCannon@LM=LM
 Effect/Name/ZeratulCommanderAnnihilationCannon@Set=Set
-Effect/Name/ZeratulCommanderBlinkVoidTemplar@Damage=Damage
-Effect/Name/ZeratulCommanderBlinkVoidTemplar@Facing=Facing
-Effect/Name/ZeratulCommanderBlinkVoidTemplar@LM=LM
-Effect/Name/ZeratulCommanderBlinkVoidTemplar@Search=Search
-Effect/Name/ZeratulCommanderBlinkVoidTemplar@Set=Set
+Effect/Name/ZeratulCommanderBlinkVoidTemplar@Effects=Effects
 Effect/Name/ZeratulCommanderBlinkVoidTemplar@Teleport=Teleport
 Effect/Name/ZeratulCommanderDevolutionWave@Search=Search
 Effect/Name/ZeratulCommanderDevolutionWave@TriggerHandler=Trigger
@@ -93,11 +91,10 @@ Effect/Name/ZeratulCommanderDisruptorPhase@Search=Search
 Effect/Name/ZeratulCommanderDisruptorPhase@Set=Set
 Effect/Name/ZeratulCommanderDisruptorPhase@Set@1=Set @ 1
 Effect/Name/ZeratulCommanderDisruptorPhase@TimeLife=AB
-Effect/Name/ZeratulCommanderForceCannon@CP=Offset
+Effect/Name/ZeratulCommanderForceCannon@CU=CU
 Effect/Name/ZeratulCommanderForceCannon@LM=LM
-Effect/Name/ZeratulCommanderForceCannon@Set=Set
+Effect/Name/ZeratulCommanderForceCannon@RemovePrecursor=Remove Precursor
 Effect/Name/ZeratulCommanderForceCannon@Set@1=Set @ 1
-Effect/Name/ZeratulCommanderForceCannon@Teleport=Teleport
 Effect/Name/ZeratulCommanderMasterWarpBlade@Damage=Damage
 Effect/Name/ZeratulCommanderNullBeam@CP=Interval
 Effect/Name/ZeratulCommanderNullBeam@Damage=Damage
@@ -121,6 +118,11 @@ Effect/Name/ZeratulCommanderVengeanceoftheVoid@Damage=Damage
 Effect/Name/ZeratulCommanderVengeanceoftheVoid@Interval=Interval
 Effect/Name/ZeratulCommanderVengeanceoftheVoid@Search=Search
 Effect/Name/ZeratulCommanderVengeanceoftheVoid@Set=Set
+Effect/Name/ZeratulCommanderVoidFury@Damage=Damage
+Effect/Name/ZeratulCommanderVoidFury@Facing=Facing
+Effect/Name/ZeratulCommanderVoidFury@LM=LM
+Effect/Name/ZeratulCommanderVoidFury@Search=Search
+Effect/Name/ZeratulCommanderVoidFury@Set=Set
 Effect/Name/ZeratulCommanderWarpBlade@Damage=Damage
 Glossary/Category/COOPZeratul=Войска Зератула
 Hotkey/Category/COOPZeratul=Командир Зератул

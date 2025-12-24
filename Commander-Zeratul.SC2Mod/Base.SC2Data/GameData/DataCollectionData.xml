@@ -9,9 +9,8 @@
         <DataRecord Entry="Unit,ZeratulCommanderAnnihilationCannon@Missile"/>
         <DataRecord Entry="Weapon,ZeratulCommanderAnnihilationCannon"/>
         <DataRecord Entry="Actor,ZeratulCommanderAnnihilationCannon@Attack"/>
-        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@AF"/>
         <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Set"/>
-        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@CP"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Effects"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderAvatarOfEssence" parent="CommanderUnit">
         <EditorCategories value="ObjectType:AbilityTopbars,DataGroup:Unit,Race:Zeratul"/>
@@ -32,15 +31,11 @@
         <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@Range"/>
         <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@Attack"/>
         <DataRecord Entry="Button,ZeratulCommanderBlinkVoidTemplar"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Set"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Search"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Damage"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Facing"/>
         <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Teleport"/>
         <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@ImpactModel"/>
         <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
         <DataRecord Entry="Sound,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@LM"/>
+        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Effects"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderDevolutionWave">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:AbilityTopbars"/>
@@ -52,13 +47,14 @@
         <DataRecord Entry="Model,ZeratulCommanderDevolutionWave@ImpactModel"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderForceCannon">
-        <EditorCategories value="DataGroup:Buff,Race:Zeratul,ObjectType:Projectile"/>
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Passive"/>
         <DataRecord Entry="Behavior,ZeratulCommanderForceCannon"/>
-        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@Set"/>
         <DataRecord Entry="Effect,ZeratulCommanderForceCannon@LM"/>
-        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@CP"/>
         <DataRecord Entry="Effect,ZeratulCommanderForceCannon@Set@1"/>
-        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@Teleport"/>
+        <DataRecord Entry="Button,ZeratulCommanderForceCannon"/>
+        <DataRecord Entry="Mover,ZeratulCommanderForceCannon@Mover"/>
+        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@CU"/>
+        <DataRecord Entry="Effect,ZeratulCommanderForceCannon@RemovePrecursor"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderProphecy">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
@@ -253,6 +249,15 @@
         <DataRecord Entry="Button,ZeratulCommanderShadowCleave"/>
         <DataRecord Entry="Actor,ZeratulCommanderShadowCleave@Animation"/>
         <DataRecord Entry="Actor,ZeratulCommanderShadowCleave@LaunchSound"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderVoidFury">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Passive"/>
+        <DataRecord Entry="Button,ZeratulCommanderVoidFury"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVoidFury@Set"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVoidFury@Search"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVoidFury@Facing"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVoidFury@LM"/>
+        <DataRecord Entry="Effect,ZeratulCommanderVoidFury@Damage"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderVoidShrine" parent="CommanderUnit">
         <EditorCategories value="ObjectType:Structure,DataGroup:Unit,Race:Zeratul"/>

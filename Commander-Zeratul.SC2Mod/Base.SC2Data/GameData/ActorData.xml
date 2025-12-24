@@ -173,7 +173,7 @@
     <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage">
         <EditorCategories value=""/>
     </CActorAction>
-    <CActorAction id="ZeratulCommanderBlinkVoidTemplar@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderBlinkVoidTemplar@Damage" effectLaunch="ZeratulCommanderBlinkVoidTemplar@Search">
+    <CActorAction id="ZeratulCommanderBlinkVoidTemplar@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderVoidFury@Damage" effectLaunch="ZeratulCommanderVoidFury@Search">
         <EditorCategories value=""/>
         <ImpactPhysics Name="PhysicsImpactMedium" MatchKeys="Basic" Physics="CC_AttackDeathForceMedium"/>
     </CActorAction>

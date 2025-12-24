@@ -13,4 +13,21 @@
             <Overlays/>
         </MotionPhases>
     </CMoverMissile>
+    <CMoverMissile id="ZeratulCommanderForceCannon@Mover">
+        <Flags index="IgnoreMovementSuppression" value="1"/>
+        <Flags index="RestoreHeight" value="1"/>
+        <HeightMap value="Air"/>
+        <PathMode value="Flying"/>
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="3200"/>
+            <MaxSpeed value="18.75"/>
+            <ClearanceAcceleration value="75"/>
+            <Outro value="-1"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+        <MotionPhases YawPitchRoll="MAX"/>
+        <RotationIgnoredByUnit value="1"/>
+        <RespectUnitHeightAtDestination value="1"/>
+    </CMoverMissile>
 </Catalog>

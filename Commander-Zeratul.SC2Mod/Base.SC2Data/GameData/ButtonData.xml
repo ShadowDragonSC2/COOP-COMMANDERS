@@ -32,6 +32,11 @@
         <Icon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
+    <CButton id="ZeratulCommanderForceCannon">
+        <Icon value="Assets\Textures\btn-ability-zeratul-immortal-forcecannon.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zeratul-immortal-forcecannon.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
     <CButton id="ZeratulCommanderPickupArtifact">
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
@@ -54,6 +59,11 @@
     <CButton id="ZeratulCommanderVengeanceoftheVoid">
         <Icon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CButton id="ZeratulCommanderVoidFury">
+        <Icon value="Assets\Textures\btn-ability-zeratul-darktemplar-voidfury.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-zeratul-darktemplar-voidfury.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
     <CButton id="ZeratulCommanderVoidShrine">
