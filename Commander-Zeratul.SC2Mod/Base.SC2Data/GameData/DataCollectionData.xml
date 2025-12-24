@@ -37,6 +37,10 @@
         <DataRecord Entry="Sound,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
         <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Effects"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderClusterNova">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Passive"/>
+        <DataRecord Entry="Button,ZeratulCommanderClusterNova"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderDevolutionWave">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:AbilityTopbars"/>
         <DataRecord Entry="Abil,ZeratulCommanderDevolutionWave"/>

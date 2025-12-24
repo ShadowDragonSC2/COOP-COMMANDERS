@@ -11,6 +11,7 @@ Abil/Name/ZeratulCommanderShadowCleave=Shadow Cleave
 Button/Name/ZeratulCommanderAncientNexus=Build <d stringref="Unit,ZeratulCommanderAncientNexus,Name"/>
 Button/Name/ZeratulCommanderAvatarOfEssence=<d stringref="Unit,ZeratulCommanderAvatarOfEssence,Name"> Avatar of Essence
 Button/Name/ZeratulCommanderBlinkVoidTemplar=<d stringref="Abil,ZeratulCommanderBlinkVoidTemplar,Name"/>
+Button/Name/ZeratulCommanderClusterNova=Cluster Nova
 Button/Name/ZeratulCommanderConstructsBay=Build <d stringref="Unit,ZeratulCommanderConstructsBay,Name"/>
 Button/Name/ZeratulCommanderConstructsFacility=Build <d stringref="Unit,ZeratulCommanderConstructsFacility,Name"/>
 Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderCoreForge,Name"/>
@@ -44,6 +45,7 @@ DataCollection/Name/ZeratulCommanderArtifact=Zeratul Commander - Artifact
 DataCollection/Name/ZeratulCommanderAvatarOfEssence=Zeratul Commander - Avatar of Essence
 DataCollection/Name/ZeratulCommanderBlinkVoidTemplar=Zeratul Commander - Blink Void Templar
 DataCollection/Name/ZeratulCommanderBuildProbe=Zeratul Commander - Build Probe
+DataCollection/Name/ZeratulCommanderClusterNova=Zeratul Commander - Cluster Nova
 DataCollection/Name/ZeratulCommanderConstructsBay=Zeratul Commander - Constructs Bay
 DataCollection/Name/ZeratulCommanderConstructsFacility=Zeratul Commander - Constructs Facility
 DataCollection/Name/ZeratulCommanderCoreForge=Zeratul Commander - Core Forge

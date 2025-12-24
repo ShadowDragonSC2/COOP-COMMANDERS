@@ -2,9 +2,9 @@
 <Catalog>
     <CWeaponLegacy id="ZeratulCommanderAnnihilationCannon" parent="CommanderWeapon_Missile">
         <EditorCategories value="Race:Zeratul"/>
-        <Icon value="Assets\Textures\btn-ability-protoss-oraclepulsarcannonon.dds"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <TargetFilters value="Air,Visible;Ground,Missile,Dead,Hidden"/>
-        <Range value="10"/>
+        <Range value="11"/>
     </CWeaponLegacy>
     <CWeaponLegacy id="ZeratulCommanderMasterWarpBlade" parent="CommanderWeapon_Instant">
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>

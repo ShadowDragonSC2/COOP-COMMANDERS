@@ -22,6 +22,7 @@
     <CEffectSet id="ZeratulCommanderBlinkVoidTemplar@Effects">
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="ZeratulCommanderVoidFury@Set"/>
+        <TargetLocationType value="UnitOrPoint"/>
     </CEffectSet>
     <CEffectCreateUnit id="ZeratulCommanderForceCannon@CU">
         <EditorCategories value="Race:Zeratul"/>
@@ -47,7 +48,7 @@
     <CEffectSet id="ZeratulCommanderPredictiveBlink@Effects">
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="ZeratulCommanderVengeanceoftheVoid@CU"/>
-        <TargetLocationType value="Point"/>
+        <TargetLocationType value="UnitOrPoint"/>
     </CEffectSet>
     <CEffectCreatePersistent id="ZeratulCommanderProphecy@CP">
         <EditorCategories value="Race:Zeratul"/>
@@ -104,7 +105,7 @@
     <CEffectTeleport id="ZeratulCommanderBlinkVoidTemplar@Teleport">
         <ValidatorArray value="CasterNotFungalGrowthed"/>
         <EditorCategories value="Race:Zeratul"/>
-        <WhichUnit Value="Source"/>
+        <WhichUnit Value="Caster"/>
         <ClearQueuedOrders value="0"/>
         <PlacementAround Value="CasterUnit"/>
         <PlacementRange value="11"/>
@@ -238,6 +239,7 @@
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestCliff" value="1"/>
         <TeleportEffect value="ZeratulCommanderPredictiveBlink@Effects"/>
+        <ValidatorArray value="CasterNotFungalGrowthed"/>
     </CEffectTeleport>
     <CEffectDamage id="ZeratulCommanderShadowCleave@Damage">
         <EditorCategories value="Race:Zeratul"/>
@@ -261,7 +263,7 @@
     </CEffectDamage>
     <CEffectCreatePersistent id="ZeratulCommanderVengeanceoftheVoid@Interval">
         <EditorCategories value="Race:Zeratul"/>
-        <ExpireDelay value="5"/>
+        <ExpireDelay value="2.5"/>
         <ExpireEffect value="ZeratulCommanderVengeanceoftheVoid@Set"/>
     </CEffectCreatePersistent>
     <CEffectEnumArea id="ZeratulCommanderVengeanceoftheVoid@Search">
