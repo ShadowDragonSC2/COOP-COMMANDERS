@@ -139,12 +139,10 @@
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Raynor"/>
     </CUnit>
     <CUnit id="RaynorCommanderBanshee" parent="CommanderAir_Terr" race="COOPRaynor">
-        <Name value="Unit/Name/RaynorCommanderBanshee"/>
         <Attributes index="Light" value="1"/>
         <Attributes index="Mechanical" value="1"/>
         <LifeStart value="140"/>
         <LifeMax value="140"/>
-        <LifeArmorName value="Unit/LifeArmorName/TerranShipPlating"/>
         <EnergyStart value="50"/>
         <EnergyMax value="200"/>
         <EnergyRegenRate value="0.5625"/>

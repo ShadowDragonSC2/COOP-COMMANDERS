@@ -411,7 +411,6 @@
         </Element>
         <Element Type="Trigger" Id="427A9981">
             <Event Type="FunctionCall" Library="DD453873" Id="A84E8A71"/>
-            <Event Type="FunctionCall" Library="DD453873" Id="35807538"/>
             <Action Type="FunctionCall" Library="DD453873" Id="9F986CFE"/>
             <Action Type="FunctionCall" Library="DD453873" Id="DF4A747E"/>
             <Action Type="Comment" Library="DD453873" Id="41799C42"/>
@@ -420,8 +419,6 @@
         </Element>
         <Element Type="FunctionCall" Id="A84E8A71">
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000120"/>
-        </Element>
-        <Element Type="FunctionCall" Id="35807538">
         </Element>
         <Element Type="FunctionCall" Id="9F986CFE">
             <FunctionDef Type="FunctionDef" Library="Ntve" Id="00000116"/>

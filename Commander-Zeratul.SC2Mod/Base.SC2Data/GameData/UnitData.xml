@@ -39,6 +39,11 @@
             <LayoutButtons Face="ZeratulCommanderDevolutionWave" Type="AbilCmd" AbilCmd="ZeratulCommanderDevolutionWave,Execute" Row="2" Column="0"/>
         </CardLayouts>
     </CUnit>
+    <CUnit id="ZeratulCommanderClusterNova@Missile" parent="MISSILE">
+        <Race value="COOPZeratul"/>
+        <Mover value="MissileDefault"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop"/>
+    </CUnit>
     <CUnit id="ZeratulCommanderConstructsBay" parent="CommanderStructure_Prot" race="COOPZeratul">
         <LifeStart value="450"/>
         <LifeMax value="450"/>

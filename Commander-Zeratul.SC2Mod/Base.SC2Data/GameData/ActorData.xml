@@ -1,77 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CActorEventMacroRunnable id="BuildMacro_COOPZeratul">
-        <EditorCategories value=""/>
-    </CActorEventMacroRunnable>
-    <CActorModel id="Build_COOPZeratul" parent="ProtossBuildingBuild">
-        <EditorCategories value=""/>
-    </CActorModel>
-    <CActorForceSphere id="CC_AttackDeathForceMedium">
-        <EditorCategories value=""/>
-        <HostSiteOps Ops="SOpIncomingDirect SOpRandomPointInSphereDot25"/>
-        <Field value="Directional"/>
-        <Magnitude value="45.000000,17.000000"/>
-        <Radius value="3.000000,0.450000"/>
-        <Direction value="Forward"/>
-    </CActorForceSphere>
-    <CActorMissile id="COOPZeratul_Invisible" parent="GenericAttackMissile" unitName="COOPZeratul_Invisible">
-        <EditorCategories value=""/>
-        <Model value="Invisible"/>
-    </CActorMissile>
-    <CActorSiteOpForward id="SOpForwardScopeLaunch">
-        <HostForward Subject="::scope.Launch"/>
-    </CActorSiteOpForward>
-    <CActorSiteOpForward id="SOpForwardZeratulDarkTemplar">
-        <HostForward Subject="ZeratulCommanderVoidTemplar"/>
-    </CActorSiteOpForward>
+    <!-- Macro -->
+    <!-- Actor Unit -->
     <CActorUnit id="ZeratulCommanderAncientNexus" parent="CommanderUnitBase" unitName="ZeratulCommanderAncientNexus">
-        <EditorCategories value=""/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
         <On Terms="UnitConstruction.ZeratulCommanderAncientNexus.Start" Send="Create Build_COOPZeratul"/>
         <EventDataSound Name="BuildingWarpIn" Actor="UnitSound" Sound="Protoss_BuildingWarpIn"/>
     </CActorUnit>
-    <CActorAction id="ZeratulCommanderAnnihilationCannon@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderAnnihilationCannon@Damage" effectLaunch="ZeratulCommanderAnnihilationCannon@LM">
-        <EditorCategories value=""/>
-        <LaunchSiteOps Ops="SOpAttachWeapon"/>
-        <Missile value="ZeratulCommanderAnnihilationCannon@Missile"/>
-    </CActorAction>
-    <CActorMissile id="ZeratulCommanderAnnihilationCannon@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderAnnihilationCannon@Missile">
-        <EditorCategories value=""/>
-    </CActorMissile>
-    <CActorUnit id="ZeratulCommanderArtifact" parent="GenericUnitStandard" unitName="ZeratulCommanderArtifact">
-        <EditorCategories value=""/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulartifact1.dds"/>
+    <CActorUnit id="ZeratulCommanderVoidShrine" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidShrine">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-darkshrine.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderXelNagaPassageway" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaPassageway">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-gateway.dds"/>
+        </Wireframe>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderAvatarOfEssence" parent="CommanderGroundUnit" unitName="ZeratulCommanderAvatarOfEssence">
         <GroupIcon>
             <Image value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
         <UnitIcon value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
     </CActorUnit>
+    <CActorUnit id="ZeratulCommanderTesseractCannon" parent="CommanderGroundUnit" unitName="ZeratulCommanderTesseractCannon">
+        <LifeArmorIcon value="Assets\Textures\protossbuildingarmor.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderVoidTemplar" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidTemplar">
+        <WalkAnimMoveSpeed value="3"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldarktemplar.dds"/>
+        <DeathArray index="Normal" SoundLink="DarkTemplar_DeathFX"/>
+        <DeathArray index="Freeze" SoundLink="ZeratulCommanderVoidTemplar@DeathVoice"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaEnforcer">
+        <WalkAnimMoveSpeed value="1"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaAbrogator">
+        <WalkAnimMoveSpeed value="3"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldisruptor.dds"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAirUnit" unitName="ZeratulCommanderXelNagaVoidArray">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-warpprism00.dds"/>
+        </Wireframe>
+        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work Stand,Work,Start {} ContentPlayOnce"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray" Send="Create"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderXelNagaVoidArray@Alternate" parent="ZeratulCommanderXelNagaVoidArray" unitName="ZeratulCommanderXelNagaVoidArray@Alternate">
+        <On index="69" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work,Start Stand,Work Stand,Work,End ContentForceLooping"/>
+        <On index="70" Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
+        <On index="71" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderVengeanceoftheVoid" parent="GenericUnitStandard" unitName="ZeratulCommanderVengeanceoftheVoid">
+        <HeroIcon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
+        <UnitIcon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderArtifact" parent="GenericUnitStandard" unitName="ZeratulCommanderArtifact">
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulartifact1.dds"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderDisruptorPhase" parent="GenericUnitStandard" unitName="ZeratulCommanderDisruptorPhase">
+        <HeroIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
+        <UnitIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
+    </CActorUnit>
+    <!-- Actor Action -->
+    <CActorAction id="ZeratulCommanderAnnihilationCannon@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderAnnihilationCannon@Damage" effectLaunch="ZeratulCommanderAnnihilationCannon@LM">
+        <LaunchSiteOps Ops="SOpAttachWeapon"/>
+        <Missile value="ZeratulCommanderAnnihilationCannon@Missile"/>
+    </CActorAction>
+    <!-- Actor Missile -->
+    <CActorMissile id="COOPZeratul_Invisible" parent="GenericAttackMissile" unitName="COOPZeratul_Invisible">
+        <Model value="Invisible"/>
+    </CActorMissile>
+    <CActorMissile id="ZeratulCommanderAnnihilationCannon@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderAnnihilationCannon@Missile">
+    </CActorMissile>
+    <CActorMissile id="ZeratulCommanderClusterNova@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderClusterNova@Missile">
+    </CActorMissile>
+    <!-- Actor Model -->
+    <CActorEventMacroRunnable id="BuildMacro_COOPZeratul">
+    </CActorEventMacroRunnable>
+    <CActorModel id="Build_COOPZeratul" parent="ProtossBuildingBuild">
+    </CActorModel>
+    <CActorForceSphere id="CC_AttackDeathForceMedium">
+        <HostSiteOps Ops="SOpIncomingDirect SOpRandomPointInSphereDot25"/>
+        <Field value="Directional"/>
+        <Magnitude value="45.000000,17.000000"/>
+        <Radius value="3.000000,0.450000"/>
+        <Direction value="Forward"/>
+    </CActorForceSphere>
+    <CActorSiteOpForward id="SOpForwardScopeLaunch">
+        <HostForward Subject="::scope.Launch"/>
+    </CActorSiteOpForward>
+    <CActorSiteOpForward id="SOpForwardZeratulDarkTemplar">
+        <HostForward Subject="ZeratulCommanderVoidTemplar"/>
+    </CActorSiteOpForward>
     <CActorModel id="ZeratulCommanderBlinkVoidTemplar@ImpactModel" parent="ModelAnimationStyleOneShot">
-        <EditorCategories value=""/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOrigin SOpForwardScopeLaunch"/>
         <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Stop; At Source" Send="Create"/>
         <On Terms="ActorCreation" Send="RefSet ::scope.Impact ::Self"/>
     </CActorModel>
     <CActorSound id="ZeratulCommanderBlinkVoidTemplar@ImpactSound" parent="SoundOneShot">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Stop" Send="Create"/>
     </CActorSound>
     <CActorModel id="ZeratulCommanderBlinkVoidTemplar@LaunchModel" parent="ModelAnimationStyleOneShot">
-        <EditorCategories value=""/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary SOpForwardZeratulDarkTemplar"/>
         <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Start; At Source" Send="Create"/>
         <On Terms="ActorCreation" Send="RefSet ::scope.Launch ::Self"/>
     </CActorModel>
     <CActorRange id="ZeratulCommanderBlinkVoidTemplar@Range" parent="RangeAbil" abil="ZeratulCommanderBlinkVoidTemplar">
-        <EditorCategories value=""/>
         <Abil Link=""/>
         <Range value="11.000000"/>
     </CActorRange>
@@ -80,7 +137,6 @@
             <Image value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-roboticsbay-ihanrii.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\wireframe-protoss-roboticssupportbay.dds"/>
@@ -91,7 +147,6 @@
             <Image value="Assets\Textures\btn-building-protoss-zeratulroboticsfacility.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\btn-building-protoss-zeratulroboticsfacility.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulroboticsfacility.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\wireframe-protoss-roboticsfacility.dds"/>
@@ -102,43 +157,29 @@
             <Image value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulcyberneticscore.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\wireframe-protoss-cyberneticscore.dds"/>
         </Wireframe>
     </CActorUnit>
     <CActorModel id="ZeratulCommanderDevolutionWave@ImpactModel" parent="ModelAnimationStyleOneShot">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderDevolutionWave@Search.Start" Send="Create"/>
     </CActorModel>
-    <CActorUnit id="ZeratulCommanderDisruptorPhase" parent="GenericUnitStandard" unitName="ZeratulCommanderDisruptorPhase">
-        <EditorCategories value=""/>
-        <HeroIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <UnitIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
-    </CActorUnit>
     <CActorModel id="ZeratulCommanderDisruptorPhase@Birth" parent="ModelAnimationStyleOneShotNoOrphan">
-        <EditorCategories value=""/>
         <On Terms="UnitBirth.ZeratulCommanderDisruptorPhase" Send="Create"/>
     </CActorModel>
     <CActorSplat id="ZeratulCommanderDisruptorPhase@Cursor" parent="ProtossCursorSplat" abil="ZeratulCommanderDisruptorPhase">
-        <EditorCategories value=""/>
         <Model value="ZeratulCommanderDisruptorPhase@Cursor"/>
     </CActorSplat>
     <CActorModel id="ZeratulCommanderDisruptorPhase@Impact" parent="ModelAnimationStyleOneShotNoOrphan">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
     </CActorModel>
     <CActorSound id="ZeratulCommanderDisruptorPhase@ImpactSound" parent="SoundOneShot">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
     </CActorSound>
     <CActorAction id="ZeratulCommanderMasterWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderMasterWarpBlade@Damage">
-        <EditorCategories value=""/>
     </CActorAction>
     <CActorAction id="ZeratulCommanderNullBeam@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderNullBeam@CP">
-        <EditorCategories value=""/>
         <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
         <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
         <!-- Need this so the impact host ops can know which side of the target is closest to 
@@ -148,46 +189,37 @@
     </CActorAction>
     <CActorBeamSimple id="ZeratulCommanderNullBeam@AttackBeam" parent="BeamSimpleAnimationStyleContinuous">
         <Macros value="ActionTargetTeleportDestroy"/>
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="AnimBracketStop BSD"/>
     </CActorBeamSimple>
     <CActorSound id="ZeratulCommanderNullBeam@End" parent="SoundOneShot">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="Create"/>
     </CActorSound>
     <CActorSound id="ZeratulCommanderNullBeam@Loop" parent="SoundContinuous">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderNullBeam@CP.Start" Send="Create"/>
         <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="Destroy"/>
     </CActorSound>
     <CActorAction id="ZeratulCommanderParticularBeam@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderParticularBeam@Damage" effectLaunch="ZeratulCommanderParticularBeam@LM">
-        <EditorCategories value=""/>
         <LaunchSiteOps Ops="SOpAttachWeapon"/>
         <Missile value="ZeratulCommanderParticularBeam@Missile"/>
         <On Terms="Effect.ZeratulCommanderParticularBeam@Damage.Start" Send="RefSet ::Host ::Sender"/>
     </CActorAction>
     <CActorMissile id="ZeratulCommanderParticularBeam@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderParticularBeam@Missile">
-        <EditorCategories value=""/>
         <On Terms="ActorCreation" Send="SetLocalTintColor 221,255,26"/>
     </CActorMissile>
     <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage">
-        <EditorCategories value=""/>
     </CActorAction>
     <CActorAction id="ZeratulCommanderBlinkVoidTemplar@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderVoidFury@Damage" effectLaunch="ZeratulCommanderVoidFury@Search">
-        <EditorCategories value=""/>
         <ImpactPhysics Name="PhysicsImpactMedium" MatchKeys="Basic" Physics="CC_AttackDeathForceMedium"/>
     </CActorAction>
     <CActorModel id="ZeratulCommanderPredictiveBlink@ImpactModel" parent="ModelAnimationStyleOneShot">
         <InheritType value="OneShot"/>
         <Inherits index="BaseModelScale" value="1"/>
         <Inherits index="Scale" value="1"/>
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Stop; At Source" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOrigin" HoldPosition="1" HoldRotation="1"/>
     </CActorModel>
     <CActorSound id="ZeratulCommanderPredictiveBlink@ImpactSound" parent="SoundOneShot">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Stop" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOrigin"/>
@@ -196,145 +228,55 @@
         <InheritType value="OneShot"/>
         <Inherits index="BaseModelScale" value="1"/>
         <Inherits index="Scale" value="1"/>
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Start; At Source" Send="Create"/>
         <Host Subject="_Selectable"/>
         <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
         <ModelFlags index="AllowHitTest" value="0"/>
     </CActorModel>
     <CActorAction id="ZeratulCommanderProphecy@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderProphecy@Handler">
-        <EditorCategories value=""/>
         <Beam value="ZeratulCommanderProphecy@Beam"/>
         <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
         <BeamScope value="Caster"/>
     </CActorAction>
     <CActorBeamSimple id="ZeratulCommanderProphecy@Beam" parent="BeamSimpleAnimationStyleOneShot">
-        <EditorCategories value=""/>
     </CActorBeamSimple>
     <CActorModel id="ZeratulCommanderProphecy@Model" parent="ModelAnimationStyleContinuous">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderProphecy@CP.Start" Send="Create"/>
         <On Terms="Effect.ZeratulCommanderProphecy@CP.Stop; FromEffectTreeDescendant" Send="AnimBracketStop BSD"/>
         <ModelFlags index="AutomateGlobalLoops" value="1"/>
     </CActorModel>
     <CActorSimple id="ZeratulCommanderShadowCleave@Animation">
-        <EditorCategories value=""/>
         <On Terms="Abil.ZeratulCommanderShadowCleave.SourceCastStart" Send="Create"/>
         <On Terms="ActorCreation" Target="_Unit" Send="AnimBracketStart Spell Spell,B,Start Spell,B,End {} ContentPlayOnce"/>
     </CActorSimple>
     <CActorModel id="ZeratulCommanderShadowCleave@LaunchModel" parent="ModelAnimationStyleOneShot">
-        <EditorCategories value=""/>
         <HostSiteOps Ops="SOpAttachCenter"/>
         <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
     </CActorModel>
     <CActorSound id="ZeratulCommanderShadowCleave@LaunchSound" parent="SoundOneShot">
-        <EditorCategories value=""/>
         <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
     </CActorSound>
-    <CActorUnit id="ZeratulCommanderTesseractCannon" parent="CommanderGroundUnit" unitName="ZeratulCommanderTesseractCannon">
-        <EditorCategories value=""/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <LifeArmorIcon value="Assets\Textures\protossbuildingarmor.dds"/>
-        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderVengeanceoftheVoid" parent="GenericUnitStandard" unitName="ZeratulCommanderVengeanceoftheVoid">
-        <EditorCategories value=""/>
-        <HeroIcon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
-        <UnitIcon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
-    </CActorUnit>
     <CActorAction id="ZeratulCommanderVengeanceoftheVoid@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderVengeanceoftheVoid@Damage">
-        <EditorCategories value=""/>
     </CActorAction>
     <CActorBeamSimple id="ZeratulCommanderVengeanceoftheVoid@AttackBeam" parent="BeamSimpleAnimationStyleOneShot">
-        <EditorCategories value=""/>
     </CActorBeamSimple>
-    <CActorUnit id="ZeratulCommanderVoidShrine" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidShrine">
-        <GroupIcon>
-            <Image value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-protoss-darkshrine.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderVoidTemplar" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidTemplar">
-        <EditorCategories value=""/>
-        <WalkAnimMoveSpeed value="3"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldarktemplar.dds"/>
-        <DeathArray index="Normal" SoundLink="DarkTemplar_DeathFX"/>
-        <DeathArray index="Freeze" SoundLink="ZeratulCommanderVoidTemplar@DeathVoice"/>
-    </CActorUnit>
     <CActorAction id="ZeratulCommanderWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderWarpBlade@Damage">
-        <EditorCategories value=""/>
     </CActorAction>
-    <CActorUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaEnforcer">
-        <EditorCategories value=""/>
-        <WalkAnimMoveSpeed value="1"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaAbrogator">
-        <EditorCategories value=""/>
-        <WalkAnimMoveSpeed value="3"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldisruptor.dds"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaPassageway" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaPassageway">
-        <GroupIcon>
-            <Image value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <UnitIcon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-protoss-gateway.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAirUnit" unitName="ZeratulCommanderXelNagaVoidArray">
-        <GroupIcon>
-            <Image value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-protoss-warpprism00.dds"/>
-        </Wireframe>
-        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work Stand,Work,Start {} ContentPlayOnce"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray" Send="Create"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaVoidArray@Alternate" parent="ZeratulCommanderXelNagaVoidArray" unitName="ZeratulCommanderXelNagaVoidArray@Alternate">
-        <EditorCategories value=""/>
-        <On index="69" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work,Start Stand,Work Stand,Work,End ContentForceLooping"/>
-        <On index="70" Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
-        <On index="71" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
-    </CActorUnit>
     <CActorTurret id="ZeratulCommanderXelNagaVoidArray@Turret">
-        <EditorCategories value=""/>
         <On Terms="TurretEnable.ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
         <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
     </CActorTurret>
     <CActorUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelnagaAmbusher">
-        <EditorCategories value=""/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulstalker.dds"/>
         <WalkAnimMoveSpeed value="3.1328"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaShieldguard">
-        <EditorCategories value=""/>
         <WalkAnimMoveSpeed value="3"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulsentry.dds"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaProbe">
-        <EditorCategories value=""/>
         <WalkAnimMoveSpeed value="3"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulprobe.dds"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderZeratul" parent="CommanderGroundUnit" unitName="ZeratulCommanderZeratul">
@@ -343,7 +285,6 @@
             <Image value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
         </GroupIcon>
         <HeroIcon value="Assets\Textures\wireframe-protoss-zeratul.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
         <MinimapIcon value="Assets\Textures\ui_minimap_icon_zeratul.dds"/>
@@ -358,9 +299,7 @@
         <GlossaryAnim value="stand"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderProphecyCamera" parent="GenericUnitStandard" unitName="ZeratulCommanderProphecyCamera">
-        <EditorCategories value=""/>
         <HostSiteOps Ops="ZeratulCommanderSOpProphecyCameraOffset SOpPointToCamera"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
     </CActorUnit>
     <CActorSiteOpLocalOffset id="ZeratulCommanderSOpProphecyCameraOffset">
         <LocalOffset value="0.000000,-29.000000,40.000000"/>

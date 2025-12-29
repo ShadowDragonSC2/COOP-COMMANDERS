@@ -1,5 +1,4 @@
 include "TriggerLibs/NativeLib"
-include "LibBEDD5153"
 
 include "LibDD453873_h"
 
@@ -9,7 +8,6 @@ include "LibDD453873_h"
 // External Library Initialization
 void libDD453873_InitLibraries () {
     libNtve_InitVariables();
-    libBEDD5153_InitVariables();
 }
 
 // Variable Initialization

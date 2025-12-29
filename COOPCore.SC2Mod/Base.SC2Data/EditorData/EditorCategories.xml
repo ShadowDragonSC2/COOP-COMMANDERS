@@ -29,6 +29,9 @@
         <value>Decal</value>
         <value>AbilityTopbars</value>
         <value>Passive</value>
+        <value>Instant</value>
+        <value>Target</value>
+        <value>Beam</value>
     </category>
     <category name="FieldType">
         <value>Ability</value>

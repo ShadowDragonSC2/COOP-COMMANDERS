@@ -16,6 +16,7 @@
         <GlossaryAnim value="Spell"/>
         <WalkAnimMoveSpeed value="2.25"/>
         <Macros value="TerrainSquibAnimations"/>
+        <HighlightTooltip value="Unit/Name/COOP/##id##"/>
         <!-- Sound Arrays -->
         <SoundArray index="Birth" value="##unitName##@Birth"/>
         <SoundArray index="Ready" value="##unitName##@Ready"/>
@@ -119,6 +120,12 @@
     <CWeaponLegacy default="1" id="CommanderWeapon_Melee" parent="CommanderWeapon_Instant">
         <Range value="0"/>
     </CWeaponLegacy>
+    <!-- Effects Template -->
+    <CEffectDamage id="CommanderEffect_TargetIsRemove">
+        <ImpactLocation Value="TargetUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Death value="Remove"/>
+    </CEffectDamage>
     <!-- Sounds Template -->
     <CSound default="1" id="CommanderVOBase" parent="Voice">
         <?token id="unitName" value="Bogus"?>
@@ -387,16 +394,16 @@
         <AbilArray Link="stop"/>
         <AbilArray Link="attack"/>
         <CardLayouts>
-            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
-            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
-            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
-            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
             <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
         </CardLayouts>
-        <CargoSize value="2"/>
+        <CargoSize value="1"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop"/>
-        <StationaryTurningRate value="998.9648"/>
-        <TurningRate value="998.9648"/>
+        <StationaryTurningRate value="1000"/>
+        <TurningRate value="1000"/>
         <LifeArmorName value="LifeArmorName/UnitGround/##race##"/>
         <Fidget>
             <ChanceArray index="Anim" value="33"/>
@@ -430,8 +437,8 @@
         </CardLayouts>
         <LifeArmorName value="LifeArmorName/UnitAir/##race##"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop"/>
-        <StationaryTurningRate value="990"/>
-        <TurningRate value="990"/>
+        <StationaryTurningRate value="1000"/>
+        <TurningRate value="1000"/>
         <PlaneArray index="Air" value="1"/>
         <Collide index="Flying" value="1"/>
         <Mover value="Fly"/>

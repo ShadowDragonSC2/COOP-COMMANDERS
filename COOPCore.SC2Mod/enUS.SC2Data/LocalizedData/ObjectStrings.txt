@@ -27,5 +27,6 @@ Unit/Name/COOP/CommanderStructure_Prot=Commander Structure - Protoss
 Unit/Name/COOP/CommanderStructure_Terr=Commander Structure - Terran
 Unit/Name/COOP/CommanderStructure_Zerg=Commander Structure - Zerg
 Unit/Name/COOP/CommanderUnitBase=Commander Unit - Base
+Effect/Name/CommanderEffect_TargetIsRemove=Target Is Remove
 User/Name/COMMANDERMastery=COMMANDER - Mastery
 Validator/Name/CC_TargetBehindCaster=Target Behind Caster
