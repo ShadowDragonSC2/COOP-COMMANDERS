@@ -114,6 +114,9 @@ struct lib6CA20615_gs_UIGiveUpgrade {
 };
 
 // Variable Declarations
+int lib6CA20615_gv_context_menu;
+int lib6CA20615_gv_context_menu_dialog;
+unit lib6CA20615_gv_context_menu_unit;
 int lib6CA20615_gv_dialog;
 lib6CA20615_gs_button[49] lib6CA20615_gv_button;
 unit lib6CA20615_gv_caster;
@@ -202,6 +205,9 @@ string lib6CA20615_gf_CheatType (string lp_cheat);
 string lib6CA20615_gf_CheckParametersForCheatnumber (string lp_cheat, string lp_command, int lp_index);
 
 // Trigger Declarations
+trigger lib6CA20615_gt_disablemoveabil;
+trigger lib6CA20615_gt_context_menu;
+trigger lib6CA20615_gt_context_menu_selected;
 trigger lib6CA20615_gt_Test;
 trigger lib6CA20615_gt_init;
 trigger lib6CA20615_gt_CheatCodeUnits;

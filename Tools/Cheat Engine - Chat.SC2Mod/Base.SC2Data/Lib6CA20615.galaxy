@@ -23,6 +23,8 @@ void lib6CA20615_InitVariables () {
 
     lib6CA20615_InitVariables_completed = true;
 
+    lib6CA20615_gv_context_menu = c_invalidDialogControlId;
+    lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
     lib6CA20615_gv_dialog = c_invalidDialogId;
     for (init_i = 0; init_i <= 48; init_i += 1) {
         lib6CA20615_gv_button[init_i].lv_btn = c_invalidDialogControlId;
@@ -2251,6 +2253,168 @@ string lib6CA20615_gf_CheckParametersForCheatnumber (string lp_cheat, string lp_
 
 // Triggers
 //--------------------------------------------------------------------------------------------------
+// Trigger: disable move abil
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_disablemoveabil_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((TechTreeAbilityIsAllowed(EventPlayer(), AbilityCommand("move", 0)) == true)) {
+        TechTreeAbilityAllow(EventPlayer(), AbilityCommand("move", 0), false);
+    }
+    else {
+        TechTreeAbilityAllow(EventPlayer(), AbilityCommand("move", 0), true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_disablemoveabil_Init () {
+    lib6CA20615_gt_disablemoveabil = TriggerCreate("lib6CA20615_gt_disablemoveabil_Func");
+    TriggerAddEventKeyPressed(lib6CA20615_gt_disablemoveabil, c_playerAny, c_keyAlt, false, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
+    TriggerAddEventKeyPressed(lib6CA20615_gt_disablemoveabil, c_playerAny, c_keyAlt, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: context_menu
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_context_menu_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_mouseClick;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_mouseClick = Point(EventMouseClickedPosXWorld(), EventMouseClickedPosYWorld());
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((lib6CA20615_gv_context_menu_dialog != c_invalidDialogId)) {
+        DialogDestroy(lib6CA20615_gv_context_menu_dialog);
+        lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
+        UnitRemove(lib6CA20615_gv_context_menu_unit);
+    }
+
+    if ((EventKeyAlt() == false)) {
+        return true;
+    }
+
+    DialogCreate(300, 100, c_anchorCenter, 0, 0, true);
+    DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), true);
+    lib6CA20615_gv_context_menu_dialog = DialogLastCreated();
+    UnitCreate(1, "System_Snapshot_Dummy", 0, EventPlayer(), lv_mouseClick, 270.0);
+    lib6CA20615_gv_context_menu_unit = UnitLastCreated();
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateHidden, true);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateInvulnerable, true);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateUsingSupply, false);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateTargetable, false);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateSelectable, false);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateSilenced, true);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateCursorable, false);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateMoveSuppressed, false);
+    DialogSetPositionRelativeToUnit(DialogLastCreated(), lib6CA20615_gv_context_menu_unit, "Ref_Origin", -150, -50);
+
+    DialogControlCreate(lib6CA20615_gv_context_menu_dialog, c_triggerControlTypePulldown);
+    lib6CA20615_gv_context_menu = DialogControlLastCreated();
+    DialogControlSetFullDialog(DialogControlLastCreated(), PlayerGroupAll(), true);
+
+    DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_65DDDB8E"));
+    DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_4B2D0E94"));
+
+    if ((UnitGroupCount(UnitGroupSelected(EventPlayer()), c_unitCountAlive) > 0)) {
+        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_71047A98"));
+        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_BDC2139F"));
+        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_6F8D62EE"));
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_context_menu_Init () {
+    lib6CA20615_gt_context_menu = TriggerCreate("lib6CA20615_gt_context_menu_Func");
+    TriggerAddEventMouseClicked(lib6CA20615_gt_context_menu, c_playerAny, c_mouseButtonRight, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: context_menu_selected
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_context_menu_selected_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int auto04F88134_val;
+    unitgroup autoD4926B4E_g;
+    int autoD4926B4E_u;
+    unit autoD4926B4E_var;
+    unitgroup auto64830165_g;
+    int auto64830165_u;
+    unit auto64830165_var;
+    unitgroup auto5D0B1C01_g;
+    int auto5D0B1C01_u;
+    unit auto5D0B1C01_var;
+
+    // Conditions
+    if (testConds) {
+        if (!((EventDialogControl() == lib6CA20615_gv_context_menu))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto04F88134_val = DialogControlGetSelectedItem(lib6CA20615_gv_context_menu, EventPlayer());
+    if (auto04F88134_val == 2) {
+        lib6CA20615_gf_SpawnUnitAdvanced(UnitGetPosition(lib6CA20615_gv_context_menu_unit), EventPlayer(), "");
+    }
+    else if (auto04F88134_val == 3) {
+        autoD4926B4E_g = UnitGroupSelected(EventPlayer());
+        autoD4926B4E_u = UnitGroupCount(autoD4926B4E_g, c_unitCountAll);
+        for (;; autoD4926B4E_u -= 1) {
+            autoD4926B4E_var = UnitGroupUnitFromEnd(autoD4926B4E_g, autoD4926B4E_u);
+            if (autoD4926B4E_var == null) { break; }
+            UnitSetPosition(autoD4926B4E_var, UnitGetPosition(lib6CA20615_gv_context_menu_unit), false);
+        }
+    }
+    else if (auto04F88134_val == 4) {
+        auto64830165_g = UnitGroupSelected(EventPlayer());
+        auto64830165_u = UnitGroupCount(auto64830165_g, c_unitCountAll);
+        for (;; auto64830165_u -= 1) {
+            auto64830165_var = UnitGroupUnitFromEnd(auto64830165_g, auto64830165_u);
+            if (auto64830165_var == null) { break; }
+            UnitKill(auto64830165_var);
+        }
+    }
+    else if (auto04F88134_val == 5) {
+        auto5D0B1C01_g = UnitGroupSelected(EventPlayer());
+        auto5D0B1C01_u = UnitGroupCount(auto5D0B1C01_g, c_unitCountAll);
+        for (;; auto5D0B1C01_u -= 1) {
+            auto5D0B1C01_var = UnitGroupUnitFromEnd(auto5D0B1C01_g, auto5D0B1C01_u);
+            if (auto5D0B1C01_var == null) { break; }
+            libNtve_gf_MakeUnitFacePoint(auto5D0B1C01_var, UnitGetPosition(lib6CA20615_gv_context_menu_unit), 0.0);
+        }
+    }
+    else {
+    }
+    DialogDestroy(lib6CA20615_gv_context_menu_dialog);
+    lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
+    UnitRemove(lib6CA20615_gv_context_menu_unit);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_context_menu_selected_Init () {
+    lib6CA20615_gt_context_menu_selected = TriggerCreate("lib6CA20615_gt_context_menu_selected_Func");
+    TriggerAddEventDialogControl(lib6CA20615_gt_context_menu_selected, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeSelectionChanged);
+}
+
+//--------------------------------------------------------------------------------------------------
 // Trigger: Test
 //--------------------------------------------------------------------------------------------------
 bool lib6CA20615_gt_Test_Func (bool testConds, bool runActions) {
@@ -3649,6 +3813,9 @@ void lib6CA20615_gt_ChangeOwnerUnit_Init () {
 }
 
 void lib6CA20615_InitTriggers () {
+    lib6CA20615_gt_disablemoveabil_Init();
+    lib6CA20615_gt_context_menu_Init();
+    lib6CA20615_gt_context_menu_selected_Init();
     lib6CA20615_gt_Test_Init();
     lib6CA20615_gt_init_Init();
     lib6CA20615_gt_CheatCodeUnits_Init();
