@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectIssueOrder id="RaynorCommanderBurrowSpiderMine">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichUnit Value="Caster"/>
+        <Abil value="RaynorCommanderBurrowSpiderMine@Burrow"/>
+    </CEffectIssueOrder>
+    <CEffectDamage id="RaynorCommanderExplode@Damage">
+        <EditorCategories value="Race:Raynor"/>
+        <AttributeBonus index="Armored" value="50"/>
+        <Amount value="70"/>
+        <AreaArray Radius="0.3" Fraction="0.5"/>
+        <AreaArray Radius="1.2" Fraction="0.45"/>
+        <SearchFilters value="Ground;Player,Ally,Missile,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectSet id="RaynorCommanderExplode@Set">
+        <EditorCategories value="Race:Raynor"/>
+        <EffectArray value="RaynorCommanderExplode@Damage"/>
+        <EffectArray value="Suicide"/>
+    </CEffectSet>
+    <CAbilMorph id="RaynorCommanderBurrowSpiderMine@Unburrow">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <DataCollection value="RaynorCommanderBurrowSpiderMine@Burrow"/>
+        <ActorKey value="RaynorCommanderBurrowSpiderMine@Burrow"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <InfoArray Unit="RaynorCommanderSpiderMine">
+            <SectionArray index="Abils">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Duration" value="0.6"/>
+            </SectionArray>
+        </InfoArray>
+        <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable,Benign"/>
+        <AutoCastRange value="4"/>
+        <AutoCastCountMin value="1"/>
+        <Cost>
+            <Charge Link="Abil/RaynorSpiderUnburrow"/>
+            <Cooldown Link="Abil/RaynorSpiderUnburrow"/>
+        </Cost>
+        <AutoCastCountMax value="4294967295"/>
+    </CAbilMorph>
+    <CAbilMorph id="RaynorCommanderBurrowSpiderMine@Burrow">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastIdleOnly" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Flags index="IgnoreFacing" value="1"/>
+        <InfoArray Unit="RaynorCommanderSpiderMine@Burrowed">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="3.5332"/>
+                <DurationArray index="Duration" value="3.5332"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Delay" value="3.5332"/>
+                <DurationArray index="Duration" value="1.067"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Delay" value="3.5332"/>
+                <DurationArray index="Duration" value="1"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="4.5332"/>
+            </SectionArray>
+        </InfoArray>
+        <AutoCastFilters value="-;Self,Enemy"/>
+        <AutoCastRange value="2"/>
+        <Cost>
+            <Charge Link="Abil/RaynorSpiderBurrow"/>
+            <Cooldown Link="Abil/RaynorSpiderBurrow"/>
+        </Cost>
+        <AutoCastCountMax value="1"/>
+    </CAbilMorph>
+    <CActorUnit id="RaynorCommanderSpiderMine" parent="GenericUnitStandard" unitName="RaynorCommanderSpiderMine">
+        <EditorCategories value=""/>
+        <On Terms="UnitBirth.RaynorCommanderSpiderMine@Burrowed" Send="Create"/>
+        <On Terms="UnitBirth.RaynorCommanderSpiderMine@Burrowed" Send="AnimPlay Burrow Burrow PlayForever,NonLooping"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSpiderMine@Burrowed" Send="AnimPlay Burrow Burrow PlayForever,NonLooping"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSpiderMine@Burrowed" Send="AnimClear Unburrow"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSpiderMine" Send="AnimPlay Burrow Unburrow"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSpiderMine" Send="AnimClear Burrow"/>
+        <On Terms="UnitBirth.RaynorCommanderSpiderMine" Send="Create RaynorCommanderSpiderMine@SoundPlacement"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSpiderMine@Burrowed" Send="Create RaynorCommanderSpiderMine@SoundBurrow"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderSpiderMine@Death" SoundLink="RaynorCommanderSpiderMine@Death"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-upgrade-terran-spidermineex3.dds"/>
+        <PlacementModel value="RaynorCommanderSpiderMine@Placement"/>
+        <PlacementActorModel value="RaynorCommanderSpiderMine@Placement"/>
+    </CActorUnit>
+    <CActorModel id="RaynorCommanderSpiderMine@Placement" parent="ModelAddition">
+        <EditorCategories value=""/>
+    </CActorModel>
+    <CActorSound id="RaynorCommanderSpiderMine@SoundBurrow" parent="SoundOneShot">
+        <EditorCategories value=""/>
+    </CActorSound>
+    <CActorSound id="RaynorCommanderSpiderMine@SoundPlacement" parent="SoundOneShot">
+        <EditorCategories value=""/>
+    </CActorSound>
+    <CModel id="RaynorCommanderSpiderMine" parent="Unit">
+        <Model value="Assets\Units\Terran\SpiderMine\SpiderMine.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <SelectionRadius value="0.200000"/>
+    </CModel>
+    <CModel id="RaynorCommanderSpiderMine@Death" parent="UnitDeath">
+        <Model value="Assets\Effects\Terran\SpidermineExplosion\SpidermineExplosion_Low.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSpiderMine@Placement" parent="Placement">
+        <Model value="Assets\Effects\Terran\SpiderMinePlacement\SpiderMinePlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CWeaponLegacy id="RaynorCommanderExplode">
+        <EditorCategories value="Race:Raynor"/>
+        <Icon value="Assets\Textures\btn-upgrade-raynor-cerberusmines.dds"/>
+        <DisplayEffect value="RaynorCommanderExplode@Damage"/>
+        <TargetFilters value="Ground,Visible;Structure,Missile,Dead,Hidden,Hallucination,Invulnerable"/>
+        <Range value="0.1"/>
+        <Effect value="RaynorCommanderExplode@Set"/>
+        <Options index="Melee" value="1"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <AcquireScanFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Missile,Dead,Hidden,Hallucination,Invulnerable"/>
+        <AcquireTargetSorts RequestCount="1">
+            <SortArray value="TSDistance"/>
+            <SortArray value="TSEnergy"/>
+        </AcquireTargetSorts>
+        <AcquireFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Missile,Dead,Hidden,Hallucination,Invulnerable"/>
+        <Arc value="360"/>
+    </CWeaponLegacy>
+    <CSound id="RaynorCommanderSpiderMine@SoundBurrow" parent="Spell">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_SpiderMineBurrow0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_SpiderMineBurrow1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_SpiderMineBurrow2.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderSpiderMine@Death" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Reaper_KD8ChargeExplosion01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Reaper_KD8ChargeExplosion02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Reaper_KD8ChargeExplosion03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Reaper_KD8ChargeExplosion04.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderSpiderMine@SoundPlacement" parent="Spell">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_SpiderMinePlace0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_SpiderMinePlace1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_SpiderMinePlace2.wav" FacialGroup=""/>
+    </CSound>
+    <CDataCollectionAbil id="RaynorCommanderBurrowSpiderMine">
+        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
+        <DataRecord Entry="Abil,RaynorCommanderBurrowSpiderMine@Burrow"/>
+        <DataRecord Entry="Abil,RaynorCommanderBurrowSpiderMine@Unburrow"/>
+        <DataRecord Entry="Behavior,RaynorCommanderBurrowSpiderMine"/>
+        <DataRecord Entry="Effect,RaynorCommanderBurrowSpiderMine"/>
+    </CDataCollectionAbil>
+    <CDataCollectionUnit id="RaynorCommanderExplode" parent="CommanderWeaponInstantAOE">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
+        <DataRecord Entry="Effect,RaynorCommanderExplode@Set"/>
+        <DataRecord Entry="Effect,RaynorCommanderExplode@Damage"/>
+        <DataRecord Entry="Weapon,RaynorCommanderExplode"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderSpiderMine" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,RaynorCommanderSpiderMine"/>
+        <DataRecord Entry="Model,RaynorCommanderSpiderMine"/>
+        <DataRecord Entry="Model,RaynorCommanderSpiderMine@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderSpiderMine@Placement"/>
+        <DataRecord Entry="Unit,RaynorCommanderSpiderMine"/>
+        <DataRecord Entry="Sound,RaynorCommanderSpiderMine@SoundPlacement"/>
+        <DataRecord Entry="Sound,RaynorCommanderSpiderMine@SoundBurrow"/>
+        <DataRecord Entry="Sound,RaynorCommanderSpiderMine@Death"/>
+        <DataRecord Entry="Unit,RaynorCommanderSpiderMine@Burrowed"/>
+        <DataRecord Entry="Actor,RaynorCommanderSpiderMine@Placement"/>
+        <DataRecord Entry="Actor,RaynorCommanderSpiderMine@SoundPlacement"/>
+        <DataRecord Entry="Actor,RaynorCommanderSpiderMine@SoundBurrow"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderSpiderMine@Burrowed">
+        <Race value="COOPRaynor"/>
+        <FlagArray index="Cloaked" value="1"/>
+        <FlagArray index="Buried" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <AbilArray Link="RaynorCommanderBurrowSpiderMine@Unburrow"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="35"/>
+        <LifeMax value="35"/>
+        <Sight value="2"/>
+        <Radius value="0.1875"/>
+        <EquipmentArray Weapon="RaynorCommanderExplode"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderSpiderMine">
+        <Race value="COOPRaynor"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="35"/>
+        <LifeMax value="35"/>
+        <Speed value="9"/>
+        <Acceleration value="720"/>
+        <Sight value="4"/>
+        <AttackTargetPriority value="5"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="RaynorCommanderBurrowSpiderMine@Burrow"/>
+        <BehaviorArray Link="RaynorCommanderBurrowSpiderMine"/>
+        <WeaponArray Link="RaynorCommanderExplode"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="SpiderMine" Type="AbilCmd" AbilCmd="VultureSpiderMines,255" Row="2" Column="0"/>
+            <LayoutButtons>
+                <Face value="CerberusMines"/>
+                <Type value="Passive"/>
+                <AbilCmd value="255,255"/>
+                <Requirements value="UseCerberusMines"/>
+                <Row value="2"/>
+                <Column value="2"/>
+            </LayoutButtons>
+            <LayoutButtons Face="SpiderMineReplenish" Type="AbilCmd" AbilCmd="MakeVultureSpiderMines,255" Row="2" Column="1"/>
+        </CardLayouts>
+        <Radius value="0.1875"/>
+        <SeparationRadius value="0.2"/>
+        <MinimapRadius value="0.25"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
+        <GlossaryPriority value="81"/>
+        <GlossaryStrongArray value="Marine"/>
+        <GlossaryStrongArray value="Marauder"/>
+        <GlossaryStrongArray value="Zealot"/>
+        <GlossaryWeakArray value="Raven"/>
+        <GlossaryWeakArray value="Overseer"/>
+        <GlossaryWeakArray value="Observer"/>
+    </CUnit>
+    <CBehaviorBuff id="RaynorCommanderBurrowSpiderMine">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+    </CBehaviorBuff>
+</Catalog>

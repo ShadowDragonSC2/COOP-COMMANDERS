@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <!-- # -->
+    <CEffectDamage id="RaynorCommanderGaussRiffleC14@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Raynor"/>
+        <Kind value="Ranged"/>
+        <Amount value="6"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="RaynorCommanderStimpack@AB">
+        <EditorCategories value="Race:Raynor"/>
+        <Behavior value="RaynorCommanderStimpack"/>
+    </CEffectApplyBehavior>
+    <!-- Abil -->
+    <CAbilEffectInstant id="RaynorCommanderStimpack">
+        <AbilSetId value="Stimpack"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <InfoTooltipPriority value="1"/>
+        <Effect index="0" value="RaynorCommanderStimpack@AB"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Vital index="Life" value="10"/>
+        </Cost>
+        <AINotifyEffect value="RaynorCommanderStimpack@AB"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderStimpack" Requirements="RaynorCommanderStimpack">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+    </CAbilEffectInstant>
+    <!-- # -->
+    <CRequirement id="RaynorCommanderMarine">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+    </CRequirement>
+    <CRequirement id="RaynorCommanderStimpack">
+        <EditorCategories value="Race:Raynor,TechType:Ability"/>
+        <NodeArray index="Use" Link="CountUpgradeStimpackCompleteOnly80611996TechTreeCheat"/>
+    </CRequirement>
+    <!-- # -->
+    <CButton id="RaynorCommanderMarine">
+        <Icon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CButton id="RaynorCommanderStimpack">
+        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Universal value="1"/>
+    </CButton>
+    <!-- -->
+    <CLight id="RaynorCommanderMarine" parent="default">
+        <EditorCategories value="LightGroup:PortraitsUnitsTerran"/>
+    </CLight>
+    <!-- # -->
+    <CActorUnit id="RaynorCommanderMarine" parent="CommanderGroundUnit" unitName="RaynorCommanderMarine">
+        <Aliases value="_UnitSmall"/>
+        <On index="64" Terms="ActorCreation; ValidatePlayer NoMarineShield" Send="AnimPlay Cover Cover PlayForever 0.000000"/>
+        <On index="65" Terms="Upgrade.ShieldWall.Add" Send="AnimClear Cover"/>
+        <On index="66" Terms="Upgrade.ShieldWall.Remove" Send="AnimPlay Cover Cover PlayForever 0.000000"/>
+        <On index="67" Terms="UnitDeath.RaynorCommanderMarine; AnimPlaying Cover" Target="_DeathModel" Send="AnimPlay Cover Cover PlayForever 0.000000"/>
+        <On index="68" Terms="Abil.attack.ReadyStart" Send="AnimGroupApply Ready"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation GE 20.000000" Send="AnimBracketStart Attack Attack,Superior"/>
+        <On Terms="WeaponStart.*.AttackStart; WeaponTargetElevation LE -20.000000" Send="AnimBracketStart Attack Attack,Inferior"/>
+        <On Terms="WeaponStart.*.AttackStart" Send="AnimBracketStart Attack Attack"/>
+        <On Terms="WeaponStop.*.AttackStop" Send="AnimBracketStop Attack"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="ModelEvent; ModelEventName SquibStart" Send="Create MarineCheerSquib"/>
+        <On Terms="ModelEvent; ModelEventName SquibStop" Target="MarineCheerSquib" Send="Destroy"/>
+        <On Terms="ModelEvent; ModelEventName SquibStop" Target="MarineCheerSquibSound" Send="Destroy"/>
+        <On Terms="AnimDone; AnimName Cheer" Target="MarineCheerSquib" Send="Destroy"/>
+        <On Terms="AnimDone; AnimName Cheer" Target="MarineCheerSquibSound" Send="Destroy"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Marine_Land"/>
+        <On Terms="UnitDeathCustomize; PassChance 100.000000; ValidateUnit IsNotNeuralParasited" Send="Create Marine_Death"/>
+        <On Terms="UnitDeathCustomize; PassChance 100.000000; !ValidateUnit IsNotNeuralParasited" Send="Create Marine_Death_NP"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <StandAnimTurnTime value="4"/>
+        <AbilSoundArray AbilCmd="RaynorCommanderStimpack,Execute" Sound="RaynorCommanderMarine@StimPackVO"/>
+        <BarOffset value="40"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-Marine.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-Marine.dds"/>
+        </Wireframe>
+        <PlacementModel value="RaynorCommanderMarine"/>
+    </CActorUnit>
+    <!-- # -->
+    <CActorAction id="RaynorCommanderGaussRiffleC14@Attack" parent="GenericAttack" effectAttack="RaynorCommanderGaussRiffleC14@Damage">
+        <ContainerAssets Model="RaynorCommanderGaussRiffleC14@BunkerAttackLaunch" Sound="RaynorCommanderGaussRiffleC14@BunkerAttackLaunch"/>
+        <ImpactMap index="Flesh" ModelReaction="BloodTargetImpact"/>
+        <ImpactPhysics Name="BulletImpact" MatchKeys="Basic" Physics="MarineAttackDeathForce"/>
+        <DamageMap index="None" Sound=""/>
+        <AcquisitionYawHalfArc value="10.000000"/>
+        <AcquisitionPitchHalfArc value="15.000000"/>
+        <AccuracyHalfArc value="5.000000"/>
+    </CActorAction>
+    <CActorSound id="RaynorCommanderStimpack@Cast" parent="SoundOneShot">
+        <On Terms="Abil.RaynorCommanderStimpack.SourceCastStart" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="RaynorCommanderStimpack@Finish" parent="SoundOneShot">
+        <On Terms="Abil.RaynorCommanderStimpack.SourceFinishStart" Send="Create"/>
+    </CActorSound>
+    <CActorModel id="RaynorCommanderStimpack@EndImpact" parent="ModelAnimationStyleOneShot">
+        <Inherits index="CloakEffect" value="1"/>
+        <On Terms="Behavior.RaynorCommanderStimpack.Off; ValidateUnit NotDead" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+    </CActorModel>
+    <CActorModel id="RaynorCommanderStimpack@StartImpact" parent="ModelAnimationStyleOneShot">
+        <Inherits index="CloakEffect" value="1"/>
+        <On Terms="Abil.RaynorCommanderStimpack.SourceCastStart" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOverhead"/>
+    </CActorModel>
+    <CModel id="RaynorCommanderGaussRiffleC14@AttackImpact" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponImpact\MarineWeaponImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderGaussRiffleC14@AttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponLaunch\MarineWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderGaussRiffleC14@BunkerAttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarineWeaponLaunch\MarineWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Lighting value="MarineAttackLaunch"/>
+    </CModel>
+    <!-- # -->
+    <CModel id="RaynorCommanderMarine" parent="MarineBase">
+        <Model value="Assets\Units\Terran\Marine\Marine.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarine@Death" parent="MarineDeathBase">
+        <Model value="Assets\Units\Terran\MarineDeathEx1\MarineDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarine@DeathDisintegrate" parent="MarineDeathAcidBase">
+        <Model value="Assets\Units\Terran\MarineDeathAcid\MarineDeathAcid.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarine@DeathBlast" parent="MarineDeathBlastBase">
+        <Model value="Assets\Units\Terran\MarineDeathBlastEx1\MarineDeathBlastEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarine@DeathEat" parent="UnitDeath" Race="Terran">
+        <Model value="Assets\Units\Terran\MarineDeathEat\MarineDeathEat.m3"/>
+        <LowQualityModel value="TerranBloodDeathLow"/>
+        <Occlusion value="Show"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarine@DeathEviscerate" parent="MarineDeathEviscerateBase">
+        <Model value="Assets\Units\Terran\MarineDeathEviscerateEx1\MarineDeathEviscerateEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarine@DeathFire" parent="MarineDeathFireBase">
+        <Model value="Assets\Units\Terran\MarineDeathFire\MarineDeathFire.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarine@DeathRagdoll" parent="MarineDeathRagdollBase">
+        <Model value="Assets\Units\Terran\MarineDeathRagdoll\MarineDeathRagdoll.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarine@Portrait" parent="FXAPortrait" Race="Terran">
+        <Model value="Assets\Portraits\Terran\MarinePortrait\MarinePortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <FacialController value="LocalizedData\Facial\MarinePortrait.fxa"/>
+        <Image value="Assets\Textures\MarinePortrait_Static.dds"/>
+    </CModel>
+    <CModel id="RaynorCommanderStimpack@EndImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\StimpackEndImpact\StimpackEndImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderStimpack@StartImpact" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\StimpackStartImpact\StimpackStartImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <!-- Weapons -->
+    <CWeaponLegacy id="RaynorCommanderGaussRiffleC14">
+        <EditorCategories value="Race:Raynor"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="0.8608"/>
+        <DamagePoint value="0.05"/>
+        <Backswing value="0.75"/>
+        <DisplayEffect value="RaynorCommanderGaussRiffleC14@Damage"/>
+        <Effect value="RaynorCommanderGaussRiffleC14@Damage"/>
+    </CWeaponLegacy>
+    <CSound id="RaynorCommanderGaussRiffleC14@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact4.wav"/>
+        <Pitch value="-1.500000,1.500000"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderGaussRiffleC14@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch5.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch6.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch7.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch8.wav"/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderGaussRiffleC14@BunkerAttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch5.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch6.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch7.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch8.wav"/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <!-- -->
+    <CSound id="RaynorCommanderMarine@Death" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall6.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@DeathDisintegrate" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXAcid0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXAcid1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXAcid2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXAcid3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXAcid4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXAcid5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXAcid6.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@Attack" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack00.ogg" FacialAnim="Marine_Attack00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack01.ogg" FacialAnim="Marine_Attack01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack02.ogg" FacialAnim="Marine_Attack02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack03.ogg" FacialAnim="Marine_Attack03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack04.ogg" FacialAnim="Marine_Attack04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack05.ogg" FacialAnim="Marine_Attack05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack06.ogg" FacialAnim="Marine_Attack06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack07.ogg" FacialAnim="Marine_Attack07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack08.ogg" FacialAnim="Marine_Attack08"/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\BulletImpacts\Terran_MultipleBulletAttackImpact4.wav"/>
+        <Pitch value="-1.500000,1.500000"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch5.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch6.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch7.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch8.wav"/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@BunkerAttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch5.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch6.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch7.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_AttackLaunch8.wav"/>
+        <DupeDestroyCount value="6"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="6"/>
+        <Pitch value="-0.890000,0.840000"/>
+        <VariationMinimum value="8"/>
+        <Volume value="-9.000000,-6.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@DeathVoice" parent="DeathVoice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Death00.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Death01.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Death02.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Death03.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Death04.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Death05.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Death06.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Death07.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@DeathBloodSpray" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall0.wav" Pitch="-3.000000,6.000000" Volume="-6.000000,-4.000000"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall1.wav" Pitch="-3.000000,6.000000" Volume="-6.000000,-4.000000"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall2.wav" Pitch="-3.000000,6.000000" Volume="-6.000000,-4.000000"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall3.wav" Pitch="-3.000000,6.000000" Volume="-6.000000,-4.000000"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall4.wav" Pitch="-3.000000,6.000000" Volume="-6.000000,-4.000000"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall5.wav" Pitch="-3.000000,6.000000" Volume="-6.000000,-4.000000"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall6.wav" Pitch="-3.000000,6.000000" Volume="-6.000000,-4.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@DeathEat" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXEat0.wav"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@DeathEviscerate" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXEviscerate0.wav"/>
+        <Pitch value="0.000000,2.000000"/>
+        <Volume value="-6.000000,-4.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@DeathFire" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Uni\Deaths\Uni_DeathFXFire0.wav"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@Help" parent="Alert">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Help00.ogg" FacialAnim="Marine_Help00"/>
+        <Mode value="3DWorld"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@Pissed" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed00.ogg" FacialAnim="Marine_Pissed00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed01.ogg" FacialAnim="Marine_Pissed01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed02.ogg" FacialAnim="Marine_Pissed02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed03.ogg" FacialAnim="Marine_Pissed03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed04.ogg" FacialAnim="Marine_Pissed04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed05.ogg" FacialAnim="Marine_Pissed05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed06.ogg" FacialAnim="Marine_Pissed06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed07.ogg" FacialAnim="Marine_Pissed07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed09.ogg" FacialAnim="Marine_Pissed09"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed11.ogg" FacialAnim="Marine_Pissed11"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Pissed12.ogg" FacialAnim="Marine_Pissed12"/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Ready00.ogg" FacialAnim="Marine_Ready00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What03.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes12.ogg"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@StimPackVO" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Attack06.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes06.ogg"/>
+        <Flags index="Purgable" value="1"/>
+        <Flags index="Stream" value="0"/>
+        <Category value="Spell"/>
+        <Chance value="10"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@What" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What00.ogg" FacialAnim="Marine_What00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What01.ogg" FacialAnim="Marine_What01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What02.ogg" FacialAnim="Marine_What02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What03.ogg" FacialAnim="Marine_What03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What04.ogg" FacialAnim="Marine_What04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_What05.ogg" FacialAnim="Marine_What05"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarine@Yes" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes00.ogg" FacialAnim="Marine_Yes00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes01.ogg" FacialAnim="Marine_Yes01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes02.ogg" FacialAnim="Marine_Yes02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes03.ogg" FacialAnim="Marine_Yes03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes04.ogg" FacialAnim="Marine_Yes04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes05.ogg" FacialAnim="Marine_Yes05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes06.ogg" FacialAnim="Marine_Yes06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes07.ogg" FacialAnim="Marine_Yes07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes08.ogg" FacialAnim="Marine_Yes08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes09.ogg" FacialAnim="Marine_Yes09"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes10.ogg" FacialAnim="Marine_Yes10"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes11.ogg" FacialAnim="Marine_Yes11"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes12.ogg" FacialAnim="Marine_Yes12"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes13.ogg" FacialAnim="Marine_Yes13"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes14.ogg" FacialAnim="Marine_Yes14"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes15.ogg" FacialAnim="Marine_Yes15"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes16.ogg" FacialAnim="Marine_Yes16"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes17.ogg" FacialAnim="Marine_Yes17"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes18.ogg" FacialAnim="Marine_Yes18"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes19.ogg" FacialAnim="Marine_Yes19"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes20.ogg" FacialAnim="Marine_Yes20"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes21.ogg" FacialAnim="Marine_Yes21"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marine\Marine_Yes22.ogg" FacialAnim="Marine_Yes22"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderStimpack@Cast" parent="Spell">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_Stimpack0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_Stimpack1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_Stimpack2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_Stimpack3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_Stimpack4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_Stimpack5.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_Stimpack6.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marine\Marine_Stimpack7.wav"/>
+        <DupeDestroyCount value="3"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderGaussRiffleC14" parent="CommanderWeaponInstant">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Instant"/>
+        <DataRecord Entry="Actor,RaynorCommanderGaussRiffleC14@Attack"/>
+        <DataRecord Entry="Effect,RaynorCommanderGaussRiffleC14@Damage"/>
+        <DataRecord Entry="Model,RaynorCommanderGaussRiffleC14@AttackImpact"/>
+        <DataRecord Entry="Model,RaynorCommanderGaussRiffleC14@AttackLaunch"/>
+        <DataRecord Entry="Model,RaynorCommanderGaussRiffleC14@BunkerAttackLaunch"/>
+        <DataRecord Entry="Sound,RaynorCommanderGaussRiffleC14@AttackImpact"/>
+        <DataRecord Entry="Sound,RaynorCommanderGaussRiffleC14@BunkerAttackLaunch"/>
+        <DataRecord Entry="Sound,RaynorCommanderGaussRiffleC14@AttackLaunch"/>
+        <DataRecord Entry="Weapon,RaynorCommanderGaussRiffleC14"/>
+        <DataRecord Entry="Actor,RaynorCommanderGaussRiffleC14@Attack"/>
+        <DataRecord Entry="Effect,RaynorCommanderGaussRiffleC14@Damage"/>
+        <DataRecord Entry="Weapon,RaynorCommanderGaussRiffleC14"/>
+        <UpgradeInfoWeapon DamagePerDice="1"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderInfantryWeapon"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderMarine" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,RaynorCommanderMarine"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathBlast"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathDisintegrate"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathEat"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathEviscerate"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathFire"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathRagdoll"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathBloodSpray"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathEat"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathEviscerate"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathFire"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@StimPackVO"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Help"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Pissed"/>
+        <DataRecord Entry="Unit,RaynorCommanderMarine"/>
+        <DataRecord Entry="Button,RaynorCommanderMarine"/>
+        <DataRecord Entry="Requirement,RaynorCommanderMarine"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathVoice"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Death"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathDisintegrate"/>
+        <DataRecord Entry="Actor,RaynorCommanderMarine"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathBlast"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathDisintegrate"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathEat"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathEviscerate"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathFire"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathRagdoll"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@Portrait"/>
+        <DataRecord Entry="Actor,RaynorCommanderMarine"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathBlast"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathDisintegrate"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathEat"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathEviscerate"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathFire"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@DeathRagdoll"/>
+        <DataRecord Entry="Model,RaynorCommanderMarine@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@StimPackVO"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Death"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathVoice"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathDisintegrate"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathEat"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathEviscerate"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathFire"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Help"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@Pissed"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@AttackImpact"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@AttackLaunch"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@BunkerAttackLaunch"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathBloodSpray"/>
+        <DataRecord Entry="Light,RaynorCommanderMarine"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderStimpack">
+        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Instant"/>
+        <DataRecord Entry="Abil,RaynorCommanderStimpack"/>
+        <DataRecord Entry="Actor,RaynorCommanderStimpack@Cast"/>
+        <DataRecord Entry="Actor,RaynorCommanderStimpack@Finish"/>
+        <DataRecord Entry="Actor,RaynorCommanderStimpack@EndImpact"/>
+        <DataRecord Entry="Actor,RaynorCommanderStimpack@StartImpact"/>
+        <DataRecord Entry="Behavior,RaynorCommanderStimpack"/>
+        <DataRecord Entry="Button,RaynorCommanderStimpack"/>
+        <DataRecord Entry="Effect,RaynorCommanderStimpack@AB"/>
+        <DataRecord Entry="Model,RaynorCommanderStimpack@EndImpact"/>
+        <DataRecord Entry="Model,RaynorCommanderStimpack@StartImpact"/>
+        <DataRecord Entry="Requirement,RaynorCommanderStimpack"/>
+        <DataRecord Entry="Sound,RaynorCommanderStimpack@Cast"/>
+        <Pattern value="CommanderAbilities_ABEffectInstant"/>
+    </CDataCollectionUnit>
+    <!-- # -->
+    <CUnit id="RaynorCommanderMarine" parent="CommanderGround" race="COOPRaynor">
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="45"/>
+        <LifeMax value="45"/>
+        <Food value="-1"/>
+        <CostResource index="Minerals" value="50"/>
+        <BuildTime value="21"/>
+        <AbilArray Link="RaynorCommanderStimpack"/>
+        <WeaponArray Link="RaynorCommanderGaussRiffleC14"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="RaynorCommanderStimpack" Type="AbilCmd" AbilCmd="RaynorCommanderStimpack,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <GlossaryPriority value="20"/>
+        <RepairTime value="20"/>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <ScoreMake value="50"/>
+        <ScoreKill value="50"/>
+        <SubgroupPriority value="15"/>
+        <MinimapRadius value="0.375"/>
+        <GlossaryStrongArray value="Marauder"/>
+        <GlossaryStrongArray value="Hydralisk"/>
+        <GlossaryStrongArray value="Immortal"/>
+        <GlossaryWeakArray value="SiegeTankSieged"/>
+        <GlossaryWeakArray value="Baneling"/>
+        <GlossaryWeakArray value="Colossus"/>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
+    <CBehaviorBuff id="RaynorCommanderStimpack">
+        <Alignment value="Positive"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-stimpack.dds"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="15"/>
+        <Modification MoveSpeedMultiplier="1.5" AttackSpeedMultiplier="1.5"/>
+    </CBehaviorBuff>
+</Catalog>

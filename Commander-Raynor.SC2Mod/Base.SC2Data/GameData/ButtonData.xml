@@ -4,14 +4,6 @@
         <Icon value="Assets\Textures\btn-ability-mengsk-medivac-igniteafterburners.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
-    <CButton id="RaynorCommanderBansheeAirstrike">
-        <Icon value="Assets\Textures\talent-raynor-level02-bansheeairstrike.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderHyperionTopbar">
-        <Icon value="Assets\Textures\talent-raynor-level15-hyperiondamageaura.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
     <CButton id="RaynorCommanderLock">
         <Icon value="Assets\Textures\ui_battlenet_glues_pageassets_standardelements_artbackground_lock.dds"/>
         <EditorCategories value="Race:Raynor"/>
@@ -41,20 +33,6 @@
     <CButton id="RaynorCommanderLoweredSupplies@1">
         <Icon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderBattlecruiser">
-        <Icon value="Assets\Textures\btn-unit-terran-battlecruiser.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-battlecruiser.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderBanshee">
-        <Icon value="Assets\Textures\btn-unit-terran-banshee.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-banshee.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderTacticalJump">
-        <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
     <CButton id="RaynorCommanderReactorMorphBarrack">
@@ -109,25 +87,6 @@
     </CButton>
     <CButton id="RaynorCommanderHeal">
         <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderHyperJump">
-        <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderMedic">
-        <Icon value="Assets\Textures\btn-unit-terran-medic.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-medic.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderMarauder">
-        <Icon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderMarine">
-        <Icon value="Assets\Textures\btn-unit-terran-marine.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-marine.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
     <CButton id="RaynorCommanderInciniratorGauntlets">
@@ -205,17 +164,6 @@
         <AlertIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
-    <CButton id="RaynorCommanderPDD">
-        <Icon value="Assets\Textures\talent-raynor-level05-pointdefensedrones.dds"/>
-        <AlertIcon value="Assets\Textures\talent-raynor-level05-pointdefensedrones.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderStimpack">
-        <Icon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-stimpack-color.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-        <Universal value="1"/>
-    </CButton>
     <CButton id="RaynorCommanderRefinery">
         <Icon value="Assets\Textures\btn-building-terran-refinery.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-terran-refinery.dds"/>
@@ -285,11 +233,6 @@
         <EditorCategories value="Race:Raynor"/>
         <HotkeyAlias value="TerranInfantryWeaponsLevel1"/>
     </CButton>
-    <CButton id="RaynorCommanderFirebat">
-        <Icon value="Assets\Textures\btn-unit-terran-firebat.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-firebat.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
     <CButton id="RaynorCommanderTechLabMorphBarrack">
         <Icon value="Assets\Textures\btn-building-terran-techlab.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
@@ -308,37 +251,6 @@
     <CButton id="RaynorCommanderBuildAddons">
         <Icon value="Assets\Textures\btn-building-terran-techlab.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderVulture">
-        <Icon value="Assets\Textures\btn-unit-terran-vulture.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-vulture.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderHyperionYamatoGun">
-        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderSCV@SCV">
-        <Icon value="Assets\Textures\btn-unit-terran-scv.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-scv.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-        <Universal value="1"/>
-    </CButton>
-    <CButton id="RaynorCommanderSiegeTank">
-        <Icon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderYamatoGun">
-        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
-        <AlertIcon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-        <Universal value="1"/>
-    </CButton>
-    <CButton id="RaynorCommanderViking">
-        <Icon value="Assets\Textures\btn-unit-terran-vikingfighter.dds"/>
-        <AlertIcon value="Assets\Textures\btn-unit-terran-vikingfighter.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
 </Catalog>

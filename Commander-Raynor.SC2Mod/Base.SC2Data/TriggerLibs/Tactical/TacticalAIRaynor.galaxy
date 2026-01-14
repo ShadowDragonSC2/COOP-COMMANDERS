@@ -1,0 +1,59 @@
+//--------------------------------------------------------------------------------------------------
+//  *** BATTLECRUISER ***
+//--------------------------------------------------------------------------------------------------
+const int c_RaynorYamatoCooldown = c_tactTimerFirst;
+
+order RaynorBattlecruiserYamato (int player, unit aiunit, unitgroup scanGroup, marker mark) {
+    order ord;
+    aifilter filter;
+    fixed damage;
+    unitgroup targetgroup;
+
+    if (!AITactCooldownAllow(aiunit, c_RaynorYamatoCooldown)) {
+        return null;
+    }
+
+    if (UnitOrderHasAbil(aiunit, c_RaynorA_YamatoCannon)) {
+        return null;
+    }
+
+    // if (AIIsAttackOrder(UnitOrder(aiunit, 0))) {
+
+    // }
+
+    ord = AICreateOrder(player, c_RaynorA_YamatoCannon, 0);
+    if (!UnitOrderIsValid(aiunit, ord)){
+        return null;
+    }
+
+    filter = AIFilter(player);
+    AISetFilterAlliance(filter, c_playerGroupEnemy);
+    AISetFilterBits(filter, UnitFilterStr("-;Missile,Self,Stasis,Dead,Hidden,Invulnerable"));
+    targetgroup = AIGetFilterGroup(filter, scanGroup);
+    if (targetgroup == null) {
+        return null;
+    }
+
+    return AIUnitGroupGetValidOrder(targetgroup, ord, aiunit, c_backwards);
+}
+
+//--------------------------------------------------------------------------------------------------
+void AIThinkRaynorCommanderBattlecruiser (int player, unit aiunit, unitgroup scanGroup) {
+    marker mark;
+    order ord;
+    fixed cooldown;
+
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaDebug, "YamatoCannon Bot");
+    mark = AIMarker(aiunit, c_RaynorA_YamatoCannon);
+    ord = RaynorBattlecruiserYamato(player, aiunit, scanGroup, mark);
+
+    if (!AITactCooldownAllow(aiunit, c_RaynorYamatoCooldown)) {
+        return;
+    }
+
+    if (ord != null) {
+        cooldown = 8.0;
+        AICastCooldown(aiunit, ord, mark, c_castHold, c_RaynorYamatoCooldown, cooldown);
+        return;
+    }
+}

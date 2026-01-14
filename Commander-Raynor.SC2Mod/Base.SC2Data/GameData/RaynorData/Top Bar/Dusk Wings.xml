@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectCreatePersistent id="RaynorCommanderBansheeAirstrike">
+        <EditorCategories value="Race:Raynor"/>
+        <PeriodCount value="5"/>
+        <PeriodicEffectArray value="RaynorCommanderBansheeAirstrike@CU"/>
+        <PeriodicEffectArray value="RaynorCommanderBansheeAirstrike@CU"/>
+        <PeriodicEffectArray value="RaynorCommanderBansheeAirstrike@CU"/>
+        <PeriodicEffectArray value="RaynorCommanderBansheeAirstrike@CU"/>
+        <PeriodicEffectArray value="RaynorCommanderBansheeAirstrike@CU"/>
+        <PeriodicOffsetArray value="0,0,0"/>
+        <PeriodicOffsetArray value="0,3,0"/>
+        <PeriodicOffsetArray value="3,0,0"/>
+        <PeriodicOffsetArray value="0,-3,0"/>
+        <PeriodicOffsetArray value="-3,0,0"/>
+        <PeriodicOffsetArray value="0,0,0"/>
+        <PeriodicPeriodArray value="0.125"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="0.0625"/>
+        <PeriodicPeriodArray value="2"/>
+    </CEffectCreatePersistent>
+    <CEffectCreateUnit id="RaynorCommanderBansheeAirstrike@CU">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <SpawnEffect value="RaynorCommanderBansheeAirstrike@Set"/>
+        <SpawnUnit value="RaynorCommanderDuskWings"/>
+    </CEffectCreateUnit>
+    <CEffectApplyBehavior id="RaynorCommanderBansheeAirstrike@Drop">
+        <EditorCategories value="Race:Raynor"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RaynorCommanderBansheeAirstrike@Raise">
+        <EditorCategories value="Race:Raynor"/>
+    </CEffectApplyBehavior>
+    <CEffectSet id="RaynorCommanderBansheeAirstrike@Set">
+        <EditorCategories value="Race:Raynor"/>
+        <EffectArray value="RaynorCommanderBansheeAirstrike@Drop"/>
+        <EffectArray value="RaynorCommanderBansheeAirstrike@TimeLifed"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="RaynorCommanderBansheeAirstrike@TimeLifed">
+        <EditorCategories value="Race:Raynor"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="RaynorCommanderDuskWingsRockets">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichLocation Value="TargetUnit"/>
+        <ExpireDelay value="0.8"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="RaynorCommanderDuskWingsRockets@LM"/>
+        <PeriodicPeriodArray value="0.15"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="RaynorCommanderDuskWingsRockets@CP@2">
+        <EditorCategories value="Race:Raynor"/>
+        <PeriodCount value="4"/>
+        <PeriodicEffectArray value="RaynorCommanderDuskWingsRockets@Damage@2"/>
+        <PeriodicOffsetArray value="0,0.5,0"/>
+        <PeriodicOffsetArray value="0,1,0"/>
+        <PeriodicOffsetArray value="0,1.5,0"/>
+        <PeriodicOffsetArray value="0,2,0"/>
+        <PeriodicPeriodArray value="0.4"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="RaynorCommanderDuskWingsRockets@Damage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Raynor"/>
+        <Visibility value="Visible"/>
+        <Kind value="Splash"/>
+        <KindSplash value="Splash"/>
+        <Amount value="12"/>
+    </CEffectDamage>
+    <CEffectDamage id="RaynorCommanderDuskWingsRockets@Damage@2">
+        <EditorCategories value="Race:Raynor"/>
+        <DebugTrace value="1"/>
+        <Amount value="8"/>
+        <AreaArray Radius="0.45" Fraction="1"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Missile,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="RaynorCommanderDuskWingsRockets@LM">
+        <ValidatorArray index="0" value="RangeCheckLE15"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ImpactEffect value="RaynorCommanderDuskWingsRockets@Set"/>
+        <AmmoUnit value="RaynorCommanderDuskWingsRockets@Missile"/>
+        <Movers Link="BacklashRocketsLMWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="RaynorCommanderDuskWingsRockets@Set">
+        <EditorCategories value="Race:Raynor"/>
+        <EffectArray value="RaynorCommanderBackslashRockets@Damage"/>
+        <EffectArray value="RaynorCommanderDuskWingsRockets@CP@2"/>
+    </CEffectSet>
+    <CAbilEffectTarget id="RaynorCommanderBansheeAirstrike">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Cost>
+            <Cooldown TimeUse="240"/>
+        </Cost>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderBansheeAirstrike" Requirements="RaynorCommanderAirStrike"/>
+        <Range value="1000"/>
+    </CAbilEffectTarget>
+    <CButton id="RaynorCommanderBansheeAirstrike">
+        <Icon value="Assets\Textures\talent-raynor-level02-bansheeairstrike.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorModel id="RaynorCommanderBansheeAirstrike" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.RaynorCommanderBansheeAirstrike@Drop.On" Send="Create"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.100000 Hidden"/>
+        <On Terms="ActorCreation" Send="SetOpacity 0.000000 0.000000 Hide"/>
+        <On Terms="TimerExpired; TimerName Hidden" Send="ClearOpacity 0.000000 Hide"/>
+        <HostSiteOps Ops="SOpAttachHead"/>
+    </CActorModel>
+    <CActorAction id="RaynorCommanderDuskWingsRockets@Attack" parent="GenericAttack" effectImpact="RaynorCommanderDuskWingsRockets@Damage" effectLaunch="RaynorCommanderDuskWingsRockets@LM">
+        <LaunchAttachQuery Methods="AMPatternBanshee"/>
+        <Missile value="RaynorCommanderDuskWingsRockets@Missile"/>
+        <AcquisitionYawHalfArc value="15.000000"/>
+        <AcquisitionPitchHalfArc value="30.000000"/>
+        <ShieldRippleScaleFactor value="1.100000"/>
+    </CActorAction>
+    <CActorMissile id="RaynorCommanderDuskWingsRockets@Missile" parent="GenericAttackMissile" unitName="RaynorCommanderDuskWingsRockets@Missile"/>
+    <CActorUnit id="RaynorCommanderDuskWings" parent="GenericUnitStandard" unitName="RaynorCommanderDuskWings">
+        <EditorCategories value=""/>
+        <On Terms="UnitPortrait.*.Configure; ValidateUnit Cloaked IncludeDerivedSnapshot" Target="::PortraitGameSelf" Send="AnimBracketStart Visor Morph,Start Morph,Stand Morph,End Instant"/>
+        <On Terms="UnitPortrait.*.Configure" Target="::PortraitGameSelf" Send="AnimBracketStop Visor Instant"/>
+        <Baselines index="Walk" BlendIn="0.750000" BlendOut="1.000000"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderDuskWings@Death" SoundLink="RaynorCommanderDuskWings@Death"/>
+        <PortraitModel value="RaynorCommanderDuskWings@Portrait"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-shipplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="RaynorCommanderDuskWings@Ready"/>
+        <SoundArray index="Help" value="RaynorCommanderDuskWings@Help"/>
+        <SoundArray index="What" value="RaynorCommanderDuskWings@What"/>
+        <SoundArray index="Yes" value="RaynorCommanderDuskWings@Yes"/>
+        <SoundArray index="Pissed" value="RaynorCommanderDuskWings@Pissed"/>
+        <SoundArray index="Movement" value="RaynorCommanderDuskWings@Movement"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-merc-banshee.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-bansheeblackops.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="RaynorCommanderDuskWings@Reentry" parent="ModelAddition">
+        <EditorCategories value=""/>
+    </CActorModel>
+    <CModel id="RaynorCommanderBansheeAirstrike">
+        <Model value="Assets\Effects\Terran\BansheeMercenaryReentry\BansheeMercenaryReentry.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderDuskWingsRockets@AttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\Banshee_Airstrike_Impact\Banshee_Airstrike_Impact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderDuskWingsRockets@Missile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\BansheeMissile\BansheeMissile.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderDuskWings" parent="Unit">
+        <Model value="Assets\Units\Terran\BansheeMercenary\BansheeMercenary.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderDuskWings@Death" parent="UnitDeath">
+        <Model value="Assets\Units\Terran\BansheeMercenaryDeath\BansheeMercenaryDeath.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderDuskWings@Portrait" parent="FXAPortrait">
+        <Model value="Assets\Portraits\Terran\BansheeMercenaryPortrait\BansheeMercenaryPortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <FacialController value="LocalizedData\Facial\BansheePortrait.fxa"/>
+        <Image value="Assets\Textures\bansheeportrait_static.dds"/>
+    </CModel>
+    <CModel id="RaynorCommanderDuskWings@Reentry">
+        <Model value="Assets\Effects\Terran\BansheeMercenaryReentry\BansheeMercenaryReentry.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CWeaponLegacy id="RaynorCommanderDuskWingsRockets">
+        <EditorCategories value="Race:Raynor"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
+        <DisplayEffect value="RaynorCommanderDuskWingsRockets@Damage"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <MinScanRange value="6"/>
+        <Range value="6"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <Period value="1.25"/>
+        <LegacyOptions index="KeepChanneling" value="1"/>
+        <AllowedMovement value="Slowing"/>
+    </CWeaponLegacy>
+    <CMoverMissile id="RaynorCommanderDuskWingsRockets@Mover">
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="20"/>
+            <Speed value="10"/>
+            <MaxSpeed value="50"/>
+            <Outro value="2.5"/>
+            <YawPitchRoll value="719.2968"/>
+            <Overlays Scale="0"/>
+        </MotionPhases>
+        <MotionPhases Outro="-1">
+            <Overlays Scale="0.2,0.2"/>
+        </MotionPhases>
+        <MotionPhases YawPitchRoll="MAX">
+            <Overlays Scale="0"/>
+        </MotionPhases>
+        <MotionOverlays>
+            <Type value="Revolver"/>
+            <RevolverSpeed value="179.2968"/>
+            <RevolverSpeedRange value="179.2968"/>
+            <RevolverMaxSpeed value="719.2968"/>
+            <RevolverMaxSpeedRange value="0"/>
+            <RevolverAccel value="337.5"/>
+            <RevolverAccelRange value="337.5"/>
+        </MotionOverlays>
+    </CMoverMissile>
+    <CSound id="RaynorCommanderDuskWingsRockets@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_AttackImpact0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_AttackImpact1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_AttackImpact2.wav"/>
+        <DupeDestroyCount value="8"/>
+        <Pitch value="-3.860000,3.160000"/>
+        <Volume value="-4.560000,-3.100000"/>
+    </CSound>
+    <CSound id="RaynorCommanderDuskWingsRockets@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_AttackLaunch3.wav"/>
+        <DupeDestroyCount value="10"/>
+        <OverlapTimeDelta value="100"/>
+        <Pitch value="-3.860000,1.640000"/>
+        <Volume value="-5.200000,-3.100000"/>
+    </CSound>
+    <CSound id="RaynorCommanderDuskWings@Death" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderDuskWings@Help" parent="TerranHelp">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Help00.ogg" FacialAnim="Banshee_Help00"/>
+    </CSound>
+    <CSound id="RaynorCommanderDuskWings@Movement" parent="Movement">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_Movement0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_Movement1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Banshee\Banshee_Movement2.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderDuskWings@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed00.ogg" FacialAnim="Banshee_Pissed00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed01.ogg" FacialAnim="Banshee_Pissed01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed02.ogg" FacialAnim="Banshee_Pissed02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed03.ogg" FacialAnim="Banshee_Pissed03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed04.ogg" FacialAnim="Banshee_Pissed04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed05.ogg" FacialAnim="Banshee_Pissed05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed06.ogg" FacialAnim="Banshee_Pissed06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed07.ogg" FacialAnim="Banshee_Pissed07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed08.ogg" FacialAnim="Banshee_Pissed08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed09.ogg" FacialAnim="Banshee_Pissed09"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed10.ogg" FacialAnim="Banshee_Pissed10"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Pissed11.ogg" FacialAnim="Banshee_Pissed10"/>
+    </CSound>
+    <CSound id="RaynorCommanderDuskWings@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Ready00.ogg" FacialAnim="Banshee_Ready00"/>
+    </CSound>
+    <CSound id="RaynorCommanderDuskWings@What" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_What00.ogg" FacialAnim="Banshee_What00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_What01.ogg" FacialAnim="Banshee_What01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_What02.ogg" FacialAnim="Banshee_What02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_What03.ogg" FacialAnim="Banshee_What03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_What04.ogg" FacialAnim="Banshee_What04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_What05.ogg" FacialAnim="Banshee_What05"/>
+    </CSound>
+    <CSound id="RaynorCommanderDuskWings@Yes" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes00.ogg" FacialAnim="Banshee_Yes00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes01.ogg" FacialAnim="Banshee_Yes01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes02.ogg" FacialAnim="Banshee_Yes02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes03.ogg" FacialAnim="Banshee_Yes03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes04.ogg" FacialAnim="Banshee_Yes04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes05.ogg" FacialAnim="Banshee_Yes05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes06.ogg" FacialAnim="Banshee_Yes06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes07.ogg" FacialAnim="Banshee_Yes07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes08.ogg" FacialAnim="Banshee_Yes08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes09.ogg" FacialAnim="Banshee_Yes09"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes10.ogg" FacialAnim="Banshee_Yes10"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes11.ogg" FacialAnim="Banshee_Yes11"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Banshee\Banshee_Yes12.ogg" FacialAnim="Banshee_Yes12"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderBansheeAirstrike">
+        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:AbilityTopbars"/>
+        <DataRecord Entry="Abil,RaynorCommanderBansheeAirstrike"/>
+        <DataRecord Entry="Button,RaynorCommanderBansheeAirstrike"/>
+        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike"/>
+        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@CU"/>
+        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@Set"/>
+        <DataRecord Entry="Behavior,RaynorCommanderBansheeAirstrike@Drop"/>
+        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@Drop"/>
+        <DataRecord Entry="Behavior,RaynorCommanderBansheeAirstrike@Raise"/>
+        <DataRecord Entry="Behavior,RaynorCommanderBansheeAirstrike@TimeLifed"/>
+        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@Raise"/>
+        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@TimeLifed"/>
+        <DataRecord Entry="Actor,RaynorCommanderBansheeAirstrike"/>
+        <DataRecord Entry="Model,RaynorCommanderBansheeAirstrike"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderBansheeAirstrikeCooldown"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderDuskWingsRockets" parent="CommanderWeaponMissile">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Projectile"/>
+        <DataRecord Entry="Actor,RaynorCommanderDuskWingsRockets@Attack"/>
+        <DataRecord Entry="Actor,RaynorCommanderDuskWingsRockets@Missile"/>
+        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets"/>
+        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@LM"/>
+        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@Damage"/>
+        <DataRecord Entry="Model,RaynorCommanderDuskWingsRockets@AttackImpact"/>
+        <DataRecord Entry="Model,RaynorCommanderDuskWingsRockets@Missile"/>
+        <DataRecord Entry="Mover,RaynorCommanderDuskWingsRockets@Mover"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWingsRockets@AttackImpact"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWingsRockets@AttackLaunch"/>
+        <DataRecord Entry="Unit,RaynorCommanderDuskWingsRockets@Missile"/>
+        <DataRecord Entry="Weapon,RaynorCommanderDuskWingsRockets"/>
+        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@CP@2"/>
+        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@Damage@2"/>
+        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@Set"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
+        <UpgradeInfoWeapon DamagePerDice="1"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderDuskWings" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:AbilityTopbars"/>
+        <DataRecord Entry="Actor,RaynorCommanderDuskWings"/>
+        <DataRecord Entry="Model,RaynorCommanderDuskWings"/>
+        <DataRecord Entry="Model,RaynorCommanderDuskWings@Death"/>
+        <DataRecord Entry="Unit,RaynorCommanderDuskWings"/>
+        <DataRecord Entry="Actor,RaynorCommanderDuskWings@Reentry"/>
+        <DataRecord Entry="Model,RaynorCommanderDuskWings@Portrait"/>
+        <DataRecord Entry="Model,RaynorCommanderDuskWings@Reentry"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Death"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Movement"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWings@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Help"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Pissed"/>
+        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Ready"/>
+    </CDataCollectionUnit>
+    <!-- Missiles-->
+    <CUnit id="RaynorCommanderDuskWingsRockets@Missile" parent="MISSILE">
+        <Race value="COOPRaynor"/>
+        <Mover value="RaynorCommanderDuskWingsRockets@Mover"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Raynor"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderDuskWings" parent="CommanderAir_Terr" race="COOPRaynor">
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="250"/>
+        <LifeMax value="250"/>
+        <EnergyMax value="200"/>
+        <EnergyRegenRate value="0.8632"/>
+        <Speed value="3.1484"/>
+        <Acceleration value="3.5"/>
+        <DamageDealtXP value="100"/>
+        <DamageTakenXP value="100"/>
+        <WeaponArray Link="RaynorCommanderDuskWingsRockets"/>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Coop,Race:Raynor"/>
+        <GlossaryPriority value="250"/>
+    </CUnit>
+    <CBehaviorBuff id="RaynorCommanderBansheeAirstrike@Drop">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="0.1"/>
+        <Modification Height="10" MoveSpeedMultiplier="0.1">
+            <StateFlags index="NoDraw" value="1"/>
+            <HeightTime index="Stop" value="3"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderBansheeAirstrike@Raise">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="7"/>
+        <ExpireEffect value="SuicideRemove"/>
+        <Modification Height="25">
+            <HeightTime index="Start" value="7"/>
+        </Modification>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderBansheeAirstrike@TimeLifed" parent="TimedLife">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="30"/>
+        <ExpireEffect value="RaynorCommanderBansheeAirstrike@Raise"/>
+    </CBehaviorBuff>
+</Catalog>

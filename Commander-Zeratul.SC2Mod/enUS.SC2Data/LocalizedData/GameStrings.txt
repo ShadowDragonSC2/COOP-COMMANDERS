@@ -2,12 +2,16 @@
 Abil/Name/ZeratulCommanderBuildProbe=Zeratul Commander - Build Probe
 Abil/Name/ZeratulCommanderDevolutionWave=Devolution Wave
 Abil/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
+Abil/Name/ZeratulCommanderMaelstorm=Maelstorm
+Abil/Name/ZeratulCommanderMindControl=Mind Control
 Abil/Name/ZeratulCommanderMorphVoidArray=Flight
 Abil/Name/ZeratulCommanderMorphVoidArray@Phased=Phased
 Abil/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Abil/Name/ZeratulCommanderPredictiveBlink=Predictive Blink
 Abil/Name/ZeratulCommanderProphecy=Prophetic vision
 Abil/Name/ZeratulCommanderShadowCleave=Shadow Cleave
+Behavior/Name/ZeratulCommanderMindControl=Mind Control
+Button/Name/ZeratulCommaderDarkArchon=Dark Archon
 Button/Name/ZeratulCommanderAncientNexus=Build <d stringref="Unit,ZeratulCommanderAncientNexus,Name"/>
 Button/Name/ZeratulCommanderAvatarOfEssence=<d stringref="Unit,ZeratulCommanderAvatarOfEssence,Name"> Avatar of Essence
 Button/Name/ZeratulCommanderBlinkVoidTemplar=<d stringref="Abil,ZeratulCommanderBlinkVoidTemplar,Name"/>
@@ -18,6 +22,8 @@ Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderC
 Button/Name/ZeratulCommanderDevolutionWave=<d stringref="Abil,ZeratulCommanderDevolutionWave,Name"/>
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Button/Name/ZeratulCommanderForceCannon=Force Cannon
+Button/Name/ZeratulCommanderMaelstorm=Maelstorm
+Button/Name/ZeratulCommanderMindControl=Mind Control
 Button/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Button/Name/ZeratulCommanderPredictiveBlink=<d stringref="Abil,ZeratulCommanderPredictiveBlink,Name"/>
 Button/Name/ZeratulCommanderProphecy=<d stringref="Abil,ZeratulCommanderPropehcy,Name"/>
@@ -39,6 +45,8 @@ Button/Tooltip/ZeratulCommanderXelNagaPassageway=
 Button/Tooltip/ZeratulCommanderXelNagaVoidArray=
 Button/Tooltip/ZeratulCommanderXelNagaVoidArray@Alternate=
 Button/Tooltip/ZeratulCommanderZeratul=
+CC/e_CmdNotMindControlled=Цель уже находится под действием "<d stringref="Abil,ZeratulCommanderMindControl,Name"/>"
+DataCollection/Name/ZeratulCommaderDarkArchon=Zeratul Commader - Dark Archon
 DataCollection/Name/ZeratulCommanderAncientNexus=Zeratul Commander - Ancient Nexus
 DataCollection/Name/ZeratulCommanderAnnihilationCannon=Zeratul Commander - Annihilation Cannon
 DataCollection/Name/ZeratulCommanderArtifact=Zeratul Commander - Artifact
@@ -52,7 +60,9 @@ DataCollection/Name/ZeratulCommanderCoreForge=Zeratul Commander - Core Forge
 DataCollection/Name/ZeratulCommanderDevolutionWave=Zeratul Commander - Devolution Wave
 DataCollection/Name/ZeratulCommanderDisruptorPhase=Zeratul Commander - Disruptor Phase
 DataCollection/Name/ZeratulCommanderForceCannon=Zeratul Commander - Force Cannon
+DataCollection/Name/ZeratulCommanderMaelstorm=Zeratul Commander - Maelstorm
 DataCollection/Name/ZeratulCommanderMasterWarpBlade=Zeratul Commander - Master Warp Blade
+DataCollection/Name/ZeratulCommanderMindControl=Zeratul Commander - Mind Control
 DataCollection/Name/ZeratulCommanderMorphVoidArray=Zeratul Commander - Morph Void Array
 DataCollection/Name/ZeratulCommanderNullBeam=Zeratul Commander - Null Beam
 DataCollection/Name/ZeratulCommanderParticularBeam=Zeratul Commander - Particular Beam
@@ -105,6 +115,7 @@ Effect/Name/ZeratulCommanderForceCannon@LM=LM
 Effect/Name/ZeratulCommanderForceCannon@RemovePrecursor=Remove Precursor
 Effect/Name/ZeratulCommanderForceCannon@Set@1=Set @ 1
 Effect/Name/ZeratulCommanderMasterWarpBlade@Damage=Damage
+Effect/Name/ZeratulCommanderMindControl=AB
 Effect/Name/ZeratulCommanderNullBeam@CP=Interval
 Effect/Name/ZeratulCommanderNullBeam@Damage=Damage
 Effect/Name/ZeratulCommanderParticularBeam@Damage=Damage
@@ -142,6 +153,7 @@ Param/Expression/lib_3A96CF55_EE8FE678=~A~ - ~B~ - ~C~
 Race/Name/COOPZeratul=Zeratul
 UI/HelpMenuDialogTechGlossary_Control_Glossary/Category/COOPZeratul=Войска Зератула
 Unit/LifeArmorName/COOPZeratulArmor=Void armor
+Unit/Name/COOP/ZeratulCommaderDarkArchon=Dark Archon
 Unit/Name/COOP/ZeratulCommanderAncientNexus=Ancient Nexus
 Unit/Name/COOP/ZeratulCommanderAvatarOfEssence=Avatar of Essence
 Unit/Name/COOP/ZeratulCommanderConstructsBay=Constructs Bay

@@ -21,35 +21,6 @@
             <Button DefaultButtonFace="RaynorCommanderVehicleAndShipWeapons@Level3"/>
         </InfoArray>
     </CAbilResearch>
-    <CAbilEffectTarget id="RaynorCommanderBansheeAirstrike">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Cost>
-            <Cooldown TimeUse="240"/>
-        </Cost>
-        <Arc value="360"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderBansheeAirstrike" Requirements="RaynorCommanderAirStrike"/>
-        <Range value="1000"/>
-    </CAbilEffectTarget>
-    <CAbilEffectTarget id="RaynorCommanderHyperionTopbar">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Range value="500"/>
-        <Arc value="360"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderHyperionTopbar"/>
-        <Cost>
-            <Cooldown TimeUse="360"/>
-        </Cost>
-        <Flags index="RequireTargetVision" value="0"/>
-    </CAbilEffectTarget>
-    <CAbilEffectTarget id="RaynorCommanderTacticalJump">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Range value="500"/>
-        <CastIntroTime value="0"/>
-        <CastOutroTime value="1.25"/>
-        <ShowProgressArray index="Channel" value="1"/>
-        <UninterruptibleArray index="Channel" value="1"/>
-        <ProgressButtonArray index="Channel" value="RaynorCommanderTacticalJump"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderTacticalJump"/>
-    </CAbilEffectTarget>
     <CAbilMorph id="RaynorCommanderReactorMorphBarrack">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderReactorMorphBarrack" Requirements="RaynorCommanderReactorMorphBarrack@Requirement"/>
@@ -177,17 +148,6 @@
         </CmdButtonArray>
         <PlaceUnit value="RaynorCommanderPDD"/>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="RaynorCommanderHyperJump">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Range value="500"/>
-        <CastIntroTime value="0"/>
-        <CastOutroTime value="1.25"/>
-        <ShowProgressArray index="Channel" value="1"/>
-        <UninterruptibleArray index="Channel" value="1"/>
-        <ProgressButtonArray index="Channel" value="RaynorCommanderHyperJump"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderHyperJump"/>
-        <Flags index="RequireTargetVision" value="0"/>
-    </CAbilEffectTarget>
     <CAbilBuild id="RaynorCommanderPlaceSpiderMine">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
         <InfoArray index="Build1" Unit="RaynorCommanderSpiderMine">
@@ -232,33 +192,6 @@
         </InfoArray>
         <InfoArray index="Build2" Unit="RaynorCommanderReactorBarrack" Time="50"/>
     </CAbilBuild>
-    <CAbilMorph id="RaynorCommanderBurrowSpiderMine@Unburrow">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <DataCollection value="RaynorCommanderBurrowSpiderMine@Burrow"/>
-        <ActorKey value="RaynorCommanderBurrowSpiderMine@Burrow"/>
-        <Flags index="AutoCast" value="1"/>
-        <Flags index="AutoCastOn" value="1"/>
-        <Flags index="IgnoreFacing" value="1"/>
-        <Flags index="SuppressMovement" value="1"/>
-        <InfoArray Unit="RaynorCommanderSpiderMine">
-            <SectionArray index="Abils">
-                <DurationArray index="Duration" value="0.6"/>
-            </SectionArray>
-            <SectionArray index="Mover">
-                <DurationArray index="Duration" value="0.6"/>
-            </SectionArray>
-            <SectionArray index="Stats">
-                <DurationArray index="Duration" value="0.6"/>
-            </SectionArray>
-        </InfoArray>
-        <AutoCastFilters value="Ground,Visible;Player,Ally,Neutral,Structure,Missile,Stasis,Dead,Hidden,Invulnerable,Benign"/>
-        <AutoCastRange value="3"/>
-        <AutoCastCountMin value="1"/>
-        <Cost>
-            <Charge Link="Abil/RaynorSpiderUnburrow"/>
-            <Cooldown Link="Abil/RaynorSpiderUnburrow"/>
-        </Cost>
-    </CAbilMorph>
     <CAbilMorphPlacement id="RaynorCommanderLiftStarport@Land" parent="TerranBuildingLand" unit="Barracks">
         <Name value="Abil/Name/RaynorCommanderLiftStarport@Land"/>
         <InfoArray index="0" Unit="RaynorCommanderStarport" CollideRange="0">
@@ -286,38 +219,6 @@
         <Name value="Abil/Name/RaynorCommanderLiftFactory@LiftOff"/>
         <InfoArray index="0" Unit="RaynorCommanderFactory@Fly"/>
         <EditorCategories value="Race:Raynor,AbilityorEffectType:MorphsandBurrows"/>
-    </CAbilMorph>
-    <CAbilMorph id="RaynorCommanderBurrowSpiderMine@Burrow">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Flags index="AutoCast" value="1"/>
-        <Flags index="AutoCastIdleOnly" value="1"/>
-        <Flags index="AutoCastOn" value="1"/>
-        <Flags index="IgnoreFacing" value="1"/>
-        <Flags index="SuppressMovement" value="1"/>
-        <InfoArray Unit="RaynorCommanderSpiderMine@Burrowed">
-            <SectionArray index="Abils">
-                <DurationArray index="Delay" value="3.5332"/>
-                <DurationArray index="Duration" value="3.5332"/>
-            </SectionArray>
-            <SectionArray index="Actor">
-                <DurationArray index="Delay" value="3.5332"/>
-                <DurationArray index="Duration" value="1.067"/>
-            </SectionArray>
-            <SectionArray index="Mover">
-                <DurationArray index="Delay" value="3.5332"/>
-                <DurationArray index="Duration" value="1"/>
-            </SectionArray>
-            <SectionArray index="Stats">
-                <DurationArray index="Delay" value="4.5332"/>
-            </SectionArray>
-        </InfoArray>
-        <AutoCastFilters value="-;Self,Enemy"/>
-        <AutoCastRange value="2"/>
-        <Cost>
-            <Charge Link="Abil/RaynorSpiderBurrow"/>
-            <Cooldown Link="Abil/RaynorSpiderBurrow"/>
-        </Cost>
-        <AutoCastCountMax value="1"/>
     </CAbilMorph>
     <CAbilMorph id="RaynorCommanderTechLabMorphFactory">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
@@ -391,20 +292,6 @@
         <InfoArray index="0" Unit="RaynorCommanderBarracks@Fly"/>
         <EditorCategories value="Race:Raynor,AbilityorEffectType:MorphsandBurrows"/>
     </CAbilMorph>
-    <CAbilEffectInstant id="RaynorCommanderStimpack">
-        <AbilSetId value="Stimpack"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <InfoTooltipPriority value="1"/>
-        <Effect index="0" value="RaynorCommanderStimpack@AB"/>
-        <Flags index="Transient" value="1"/>
-        <Cost>
-            <Vital index="Life" value="10"/>
-        </Cost>
-        <AINotifyEffect value="RaynorCommanderStimpack@AB"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderStimpack" Requirements="RaynorCommanderStimpack">
-            <Flags index="ToSelection" value="1"/>
-        </CmdButtonArray>
-    </CAbilEffectInstant>
     <CAbilBuild id="RaynorCommanderBuildSCV">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
         <FlagArray index="IgnoreUnitBuildTime" value="0"/>
@@ -573,46 +460,6 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilEffectTarget id="RaynorCommanderHyperionYamatoGun">
-        <Alignment value="Negative"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Flags index="AbortOnAllianceChange" value="0"/>
-        <Flags index="AllowMovement" value="1"/>
-        <Cost>
-            <Cooldown TimeUse="10"/>
-        </Cost>
-        <TargetFilters value="Visible;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="14"/>
-        <RangeSlop value="10"/>
-        <CastIntroTime value="1"/>
-        <CastOutroTime value="0"/>
-        <ShowProgressArray index="Cast" value="1"/>
-        <UninterruptibleArray index="Cast" value="1"/>
-        <UninterruptibleArray index="Channel" value="1"/>
-        <CursorEffect value="RaynorCommanderHyperionYamatoGun@Damage"/>
-        <ProgressButtonArray index="Cast" value="RaynorCommanderHyperionYamatoGun"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderHyperionYamatoGun"/>
-    </CAbilEffectTarget>
-    <CAbilEffectTarget id="RaynorCommanderYamatoGun">
-        <Alignment value="Negative"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Flags index="AllowMovement" value="1"/>
-        <Flags index="NoDeceleration" value="1"/>
-        <Cost>
-            <Vital index="Energy" value="100"/>
-            <Cooldown Link="YamatoYamato2YamatoRaynorCommanderYamatoGun" TimeUse="0.8332"/>
-        </Cost>
-        <Range value="10"/>
-        <RangeSlop value="10"/>
-        <PrepTime value="3"/>
-        <ShowProgressArray index="Prep" value="1"/>
-        <UninterruptibleArray index="Prep" value="1"/>
-        <UninterruptibleArray index="Cast" value="1"/>
-        <UninterruptibleArray index="Channel" value="1"/>
-        <UninterruptibleArray index="Finish" value="1"/>
-        <ProgressButtonArray index="Prep" value="YamatoGun"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderYamatoGun" Requirements="RaynorCommanderYamatoGun@Requirement"/>
-    </CAbilEffectTarget>
     <CAbilMorph id="RaynorCommanderLoweredSupplies@1">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderLoweredSupplies@1"/>

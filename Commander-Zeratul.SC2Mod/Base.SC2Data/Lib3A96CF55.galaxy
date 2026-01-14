@@ -186,31 +186,6 @@ void lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: test
-//--------------------------------------------------------------------------------------------------
-bool lib3A96CF55_gt_test_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    TextExpressionSetToken("Param/Expression/lib_3A96CF55_43B03107", "C", StringToText((EventPlayerEffectUsed())));
-    TextExpressionSetToken("Param/Expression/lib_3A96CF55_43B03107", "A", UnitGetName(EventPlayerEffectUsedUnit(c_effectUnitCaster)));
-    TextExpressionSetToken("Param/Expression/lib_3A96CF55_43B03107", "B", UnitGetName(EventPlayerEffectUsedUnit(c_effectUnitTarget)));
-    TriggerDebugOutput(1, TextExpressionAssemble("Param/Expression/lib_3A96CF55_43B03107"), true);
-    UnitCreate(1, "Beacon_TerranSmall", 0, EventPlayer(), EventPlayerEffectUsedPoint(c_effectLocationTargetPoint), 270.0);
-    UnitKill(UnitLastCreated());
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void lib3A96CF55_gt_test_Init () {
-    lib3A96CF55_gt_test = TriggerCreate("lib3A96CF55_gt_test_Func");
-    TriggerAddEventPlayerEffectUsed(lib3A96CF55_gt_test, 1, null);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: spawn artifact
 //--------------------------------------------------------------------------------------------------
 bool lib3A96CF55_gt_spawnartifact_Func (bool testConds, bool runActions) {
@@ -372,7 +347,6 @@ void lib3A96CF55_gt_DevolveUnits2_Init () {
 
 void lib3A96CF55_InitTriggers () {
     lib3A96CF55_gt_PlayingAttackSoundsUsingAttackTowards_Init();
-    lib3A96CF55_gt_test_Init();
     lib3A96CF55_gt_spawnartifact_Init();
     lib3A96CF55_gt_init_Init();
     lib3A96CF55_gt_CommanderEnable_Init();

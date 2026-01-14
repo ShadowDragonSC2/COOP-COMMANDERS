@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectCreateUnit id="RaynorCommanderHyperionTopbar">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichLocation Value="TargetPoint"/>
+        <SpawnEffect value="RaynorCommanderHyperionTopbar@AB"/>
+        <SpawnUnit value="RaynorCommanderHyperion"/>
+    </CEffectCreateUnit>
+    <CEffectApplyBehavior id="RaynorCommanderHyperionTopbar@AB">
+        <EditorCategories value="Race:Raynor"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RaynorCommanderPDDLaser@AB">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichUnit Value="Caster"/>
+        <Behavior value="RaynorCommanderPDDLaser"/>
+    </CEffectApplyBehavior>
+    <CEffectModifyUnit id="RaynorCommanderPDDLaser@Damage">
+        <EditorCategories value="Race:Raynor"/>
+        <Marker Link="Weapon/PointDefenseLaser">
+            <MatchFlags index="Link" value="1"/>
+        </Marker>
+        <ModifyFlags index="Hide" value="1"/>
+        <ModifyFlags index="NullifyMissile" value="1"/>
+    </CEffectModifyUnit>
+    <CEffectDamage id="RaynorCommanderPDDLaser@VisibleDummy">
+        <EditorCategories value="Race:Raynor"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="RaynorCommanderPDDLaser@Energy">
+        <ValidatorArray value="PointDefenseLaserEnergyTargetFilters"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ImpactUnit Value="Caster"/>
+        <VitalArray index="Energy">
+            <Change value="-10"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectSet id="RaynorCommanderPDDLaser">
+        <ValidatorArray value="PointDefenseDroneUnitFilter"/>
+        <ValidatorArray value="CasterHas10Energy"/>
+        <EditorCategories value="Race:Raynor"/>
+        <EffectArray value="RaynorCommanderPDDLaser@Search"/>
+        <EffectArray value="RaynorCommanderPDDLaser@AB"/>
+    </CEffectSet>
+    <CEffectSet id="RaynorCommanderPDDLaser@Set">
+        <ValidatorArray value="PointDefenseDroneUnitFilter"/>
+        <ValidatorArray value="CasterHas10Energy"/>
+        <EditorCategories value="Race:Raynor"/>
+        <EffectArray value="RaynorCommanderPDDLaser@Damage"/>
+        <EffectArray value="RaynorCommanderPDDLaser@VisibleDummy"/>
+        <EffectArray value="RaynorCommanderPDDLaser@AB"/>
+        <EffectArray value="RaynorCommanderPDDLaser@Energy"/>
+    </CEffectSet>
+    <CEffectEnumArea id="RaynorCommanderPDDLaser@Search">
+        <ValidatorArray value="PointDefenseSearchTargetFilters"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ImpactLocation Value="SourceUnit"/>
+        <SearchFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="8" Effect="RaynorCommanderPDDLaser@Set"/>
+    </CEffectEnumArea>
+    <CEffectSet id="RaynorCommanderHyperJump@ABSet">
+        <EditorCategories value="Race:Raynor"/>
+        <EffectArray value="RaynorCommanderHyperJump@Out"/>
+        <EffectArray value="RaynorCommanderHyperJump@TargetAB"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="RaynorCommanderHyperJump@Out">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectCreateUnit id="RaynorCommanderHyperJump">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichLocation Value="TargetPoint"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="Precursor" value="1"/>
+        <CreateFlags index="ProvideFood" value="0"/>
+        <CreateFlags index="SetFacing" value="1"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="RaynorCommanderHyperJump@ABSet"/>
+        <SpawnUnit value="RaynorCommanderHyperion"/>
+        <SpawnRange value="0.1"/>
+    </CEffectCreateUnit>
+    <CEffectSet id="RaynorCommanderHyperJump@Set">
+        <EditorCategories value="Race:Raynor"/>
+        <EffectArray value="RaynorCommanderHyperJump@Teleport"/>
+        <EffectArray value="RaynorCommanderHyperJump@AB"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="RaynorCommanderHyperJump@TargetAB">
+        <EditorCategories value="Race:Raynor"/>
+    </CEffectApplyBehavior>
+    <CEffectTeleport id="RaynorCommanderHyperJump@Teleport">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <TargetLocation Effect="RaynorCommanderHyperJump" Value="TargetPoint"/>
+        <TeleportFlags index="TestFog" value="0"/>
+    </CEffectTeleport>
+    <CEffectApplyBehavior id="RaynorCommanderHyperJump@AB">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="RaynorCommanderHyperJump@In">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichUnit Value="Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="RaynorCommanderHyperionYamatoGun">
+        <EditorCategories value="Race:Raynor"/>
+        <WhichLocation Value="TargetUnit"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireEffect value="RaynorCommanderHyperionYamatoGun@LM"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="RaynorCommanderHyperionYamatoGun@Damage">
+        <EditorCategories value="Race:Raynor"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="600"/>
+        <Death value="Blast"/>
+        <AreaArray Radius="1.5" Fraction="1"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="RaynorCommanderHyperionYamatoGun@LM">
+        <EditorCategories value="Race:Raynor"/>
+        <ImpactEffect value="RaynorCommanderHyperionYamatoGun@Damage"/>
+        <AmmoUnit value="RaynorCommanderHyperionYamatoGun@Missile"/>
+    </CEffectLaunchMissile>
+    <CAbilEffectTarget id="RaynorCommanderHyperionTopbar">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Range value="500"/>
+        <Arc value="360"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderHyperionTopbar"/>
+        <Cost>
+            <Cooldown TimeUse="360"/>
+        </Cost>
+        <Flags index="RequireTargetVision" value="0"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="RaynorCommanderHyperJump">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Range value="500"/>
+        <CastIntroTime value="0"/>
+        <CastOutroTime value="1.25"/>
+        <ShowProgressArray index="Channel" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <ProgressButtonArray index="Channel" value="RaynorCommanderHyperJump"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderHyperJump"/>
+        <Flags index="RequireTargetVision" value="0"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="RaynorCommanderHyperionYamatoGun">
+        <Alignment value="Negative"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Flags index="AbortOnAllianceChange" value="0"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Cost>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <TargetFilters value="Visible;Self,Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="14"/>
+        <RangeSlop value="10"/>
+        <CastIntroTime value="1"/>
+        <CastOutroTime value="0"/>
+        <ShowProgressArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <CursorEffect value="RaynorCommanderHyperionYamatoGun@Damage"/>
+        <ProgressButtonArray index="Cast" value="RaynorCommanderHyperionYamatoGun"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderHyperionYamatoGun"/>
+    </CAbilEffectTarget>
+    <CButton id="RaynorCommanderHyperionTopbar">
+        <Icon value="Assets\Textures\talent-raynor-level15-hyperiondamageaura.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CButton id="RaynorCommanderHyperJump">
+        <Icon value="Assets\Textures\btn-ability-terran-warpjump.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CButton id="RaynorCommanderPDD">
+        <Icon value="Assets\Textures\talent-raynor-level05-pointdefensedrones.dds"/>
+        <AlertIcon value="Assets\Textures\talent-raynor-level05-pointdefensedrones.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CButton id="RaynorCommanderHyperionYamatoGun">
+        <Icon value="Assets\Textures\btn-ability-terran-yamatogun-color.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CLight id="RaynorCommanderHyperion@Portrait" parent="default">
+        <ToDInfoArray index="0" Id="RaynorMarinePortrait" AmbientColor="0.223529,0.200000,0.156863">
+            <Param index="HDRExposure" value="1.480000"/>
+            <Param index="HDRBloomThreshold" value="1.950000"/>
+            <DirectionalLight index="Key" Direction="-0.466141,0.877053,-0.116151"/>
+            <DirectionalLight index="Fill" Color="0.003922,0.239216,0.678431" ColorMultiplier="1.189000" Direction="0.835212,-0.482210,0.264378"/>
+            <DirectionalLight index="Back" Color="1.000000,0.501961,0.000000" ColorMultiplier="0.188000" Direction="-0.943813,0.309397,-0.116151"/>
+        </ToDInfoArray>
+        <EditorCategories value="LightGroup:Portraits"/>
+    </CLight>
+    <CActorSimple id="RaynorCommanderHyperionTopbar">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.RaynorCommanderHyperionTopbar@AB.On" Send="Create"/>
+        <On Terms="Behavior.RaynorCommanderHyperionTopbar@AB.On" Send="TimerSet 0.660000 SpawnEnd"/>
+        <On Terms="TimerExpired; TimerName SpawnEnd" Send="Destroy"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetOpacity 0.000000 0.000000 SpawnVisual"/>
+        <On Terms="ActorDestruction" Target="_Unit" Send="ClearOpacity 0.000000 SpawnVisual"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="Create RaynorCommanderHyperJump@Impact"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="Create RaynorCommanderHyperJump@ImpactSound"/>
+    </CActorSimple>
+    <CActorModel id="RaynorCommanderPDDLaser@Impact" parent="ModelAnimationStyleContinuous">
+        <On Terms="Effect.RaynorCommanderPDDLaser@Damage.Start; At Target" Send="Create"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.125000 Die"/>
+        <On Terms="TimerExpired; TimerName Die" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="$Death"/>
+        <On Terms="ActorOrphan" Send="Destroy"/>
+        <Host Subject="_Missile"/>
+        <Model value="PointDefenseBeamImpact2"/>
+    </CActorModel>
+    <CActorBeamSimple id="RaynorCommanderPDDLaser@Beam" parent="BeamSimpleAnimationStyleContinuous">
+        <On Terms="Effect.RaynorCommanderPDDLaser@Damage.Start; At Caster" Send="Create"/>
+        <On Terms="ActorCreation" Send="TimerSet 0.125000 Die"/>
+        <On Terms="TimerExpired; TimerName Die" Send="Destroy"/>
+        <Model value="PointDefenseDroneAttackBeam2"/>
+        <HostLaunch Subject="_Selectable" Actor="Find"/>
+        <HostLaunchSiteOps Ops="SOpAttachCenter"/>
+        <HostImpact Subject="_Missile" Actor="Find"/>
+        <HostImpactSiteOps Ops="SOpAttachCenter"/>
+    </CActorBeamSimple>
+    <CActorSound id="RaynorCommanderPDDLaser@ImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.RaynorCommanderPDDLaser@Damage.Start; At Caster" Send="Create"/>
+        <Host Subject="::Creator"/>
+        <Sound value="Raven_PointDefenseDroneAttackImpact2"/>
+    </CActorSound>
+    <CActorSound id="RaynorCommanderPDDLaser@LaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.RaynorCommanderPDDLaser@Damage.Start; At Caster" Send="Create"/>
+        <Host Subject="PointDefenseDrone"/>
+        <Sound value="Raven_PointDefenseDroneAttackLaunch2"/>
+    </CActorSound>
+    <CActorUnit id="RaynorCommanderPDD" parent="GenericUnitBase" unitName="RaynorCommanderPDD">
+        <Aliases value="_UnitMedium"/>
+        <On Terms="Behavior.PointDefenseReady.On" Send="AnimBracketStart Work Work,Start Work Work,End"/>
+        <On Terms="Behavior.PointDefenseReady.Off" Send="AnimBracketStop Work"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderPDD@Death" SoundLink="RaynorCommanderPDD@Explode"/>
+        <PlacementModel value="RaynorCommanderPDD@Placement"/>
+        <PlacementSound value="RaynorCommanderPDD@Placement"/>
+        <PlacementActorModel value="PointDefenseDronePlacementModel"/>
+        <PlaceholderActorModel value="PointDefenseDronePlaceholderModel"/>
+        <PortraitModel value="RaynorCommanderPDD@Portrait"/>
+        <BarOffset value="20"/>
+        <BarWidth value="36"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-PointDefenseDrone.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-targetingdrone.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
+        <SoundArray index="What" value="RaynorCommanderPDD@What"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-targetingdrone.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-PointDefenseDrone.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="RaynorCommanderHyperJump@Impact" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.RaynorCommanderHyperJump@In.On" Send="Create"/>
+        <On Terms="ActorDestruction" Target="_Unit" Send="SetOpacity 1.000000"/>
+        <Host Subject="_Selectable"/>
+    </CActorModel>
+    <CActorSound id="RaynorCommanderHyperJump@ImpactSound" parent="SoundOneShot">
+        <On Terms="Behavior.RaynorCommanderHyperJump@In.On" Send="Create"/>
+        <EditorCategories value=""/>
+    </CActorSound>
+    <CActorModel id="RaynorCommanderHyperJump@Launch" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.RaynorCommanderHyperJump@Out.On" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="SetOpacity"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+    </CActorModel>
+    <CActorSound id="RaynorCommanderHyperJump@LaunchSound" parent="SoundOneShot">
+        <On Terms="Behavior.RaynorCommanderHyperJump@Out.On" Send="Create"/>
+        <EditorCategories value=""/>
+    </CActorSound>
+    <CActorUnit id="RaynorCommanderHyperion" parent="GenericUnitStandard" unitName="RaynorCommanderHyperion">
+        <EditorCategories value=""/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderHyperion@Death" SoundLink="Terran_ExplosionLarge" VoiceLink="RaynorCommanderHyperion@DeathVoice"/>
+        <PortraitModel value="RaynorCommanderHyperion@Portrait"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-hyperion.dds"/>
+        <BarWidth value="100"/>
+        <MinimapIcon value="Assets\Textures\btn-unit-terran-hyperion.dds"/>
+        <MinimapIconScale value="0.500000"/>
+        <MinimapTooltip value="Unit/Name/RaynorCommanderHyperion"/>
+        <MinimapUseSelfColor value="0"/>
+        <MinimapUseSelectionColor value="0"/>
+        <SoundArray index="Ready" value="RaynorCommanderHyperion@Ready"/>
+        <SoundArray index="Help" value="RaynorCommanderHyperion@Help"/>
+        <SoundArray index="What" value="RaynorCommanderHyperion@What"/>
+        <SoundArray index="Yes" value="RaynorCommanderHyperion@Yes"/>
+        <SoundArray index="Attack" value="RaynorCommanderHyperion@Attack"/>
+        <SoundArray index="Pissed" value="RaynorCommanderHyperion@Pissed"/>
+        <SoundArray index="Movement" value="RaynorCommanderHyperion@Movement"/>
+        <On Terms="UnitDeathCustomize; Death Timeout" Send="DeathCustomize HyperionDeathTimed"/>
+        <DeathCustoms>
+            <AnimProps value="Birth"/>
+            <ModelLink value="RaynorCommanderHyperJump@Launch"/>
+            <SoundLink value="RaynorCommanderHyperJump@LaunchSound"/>
+            <Name value="HyperionDeathTimed"/>
+        </DeathCustoms>
+    </CActorUnit>
+    <CActorAction id="RaynorCommanderHyperionYamatoGun@Attack" parent="GenericAttack" effectImpact="RaynorCommanderHyperionYamatoGun@Damage" effectLaunch="RaynorCommanderHyperionYamatoGun@LM">
+        <EditorCategories value=""/>
+        <LaunchAttachQuery Methods="Weapon 9"/>
+        <LaunchAssets Sound="RaynorCommanderHyperionYamatoGun@Launch"/>
+        <Missile value="RaynorCommanderHyperionYamatoGun@Missile"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpForwardLaunchGuide SOp2DRotation"/>
+        <ImpactMap index="None" Model="RaynorCommanderHyperionYamatoGun@Impact" Sound="RaynorCommanderHyperionYamatoGun@Impact"/>
+        <ImpactModel value="RaynorCommanderHyperionYamatoGun@GenericImpact"/>
+        <ImpactPhysics Name="YamatoImpact" MatchKeys="Basic" Physics="BattlecruiserYamatoAttackForce"/>
+        <ImpactPhysics Name="YamatoImpact" MatchKeys="BasicAir" Physics="BattlecruiserYamatoAttackForce"/>
+        <ShieldFlashType value="Full"/>
+    </CActorAction>
+    <CActorSound id="RaynorCommanderHyperionYamatoGun@Charge" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Abil.RaynorCommanderHyperionYamatoGun.SourceCastStart" Send="Create"/>
+        <On Terms="Abil.RaynorCommanderHyperionYamatoGun.SourceCastStop" Send="Destroy"/>
+    </CActorSound>
+    <CActorSplat id="RaynorCommanderHyperionYamatoGun@Cursor" parent="TerranCursorSplat" abil="RaynorCommanderHyperionYamatoGun">
+        <EditorCategories value=""/>
+        <Model value="RaynorCommanderHyperionYamatoGun@Cursor"/>
+    </CActorSplat>
+    <CActorModel id="RaynorCommanderHyperionYamatoGun@GenericImpact" parent="GenericAttackImpactModel">
+        <EditorCategories value=""/>
+    </CActorModel>
+    <CActorMissile id="RaynorCommanderHyperionYamatoGun@Missile" parent="GenericAttackMissile" unitName="RaynorCommanderHyperionYamatoGun@Missile">
+        <EditorCategories value=""/>
+    </CActorMissile>
+    <CActorModel id="RaynorCommanderHyperionYamatoGun@OneShot" parent="ModelAnimationStyleOneShot">
+        <EditorCategories value=""/>
+        <On Terms="Effect.RaynorCommanderHyperionYamatoGun.Start" Send="Create"/>
+        <On Terms="Effect.RaynorCommanderHyperionYamatoGun.Stop" Send="Destroy"/>
+    </CActorModel>
+    <CActorRange id="RaynorCommanderHyperionYamatoGun@Range" parent="RangeAbil" abil="RaynorCommanderHyperionYamatoGun">
+        <EditorCategories value=""/>
+        <On index="1" Terms="Abil.TargetOn" Send="Create"/>
+        <On index="2" Terms="Abil.TargetOff" Send="Destroy"/>
+        <On index="3" Terms="Abil.ButtonHoverOn" Send="Create"/>
+        <On index="4" Terms="Abil.ButtonHoverOff" Send="Destroy"/>
+    </CActorRange>
+    <CModel id="RaynorCommanderPDD@Portrait" parent="TerranBuildingPortraitBase">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <Image value="Assets\Textures\AdjutantPortrait_Static.dds"/>
+        <Lighting value="AdjutantPortrait"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderPDD" parent="Unit" Race="Terran">
+        <Model value="Assets\Units\Terran\PointDefenseDrone\PointDefenseDrone.m3"/>
+        <PlanetPanelCamera value="Star2CamerMid05"/>
+        <Radius value="0.600000"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+        <SelectionLayer value="1"/>
+        <SelectionRadius value="0.857100"/>
+        <ShadowRadius value="0.857100"/>
+        <SquibTypeDefault value="Metal"/>
+        <TechPurchaseCamera value="Star2CameraMid05"/>
+        <UnitGlossaryCamera value="Star2CameraMid05"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderPDD@Death" parent="UnitDeath" Race="Terran">
+        <Model value="Assets\Units\Terran\PointDefenseDroneDeathEx1\PointDefenseDroneDeathEx1.m3"/>
+        <LowQualityModel value="TerranSmallUnitDeathLow"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderPDD@Placement" parent="Placement" Race="Terran">
+        <Model value="Assets\Units\Terran\PointDefenseDronePlacement\PointDefenseDronePlacement.m3"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperJump@Impact">
+        <Model value="Assets\Effects\Terran\HyperionTeleportIn\HyperionTeleportIn.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperJump@Launch">
+        <Model value="Assets\Effects\Terran\HyperionTeleportOut\HyperionTeleportOut.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperion" parent="Unit">
+        <Model value="Assets\Units\Terran\BattlecruiserHyperion\BattlecruiserHyperion.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Radius value="2.000000"/>
+        <ScaleMax value="1.500000,1.500000,1.500000"/>
+        <ScaleMin value="1.500000,1.500000,1.500000"/>
+        <SelectionOffset value="0.000000,0.000000,-0.950000"/>
+        <SelectionRadius value="1.666200"/>
+        <ShadowRadius value="1.666200"/>
+        <UnitGlossaryCamera value="Star2Camera07"/>
+        <Lighting value="RaynorCommanderHyperion@Portrait"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperion@Death" parent="UnitDeath">
+        <Model value="Assets\Units\Terran\BattlecruiserHyperionDeath\BattlecruiserHyperionDeath.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperion@Portrait" parent="FXAPortrait">
+        <Model value="Assets\Portraits\Terran\RaynorMarinePortrait\RaynorMarinePortrait.m3"/>
+        <RequiredAnims value="Assets\Portraits\Terran\RaynorMarinePortrait_RequiredAnims\RaynorMarinePortrait_RequiredAnims.m3a"/>
+        <EditorCategories value="Race:Raynor"/>
+        <FacialController value="LocalizedData\Facial\RaynorMarinePortrait.fxa"/>
+        <Image value="Assets\Textures\smx1_raynorcommander_static.dds"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperionYamatoGun@Cursor" parent="UI">
+        <Model value="Assets\UI\Cursors\TerranAOECursor\TerranAOECursor.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="2.200000,2.200000,2.200000"/>
+        <ScaleMin value="2.200000,2.200000,2.200000"/>
+        <SelectionRadius value="2.500000"/>
+        <ShadowRadius value="2.500000"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperionYamatoGun@Impact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\YamatoMissileImpact\YamatoMissileImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperionYamatoGun@Missile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\YamatoMissile\YamatoMissile.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderHyperionYamatoGun@OneShot" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Terran\YamatoMissileCharge\YamatoMissileCharge.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CWeaponLegacy id="RaynorCommanderPDDLaser">
+        <EditorCategories value="Race:Raynor"/>
+        <Options index="Hidden" value="1"/>
+        <Options index="ContinuousScan" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel0.dds"/>
+        <DisplayEffect value="RaynorCommanderPDDLaser@Set"/>
+        <TargetFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquireFilters value="Missile,Visible;Self,Player,Ally,Neutral,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="8"/>
+        <Marker>
+            <MatchFlags index="Link" value="1"/>
+        </Marker>
+        <Period value="0"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+    </CWeaponLegacy>
+    <CMoverMissile id="RaynorCommanderHyperionYamatoGun@Mover">
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="3200"/>
+            <MaxSpeed value="20"/>
+            <ClearanceAcceleration value="75"/>
+            <Outro value="-1"/>
+            <YawPitchRoll value="719.2968"/>
+        </MotionPhases>
+        <MotionPhases YawPitchRoll="MAX"/>
+    </CMoverMissile>
+    <CSound id="RaynorCommanderPDD@What" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Raven\Raven_PointDefenseDroneWhat0.wav"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderPDD@Explode" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperJump@ImpactSound" parent="Spell">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Spell_HyperionJumpIn_00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Spell_HyperionJumpIn_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Spell_HyperionJumpIn_02.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperJump@LaunchSound" parent="Spell">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Spell_HyperionJumpOut_00.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Spell_HyperionJumpOut_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Spell_HyperionJumpOut_02.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperion@Attack" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Attack00.ogg" FacialAnim="Raynor_Attack00"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Attack01.ogg" FacialAnim="Raynor_Attack01"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Attack02.ogg" FacialAnim="Raynor_Attack02"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Attack03.ogg" FacialAnim="Raynor_Attack03"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Attack04.ogg" FacialAnim="Raynor_Attack04"/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperion@DeathVoice" parent="DeathVoice">
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperion@Help" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Help00.ogg" FacialAnim="Raynor_Help00"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Help01.ogg" FacialAnim="Raynor_Help01"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Help02.ogg" FacialAnim="Raynor_Help02"/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperion@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed00.ogg" FacialAnim="Raynor_Pissed00"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed01.ogg" FacialAnim="Raynor_Pissed01"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed02.ogg" FacialAnim="Raynor_Pissed02"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed03.ogg" FacialAnim="Raynor_Pissed03"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed04.ogg" FacialAnim="Raynor_Pissed04"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed05.ogg" FacialAnim="Raynor_Pissed05"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed06.ogg" FacialAnim="Raynor_Pissed06"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed07.ogg" FacialAnim="Raynor_Pissed07"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed08.ogg" FacialAnim="Raynor_Pissed08"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed09.ogg" FacialAnim="Raynor_Pissed09"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed10.ogg" FacialAnim="Raynor_Pissed10"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Pissed11.ogg" FacialAnim="Raynor_Pissed11"/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperion@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Ready00.ogg" FacialAnim="Raynor_Ready00"/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperion@What" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_What00.ogg" FacialAnim="Raynor_What00"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_What01.ogg" FacialAnim="Raynor_What01"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_What02.ogg" FacialAnim="Raynor_What02"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_What03.ogg" FacialAnim="Raynor_What03"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_What04.ogg" FacialAnim="Raynor_What04"/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperion@Yes" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Yes00.ogg" FacialAnim="Raynor_Yes00"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Yes01.ogg" FacialAnim="Raynor_Yes01"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Yes02.ogg" FacialAnim="Raynor_Yes02"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Yes03.ogg" FacialAnim="Raynor_Yes03"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Yes04.ogg" FacialAnim="Raynor_Yes04"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Yes05.ogg" FacialAnim="Raynor_Yes05"/>
+        <AssetArray File="LocalizedData\Sounds\VO\RaynorBattleCruiser_Yes06.ogg" FacialAnim="Raynor_Yes06"/>
+    </CSound>
+    <CSound id="RaynorCommanderPDD@Placement" parent="Terran_BuildingPlacementSmall">
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperionYamatoGun@Charge" parent="Spell">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_YamatoAttackCharge0.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperionYamatoGun@Impact" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderHyperionYamatoGun@Launch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Battlecruiser\Battlecruiser_YamatoAttackLaunch0.wav" FacialGroup=""/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderHyperionTopbar">
+        <EditorCategories value="Race:Raynor,DataGroup:Ability,ObjectType:AbilityTopbars"/>
+        <DataRecord Entry="Abil,RaynorCommanderHyperionTopbar"/>
+        <DataRecord Entry="Button,RaynorCommanderHyperionTopbar"/>
+        <DataRecord Entry="Behavior,RaynorCommanderHyperionTopbar@AB"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperionTopbar"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperionTopbar@AB"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperionTopbar"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderHyperionCooldown"/>
+    </CDataCollectionUnit>
+    <CDataCollectionAbil id="RaynorCommanderHyperJump" parent="Decal">
+        <EditorCategories value="DataFamily:Melee,Race:Raynor,ObjectType:Target,DataGroup:Ability"/>
+        <DataRecord Entry="Abil,RaynorCommanderHyperJump"/>
+        <DataRecord Entry="Button,RaynorCommanderHyperJump"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperJump"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperJump@Teleport"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperJump@Out"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperJump@In"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperJump@AB"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperJump@Set"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperJump@ABSet"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperJump@TargetAB"/>
+        <DataRecord Entry="Behavior,RaynorCommanderHyperJump@Out"/>
+        <DataRecord Entry="Behavior,RaynorCommanderHyperJump@In"/>
+        <DataRecord Entry="Behavior,RaynorCommanderHyperJump@AB"/>
+        <DataRecord Entry="Behavior,RaynorCommanderHyperJump@TargetAB"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperJump@Launch"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperJump@Impact"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperJump@Launch"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperJump@Impact"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperJump@ImpactSound"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperJump@LaunchSound"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperJump@ImpactSound"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperJump@LaunchSound"/>
+    </CDataCollectionAbil>
+    <CDataCollectionUnit id="RaynorCommanderHyperion" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:AbilityTopbars"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperion"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperion"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperion@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperion@Portrait"/>
+        <DataRecord Entry="Unit,RaynorCommanderHyperion"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperion@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperion@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperion@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperion@Pissed"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperion@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperion@DeathVoice"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperion@Help"/>
+        <DataRecord Entry="Light,RaynorCommanderHyperion@Portrait"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderPDD" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderPDD"/>
+        <DataRecord Entry="Model,RaynorCommanderPDD"/>
+        <DataRecord Entry="Model,RaynorCommanderPDD@Portrait"/>
+        <DataRecord Entry="Model,RaynorCommanderPDD@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderPDD@Death"/>
+        <DataRecord Entry="Sound,RaynorCommanderPDD@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderPDD@Explode"/>
+        <DataRecord Entry="Sound,RaynorCommanderPDD@Placement"/>
+        <DataRecord Entry="Unit,RaynorCommanderPDD"/>
+        <DataRecord Entry="Button,RaynorCommanderPDD"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderPDDLaser">
+        <Name value="Reward/Name/RaynorCommanderPDDLaser"/>
+        <EditorCategories value="DataFamily:Melee,Race:Raynor,ObjectType:Beam,DataGroup:Weapon"/>
+        <EditorIconSource value="Weapon"/>
+        <DataRecord Entry="Reward,RaynorCommanderPDDLaser"/>
+        <DataRecord Entry="Spray,RaynorCommanderPDDLaser"/>
+        <DataRecord Entry="Button,RaynorCommanderPDDLaser"/>
+        <DataRecord Entry="Texture,RaynorCommanderPDDLaser"/>
+        <DataRecord Entry="Actor,RaynorCommanderPDDLaser@Impact"/>
+        <DataRecord Entry="Actor,RaynorCommanderPDDLaser@Beam"/>
+        <DataRecord Entry="Actor,RaynorCommanderPDDLaser@ImpactSound"/>
+        <DataRecord Entry="Actor,RaynorCommanderPDDLaser@LaunchSound"/>
+        <DataRecord Entry="Behavior,RaynorCommanderPDDLaser"/>
+        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@AB"/>
+        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@Damage"/>
+        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@VisibleDummy"/>
+        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@Energy"/>
+        <DataRecord Entry="Effect,RaynorCommanderPDDLaser"/>
+        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@Search"/>
+        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@Set"/>
+        <DataRecord Entry="Weapon,RaynorCommanderPDDLaser"/>
+        <DataRecord Entry="Turret,RaynorCommanderPDDLaser@Turret"/>
+        <TechInfoUnit value=""/>
+    </CDataCollectionUnit>
+    <CDataCollectionAbil id="RaynorCommanderHyperionYamatoGun">
+        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Projectile"/>
+        <DataRecord Entry="Abil,RaynorCommanderHyperionYamatoGun"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Missile"/>
+        <DataRecord Entry="Button,RaynorCommanderHyperionYamatoGun"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperionYamatoGun"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperionYamatoGun@Damage"/>
+        <DataRecord Entry="Effect,RaynorCommanderHyperionYamatoGun@LM"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperionYamatoGun@Missile"/>
+        <DataRecord Entry="Unit,RaynorCommanderHyperionYamatoGun@Missile"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperionYamatoGun@Impact"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperionYamatoGun@OneShot"/>
+        <DataRecord Entry="Model,RaynorCommanderHyperionYamatoGun@Cursor"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperionYamatoGun@Charge"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperionYamatoGun@Impact"/>
+        <DataRecord Entry="Sound,RaynorCommanderHyperionYamatoGun@Launch"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@GenericImpact"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Cursor"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Attack"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@OneShot"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Charge"/>
+        <DataRecord Entry="Mover,RaynorCommanderHyperionYamatoGun@Mover"/>
+        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Range"/>
+    </CDataCollectionAbil>
+    <CTurret id="RaynorCommanderPDDLaser@Turret">
+        <Idle value="Hold"/>
+        <YawArc value="360"/>
+        <YawRate value="2857.5"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+    <!-- Units -->
+    <CUnit id="RaynorCommanderHyperion" parent="CommanderAir_Terr" race="COOPRaynor">
+        <Subtitle value="Unit/Subtitle/RaynorCommanderHyperion"/>
+        <Description value=""/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Massive" value="1"/>
+        <Attributes index="Heroic" value="1"/>
+        <LifeStart value="2000"/>
+        <LifeMax value="2000"/>
+        <LifeArmor value="3"/>
+        <Speed value="1.879"/>
+        <Acceleration value="1"/>
+        <StationaryTurningRate value="135"/>
+        <TurningRate value="135"/>
+        <Sight value="12"/>
+        <RepairTime value="90"/>
+        <AbilArray Link="RaynorCommanderHyperJump"/>
+        <AbilArray Link="RaynorCommanderHyperionYamatoGun"/>
+        <AbilArray Link="RaynorCommanderAbilPDD"/>
+        <WeaponArray Link="RaynorCommanderATSLaserBattery"/>
+        <WeaponArray Link="RaynorCommanderATALaserBatteryAir"/>
+        <CardLayouts>
+            <LayoutButtons Face="RaynorCommanderHyperJump" Type="AbilCmd" AbilCmd="RaynorCommanderHyperJump,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderHyperionYamatoGun" Type="AbilCmd" AbilCmd="RaynorCommanderHyperionYamatoGun,Execute" Row="2" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderAbilPDD" Type="AbilCmd" AbilCmd="RaynorCommanderAbilPDD,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="RaynorCommanderLock" Type="Passive" Row="2" Column="2"/>
+        </CardLayouts>
+        <Radius value="2.5"/>
+        <SeparationRadius value="2.5"/>
+        <SubgroupPriority value="130"/>
+        <MinimapRadius value="0"/>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Coop,Race:Raynor"/>
+        <Mass value="0.6"/>
+        <GlossaryPriority value="260"/>
+        <RankDisplay value="Always"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderPDD">
+        <Race value="COOPRaynor"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="NoScore" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="AILifetime" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="50"/>
+        <LifeMax value="50"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <EnergyStart value="200"/>
+        <EnergyMax value="200"/>
+        <EnergyRegenRate value="1"/>
+        <Mover value="Fly"/>
+        <Sight value="7"/>
+        <Height value="3"/>
+        <VisionHeight value="4"/>
+        <CostResource index="Minerals" value="100"/>
+        <RepairTime value="33.3332"/>
+        <AttackTargetPriority value="20"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="stop"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <WeaponArray Link="RaynorCommanderPDDLaser" Turret="RaynorCommanderPDDLaser@Turret"/>
+        <CardLayouts>
+            <LayoutButtons Face="PointDefense" Type="Passive" Row="1" Column="0"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0.6"/>
+        <SubgroupPriority value="6"/>
+        <MinimapRadius value="0.6"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <LeaderAlias value=""/>
+        <GlossaryCategory value="Unit/Category/TerranUnits"/>
+        <GlossaryPriority value="315"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
+        <KillDisplay value="Never"/>
+        <RankDisplay value="Never"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderHyperionYamatoGun@Missile" parent="MISSILE">
+        <Race value="COOPRaynor"/>
+        <Mover value="RaynorCommanderHyperionYamatoGun@Mover"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Raynor"/>
+    </CUnit>
+    <CBehaviorBuff id="RaynorCommanderHyperionTopbar@AB" parent="TimedLife">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="60"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderPDDLaser">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="3"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderHyperJump@In">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="0.6"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stasis" value="1"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderHyperJump@Out">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="0.6"/>
+        <ExpireEffect value="RaynorCommanderHyperJump@Set"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderHyperJump@AB">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="0.05"/>
+        <ExpireEffect value="RaynorCommanderHyperJump@In"/>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderHyperJump@TargetAB">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <Duration value="0.0625"/>
+        <ExpireEffect value="SuicideRemove"/>
+        <Modification>
+            <ModifyFlags index="SuppressMoving" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
+            <StateFlags index="Invulnerable" value="1"/>
+            <StateFlags index="Stasis" value="1"/>
+        </Modification>
+        <InfoFlags index="Hidden" value="1"/>
+    </CBehaviorBuff>
+</Catalog>

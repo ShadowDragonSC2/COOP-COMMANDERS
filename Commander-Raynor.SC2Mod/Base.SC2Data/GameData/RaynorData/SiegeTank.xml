@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="RaynorCommanderWeaponSiegeTank@Damage" parent="DU_WEAP">
+        <ValidatorArray value=""/>
+        <EditorCategories value="Race:Raynor"/>
+        <AttributeBonus index="Armored" value="15"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="35"/>
+        <Death value="Blast"/>
+        <AreaArray Radius="0.4687" Fraction="1"/>
+        <AreaArray Radius="0.7812" Fraction="0.5"/>
+        <AreaArray Radius="1.25" Fraction="0.25"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Self,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="RaynorCommanderWeaponSiegeTank@Directed" parent="DU_WEAP">
+        <ValidatorArray value=""/>
+        <EditorCategories value="Race:Raynor"/>
+        <AttributeBonus index="Armored" value="15"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="35"/>
+        <Death value="Blast"/>
+        <SearchFilters value="Ground;Self,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+    </CEffectDamage>
+    <CEffectDamage id="RaynorCommanderWeaponSiegeTank@Dummy" parent="DU_WEAP">
+        <EditorCategories value="Race:Raynor"/>
+        <AttributeBonus index="Armored" value="15"/>
+        <Kind value="Splash"/>
+        <KindSplash value="Splash"/>
+        <Amount value="35"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CEffectSwitch id="RaynorCommanderWeaponSiegeTank@Switch">
+        <EditorCategories value="Race:Raynor"/>
+        <CaseArray Validator="TargetRadiusSmall" Effect="RaynorCommanderWeaponSiegeTank@Damage"/>
+        <CaseArray Validator="TargetRadiusLarge" Effect="RaynorCommanderWeaponSiegeTank@Directed"/>
+    </CEffectSwitch>
+    <CEffectDamage id="RaynorCommanderWeaponTank@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Raynor"/>
+        <AttributeBonus index="Armored" value="10"/>
+        <Kind value="Ranged"/>
+        <Amount value="15"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CRequirement id="RaynorCommanderSiegeTank">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderSiegeTank">
+        <Icon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorAction id="RaynorCommanderWeaponTank@Attack" parent="GenericAttack" effectAttack="RaynorCommanderWeaponTank@Damage">
+        <LaunchAttachQuery Methods="AMPatternRollingStripe"/>
+        <LaunchAssets Sound="RaynorCommanderWeaponTank@Launch"/>
+        <ImpactPhysics Name="90mmCannonImpact" MatchKeys="Basic" Physics="SiegeTankAttackForce"/>
+    </CActorAction>
+    <CActorTurret id="RaynorCommanderWeaponTank">
+        <On Terms="TurretEnable.RaynorCommanderWeaponTank" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderSiegeTank" Send="Destroy"/>
+    </CActorTurret>
+    <CActorModel id="RaynorCommanderWeaponSiegeTank@DamageModel" parent="ModelAnimationStyleOneShotNoOrphan">
+        <Flags index="SuppressCreationErrors" value="1"/>
+        <Inherits index="Visibility" value="1"/>
+        <Supporter Subject="_Selectable"/>
+        <On Terms="SupporterDestruction" Send="AnimBracketStop BSD"/>
+        <Model value="GenericAttackModel"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorAction id="RaynorCommanderWeaponSiegeTank@Attack" parent="GenericAttack" effectAttack="RaynorCommanderWeaponSiegeTank@Damage">
+        <LaunchAssets Model="RaynorCommanderWeaponSiegeTank@Launch"/>
+        <ImpactSiteOps Ops="SOpActionCenter SOpTargetUnitZ" HoldPosition="1"/>
+        <ImpactMap index="None" Model="RaynorCommanderWeaponSiegeTank@Impact"/>
+        <ImpactPhysics Name="Explosion" MatchKeys="Basic" Physics="SiegeTankSiegedForce"/>
+        <DamageSiteOps Ops="SOpAttachHarness"/>
+        <DamageMap index="None" Model="RaynorCommanderWeaponSiegeTank@Damage"/>
+        <DamageModel value="RaynorCommanderWeaponSiegeTank@DamageModel"/>
+        <ShieldFlashType value="Full"/>
+    </CActorAction>
+    <CActorAction id="RaynorCommanderWeaponSiegeTank@Directed" parent="GenericAttack" effectAttack="RaynorCommanderWeaponSiegeTank@Directed">
+        <LaunchAssets Sound="RaynorCommanderWeaponSiegeTank@AttackLaunch"/>
+        <ImpactSiteOps Ops="SOpAttachHarness SOpAttachVolumeStandard SOpForwardLaunchGuide"/>
+        <ImpactMap index="None" Sound="RaynorCommanderWeaponSiegeTank@AttackImpact"/>
+        <ImpactPhysics Name="Explosion" MatchKeys="Basic" Physics="SiegeTankSiegedForce"/>
+        <DamageModel value="RaynorCommanderWeaponSiegeTank@DamageModel"/>
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorModel id="RaynorCommanderWeaponSiegeTank@TargetImpactFire" parent="ModelAnimationStyleOneShotUNIT">
+        <On Terms="Effect.RaynorCommanderWeaponSiegeTank@Switch.Start; At Target" Send="Create"/>
+        <Host Subject="_Unit"/>
+        <HostSiteOps Ops="SOpAttachTarget"/>
+        <Model value="RaynorCommanderWeaponSiegeTank@Damage"/>
+        <Scale value="1.200000"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    <CActorTurret id="RaynorCommanderWeaponSiegeTank">
+        <On Terms="TurretEnable.RaynorCommanderWeaponSiegeTank@Turret" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderSiegeTank@Alternate" Send="Destroy"/>
+    </CActorTurret>
+    <CActorUnit id="RaynorCommanderSiegeTank" parent="GenericUnitMorph" unitName="RaynorCommanderSiegeTank">
+        <Aliases value="_UnitLarge"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="TerrainSquibAnimations"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <On index="69" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderSiegeTank" Send="Destroy"/>
+        <On index="70" Terms="AbilMorph.*.Finish; MorphTo RaynorCommanderSiegeTank" Send="Create"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SiegeTank_Land"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <CreepHeightClass value="Tiny"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderSiegeTank@Death" SoundLink="RaynorCommanderSiegeTank@Explode"/>
+        <DeathCustoms ModelLink="TerranLargeUnitDeathLow" Name="AntiGravTerran"/>
+        <DeathCustoms ActorModel="SiegeTankDeathRagdoll" ModelLink="RaynorCommanderSiegeTank@DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <DeathCustomData Name="RagdollBasic"/>
+        <DeathActorModel value="UnitDeathModelWithDeathMotionGround"/>
+        <PortraitModel value="RaynorCommanderSiegeTank@Portrait"/>
+        <StandAnimTurnTime value="3.33"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSiegeTank"/>
+        </TerrainSquibs>
+        <WalkAnimMoveSpeed value="1"/>
+        <AbilSoundArray AbilCmd="RaynorCommanderTankMode@Siege,255" Sound="SiegeTank_SiegeModeVO"/>
+        <BarOffset value="80"/>
+        <BarWidth value="102"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-TankMode.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="RaynorCommanderSiegeTank@Ready"/>
+        <SoundArray index="Help" value="RaynorCommanderSiegeTank@Help"/>
+        <SoundArray index="What" value="RaynorCommanderSiegeTank@What"/>
+        <SoundArray index="Yes" value="RaynorCommanderSiegeTank@Yes"/>
+        <SoundArray index="Attack" value="RaynorCommanderSiegeTank@Attack"/>
+        <SoundArray index="Pissed" value="RaynorCommanderSiegeTank@Pissed2"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-siegetank.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-TankMode.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorUnit id="RaynorCommanderSiegeTank@Alternate" parent="GenericUnitMorph" unitName="RaynorCommanderSiegeTank@Alternate">
+        <Aliases value="_UnitLarge"/>
+        <Aliases value="_CreepEngulfable"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <Inherits index="ModelMaterials" value="1"/>
+        <AcceptedTransfers index="ModelMaterials" value="1"/>
+        <On index="69" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderSiegeTank@Alternate" Send="Destroy"/>
+        <On index="70" Terms="AbilMorph.*.Finish; MorphTo RaynorCommanderSiegeTank@Alternate" Send="Create"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SiegeTank_Land"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <CreepHeightClass value="Small"/>
+        <CreepRateGrow value="Grow"/>
+        <CreepRateShrink value="Shrink"/>
+        <DeathArray index="Normal" ModelLink="SiegeTankSiegedDeath" SoundLink="SiegeTank_Explode"/>
+        <DeathCustoms ModelLink="TerranLargeUnitDeathLow" Name="AntiGravTerran"/>
+        <DeathCustoms ActorModel="SiegeTankDeathRagdoll" ModelLink="SiegeTankSiegedDeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <PortraitModel value="RaynorCommanderSiegeTank@Portrait"/>
+        <TerrainSquibs>
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="1.000000"/>
+            <RangeDown value="1.000000"/>
+            <AttachQuery Methods="AMFilterCenter"/>
+            <Visuals TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleSiegeTank"/>
+        </TerrainSquibs>
+        <BarOffset value="80"/>
+        <BarWidth value="102"/>
+        <ErrorArray Error="CantSeeBuildLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantSeeLandLocation" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CantLandLocationInvalid" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <ErrorArray Error="CouldntReachTarget" Sound="UI_GenericError" GroupSound="UI_GenericError"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-SiegeMode.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-siegetanksiegemode.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="SiegeTank_Ready"/>
+        <SoundArray index="Help" value="SiegeTank_Help"/>
+        <SoundArray index="What" value="SiegeTank_What"/>
+        <SoundArray index="Yes" value="SiegeTank_Yes"/>
+        <SoundArray index="Attack" value="SiegeTank_Attack"/>
+        <SoundArray index="Pissed" value="SiegeTank_Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-siegetanksiegemode.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-SiegeMode.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CModel id="RaynorCommanderWeaponTank@AttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\TankWeaponImpact\TankWeaponImpact.m3"/>
+        <LowQualityModel value="SiegeTankAttackImpactLow"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderWeaponTank@AttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\TankWeaponLaunch\TankWeaponLaunch.m3"/>
+        <LowQualityModel value="SiegeTankAttackLaunchLow"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderWeaponSiegeTank@Damage" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\FireImpact\FireImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderWeaponSiegeTank@DirectedDamage" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\FireImpact\FireImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderWeaponSiegeTank@DirectedImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\SiegeTankWeaponImpactBuilding\SiegeTankWeaponImpactBuilding.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderWeaponSiegeTank@DirectedLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\SiegeTankWeaponLaunch\SiegeTankWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderWeaponSiegeTank@Impact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\SiegeTankWeaponImpact\SiegeTankWeaponImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderWeaponSiegeTank@Launch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\SiegeTankWeaponLaunch\SiegeTankWeaponLaunch.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSiegeTank" parent="SiegeTankBase">
+        <Model value="Assets\Units\Terran\TankEx1\TankEx1.m3"/>
+        <UnitGlossaryCamera value="Star2CameraMid10"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSiegeTank@Death" parent="SiegeTankDeathBase">
+        <Model value="Assets\Units\Terran\SiegeTankDeathEx1\SiegeTankDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSiegeTank@DeathRagdoll" parent="SiegeTankDeathRagdollBase">
+        <Model value="Assets\Units\Terran\SiegeTankDeathRagdoll\SiegeTankDeathRagdoll.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSiegeTank@Portrait" parent="SiegeTankPortraitBase">
+        <Model value="Assets\Portraits\Terran\SiegeTankPortrait\SiegeTankPortrait.m3"/>
+        <Image value="Assets\Textures\SiegeTankPortrait_Static.dds"/>
+        <Lighting value="SiegeTankPortrait"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSiegeTank@Morphing" parent="Unit">
+        <Model value="Assets\Units\Terran\SiegeTankMorph\SiegeTankMorph.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="RaynorCommanderSiegeTank@Alternate" parent="Unit">
+        <Model value="Assets\Units\Terran\SiegeTank\SiegeTank.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CWeaponLegacy id="RaynorCommanderWeaponSiegeTank">
+        <EditorCategories value="Race:Raynor"/>
+        <Options index="DisplayCooldown" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
+        <DisplayEffect value="RaynorCommanderWeaponSiegeTank@Dummy"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="13"/>
+        <MinimumRange value="2"/>
+        <Period value="3"/>
+        <Effect value="RaynorCommanderWeaponSiegeTank@Switch"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="RaynorCommanderWeaponTank">
+        <EditorCategories value="Race:Raynor"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="7"/>
+        <Period value="1.04"/>
+        <DisplayEffect value="RaynorCommanderWeaponTank@Damage"/>
+        <Effect value="RaynorCommanderWeaponTank@Damage"/>
+    </CWeaponLegacy>
+    <CSound id="RaynorCommanderWeaponTank@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall9.wav" FacialGroup=""/>
+        <DupeDestroyCount value="5"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-3.000000,3.000000"/>
+        <Volume value="-3.000000,0.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderWeaponTank@Launch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_AttackLaunch3.wav"/>
+        <DupeDestroyCount value="8"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-6.180000,-1.820000"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderWeaponSiegeTank@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium0.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium1.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium2.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium3.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium4.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium5.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium6.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium7.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium8.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactMedium9.wav" Pitch="-3.000000,3.000000" FacialGroup=""/>
+        <DupeDestroyCount value="5"/>
+        <DupeMaximumMethod value="Replace"/>
+    </CSound>
+    <CSound id="RaynorCommanderWeaponSiegeTank@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch5.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch6.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch7.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch8.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SiegeTank\SiegeTank_SiegeAttackLaunch9.wav"/>
+        <DupeDestroyCount value="8"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-6.180000,-1.820000"/>
+        <Volume value="-2.520000,-1.460000"/>
+    </CSound>
+    <CSound id="RaynorCommanderSiegeTank@Attack" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack00.ogg" FacialAnim="SiegeTank_Attack00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack01.ogg" FacialAnim="SiegeTank_Attack01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack02.ogg" FacialAnim="SiegeTank_Attack02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack03.ogg" FacialAnim="SiegeTank_Attack03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack04.ogg" FacialAnim="SiegeTank_Attack04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack05.ogg" FacialAnim="SiegeTank_Attack05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack06.ogg" FacialAnim="SiegeTank_Attack06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack07.ogg" FacialAnim="SiegeTank_Attack07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack08.ogg" FacialAnim="SiegeTank_Attack08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Attack09.ogg" FacialAnim="SiegeTank_Attack09"/>
+        <Flags index="Download" value="0"/>
+        <Volume value="1.000000,1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderSiegeTank@Explode" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+    </CSound>
+    <CSound id="RaynorCommanderSiegeTank@Help" parent="Alert">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Help00.ogg" FacialAnim="SiegeTank_Help00"/>
+        <Mode value="3DWorld"/>
+        <Volume value="1.000000,1.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderSiegeTank@Pissed2" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed00.ogg" FacialAnim="SiegeTank_Pissed00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed01.ogg" FacialAnim="SiegeTank_Pissed01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed02.ogg" FacialAnim="SiegeTank_Pissed02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed03.ogg" FacialAnim="SiegeTank_Pissed03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed04.ogg" FacialAnim="SiegeTank_Pissed04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed05.ogg" FacialAnim="SiegeTank_Pissed05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed06.ogg" FacialAnim="SiegeTank_Pissed06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed07.ogg" FacialAnim="SiegeTank_Pissed07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed08.ogg" FacialAnim="SiegeTank_Pissed08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Pissed09.ogg" FacialAnim="SiegeTank_Pissed09"/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="1.000000,1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderSiegeTank@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Ready00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Ready01.ogg"/>
+        <Volume value="1.000000,1.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderSiegeTank@What" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_What00.ogg" FacialAnim="SiegeTank_What00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_What01.ogg" FacialAnim="SiegeTank_What01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_What02.ogg" FacialAnim="SiegeTank_What02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_What03.ogg" FacialAnim="SiegeTank_What03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_What04.ogg" FacialAnim="SiegeTank_What04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_What05.ogg" FacialAnim="SiegeTank_What05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_What06.ogg" FacialAnim="SiegeTank_What06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_What07.ogg" FacialAnim="SiegeTank_What07"/>
+        <Volume value="1.000000,1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderSiegeTank@Yes" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes00.ogg" FacialAnim="SiegeTank_Yes00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes01.ogg" FacialAnim="SiegeTank_Yes01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes02.ogg" FacialAnim="SiegeTank_Yes02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes03.ogg" FacialAnim="SiegeTank_Yes03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes04.ogg" FacialAnim="SiegeTank_Yes04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes05.ogg" FacialAnim="SiegeTank_Yes05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes06.ogg" FacialAnim="SiegeTank_Yes06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes07.ogg" FacialAnim="SiegeTank_Yes07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes08.ogg" FacialAnim="SiegeTank_Yes08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes09.ogg" FacialAnim="SiegeTank_Yes09"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes10.ogg" FacialAnim="SiegeTank_Yes10"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes11.ogg" FacialAnim="SiegeTank_Yes11"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes12.ogg" FacialAnim="SiegeTank_Yes12"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes13.ogg" FacialAnim="SiegeTank_Yes13"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes14.ogg" FacialAnim="SiegeTank_Yes14"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes15.ogg" FacialAnim="SiegeTank_Yes15"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SiegeTank\SiegeTank_Yes16.ogg" FacialAnim="SiegeTank_Yes16"/>
+        <Volume value="1.000000,1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderWeaponSiegeTank" parent="CommanderWeaponInstantAOE">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Instant"/>
+        <DataRecord Entry="Turret,RaynorCommanderWeaponSiegeTank@Turret"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank@Attack"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank@DamageModel"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank@Directed"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank@TargetImpactFire"/>
+        <DataRecord Entry="Effect,RaynorCommanderWeaponSiegeTank@Damage"/>
+        <DataRecord Entry="Effect,RaynorCommanderWeaponSiegeTank@Switch"/>
+        <DataRecord Entry="Effect,RaynorCommanderWeaponSiegeTank@Dummy"/>
+        <DataRecord Entry="Effect,RaynorCommanderWeaponSiegeTank@Directed"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@DirectedDamage"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@DirectedImpact"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@DirectedLaunch"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@Damage"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@Impact"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@Launch"/>
+        <DataRecord Entry="Sound,RaynorCommanderWeaponSiegeTank@AttackImpact"/>
+        <DataRecord Entry="Sound,RaynorCommanderWeaponSiegeTank@AttackLaunch"/>
+        <DataRecord Entry="Weapon,RaynorCommanderWeaponSiegeTank"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
+        <UpgradeInfoWeapon DamagePerDice="5"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderWeaponTank" parent="CommanderWeaponInstant">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Instant"/>
+        <DataRecord Entry="Weapon,RaynorCommanderWeaponTank"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponTank@Attack"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponTank"/>
+        <DataRecord Entry="Effect,RaynorCommanderWeaponTank@Damage"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponTank@AttackImpact"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponTank@AttackLaunch"/>
+        <DataRecord Entry="Sound,RaynorCommanderWeaponTank@AttackImpact"/>
+        <DataRecord Entry="Sound,RaynorCommanderWeaponTank@Launch"/>
+        <DataRecord Entry="Turret,RaynorCommanderWeaponTank"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
+        <UpgradeInfoWeapon DamagePerDice="3"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderSiegeTank" parent="CommanderUnitMorphing">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,RaynorCommanderSiegeTank"/>
+        <DataRecord Entry="Actor,RaynorCommanderSiegeTank@Alternate"/>
+        <DataRecord Entry="Model,RaynorCommanderSiegeTank@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderSiegeTank@DeathRagdoll"/>
+        <DataRecord Entry="Model,RaynorCommanderSiegeTank@Portrait"/>
+        <DataRecord Entry="Model,RaynorCommanderSiegeTank"/>
+        <DataRecord Entry="Model,RaynorCommanderSiegeTank@Alternate"/>
+        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Explode"/>
+        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Help"/>
+        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Pissed2"/>
+        <DataRecord Entry="Unit,RaynorCommanderSiegeTank@Alternate"/>
+        <DataRecord Entry="Unit,RaynorCommanderSiegeTank"/>
+        <DataRecord Entry="Model,RaynorCommanderSiegeTank@Morphing"/>
+        <DataRecord Entry="Button,RaynorCommanderSiegeTank"/>
+        <DataRecord Entry="Requirement,RaynorCommanderSiegeTank"/>
+    </CDataCollectionUnit>
+    <CTurret id="RaynorCommanderWeaponSiegeTank@Turret">
+        <Idle value="Hold"/>
+        <YawArc value="360"/>
+        <YawRate value="360"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+        <YawStart value="-180"/>
+    </CTurret>
+    <CTurret id="RaynorCommanderWeaponTank">
+        <Idle value="ResetIfMoving"/>
+        <YawArc value="360"/>
+        <YawRate value="720"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+    <CUnit id="RaynorCommanderSiegeTank" race="COOPRaynor">
+        <DeathRevealRadius value="3"/>
+        <Race value="COOPRaynor"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TurnBeforeMove" value="1"/>
+        <FlagArray index="AIPressForwardDisabled" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="160"/>
+        <LifeMax value="160"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
+        <Speed value="2.25"/>
+        <Acceleration value="1000"/>
+        <LateralAcceleration value="64"/>
+        <TurningRate value="360"/>
+        <Sight value="11"/>
+        <Food value="-3"/>
+        <CostCategory value="Army"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="125"/>
+        <RepairTime value="45"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="50"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="RaynorCommanderTankMode@Siege"/>
+        <AbilArray Link="RaynorCommanderAfterburners"/>
+        <WeaponArray Link="RaynorCommanderWeaponTank" Turret="RaynorCommanderWeaponTank"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="Attack" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="SiegeMode" Type="AbilCmd" AbilCmd="RaynorCommanderTankMode@Siege,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderAfterburners" Type="AbilCmd" AbilCmd="RaynorCommanderAfterburners,On" Row="2" Column="2"/>
+        </CardLayouts>
+        <Radius value="0.875"/>
+        <SeparationRadius value="1"/>
+        <InnerRadius value="0.875"/>
+        <CargoSize value="4"/>
+        <ScoreMake value="275"/>
+        <ScoreKill value="275"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="13"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <TacticalAI value="SiegeTank"/>
+        <AIEvalFactor value="1.5"/>
+        <TechAliasArray value="Alias_SiegeTankRaynor"/>
+        <GlossaryCategory value="Glossary/Category/##race##"/>
+        <GlossaryPriority value="60"/>
+        <GlossaryStrongArray value="Marine"/>
+        <GlossaryStrongArray value="Hydralisk"/>
+        <GlossaryStrongArray value="Stalker"/>
+        <GlossaryWeakArray value="Banshee"/>
+        <GlossaryWeakArray value="Mutalisk"/>
+        <GlossaryWeakArray value="Immortal"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="33"/>
+            <ChanceArray index="Idle" value="33"/>
+            <ChanceArray index="Turn" value="33"/>
+        </Fidget>
+        <BuildTime value="40"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderSiegeTank@Alternate">
+        <Name value="Unit/Name/SiegeTank"/>
+        <DeathRevealRadius value="3"/>
+        <Facing value="45"/>
+        <Race value="COOPRaynor"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="AISplash" value="1"/>
+        <FlagArray index="ArmySelect" value="1"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="160"/>
+        <LifeMax value="160"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
+        <Sight value="11"/>
+        <Food value="-3"/>
+        <CostCategory value="Army"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="125"/>
+        <RepairTime value="45"/>
+        <AttackTargetPriority value="20"/>
+        <DamageDealtXP value="1"/>
+        <DamageTakenXP value="1"/>
+        <KillXP value="50"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="attack"/>
+        <AbilArray Link="RaynorCommanderTankMode@Unsiege"/>
+        <WeaponArray Link="RaynorCommanderWeaponSiegeTank" Turret="RaynorCommanderWeaponSiegeTank@Turret"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="AttackBuilding" Type="AbilCmd" AbilCmd="attack,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons Face="Unsiege" Type="AbilCmd" AbilCmd="RaynorCommanderTankMode@Unsiege,Execute" Row="2" Column="1"/>
+        </CardLayouts>
+        <Radius value="0.875"/>
+        <SeparationRadius value="1"/>
+        <InnerRadius value="0.875"/>
+        <Footprint value="FootprintSieged"/>
+        <ScoreKill value="275"/>
+        <SubgroupPriority value="13"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <TacticalAI value="SiegeTankSieged"/>
+        <AIEvalFactor value="1.5"/>
+        <LeaderAlias value="RaynorCommanderSiegeTank"/>
+        <HotkeyAlias value="RaynorCommanderSiegeTank"/>
+        <SelectAlias value="RaynorCommanderSiegeTank"/>
+        <SubgroupAlias value="RaynorCommanderSiegeTank"/>
+        <TechAliasArray value="Alias_SiegeTankRaynor"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
+    </CUnit>
+</Catalog>

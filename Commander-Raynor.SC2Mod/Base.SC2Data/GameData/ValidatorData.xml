@@ -17,20 +17,6 @@
         <Find value="1"/>
         <Value value="RaynorCommanderOrbitaldroppods"/>
     </CValidatorPlayerRequirement>
-    <CValidatorPlayerRequirement id="RaynorCommanderPunisherGrenades@Researched">
-        <ResultNoPlayer value="Error"/>
-        <Find value="1"/>
-        <Value value="RaynorCommanderPunisherGrenades@Use"/>
-    </CValidatorPlayerRequirement>
-    <CValidatorUnitFilters id="RaynorCommanderPunisherGrenades@NotMassive">
-        <Filters value="-;Massive"/>
-    </CValidatorUnitFilters>
-    <CValidatorUnitFilters id="RaynorCommanderPunisherGrenades@NotStructure">
-        <Filters value="-;Structure"/>
-    </CValidatorUnitFilters>
-    <CValidatorUnitCompareBehaviorCount id="RaynorCommanderPunisherGrenades@NoPurificationNova">
-        <Behavior value="PurificationNova"/>
-    </CValidatorUnitCompareBehaviorCount>
     <CValidatorUnitOrderQueue id="SCVBuildingArmory2">
         <WhichUnit Value="Target"/>
         <AbilLink value="RaynorCommanderBuildSCV"/>
@@ -95,8 +81,4 @@
         <AbilLink value="RaynorCommanderBuildSCV"/>
         <AbilCmdIndex value="1"/>
     </CValidatorUnitOrderQueue>
-    <CValidatorUnitCompareBehaviorCount id="RaynorCommanderPunisherGrenades@TargetIsSlowed">
-        <Compare value="GT"/>
-        <Behavior value="RaynorCommanderPunisherGrenades"/>
-    </CValidatorUnitCompareBehaviorCount>
 </Catalog>

@@ -236,6 +236,7 @@
             <ValueType Type="int"/>
         </Element>
         <Element Type="Trigger" Id="4864156D">
+            <Disabled/>
             <Event Type="FunctionCall" Library="3A96CF55" Id="BD2E5C93"/>
             <Action Type="FunctionCall" Library="3A96CF55" Id="A0040CE8"/>
             <Action Type="FunctionCall" Library="3A96CF55" Id="69A9703C"/>

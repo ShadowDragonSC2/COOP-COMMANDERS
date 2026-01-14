@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="RaynorCommanderWeaponSCV@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Raynor"/>
+        <Amount value="5"/>
+    </CEffectDamage>
+    <CRequirement id="RaynorCommanderSCV">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderSCV@SCV">
+        <Icon value="Assets\Textures\btn-unit-terran-scv.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-scv.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Universal value="1"/>
+    </CButton>
+    <CActorAction id="RaynorCommanderWeaponSCV@Attack" parent="GenericAttack" effectAttack="RaynorCommanderWeaponSCV@Damage">
+        <ShieldFlashType value="Header"/>
+    </CActorAction>
+    <CActorSound id="RaynorCommanderWeaponSCV@AttackLaunch" parent="SoundOneShot">
+        <On Terms="WeaponStart.RaynorCommanderWeaponSCV.AttackStart" Send="Create"/>
+    </CActorSound>
+    <CActorUnit id="RaynorCommanderSCV" parent="GenericUnitStandard" unitName="RaynorCommanderSCV">
+        <Aliases value="_UnitSmall"/>
+        <Macros value="CarryAnim"/>
+        <Macros value="UnloadDropAnim"/>
+        <Macros value="MacroWorkerHat"/>
+        <Macros value="PhysicsDeathsSwarmGround"/>
+        <Macros value="PhysicsDeathsVoidGround"/>
+        <On Terms="Abil.SCVHarvest.Start" Send="TimerSet 0.000000,0.300000 Gather"/>
+        <On Terms="Abil.SCVHarvest.Stop" Send="AnimClear Gather"/>
+        <On Terms="Abil.SCVHarvest.Stop" Send="TimerKill Gather"/>
+        <On Terms="AnimDone.*.Complete; AnimName Gather" Send="TimerSet 0.000000,0.300000 Gather"/>
+        <On Terms="TimerExpired; TimerName Gather" Send="AnimPlay Gather Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Gather" Send="Create SCVGatherSound"/>
+        <On Terms="Abil.Repair.SourceChannelStart" Send="TimerSet 0.000000,0.300000 Repair"/>
+        <On Terms="Abil.Repair.SourceChannelStop" Send="TimerKill Repair"/>
+        <On Terms="Abil.Repair.SourceChannelStop" Send="AnimClear Repair"/>
+        <On Terms="AnimDone.*.Complete; AnimName Repair" Send="TimerSet 0.000000,0.300000 Repair"/>
+        <On Terms="TimerExpired; TimerName Repair" Send="AnimPlay Repair Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Repair" Send="Create SCVRepairSound"/>
+        <On Terms="Abil.*.WorkerStart" Send="TimerSet 0.000000,0.300000 Build"/>
+        <On Terms="Abil.*.WorkerStop" Send="TimerKill Build"/>
+        <On Terms="Abil.*.WorkerStop" Send="AnimClear Build"/>
+        <On Terms="Abil.*.WorkerCancel" Send="TimerKill Build"/>
+        <On Terms="Abil.*.WorkerCancel" Send="AnimClear Build"/>
+        <On Terms="AnimDone.*.Complete; AnimName Build" Send="TimerSet 0.000000,0.300000 Build"/>
+        <On Terms="TimerExpired; TimerName Build" Send="AnimPlay Build Work NonLooping"/>
+        <On Terms="TimerExpired; TimerName Build" Send="Create SCVBuildSound"/>
+        <On Terms="Abil.SCVHarvest.Start" Send="StatusSet CloakSound 1"/>
+        <On Terms="Behavior.CarryHarvestableVespeneGeyserGas.Create" Send="StatusSet CloakSound 1"/>
+        <On Terms="Confirmation.SCV.Start" Send="StatusSet CloakSound 0"/>
+        <On Terms="Behavior.CloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.CloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Create; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOn"/>
+        <On Terms="Behavior.OracleCloakFieldEffect.Destroy; IsStatus CloakSound 0" Send="Create Worker_CloakFieldOff"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create SCV_Land"/>
+        <AnimBlendTime value="0.500000"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderSCV@Death" SoundLink="RaynorCommanderSCV@Explode"/>
+        <DeathCustoms ModelLink="RaynorCommanderSCV@DeathRagdoll" Name="RagdollBasic">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollSiegeTank" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollNuke" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollFire" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Fire"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollBaneling" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollAcid" InheritsFrom="RagdollBasic">
+            <BodySquibs Name="Acid"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollUltraUnburrow" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms ActorModel="SpineCrawlerHurlDeathRagdoll" ModelLink="RaynorCommanderSCV@DeathRagdoll" Name="RagdollSpineCrawlerHurl">
+            <BodySquibs Name="Basic" Model="TerranSquibDeathRagdoll"/>
+        </DeathCustoms>
+        <DeathCustoms Name="RagdollOverkillDPRH" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollOverkillDOI" InheritsFrom="RagdollBasic"/>
+        <DeathCustoms Name="RagdollMidair" InheritsFrom="RagdollBasic"/>
+        <PortraitModel value="RaynorCommanderSCV@Portrait"/>
+        <BarOffset value="40"/>
+        <BarWidth value="42"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SCV.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-scv.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+        <SoundArray index="Ready" value="RaynorCommanderSCV@Ready"/>
+        <SoundArray index="Help" value="Alert_TerranEconomyUnderAttack"/>
+        <SoundArray index="What" value="RaynorCommanderSCV@What"/>
+        <SoundArray index="Yes" value="RaynorCommanderSCV@Yes"/>
+        <SoundArray index="Attack" value="RaynorCommanderSCV@Attack"/>
+        <SoundArray index="Pissed" value="RaynorCommanderSCV@Pissed"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-scv.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SCV.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CModel id="RaynorCommanderWeaponSCV@AttackLaunch" parent="RaceImpactFX" Race="Terran">
+        <Model value="Assets\Effects\Other\PhysicsImpactSparksLight\PhysicsImpactSparksLight.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSCV" parent="SCVBase">
+        <Model value="Assets\Units\Terran\SCV\SCV.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSCV@Death" parent="SCVDeathBase">
+        <Model value="Assets\Units\Terran\SCVDeathEx1\SCVDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSCV@DeathRagdoll" parent="SCVDeathRagdollBase">
+        <Model value="Assets\Units\Terran\SCVDeathRagdoll\SCVDeathRagdoll.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSCV@Portrait" parent="SCVPortraitBase">
+        <Model value="Assets\Portraits\Terran\SCVPortrait\SCVPortrait.m3"/>
+        <Image value="Assets\Textures\SCVPortrait_Static.dds"/>
+        <Lighting value="SCVPortrait"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CWeaponLegacy id="RaynorCommanderWeaponSCV">
+        <EditorCategories value="Race:Raynor"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.5"/>
+        <DisplayEffect value="RaynorCommanderWeaponSCV@Damage"/>
+        <Effect value="RaynorCommanderWeaponSCV@Damage"/>
+    </CWeaponLegacy>
+    <CSound id="RaynorCommanderWeaponSCV@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SCV\SCV_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SCV\SCV_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SCV\SCV_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SCV\SCV_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SCV\SCV_AttackLaunch4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SCV\SCV_AttackLaunch5.wav"/>
+        <DupeDestroyCount value="3"/>
+        <DupeMaximumMethod value="Replace"/>
+        <Pitch value="-2.000000,0.000000"/>
+        <Volume value="-14.000000,-12.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderSCV@Attack" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Attack00.ogg" FacialAnim="SCV_Attack00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Attack01.ogg" FacialAnim="SCV_Attack01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Attack02.ogg" FacialAnim="SCV_Attack02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Attack03.ogg" FacialAnim="SCV_Attack03"/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-3.000000,-3.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderSCV@Explode" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+    </CSound>
+    <CSound id="RaynorCommanderSCV@Pissed" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Pissed00.ogg" FacialAnim="SCV_Pissed00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Pissed01.ogg" FacialAnim="SCV_Pissed01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Pissed02.ogg" FacialAnim="SCV_Pissed02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Pissed03.ogg" FacialAnim="SCV_Pissed03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Pissed04.ogg" FacialAnim="SCV_Pissed04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Pissed05.ogg" FacialAnim="SCV_Pissed05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Pissed06.ogg" FacialAnim="SCV_Pissed06"/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-3.000000,-3.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderSCV@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Ready00.ogg" FacialAnim="SCV_Ready00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Ready01.ogg" FacialAnim="SCV_Ready01"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderSCV@What" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_What00.ogg" FacialAnim="SCV_What00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_What01.ogg" FacialAnim="SCV_What01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_What02.ogg" FacialAnim="SCV_What02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_What03.ogg" FacialAnim="SCV_What03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_What04.ogg" FacialAnim="SCV_What04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_What05.ogg" FacialAnim="SCV_What05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_What06.ogg" FacialAnim="SCV_What06"/>
+        <Volume value="-3.000000,-3.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderSCV@Yes" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes00.ogg" FacialAnim="SCV_Yes00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes01.ogg" FacialAnim="SCV_Yes01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes02.ogg" FacialAnim="SCV_Yes02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes03.ogg" FacialAnim="SCV_Yes03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes04.ogg" FacialAnim="SCV_Yes04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes05.ogg" FacialAnim="SCV_Yes05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes06.ogg" FacialAnim="SCV_Yes06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes07.ogg" FacialAnim="SCV_Yes07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes08.ogg" FacialAnim="SCV_Yes08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes09.ogg" FacialAnim="SCV_Yes09"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes10.ogg" FacialAnim="SCV_Yes10"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes11.ogg" FacialAnim="SCV_Yes11"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes12.ogg" FacialAnim="SCV_Yes12"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes13.ogg" FacialAnim="SCV_Yes13"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes14.ogg" FacialAnim="SCV_Yes14"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes15.ogg" FacialAnim="SCV_Yes15"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes16.ogg" FacialAnim="SCV_Yes16"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes17.ogg" FacialAnim="SCV_Yes17"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\SCV\SCV_Yes18.ogg" FacialAnim="SCV_Yes18"/>
+        <Volume value="-3.000000,-3.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderWeaponSCV" parent="CommanderWeaponInstant">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Instant"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponSCV@Attack"/>
+        <DataRecord Entry="Actor,RaynorCommanderWeaponSCV@AttackLaunch"/>
+        <DataRecord Entry="Effect,RaynorCommanderWeaponSCV@Damage"/>
+        <DataRecord Entry="Model,RaynorCommanderWeaponSCV@AttackLaunch"/>
+        <DataRecord Entry="Sound,RaynorCommanderWeaponSCV@AttackLaunch"/>
+        <DataRecord Entry="Weapon,RaynorCommanderWeaponSCV"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderSCV" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,RaynorCommanderSCV"/>
+        <DataRecord Entry="Model,RaynorCommanderSCV"/>
+        <DataRecord Entry="Model,RaynorCommanderSCV@Portrait"/>
+        <DataRecord Entry="Model,RaynorCommanderSCV@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderSCV@DeathRagdoll"/>
+        <DataRecord Entry="Sound,RaynorCommanderSCV@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderSCV@Explode"/>
+        <DataRecord Entry="Sound,RaynorCommanderSCV@Pissed"/>
+        <DataRecord Entry="Sound,RaynorCommanderSCV@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderSCV@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderSCV@Yes"/>
+        <DataRecord Entry="Unit,RaynorCommanderSCV"/>
+        <DataRecord Entry="Button,RaynorCommanderSCV@SCV"/>
+        <DataRecord Entry="Requirement,RaynorCommanderSCV"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderSCV" parent="CommanderGround_Terr" race="COOPRaynor">
+        <Name value="Unit/Name/RaynorCommanderSCV"/>
+        <FlagArray index="Worker" value="1"/>
+        <FlagArray index="ArmySelect" value="0"/>
+        <DefaultAcquireLevel value="Defensive"/>
+        <Response value="Flee"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="45"/>
+        <LifeMax value="45"/>
+        <Speed value="2.8125"/>
+        <Acceleration value="2.5"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="8"/>
+        <Food value="-1"/>
+        <CostCategory value="Economy"/>
+        <CostResource index="Minerals" value="50"/>
+        <BuildTime value="20"/>
+        <RepairTime value="16.667"/>
+        <AIOverideTargetPriority value="10"/>
+        <KillXP value="10"/>
+        <AbilArray Link="Repair"/>
+        <AbilArray Link="SCVHarvest"/>
+        <AbilArray Link="RaynorCommanderBuildSCV"/>
+        <WeaponArray Link="RaynorCommanderWeaponSCV"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="RaynorCommanderRepair" Type="AbilCmd" AbilCmd="Repair,Execute" Row="2" Column="2"/>
+            <LayoutButtons Face="RaynorCommanderGather" Type="AbilCmd" AbilCmd="SCVHarvest,Gather" Row="1" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderReturnCargo" Type="AbilCmd" AbilCmd="SCVHarvest,Return" Row="1" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderTerranBuild" Type="Submenu" SubmenuCardId="TBl1" Row="2" Column="0"/>
+            <LayoutButtons Face="RaynorBuildAdvanced" Type="Submenu" SubmenuCardId="TBl2" Row="2" Column="1"/>
+            <LayoutButtons Face="Halt" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Halt" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="TBl1">
+            <LayoutButtons Face="RaynorCommanderCommandCenter" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build1" Row="0" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderRefinery" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build3" Row="0" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderSupplyDepot" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build2" Row="0" Column="2"/>
+            <LayoutButtons Face="RaynorCommanderBarracks" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build4" Row="1" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderEngineeringBay" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build5" Row="1" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderBunker" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build7" Row="2" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderMissileTurret" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build6" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <CardLayouts CardId="TBl2">
+            <LayoutButtons Face="RaynorCommanderFactory" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build11" Row="1" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderArmory" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build14" Row="1" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderStarport" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build12" Row="2" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderFusionCore" Type="AbilCmd" AbilCmd="RaynorCommanderBuildSCV,Build16" Row="2" Column="1"/>
+            <LayoutButtons Face="Cancel" Type="CancelSubmenu" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.375"/>
+        <SeparationRadius value="0.375"/>
+        <InnerRadius value="0.375"/>
+        <ScoreMake value="50"/>
+        <ScoreMakeCostFactor index="Minerals" value="0"/>
+        <ScoreMakeCostFactor index="Vespene" value="0"/>
+        <ScoreKill value="50"/>
+        <ScoreKillCostFactor index="Minerals" value="0"/>
+        <ScoreKillCostFactor index="Vespene" value="0"/>
+        <SubgroupPriority value="6"/>
+        <MinimapRadius value="0.375"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <GlossaryPriority value="10"/>
+    </CUnit>
+</Catalog>

@@ -1,5 +1,6 @@
 ﻿Button/Hotkey/ZeratulCommanderBlinkVoidTemplar=Q
 Button/Hotkey/ZeratulCommanderDevolutionWave=Q
+Button/Hotkey/ZeratulCommanderMindControl=Q
 Button/Hotkey/ZeratulCommanderPredictiveBlink=Q
 Button/Hotkey/ZeratulCommanderShadowCleave=Q
 Button/Hotkey/ZeratulCommanderTesseractCannon=Z

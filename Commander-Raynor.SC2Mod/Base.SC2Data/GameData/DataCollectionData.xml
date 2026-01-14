@@ -1,43 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CDataCollectionUnit id="RaynorCommanderATALaserBatteryAir" parent="CommanderWeaponMissile">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,RaynorCommanderATALaserBatteryAir@Missile"/>
-        <DataRecord Entry="Actor,RaynorCommanderATALaserBatteryAir@Impact"/>
-        <DataRecord Entry="Actor,RaynorCommanderATALaserBatteryAir@Attack"/>
-        <DataRecord Entry="Behavior,RaynorCommanderATALaserBatteryAir@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderATALaserBatteryAir"/>
-        <DataRecord Entry="Effect,RaynorCommanderATALaserBatteryAir@LM"/>
-        <DataRecord Entry="Effect,RaynorCommanderATALaserBatteryAir@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderATALaserBatteryAir@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderATALaserBatteryAir@Missile"/>
-        <DataRecord Entry="Model,RaynorCommanderATALaserBatteryAir@Impact"/>
-        <DataRecord Entry="Unit,RaynorCommanderATALaserBatteryAir@Missile"/>
-        <DataRecord Entry="Weapon,RaynorCommanderATALaserBatteryAir"/>
-        <DataRecord Entry="Model,RaynorCommanderATALaserBatteryAir@Launch"/>
-        <DataRecord Entry="Sound,RaynorCommanderATALaserBatteryAir@Launch"/>
-        <DataRecord Entry="Sound,RaynorCommanderATALaserBatteryAir@Impact"/>
-        <DataRecord Entry="Actor,RaynorCommanderATALaserBatteryAir@Damage@Missile"/>
-        <DataRecord Entry="Actor,RaynorCommanderATALaserBatteryAir@Damage@Impact"/>
-        <DataRecord Entry="Actor,RaynorCommanderATALaserBatteryAir@Damage@Attack"/>
-        <DataRecord Entry="Behavior,RaynorCommanderATALaserBatteryAir@Damage@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderATALaserBatteryAir@Damage@LM"/>
-        <DataRecord Entry="Effect,RaynorCommanderATALaserBatteryAir@Damage@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderATALaserBatteryAir@Damage@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderATALaserBatteryAir@Damage@Missile"/>
-        <DataRecord Entry="Model,RaynorCommanderATALaserBatteryAir@Damage@Impact"/>
-        <DataRecord Entry="Model,RaynorCommanderATALaserBatteryAir@Damage@Launch"/>
-        <DataRecord Entry="Sound,RaynorCommanderATALaserBatteryAir@Damage@AttackLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderATALaserBatteryAir@Damage@AttackImpact"/>
-        <DataRecord Entry="Unit,RaynorCommanderATALaserBatteryAir@Damage@Missile"/>
-        <DataRecord Entry="Weapon,RaynorCommanderATALaserBatteryAir"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons@Level2"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons@Level3"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="2"/>
-    </CDataCollectionUnit>
     <CDataCollectionAbil id="RaynorCommanderAfterburners">
         <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Instant"/>
         <DataRecord Entry="Abil,RaynorCommanderAfterburners"/>
@@ -64,50 +26,11 @@
         <DataRecord Entry="Abil,RaynorCommanderArmoryResearch"/>
         <TechInfoUpgradeUsed value="RaynorCommanderReduceCostResearch"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderBansheeAirstrike">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:AbilityTopbars"/>
-        <DataRecord Entry="Abil,RaynorCommanderBansheeAirstrike"/>
-        <DataRecord Entry="Button,RaynorCommanderBansheeAirstrike"/>
-        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike"/>
-        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@CU"/>
-        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@Set"/>
-        <DataRecord Entry="Behavior,RaynorCommanderBansheeAirstrike@Drop"/>
-        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@Drop"/>
-        <DataRecord Entry="Behavior,RaynorCommanderBansheeAirstrike@Raise"/>
-        <DataRecord Entry="Behavior,RaynorCommanderBansheeAirstrike@TimeLifed"/>
-        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@Raise"/>
-        <DataRecord Entry="Effect,RaynorCommanderBansheeAirstrike@TimeLifed"/>
-        <DataRecord Entry="Actor,RaynorCommanderBansheeAirstrike"/>
-        <DataRecord Entry="Model,RaynorCommanderBansheeAirstrike"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderBansheeAirstrikeCooldown"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderMedicsHealAdditionalTarget">
         <EditorCategories value="DataGroup:Mastery,Race:Raynor,ObjectType:Other"/>
         <DataRecord Entry="Upgrade,RaynorCommanderMedicsHealAdditionalTarget"/>
         <Pattern value="CommanderMastery"/>
         <UpgradeInfoUnitLifeArmorPerLevel value="1.3"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderDuskWingsRockets" parent="CommanderWeaponMissile">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,RaynorCommanderDuskWingsRockets@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderDuskWingsRockets@Missile"/>
-        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets"/>
-        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@LM"/>
-        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderDuskWingsRockets@AttackImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderDuskWingsRockets@Missile"/>
-        <DataRecord Entry="Mover,RaynorCommanderDuskWingsRockets@Mover"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWingsRockets@AttackImpact"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWingsRockets@AttackLaunch"/>
-        <DataRecord Entry="Unit,RaynorCommanderDuskWingsRockets@Missile"/>
-        <DataRecord Entry="Weapon,RaynorCommanderDuskWingsRockets"/>
-        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@CP@2"/>
-        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@Damage@2"/>
-        <DataRecord Entry="Effect,RaynorCommanderDuskWingsRockets@Set"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="1"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderBansheeAirstrikeCooldown">
         <EditorCategories value="DataGroup:Mastery,Race:Raynor,ObjectType:Other"/>
@@ -126,16 +49,6 @@
         <DataRecord Entry="Upgrade,RaynorCommanderSpeedDropPodUnits"/>
         <Pattern value="CommanderMastery"/>
         <UpgradeInfoUnitLifeArmorPerLevel value="1.2"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderHyperionTopbar">
-        <EditorCategories value="Race:Raynor,DataGroup:Ability,ObjectType:AbilityTopbars"/>
-        <DataRecord Entry="Abil,RaynorCommanderHyperionTopbar"/>
-        <DataRecord Entry="Button,RaynorCommanderHyperionTopbar"/>
-        <DataRecord Entry="Behavior,RaynorCommanderHyperionTopbar@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperionTopbar"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperionTopbar@AB"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperionTopbar"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderHyperionCooldown"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderReduceCostResearch">
         <EditorCategories value="DataGroup:Mastery,Race:Raynor,ObjectType:Other"/>
@@ -199,64 +112,6 @@
         <DataRecord Entry="Upgrade,RaynorCommanderNanoProjectors"/>
         <DataRecord Entry="Requirement,RaynorCommanderNanoProjectors"/>
     </CDataCollectionUpgrade>
-    <CDataCollectionUnit id="RaynorCommanderBackslashRockets" parent="CommanderWeaponMissile">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,RaynorCommanderBackslashRockets@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderBackslashRockets@Missile"/>
-        <DataRecord Entry="Effect,RaynorCommanderBackslashRockets"/>
-        <DataRecord Entry="Effect,RaynorCommanderBackslashRockets@LM"/>
-        <DataRecord Entry="Effect,RaynorCommanderBackslashRockets@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderBackslashRockets@AttackImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderBackslashRockets@Missile"/>
-        <DataRecord Entry="Mover,RaynorCommanderBackslashRockets@Mover"/>
-        <DataRecord Entry="Sound,RaynorCommanderBackslashRockets@AttackImpact"/>
-        <DataRecord Entry="Sound,RaynorCommanderBackslashRockets@AttackLaunch"/>
-        <DataRecord Entry="Unit,RaynorCommanderBackslashRockets@Missile"/>
-        <DataRecord Entry="Weapon,RaynorCommanderBackslashRockets"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="2"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderBanshee" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderBanshee"/>
-        <DataRecord Entry="Model,RaynorCommanderBanshee@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderBanshee@Portrait"/>
-        <DataRecord Entry="Model,RaynorCommanderBanshee"/>
-        <DataRecord Entry="Model,RaynorCommanderBanshee@DeathRagdoll"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@Ready"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@Movement"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@Explode"/>
-        <DataRecord Entry="Sound,RaynorCommanderBanshee@VO@1"/>
-        <DataRecord Entry="Unit,RaynorCommanderBanshee"/>
-        <DataRecord Entry="Button,RaynorCommanderBanshee"/>
-        <DataRecord Entry="Requirement,RaynorCommanderBanshee"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderBattlecruiser" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderBattlecruiser"/>
-        <DataRecord Entry="Model,RaynorCommanderBattlecruiser"/>
-        <DataRecord Entry="Model,RaynorCommanderBattlecruiser@Portrait"/>
-        <DataRecord Entry="Model,RaynorCommanderBattlecruiser@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderBattlecruiser@DeathA"/>
-        <DataRecord Entry="Model,RaynorCommanderBattlecruiser@DeathRagdoll"/>
-        <DataRecord Entry="Sound,RaynorCommanderBattlecruiser@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderBattlecruiser@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderBattlecruiser@Movement"/>
-        <DataRecord Entry="Sound,RaynorCommanderBattlecruiser@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderBattlecruiser@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderBattlecruiser@Ready"/>
-        <DataRecord Entry="Unit,RaynorCommanderBattlecruiser"/>
-        <DataRecord Entry="Button,RaynorCommanderBattlecruiser"/>
-        <DataRecord Entry="Requirement,RaynorCommanderBattlecruiser"/>
-        <DataRecord Entry="Sound,RaynorCommanderBattlecruiser@Yes"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderBunker" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderBunker"/>
@@ -329,31 +184,6 @@
         <DataRecord Entry="Model,RaynorCommanderFusionCore@Placement"/>
         <DataRecord Entry="Model,RaynorCommanderFusionCore@Build"/>
     </CDataCollectionUnit>
-    <CDataCollectionAbil id="RaynorCommanderHyperJump" parent="Decal">
-        <EditorCategories value="DataFamily:Melee,Race:Raynor,ObjectType:Target,DataGroup:Ability"/>
-        <DataRecord Entry="Abil,RaynorCommanderHyperJump"/>
-        <DataRecord Entry="Button,RaynorCommanderHyperJump"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperJump"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperJump@Teleport"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperJump@Out"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperJump@In"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperJump@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperJump@Set"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperJump@ABSet"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperJump@TargetAB"/>
-        <DataRecord Entry="Behavior,RaynorCommanderHyperJump@Out"/>
-        <DataRecord Entry="Behavior,RaynorCommanderHyperJump@In"/>
-        <DataRecord Entry="Behavior,RaynorCommanderHyperJump@AB"/>
-        <DataRecord Entry="Behavior,RaynorCommanderHyperJump@TargetAB"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperJump@Launch"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperJump@Impact"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperJump@Launch"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperJump@Impact"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperJump@ImpactSound"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperJump@LaunchSound"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperJump@ImpactSound"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperJump@LaunchSound"/>
-    </CDataCollectionAbil>
     <CDataCollectionAbil id="RaynorCommanderLoweredSupplies">
         <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Other"/>
         <Button value="RaynorCommanderLoweredSupplies@1"/>
@@ -411,73 +241,6 @@
         <DataRecord Entry="Upgrade,RaynorCommanderNewUnitBattlecruiser"/>
         <DataRecord Entry="Requirement,RaynorCommanderNewUnitBattlecruiser"/>
     </CDataCollectionUpgrade>
-    <CDataCollectionAbil id="RaynorCommanderTacticalJump">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Target"/>
-        <DataRecord Entry="Abil,RaynorCommanderTacticalJump"/>
-        <DataRecord Entry="Actor,RaynorCommanderTacticalJump@Launch"/>
-        <DataRecord Entry="Actor,RaynorCommanderTacticalJump@Impact"/>
-        <DataRecord Entry="Actor,RaynorCommanderTacticalJump@ImpactSound"/>
-        <DataRecord Entry="Actor,RaynorCommanderTacticalJump@LaunchSound"/>
-        <DataRecord Entry="Behavior,RaynorCommanderTacticalJump@Out"/>
-        <DataRecord Entry="Behavior,RaynorCommanderTacticalJump@In"/>
-        <DataRecord Entry="Behavior,RaynorCommanderTacticalJump@AB"/>
-        <DataRecord Entry="Behavior,RaynorCommanderTacticalJump@TargetAB"/>
-        <DataRecord Entry="Button,RaynorCommanderTacticalJump"/>
-        <DataRecord Entry="Effect,RaynorCommanderTacticalJump"/>
-        <DataRecord Entry="Effect,RaynorCommanderTacticalJump@Teleport"/>
-        <DataRecord Entry="Effect,RaynorCommanderTacticalJump@Out"/>
-        <DataRecord Entry="Effect,RaynorCommanderTacticalJump@In"/>
-        <DataRecord Entry="Effect,RaynorCommanderTacticalJump@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderTacticalJump@Set"/>
-        <DataRecord Entry="Effect,RaynorCommanderTacticalJump@ABSet"/>
-        <DataRecord Entry="Effect,RaynorCommanderTacticalJump@TargetAB"/>
-        <DataRecord Entry="Model,RaynorCommanderTacticalJump@Launch"/>
-        <DataRecord Entry="Model,RaynorCommanderTacticalJump@Impact"/>
-        <DataRecord Entry="Sound,RaynorCommanderTacticalJump@ImpactSound"/>
-        <DataRecord Entry="Sound,RaynorCommanderTacticalJump@LaunchSound"/>
-    </CDataCollectionAbil>
-    <CDataCollectionUnit id="RaynorCommanderHyperion" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:AbilityTopbars"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperion"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperion"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperion@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperion@Portrait"/>
-        <DataRecord Entry="Unit,RaynorCommanderHyperion"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperion@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperion@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperion@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperion@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperion@Ready"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperion@DeathVoice"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperion@Help"/>
-        <DataRecord Entry="Light,RaynorCommanderHyperion@Portrait"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderLanzerTorpedoes" parent="CommanderWeaponMissile">
-        <Name value="Reward/Name/RaynorCommanderLanzerTorpedoes"/>
-        <EditorCategories value="DataFamily:Melee,Race:Raynor,ObjectType:Projectile,DataGroup:Weapon"/>
-        <DataRecord Entry="Reward,RaynorCommanderLanzerTorpedoes"/>
-        <DataRecord Entry="Spray,RaynorCommanderLanzerTorpedoes"/>
-        <DataRecord Entry="Button,RaynorCommanderLanzerTorpedoes"/>
-        <DataRecord Entry="Texture,RaynorCommanderLanzerTorpedoes"/>
-        <DataRecord Entry="Actor,RaynorCommanderLanzerTorpedoes@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderLanzerTorpedoes@AttackMissile"/>
-        <DataRecord Entry="Effect,RaynorCommanderLanzerTorpedoes"/>
-        <DataRecord Entry="Effect,RaynorCommanderLanzerTorpedoes@Damage"/>
-        <DataRecord Entry="Effect,RaynorCommanderLanzerTorpedoes@LM"/>
-        <DataRecord Entry="Model,RaynorCommanderLanzerTorpedoes@AttackImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderLanzerTorpedoes@AttackLaunch"/>
-        <DataRecord Entry="Model,RaynorCommanderLanzerTorpedoes@Missile"/>
-        <DataRecord Entry="Mover,RaynorCommanderLanzerTorpedoes@Missile"/>
-        <DataRecord Entry="Sound,RaynorCommanderLanzerTorpedoes@AttackImpact"/>
-        <DataRecord Entry="Sound,RaynorCommanderLanzerTorpedoes@AttackLaunch"/>
-        <DataRecord Entry="Unit,RaynorCommanderLanzerTorpedoes@Missile"/>
-        <DataRecord Entry="Weapon,RaynorCommanderLanzerTorpedoes"/>
-        <TechInfoUnit value=""/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="2"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderMissileTurret" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderMissileTurret"/>
@@ -490,62 +253,12 @@
         <DataRecord Entry="Unit,RaynorCommanderMissileTurret"/>
         <DataRecord Entry="Sound,RaynorCommanderMissileTurret@Placement"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderPDD" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
-        <DataRecord Entry="Actor,RaynorCommanderPDD"/>
-        <DataRecord Entry="Model,RaynorCommanderPDD"/>
-        <DataRecord Entry="Model,RaynorCommanderPDD@Portrait"/>
-        <DataRecord Entry="Model,RaynorCommanderPDD@Placement"/>
-        <DataRecord Entry="Model,RaynorCommanderPDD@Death"/>
-        <DataRecord Entry="Sound,RaynorCommanderPDD@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderPDD@Explode"/>
-        <DataRecord Entry="Sound,RaynorCommanderPDD@Placement"/>
-        <DataRecord Entry="Unit,RaynorCommanderPDD"/>
-        <DataRecord Entry="Button,RaynorCommanderPDD"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderPDDLaser">
-        <Name value="Reward/Name/RaynorCommanderPDDLaser"/>
-        <EditorCategories value="DataFamily:Melee,Race:Raynor,ObjectType:Beam,DataGroup:Weapon"/>
-        <EditorIconSource value="Weapon"/>
-        <DataRecord Entry="Reward,RaynorCommanderPDDLaser"/>
-        <DataRecord Entry="Spray,RaynorCommanderPDDLaser"/>
-        <DataRecord Entry="Button,RaynorCommanderPDDLaser"/>
-        <DataRecord Entry="Texture,RaynorCommanderPDDLaser"/>
-        <DataRecord Entry="Actor,RaynorCommanderPDDLaser@Impact"/>
-        <DataRecord Entry="Actor,RaynorCommanderPDDLaser@Beam"/>
-        <DataRecord Entry="Actor,RaynorCommanderPDDLaser@ImpactSound"/>
-        <DataRecord Entry="Actor,RaynorCommanderPDDLaser@LaunchSound"/>
-        <DataRecord Entry="Behavior,RaynorCommanderPDDLaser"/>
-        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@Damage"/>
-        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@VisibleDummy"/>
-        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@Energy"/>
-        <DataRecord Entry="Effect,RaynorCommanderPDDLaser"/>
-        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@Search"/>
-        <DataRecord Entry="Effect,RaynorCommanderPDDLaser@Set"/>
-        <DataRecord Entry="Weapon,RaynorCommanderPDDLaser"/>
-        <DataRecord Entry="Turret,RaynorCommanderPDDLaser@Turret"/>
-        <TechInfoUnit value=""/>
-    </CDataCollectionUnit>
     <CDataCollectionAbil id="RaynorCommanderPlaceSpiderMine">
         <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
         <DataRecord Entry="Abil,CommanderRaynorPlaceSpiderMine"/>
         <DataRecord Entry="Abil,RaynorCommanderPlaceSpiderMine"/>
         <TechInfoAbil value="CommanderRaynorPlaceSpiderMine"/>
     </CDataCollectionAbil>
-    <CDataCollectionAbil id="RaynorCommanderBurrowSpiderMine">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
-        <DataRecord Entry="Abil,RaynorCommanderBurrowSpiderMine@Burrow"/>
-        <DataRecord Entry="Abil,RaynorCommanderBurrowSpiderMine@Unburrow"/>
-        <DataRecord Entry="Behavior,RaynorCommanderBurrowSpiderMine"/>
-        <DataRecord Entry="Effect,RaynorCommanderBurrowSpiderMine"/>
-    </CDataCollectionAbil>
-    <CDataCollectionUnit id="RaynorCommanderExplode" parent="CommanderWeaponInstantAOE">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
-        <DataRecord Entry="Effect,RaynorCommanderExplode@Set"/>
-        <DataRecord Entry="Effect,RaynorCommanderExplode@Damage"/>
-        <DataRecord Entry="Weapon,RaynorCommanderExplode"/>
-    </CDataCollectionUnit>
     <CDataCollectionAbil id="RaynorCommanderLiftStarport">
         <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
         <DataRecord Entry="Abil,RaynorCommanderLiftStarport@Land"/>
@@ -566,43 +279,6 @@
         <DataRecord Entry="Model,RaynorCommanderRefinery@Portrait"/>
         <DataRecord Entry="Sound,RaynorCommanderRefinery@Placement"/>
         <DataRecord Entry="Unit,RaynorCommanderRefinery"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderSiegeTank" parent="CommanderUnitMorphing">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderSiegeTank"/>
-        <DataRecord Entry="Actor,RaynorCommanderSiegeTank@Alternate"/>
-        <DataRecord Entry="Model,RaynorCommanderSiegeTank@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderSiegeTank@DeathRagdoll"/>
-        <DataRecord Entry="Model,RaynorCommanderSiegeTank@Portrait"/>
-        <DataRecord Entry="Model,RaynorCommanderSiegeTank"/>
-        <DataRecord Entry="Model,RaynorCommanderSiegeTank@Alternate"/>
-        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Explode"/>
-        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Ready"/>
-        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderSiegeTank@Pissed2"/>
-        <DataRecord Entry="Unit,RaynorCommanderSiegeTank@Alternate"/>
-        <DataRecord Entry="Unit,RaynorCommanderSiegeTank"/>
-        <DataRecord Entry="Model,RaynorCommanderSiegeTank@Morphing"/>
-        <DataRecord Entry="Button,RaynorCommanderSiegeTank"/>
-        <DataRecord Entry="Requirement,RaynorCommanderSiegeTank"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderSpiderMine" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderSpiderMine"/>
-        <DataRecord Entry="Model,RaynorCommanderSpiderMine"/>
-        <DataRecord Entry="Model,RaynorCommanderSpiderMine@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderSpiderMine@Placement"/>
-        <DataRecord Entry="Unit,RaynorCommanderSpiderMine"/>
-        <DataRecord Entry="Sound,RaynorCommanderSpiderMine@SoundPlacement"/>
-        <DataRecord Entry="Sound,RaynorCommanderSpiderMine@SoundBurrow"/>
-        <DataRecord Entry="Sound,RaynorCommanderSpiderMine@Death"/>
-        <DataRecord Entry="Unit,RaynorCommanderSpiderMine@Burrowed"/>
-        <DataRecord Entry="Actor,RaynorCommanderSpiderMine@Placement"/>
-        <DataRecord Entry="Actor,RaynorCommanderSpiderMine@SoundPlacement"/>
-        <DataRecord Entry="Actor,RaynorCommanderSpiderMine@SoundBurrow"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderStarport" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
@@ -742,117 +418,10 @@
         <Pattern value="CommanderUnits"/>
         <TechInfoUnit value="CommanderUnit"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderViking" parent="CommanderUnitMorphing">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderViking"/>
-        <DataRecord Entry="Model,RaynorCommanderViking"/>
-        <DataRecord Entry="Model,RaynorCommanderViking@Portrait"/>
-        <DataRecord Entry="Model,RaynorCommanderViking@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderViking@DeathRagdoll"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@VO"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@Explode"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@Movement"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@Ready"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@Yes"/>
-        <DataRecord Entry="Unit,RaynorCommanderViking"/>
-        <DataRecord Entry="Actor,RaynorCommanderViking@Alternate"/>
-        <DataRecord Entry="Model,RaynorCommanderViking@Alternate"/>
-        <DataRecord Entry="Model,RaynorCommanderViking@DeathAlternate"/>
-        <DataRecord Entry="Model,RaynorCommanderViking@DeathRagdollAlternate"/>
-        <DataRecord Entry="Unit,RaynorCommanderViking@Alternate"/>
-        <DataRecord Entry="Actor,RaynorCommanderViking@2@Anim"/>
-        <DataRecord Entry="Actor,RaynorCommanderViking@1"/>
-        <DataRecord Entry="Actor,RaynorCommanderViking@2"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@1"/>
-        <DataRecord Entry="Sound,RaynorCommanderViking@2"/>
-        <DataRecord Entry="Button,RaynorCommanderViking"/>
-        <DataRecord Entry="Requirement,RaynorCommanderViking"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderWeaponSiegeTank" parent="CommanderWeaponInstantAOE">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Instant"/>
-        <DataRecord Entry="Turret,RaynorCommanderWeaponSiegeTank@Turret"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank@DamageModel"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank@Directed"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank@TargetImpactFire"/>
-        <DataRecord Entry="Effect,RaynorCommanderWeaponSiegeTank@Damage"/>
-        <DataRecord Entry="Effect,RaynorCommanderWeaponSiegeTank@Switch"/>
-        <DataRecord Entry="Effect,RaynorCommanderWeaponSiegeTank@Dummy"/>
-        <DataRecord Entry="Effect,RaynorCommanderWeaponSiegeTank@Directed"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@DirectedDamage"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@DirectedImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@DirectedLaunch"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@Impact"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponSiegeTank@Launch"/>
-        <DataRecord Entry="Sound,RaynorCommanderWeaponSiegeTank@AttackImpact"/>
-        <DataRecord Entry="Sound,RaynorCommanderWeaponSiegeTank@AttackLaunch"/>
-        <DataRecord Entry="Weapon,RaynorCommanderWeaponSiegeTank"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponSiegeTank"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="5"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderWeaponTank" parent="CommanderWeaponInstant">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Instant"/>
-        <DataRecord Entry="Weapon,RaynorCommanderWeaponTank"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponTank@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponTank"/>
-        <DataRecord Entry="Effect,RaynorCommanderWeaponTank@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponTank@AttackImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponTank@AttackLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderWeaponTank@AttackImpact"/>
-        <DataRecord Entry="Sound,RaynorCommanderWeaponTank@Launch"/>
-        <DataRecord Entry="Turret,RaynorCommanderWeaponTank"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="3"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderTorpedoes" parent="CommanderWeaponMissile">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,RaynorCommanderTorpedoes@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderTorpedoes@Missile"/>
-        <DataRecord Entry="Effect,RaynorCommanderTorpedoes"/>
-        <DataRecord Entry="Effect,RaynorCommanderTorpedoes@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderTorpedoes@AttackImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderTorpedoes@Missile"/>
-        <DataRecord Entry="Sound,RaynorCommanderTorpedoes@AttackLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderTorpedoes@AttackImpact"/>
-        <DataRecord Entry="Unit,RaynorCommanderTorpedoes@Missile"/>
-        <DataRecord Entry="Weapon,RaynorCommanderTorpedoes"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="2"/>
-    </CDataCollectionUnit>
     <CDataCollectionAbil id="RaynorCommanderTrainStarport">
         <EditorCategories value="Race:Raynor,DataGroup:AbilityBuildTrain,ObjectType:Other"/>
         <DataRecord Entry="Abil,RaynorCommanderTrainStarport"/>
     </CDataCollectionAbil>
-    <CDataCollectionUnit id="RaynorCommanderVulture" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderVulture"/>
-        <DataRecord Entry="Model,RaynorCommanderVulture"/>
-        <DataRecord Entry="Model,RaynorCommanderVulture@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderVulture@Portrait"/>
-        <DataRecord Entry="Unit,RaynorCommanderVulture"/>
-        <DataRecord Entry="Sound,RaynorCommanderVulture@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderVulture@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderVulture@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderVulture@Ready"/>
-        <DataRecord Entry="Sound,RaynorCommanderVulture@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderVulture@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderVulture@Death"/>
-        <DataRecord Entry="Button,RaynorCommanderVulture"/>
-        <DataRecord Entry="Sound,RaynorCommanderVulture@Movement"/>
-        <DataRecord Entry="Requirement,RaynorCommanderVulture"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderBarrackResearch">
         <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
         <DataRecord Entry="Abil,RaynorCommanderBarrackResearch"/>
@@ -913,21 +482,6 @@
         <DataRecord Entry="Model,RaynorCommanderFactory@Build"/>
         <DataRecord Entry="Actor,RaynorCommanderFactory@Build"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderGaussRiffleC14" parent="CommanderWeaponInstant">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Instant"/>
-        <DataRecord Entry="Actor,RaynorCommanderGaussRiffleC14@Attack"/>
-        <DataRecord Entry="Effect,RaynorCommanderGaussRiffleC14@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderGaussRiffleC14@AttackImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderGaussRiffleC14@AttackLaunch"/>
-        <DataRecord Entry="Model,RaynorCommanderGaussRiffleC14@BunkerAttackLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderGaussRiffleC14@AttackImpact"/>
-        <DataRecord Entry="Sound,RaynorCommanderGaussRiffleC14@BunkerAttackLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderGaussRiffleC14@AttackLaunch"/>
-        <DataRecord Entry="Weapon,RaynorCommanderGaussRiffleC14"/>
-        <UpgradeInfoWeapon DamagePerDice="1"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderInfantryWeapon"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderInciniratorGauntlets">
         <EditorCategories value="DataGroup:Research,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
         <DataRecord Entry="Button,RaynorCommanderInciniratorGauntlets"/>
@@ -966,159 +520,6 @@
         <DataRecord Entry="Sound,RaynorCommanderLiftFactory@Lift"/>
         <DataRecord Entry="Sound,RaynorCommanderLiftFactory@Land"/>
     </CDataCollectionAbil>
-    <CDataCollectionUnit id="RaynorCommanderMedic" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderMedic"/>
-        <DataRecord Entry="Button,RaynorCommanderMedic"/>
-        <DataRecord Entry="Model,RaynorCommanderMedic"/>
-        <DataRecord Entry="Model,RaynorCommanderMedic@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderMedic@DeathRagdol"/>
-        <DataRecord Entry="Unit,RaynorCommanderMedic"/>
-        <DataRecord Entry="Model,RaynorCommanderMedic@Portrait"/>
-        <DataRecord Entry="Sound,RaynorCommanderMedic@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderMedic@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderMedic@DeathVoice"/>
-        <DataRecord Entry="Sound,RaynorCommanderMedic@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderMedic@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderMedic@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderMedic@Ready"/>
-        <DataRecord Entry="Light,RaynorCommanderMedic"/>
-        <DataRecord Entry="Requirement,RaynorCommanderMedic"/>
-        <DataRecord Entry="Sound,RaynorCommanderMedic@Death"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderPerditionThrower" parent="CommanderWeaponInstantAOE">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Instant"/>
-        <DataRecord Entry="Actor,RaynorCommanderPerditionThrower@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderPerditionThrower@AttackModel"/>
-        <DataRecord Entry="Effect,RaynorCommanderPerditionThrower@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderPerditionThrower@AttackModel"/>
-        <DataRecord Entry="Sound,RaynorCommanderPerditionThrower@AttackLaunch"/>
-        <DataRecord Entry="Weapon,RaynorCommanderPerditionThrower"/>
-        <DataRecord Entry="Model,RaynorCommanderPerditionThrower@UpgradeAttackModel"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderInfantryWeapon"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderFirebat" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderFirebat"/>
-        <DataRecord Entry="Model,RaynorCommanderFirebat"/>
-        <DataRecord Entry="Model,RaynorCommanderFirebat@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderFirebat@Portrait"/>
-        <DataRecord Entry="Sound,RaynorCommanderFirebat@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderFirebat@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderFirebat@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderFirebat@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderFirebat@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderFirebat@Ready"/>
-        <DataRecord Entry="Unit,RaynorCommanderFirebat"/>
-        <DataRecord Entry="Sound,RaynorCommanderFirebat@DeathVoice"/>
-        <DataRecord Entry="Sound,RaynorCommanderFirebat@Death"/>
-        <DataRecord Entry="Button,RaynorCommanderFirebat"/>
-        <DataRecord Entry="Requirement,RaynorCommanderFirebat"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderJuggernautPlating"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderMarauder" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderMarauder"/>
-        <DataRecord Entry="Model,RaynorCommanderMarauder"/>
-        <DataRecord Entry="Model,RaynorCommanderMarauder@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderMarauder@DeathEviscerate"/>
-        <DataRecord Entry="Model,RaynorCommanderMarauder@DeathRagdoll"/>
-        <DataRecord Entry="Model,RaynorCommanderMarauder@Portrait"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarauder@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarauder@Death"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarauder@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarauder@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarauder@Ready"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarauder@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarauder@What"/>
-        <DataRecord Entry="Unit,RaynorCommanderMarauder"/>
-        <DataRecord Entry="Button,RaynorCommanderMarauder"/>
-        <DataRecord Entry="Requirement,RaynorCommanderMarauder"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarauder@DeathVoice"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderMarine" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderMarine"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine@DeathBlast"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine@DeathDisintegrate"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine@DeathEat"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine@DeathEviscerate"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine@DeathFire"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine@DeathRagdoll"/>
-        <DataRecord Entry="Model,RaynorCommanderMarine@Portrait"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathBloodSpray"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathEat"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathEviscerate"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathFire"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@StimPackVO"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@Ready"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@Pissed"/>
-        <DataRecord Entry="Unit,RaynorCommanderMarine"/>
-        <DataRecord Entry="Button,RaynorCommanderMarine"/>
-        <DataRecord Entry="Requirement,RaynorCommanderMarine"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathVoice"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@Death"/>
-        <DataRecord Entry="Sound,RaynorCommanderMarine@DeathDisintegrate"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderPunisherGrenades" parent="CommanderWeaponMissile">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,RaynorCommanderPunisherGrenades@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderPunisherGrenades@AttackAnimation"/>
-        <DataRecord Entry="Actor,RaynorCommanderPunisherGrenades@Missile"/>
-        <DataRecord Entry="Actor,RaynorCommanderPunisherGrenades@UpgradedAttack"/>
-        <DataRecord Entry="Behavior,RaynorCommanderPunisherGrenades"/>
-        <DataRecord Entry="Effect,RaynorCommanderPunisherGrenades@LM"/>
-        <DataRecord Entry="Effect,RaynorCommanderPunisherGrenades@Set"/>
-        <DataRecord Entry="Effect,RaynorCommanderPunisherGrenades@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderPunisherGrenades"/>
-        <DataRecord Entry="Model,RaynorCommanderPunisherGrenades@AttackImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderPunisherGrenades@AttackLaunch"/>
-        <DataRecord Entry="Model,RaynorCommanderPunisherGrenades@Missile"/>
-        <DataRecord Entry="Model,RaynorCommanderPunisherGrenades@UpgradedAttackImpact"/>
-        <DataRecord Entry="Mover,RaynorCommanderPunisherGrenades@Weapon"/>
-        <DataRecord Entry="Requirement,RaynorCommanderPunisherGrenades@Use"/>
-        <DataRecord Entry="Sound,RaynorCommanderPunisherGrenades@AttackLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderPunisherGrenades@AttackImpact"/>
-        <DataRecord Entry="Unit,RaynorCommanderPunisherGrenades@LMWeapon"/>
-        <DataRecord Entry="Upgrade,RaynorCommanderPunisherGrenades@PunisherGrenades"/>
-        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@NoPurificationNova"/>
-        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@NotMassive"/>
-        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@NotStructure"/>
-        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@Researched"/>
-        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@TargetIsSlowed"/>
-        <DataRecord Entry="Weapon,RaynorCommanderPunisherGrenades"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderInfantryWeapon"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="2"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderSCV" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,RaynorCommanderSCV"/>
-        <DataRecord Entry="Model,RaynorCommanderSCV"/>
-        <DataRecord Entry="Model,RaynorCommanderSCV@Portrait"/>
-        <DataRecord Entry="Model,RaynorCommanderSCV@Death"/>
-        <DataRecord Entry="Model,RaynorCommanderSCV@DeathRagdoll"/>
-        <DataRecord Entry="Sound,RaynorCommanderSCV@Attack"/>
-        <DataRecord Entry="Sound,RaynorCommanderSCV@Explode"/>
-        <DataRecord Entry="Sound,RaynorCommanderSCV@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderSCV@Ready"/>
-        <DataRecord Entry="Sound,RaynorCommanderSCV@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderSCV@Yes"/>
-        <DataRecord Entry="Unit,RaynorCommanderSCV"/>
-        <DataRecord Entry="Button,RaynorCommanderSCV@SCV"/>
-        <DataRecord Entry="Requirement,RaynorCommanderSCV"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderTechLab" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderTechLab"/>
@@ -1198,50 +599,6 @@
         <EditorIconSource value="Actor"/>
         <DataRecord Entry="Abil,RaynorCommanderTrainBarrack"/>
     </CDataCollectionAbil>
-    <CDataCollectionAbil id="RaynorCommanderHyperionYamatoGun">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Projectile"/>
-        <DataRecord Entry="Abil,RaynorCommanderHyperionYamatoGun"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Missile"/>
-        <DataRecord Entry="Button,RaynorCommanderHyperionYamatoGun"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperionYamatoGun"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperionYamatoGun@Damage"/>
-        <DataRecord Entry="Effect,RaynorCommanderHyperionYamatoGun@LM"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperionYamatoGun@Missile"/>
-        <DataRecord Entry="Unit,RaynorCommanderHyperionYamatoGun@Missile"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperionYamatoGun@Impact"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperionYamatoGun@OneShot"/>
-        <DataRecord Entry="Model,RaynorCommanderHyperionYamatoGun@Cursor"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperionYamatoGun@Charge"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperionYamatoGun@Impact"/>
-        <DataRecord Entry="Sound,RaynorCommanderHyperionYamatoGun@Launch"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@GenericImpact"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Cursor"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@OneShot"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Charge"/>
-        <DataRecord Entry="Mover,RaynorCommanderHyperionYamatoGun@Mover"/>
-        <DataRecord Entry="Actor,RaynorCommanderHyperionYamatoGun@Range"/>
-    </CDataCollectionAbil>
-    <CDataCollectionAbil id="RaynorCommanderYamatoGun" parent="Decal">
-        <EditorCategories value="DataFamily:Melee,Race:Raynor,ObjectType:Projectile,DataGroup:Ability"/>
-        <DataRecord Entry="Abil,RaynorCommanderYamatoGun"/>
-        <DataRecord Entry="Actor,RaynorCommanderYamatoGun@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderYamatoGun@Missile"/>
-        <DataRecord Entry="Actor,RaynorCommanderYamatoGun@Range"/>
-        <DataRecord Entry="Actor,RaynorCommanderYamatoGun@ChargeModel"/>
-        <DataRecord Entry="Actor,RaynorCommanderYamatoGun@ChargeSound"/>
-        <DataRecord Entry="Actor,RaynorCommanderYamatoGun@ImpactModel"/>
-        <DataRecord Entry="Effect,RaynorCommanderYamatoGun@Damage"/>
-        <DataRecord Entry="Effect,RaynorCommanderYamatoGun"/>
-        <DataRecord Entry="Model,RaynorCommanderYamatoGun@AttackImpact"/>
-        <DataRecord Entry="Model,RaynorCommanderYamatoGun@ChargeModel"/>
-        <DataRecord Entry="Mover,RaynorCommanderYamatoGun@Mover"/>
-        <DataRecord Entry="Requirement,RaynorCommanderYamatoGun@Requirement"/>
-        <DataRecord Entry="Sound,RaynorCommanderYamatoGun@ChargeSound"/>
-        <DataRecord Entry="Sound,RaynorCommanderYamatoGun@SoundLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderYamatoGun@SoundImpact"/>
-        <DataRecord Entry="Unit,RaynorCommanderYamatoGun@Missile"/>
-    </CDataCollectionAbil>
     <CDataCollection id="TerranBuildingFlameBig">
         <EditorCategories value="DataGroup:Doodad,Race:Terran,DataFamily:Coop,ObjectType:Environment"/>
         <DataRecord Entry="Actor,TerranBuildingFlameBig"/>
@@ -1253,52 +610,4 @@
         <DataRecord Entry="Actor,TerranBuildingFlameBig@FireTransition"/>
         <DataRecord Entry="Actor,TerranBuildingFlameBig@HeavySmokeTransition"/>
     </CDataCollection>
-    <CDataCollectionUnit id="RaynorCommanderDuskWings" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:AbilityTopbars"/>
-        <DataRecord Entry="Actor,RaynorCommanderDuskWings"/>
-        <DataRecord Entry="Model,RaynorCommanderDuskWings"/>
-        <DataRecord Entry="Model,RaynorCommanderDuskWings@Death"/>
-        <DataRecord Entry="Unit,RaynorCommanderDuskWings"/>
-        <DataRecord Entry="Actor,RaynorCommanderDuskWings@Reentry"/>
-        <DataRecord Entry="Model,RaynorCommanderDuskWings@Portrait"/>
-        <DataRecord Entry="Model,RaynorCommanderDuskWings@Reentry"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Death"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Movement"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWings@What"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Yes"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Help"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Pissed"/>
-        <DataRecord Entry="Sound,RaynorCommanderDuskWings@Ready"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderATSLaserBattery" parent="CommanderWeaponMissile">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,RaynorCommanderATSLaserBattery@Missile"/>
-        <DataRecord Entry="Actor,RaynorCommanderATSLaserBattery@Impact"/>
-        <DataRecord Entry="Actor,RaynorCommanderATSLaserBattery@Attack"/>
-        <DataRecord Entry="Behavior,RaynorCommanderATSLaserBattery@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderATSLaserBattery"/>
-        <DataRecord Entry="Effect,RaynorCommanderATSLaserBattery@LM"/>
-        <DataRecord Entry="Effect,RaynorCommanderATSLaserBattery@AB"/>
-        <DataRecord Entry="Effect,RaynorCommanderATSLaserBattery@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderATSLaserBattery@Missile"/>
-        <DataRecord Entry="Model,RaynorCommanderATSLaserBattery@Impact"/>
-        <DataRecord Entry="Unit,RaynorCommanderATSLaserBattery@Missile"/>
-        <DataRecord Entry="Weapon,RaynorCommanderATSLaserBattery"/>
-        <DataRecord Entry="Model,RaynorCommanderATSLaserBattery@Launch"/>
-        <DataRecord Entry="Sound,RaynorCommanderATSLaserBattery@AttackLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderATSLaserBattery@AttackImpact"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
-        <UpgradeInfoWeapon DamagePerDice="2"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="RaynorCommanderWeaponSCV" parent="CommanderWeaponInstant">
-        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Instant"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponSCV@Attack"/>
-        <DataRecord Entry="Actor,RaynorCommanderWeaponSCV@AttackLaunch"/>
-        <DataRecord Entry="Effect,RaynorCommanderWeaponSCV@Damage"/>
-        <DataRecord Entry="Model,RaynorCommanderWeaponSCV@AttackLaunch"/>
-        <DataRecord Entry="Sound,RaynorCommanderWeaponSCV@AttackLaunch"/>
-        <DataRecord Entry="Weapon,RaynorCommanderWeaponSCV"/>
-    </CDataCollectionUnit>
 </Catalog>

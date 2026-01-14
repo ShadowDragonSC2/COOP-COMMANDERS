@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <!-- Effects -->
+    <CEffectApplyBehavior id="ZeratulCommanderMindControl">
+        <ValidatorArray value="ZeratulCommanderMindControl@NotMindControl"/>
+    </CEffectApplyBehavior>
+    <!-- Abilities -->
+    <CAbilEffectTarget id="ZeratulCommanderMindControl">
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderMindControl"/>
+        <Range value="9"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="ZeratulCommanderMaelstorm">
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderMaelstorm"/>
+    </CAbilEffectTarget>
+    <!-- Validators -->
+    <CValidatorUnitCompareBehaviorCount id="ZeratulCommanderMindControl@NotMindControl">
+        <ResultFailed value="Error,CC/e_CmdNotMindControlled"/>
+        <Behavior value="ZeratulCommanderMindControl"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <!-- Buttons -->
+    <CButton id="ZeratulCommaderDarkArchon">
+        <Icon value="Assets\Textures\btn-unit-protoss-darkarchon.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CButton id="ZeratulCommanderMindControl">
+        <Icon value="Assets\Textures\btn-ability-protoss-mindcontrol.dds"/>
+    </CButton>
+    <CButton id="ZeratulCommanderMaelstorm">
+        <Icon value="Assets\Textures\btn-ability-zeratul-darkarchon-maelstrom.dds"/>
+    </CButton>
+    <!-- Actors -->
+    <CActorModel id="ZeratulCommanderMindControl" parent="ModelAnimationStyleContinuousUNIT">
+        <EditorCategories value=""/>
+        <On Terms="Behavior.ZeratulCommanderMindControl.On" Send="Create"/>
+        <On Terms="Behavior.ZeratulCommanderMindControl.Off" Send="Destroy"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <AutoScaleFactor value="1.000000"/>
+        <EventDataSound Name="Controlled" Sound="ZeratulCommanderMindControl@ImpactSound"/>
+    </CActorModel>
+    <CActorSimple id="ZeratulCommanderMindControl@Animation">
+        <EditorCategories value=""/>
+        <On Terms="Abil.ZeratulCommanderMindControl.SourceCastStart" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="$Spell,A"/>
+    </CActorSimple>
+    <CActorBeamSimple id="ZeratulCommanderMindControl@Beam" parent="BeamSimpleAnimationStyleOneShot">
+        <On Terms="Effect.ZeratulCommanderMindControl.Start" Send="Create"/>
+        <HostLaunch Subject="_Unit" Scope="Caster" Actor="Find"/>
+        <HostLaunchSiteOps Ops="SOpAttachHead"/>
+        <HostImpact Subject="_Unit" Scope="Target" Actor="Find"/>
+        <HostImpactSiteOps Ops="SOpAttachHead"/>
+    </CActorBeamSimple>
+    <CActorUnit id="ZeratulCommaderDarkArchon" parent="CommanderGroundUnit" unitName="ZeratulCommaderDarkArchon">
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-darkarchon.dds"/>
+    </CActorUnit>
+    <CModel id="ZeratulCommanderMindControl">
+        <Model value="Assets\Effects\Protoss\DarkArchon_MindControl_State\DarkArchon_MindControl_State.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <Events Anim="Stand" Name="Controlled" Type="Sound"/>
+    </CModel>
+    <CModel id="ZeratulCommaderDarkArchon" parent="Archon">
+        <Model value="Assets\Units\Protoss\Void_DarkArchon\Void_DarkArchon.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderMindControl@Beam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\DarkArchon_MindControl_Beam\DarkArchon_MindControl_Beam.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommaderDarkArchon@Death" parent="UnitDeath"/>
+    <CModel id="ZeratulCommaderDarkArchon@Portrait" parent="Portrait"/>
+    <CSound id="ZeratulCommanderMindControl@ImpactSound" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00016.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00017.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00018.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00019.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00020.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00021.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00022.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00023.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00024.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00025.ogg" FacialGroup=""/>
+        <Select value="Sequential"/>
+    </CSound>
+    <!-- Data Collection -->
+    <CDataCollectionUnit id="ZeratulCommanderMindControl" parent="CommanderAbilityTarget">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Target"/>
+        <DataRecord Entry="Abil,ZeratulCommanderMindControl"/>
+        <DataRecord Entry="Button,ZeratulCommanderMindControl"/>
+        <DataRecord Entry="Behavior,ZeratulCommanderMindControl"/>
+        <DataRecord Entry="Effect,ZeratulCommanderMindControl"/>
+        <DataRecord Entry="Actor,ZeratulCommanderMindControl"/>
+        <DataRecord Entry="Actor,ZeratulCommanderMindControl@Animation"/>
+        <DataRecord Entry="Actor,ZeratulCommanderMindControl@Beam"/>
+        <DataRecord Entry="Model,ZeratulCommanderMindControl"/>
+        <DataRecord Entry="Model,ZeratulCommanderMindControl@Beam"/>
+        <DataRecord Entry="Validator,ZeratulCommanderMindControl@NotMindControl"/>
+        <DataRecord Entry="Sound,ZeratulCommanderMindControl@ImpactSound"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderMaelstorm" parent="CommanderAbilityTarget">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Target"/>
+        <DataRecord Entry="Abil,ZeratulCommanderMaelstorm"/>
+        <DataRecord Entry="Button,ZeratulCommanderMaelstorm"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommaderDarkArchon" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
+        <DataRecord Entry="Unit,ZeratulCommaderDarkArchon"/>
+        <DataRecord Entry="Actor,ZeratulCommaderDarkArchon"/>
+        <DataRecord Entry="Button,ZeratulCommaderDarkArchon"/>
+        <DataRecord Entry="Model,ZeratulCommaderDarkArchon"/>
+    </CDataCollectionUnit>
+    <!-- Units -->
+    <CUnit id="ZeratulCommaderDarkArchon" parent="CommanderGround_Prot" race="COOPZeratul">
+        <AbilArray Link="ZeratulCommanderMindControl"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ZeratulCommanderMindControl" Type="AbilCmd" AbilCmd="ZeratulCommanderMindControl,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+    </CUnit>
+    <!-- Behaviors -->
+    <CBehaviorBuff id="ZeratulCommanderMindControl">
+        <Duration value="11"/>
+        <FinalEffect value="Suicide"/>
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-protoss-mindcontrol.dds"/>
+        <DisplayDuration index="Self" value="1"/>
+        <DisplayDuration index="Ally" value="1"/>
+        <Player Value="Caster"/>
+    </CBehaviorBuff>
+</Catalog>

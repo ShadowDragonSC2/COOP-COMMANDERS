@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectLaunchMissile id="RaynorCommanderTorpedoes">
+        <EditorCategories value="Race:Raynor"/>
+        <ImpactEffect value="RaynorCommanderTorpedoes@Damage"/>
+        <AmmoUnit value="RaynorCommanderTorpedoes@Missile"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="RaynorCommanderTorpedoes@Damage">
+        <EditorCategories value="Race:Raynor"/>
+        <AttributeBonus index="Biological" value="10"/>
+        <Amount value="15"/>
+    </CEffectDamage>
+    <CRequirement id="RaynorCommanderVulture">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderVulture">
+        <Icon value="Assets\Textures\btn-unit-terran-vulture.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-vulture.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorAction id="RaynorCommanderTorpedoes@Attack" parent="GenericAttack" effectImpact="RaynorCommanderTorpedoes@Damage" effectLaunch="RaynorCommanderTorpedoes">
+        <EditorCategories value=""/>
+        <Missile value="RaynorCommanderTorpedoes@Missile"/>
+    </CActorAction>
+    <CActorMissile id="RaynorCommanderTorpedoes@Missile" parent="GenericAttackMissile" unitName="RaynorCommanderTorpedoes@Missile">
+        <EditorCategories value=""/>
+    </CActorMissile>
+    <CActorUnit id="RaynorCommanderVulture" parent="GenericUnitStandard" unitName="RaynorCommanderVulture">
+        <EditorCategories value=""/>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-vulture.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-vulture.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-vulture.dds"/>
+        </Wireframe>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderVulture@Death" SoundLink="Hellion_Explosion" VoiceLink="RaynorCommanderVulture@Death"/>
+        <PortraitModel value="RaynorCommanderVulture@Portrait"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <SoundArray index="Ready" value="RaynorCommanderVulture@Ready"/>
+        <SoundArray index="Help" value="RaynorCommanderVulture@Help"/>
+        <SoundArray index="What" value="RaynorCommanderVulture@What"/>
+        <SoundArray index="Yes" value="RaynorCommanderVulture@Yes"/>
+        <SoundArray index="Attack" value="RaynorCommanderVulture@Attack"/>
+        <SoundArray index="Pissed" value="RaynorCommanderVulture@Pissed"/>
+        <SoundArray index="Movement" value="RaynorCommanderVulture@Movement"/>
+    </CActorUnit>
+    <CModel id="RaynorCommanderTorpedoes@AttackImpact">
+        <Model value="Assets\Effects\Terran\GoliathAirMissileImpact\GoliathAirMissileImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTorpedoes@Missile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\GoliathMissile\GoliathMissile.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderVulture" parent="Unit">
+        <Model value="Assets\Units\Terran\Vulture\Vulture.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Tipability value="0.750000"/>
+        <TipabilityLength value="0.600000"/>
+        <TipabilityWidth value="0.400000"/>
+    </CModel>
+    <CModel id="RaynorCommanderVulture@Death" parent="UnitDeath">
+        <Model value="Assets\Units\Terran\VultureDeath\VultureDeath.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderVulture@Portrait" parent="FXAPortrait">
+        <Model value="Assets\Portraits\Terran\VulturePortrait\VulturePortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <FacialController value="LocalizedData\Facial\VulturePortrait.fxa"/>
+        <Image value="Assets\Textures\reaper_covertops_collection_portrait_static.dds"/>
+    </CModel>
+    <CWeaponLegacy id="RaynorCommanderTorpedoes">
+        <EditorCategories value="Race:Raynor"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel0.dds"/>
+        <DisplayEffect value="RaynorCommanderTorpedoes@Damage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <Period value="1.694"/>
+        <Backswing value="0"/>
+    </CWeaponLegacy>
+    <CSound id="RaynorCommanderTorpedoes@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall9.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderTorpedoes@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_AttackLaunch0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_AttackLaunch1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_AttackLaunch2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Vulture\Vulture_AttackLaunch3.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderVulture@Movement" parent="Movement">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Hellion\Hellion_Movement0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Hellion\Hellion_Movement1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Hellion\Hellion_Movement2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Hellion\Hellion_Movement3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Hellion\Hellion_Movement4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Hellion\Hellion_Movement5.wav"/>
+    </CSound>
+    <CSound id="RaynorCommanderVulture@Attack" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Attack00.ogg" FacialAnim="Vulture_Attack00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Attack01.ogg" FacialAnim="Vulture_Attack01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Attack02.ogg" FacialAnim="Vulture_Attack02"/>
+    </CSound>
+    <CSound id="RaynorCommanderVulture@Death" parent="DeathVoice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Death00.wav" FacialAnim="Vulture_Death00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Death01.wav" FacialAnim="Vulture_Death01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Death02.wav" FacialAnim="Vulture_Death02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Death03.wav" FacialAnim="Vulture_Death03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Death04.wav" FacialAnim="Vulture_Death04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Death05.wav" FacialAnim="Vulture_Death05"/>
+    </CSound>
+    <CSound id="RaynorCommanderVulture@Help" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Help00.ogg" FacialAnim="Vulture_Help00"/>
+    </CSound>
+    <CSound id="RaynorCommanderVulture@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Pissed00.ogg" FacialAnim="Vulture_Pissed00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Pissed01.ogg" FacialAnim="Vulture_Pissed01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Pissed02.ogg" FacialAnim="Vulture_Pissed02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Pissed03.ogg" FacialAnim="Vulture_Pissed03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Pissed04.ogg" FacialAnim="Vulture_Pissed04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Pissed05.ogg" FacialAnim="Vulture_Pissed05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Pissed06.ogg" FacialAnim="Vulture_Pissed06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Pissed07.ogg" FacialAnim="Vulture_Pissed07"/>
+    </CSound>
+    <CSound id="RaynorCommanderVulture@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Ready00.ogg" FacialAnim="Vulture_Ready00"/>
+    </CSound>
+    <CSound id="RaynorCommanderVulture@What" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_What00.ogg" FacialAnim="Vulture_What00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_What01.ogg" FacialAnim="Vulture_What01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_What02.ogg" FacialAnim="Vulture_What02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_What03.ogg" FacialAnim="Vulture_What03"/>
+    </CSound>
+    <CSound id="RaynorCommanderVulture@Yes" parent="TerranAck">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Yes01.ogg" FacialAnim="Vulture_Yes00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Yes02.ogg" FacialAnim="Vulture_Yes01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Yes03.ogg" FacialAnim="Vulture_Yes02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Yes04.ogg" FacialAnim="Vulture_Yes03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Yes05.ogg" FacialAnim="Vulture_Yes04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Yes06.ogg" FacialAnim="Vulture_Yes05"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderTorpedoes" parent="CommanderWeaponMissile">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Projectile"/>
+        <DataRecord Entry="Actor,RaynorCommanderTorpedoes@Attack"/>
+        <DataRecord Entry="Actor,RaynorCommanderTorpedoes@Missile"/>
+        <DataRecord Entry="Effect,RaynorCommanderTorpedoes"/>
+        <DataRecord Entry="Effect,RaynorCommanderTorpedoes@Damage"/>
+        <DataRecord Entry="Model,RaynorCommanderTorpedoes@AttackImpact"/>
+        <DataRecord Entry="Model,RaynorCommanderTorpedoes@Missile"/>
+        <DataRecord Entry="Sound,RaynorCommanderTorpedoes@AttackLaunch"/>
+        <DataRecord Entry="Sound,RaynorCommanderTorpedoes@AttackImpact"/>
+        <DataRecord Entry="Unit,RaynorCommanderTorpedoes@Missile"/>
+        <DataRecord Entry="Weapon,RaynorCommanderTorpedoes"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderVehicleAndShipWeapons"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMechAttackSpeed"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
+        <UpgradeInfoWeapon DamagePerDice="2"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderVulture" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,RaynorCommanderVulture"/>
+        <DataRecord Entry="Model,RaynorCommanderVulture"/>
+        <DataRecord Entry="Model,RaynorCommanderVulture@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderVulture@Portrait"/>
+        <DataRecord Entry="Unit,RaynorCommanderVulture"/>
+        <DataRecord Entry="Sound,RaynorCommanderVulture@Pissed"/>
+        <DataRecord Entry="Sound,RaynorCommanderVulture@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderVulture@Help"/>
+        <DataRecord Entry="Sound,RaynorCommanderVulture@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderVulture@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderVulture@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderVulture@Death"/>
+        <DataRecord Entry="Button,RaynorCommanderVulture"/>
+        <DataRecord Entry="Sound,RaynorCommanderVulture@Movement"/>
+        <DataRecord Entry="Requirement,RaynorCommanderVulture"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderTorpedoes@Missile" parent="MISSILE">
+        <Race value="COOPRaynor"/>
+        <Mover value="MissileDefault"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Raynor"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderVulture" parent="CommanderGround_Terr" race="COOPRaynor">
+        <Name value="Unit/Name/RaynorCommanderVulture"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="75"/>
+        <LifeMax value="75"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranVehiclePlating"/>
+        <Speed value="4.25"/>
+        <LateralAcceleration value="69.125"/>
+        <Food value="-2"/>
+        <CostResource index="Minerals" value="75"/>
+        <BuildTime value="45"/>
+        <RepairTime value="25"/>
+        <KillXP value="15"/>
+        <AbilArray Link="RaynorCommanderPlaceSpiderMine"/>
+        <AbilArray Link="MakeVultureSpiderMines"/>
+        <AbilArray Link="que1"/>
+        <AbilArray Link="RaynorCommanderAfterburners"/>
+        <BehaviorArray Link="ScavengingSystemsMechDeath"/>
+        <WeaponArray Link="RaynorCommanderTorpedoes"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="WidowMine" Type="AbilCmd" AbilCmd="RaynorCommanderPlaceSpiderMine,Build1" Row="2" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderAfterburners" Type="AbilCmd" AbilCmd="RaynorCommanderAfterburners,On" Row="2" Column="2"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="VultureQueue3,255" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0.625"/>
+        <ScoreMake value="75"/>
+        <ScoreKill value="150"/>
+        <SubgroupPriority value="12"/>
+        <MinimapRadius value="0.625"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <GlossaryPriority value="80"/>
+        <GlossaryStrongArray value="Zergling"/>
+        <GlossaryStrongArray value="Zealot"/>
+        <GlossaryStrongArray value="Marine"/>
+        <GlossaryWeakArray value="Roach"/>
+        <GlossaryWeakArray value="Colossus"/>
+        <GlossaryWeakArray value="SiegeTank"/>
+        <Fidget>
+            <ChanceArray index="Anim" value="0"/>
+            <ChanceArray index="Idle" value="100"/>
+            <ChanceArray index="Turn" value="0"/>
+        </Fidget>
+    </CUnit>
+</Catalog>

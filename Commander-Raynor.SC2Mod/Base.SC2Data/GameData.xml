@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Includes>
+    <Catalog path="GameData/RaynorData/Abilities/Stimpack.xml"/>
+    <Catalog path="GameData/RaynorData/Abilities/YamatoGun.xml"/>
+    <Catalog path="GameData/RaynorData/Top Bar/Hyperion.xml"/>
+    <Catalog path="GameData/RaynorData/Top Bar/Dusk Wings.xml"/>
+    <Catalog path="GameData/RaynorData/SCV.xml"/>
+    <Catalog path="GameData/RaynorData/Marine.xml"/>
+    <Catalog path="GameData/RaynorData/Marauder.xml"/>
+    <Catalog path="GameData/RaynorData/Medic.xml"/>
+    <Catalog path="GameData/RaynorData/Firebat.xml"/>
+    <Catalog path="GameData/RaynorData/Vulture.xml"/>
+    <Catalog path="GameData/RaynorData/SiegeTank.xml"/>
+    <Catalog path="GameData/RaynorData/Viking.xml"/>
+    <Catalog path="GameData/RaynorData/Banshee.xml"/>
+    <Catalog path="GameData/RaynorData/Battlecruiser.xml"/>
+    <Catalog path="GameData/RaynorData/SpiderMine.xml"/>
+</Includes>

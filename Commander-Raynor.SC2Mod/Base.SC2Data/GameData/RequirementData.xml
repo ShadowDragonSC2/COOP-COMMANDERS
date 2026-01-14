@@ -11,10 +11,6 @@
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderArmoryUpgradeCacheCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="RaynorCommanderBanshee">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit"/>
-    </CRequirement>
     <CRequirement id="RaynorCommanderBarracks">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>
         <CanBeSuppressed index="Use" value="0"/>
@@ -23,11 +19,6 @@
     <CRequirement id="RaynorCommanderBattleBunkers">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderBattleBunkersCompleteOnly"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderBattlecruiser">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit"/>
-        <NodeArray index="Show" Link="CountUpgradeRaynorCommanderNewUnitBattlecruiserCompleteOnly"/>
     </CRequirement>
     <CRequirement id="RaynorCommanderCommandCenter">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>
@@ -47,10 +38,6 @@
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderFactoryUpgradeCacheCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="RaynorCommanderFirebat">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
-    </CRequirement>
     <CRequirement id="RaynorCommanderHyperionAdvancedTargetingSystems">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderHyperionAdvancedTargetingSystemsCompleteOnly"/>
@@ -58,17 +45,6 @@
     <CRequirement id="RaynorCommanderInfantryUpgradeCache">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderInfantryUpgradeCacheCompleteOnly"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderMarine">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderMedic">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderMarauder">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
     </CRequirement>
     <CRequirement id="RaynorCommanderMercenaryMunitions">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
@@ -98,13 +74,6 @@
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderRapidRecruitmentCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="RaynorCommanderSCV">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderSiegeTank">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
-    </CRequirement>
     <CRequirement id="RaynorCommanderStarport">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>
         <CanBeSuppressed index="Use" value="0"/>
@@ -130,14 +99,6 @@
     <CRequirement id="RaynorCommanderJuggernautPlating">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderJuggernautPlatingCompleteOnly"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderStimpack">
-        <EditorCategories value="Race:Raynor,TechType:Ability"/>
-        <NodeArray index="Use" Link="CountUpgradeStimpackCompleteOnly80611996TechTreeCheat"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderPunisherGrenades@Use">
-        <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
-        <NodeArray index="Use" Link="CountUpgradeRaynorCommanderPunisherGrenades@PunisherGrenadesCompleteOnly679349TechTreeCheat"/>
     </CRequirement>
     <CRequirement id="RaynorCommanderReactorMorphBarrack@Requirement">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>
@@ -187,18 +148,7 @@
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="NotCountUpgradeRaynorCommanderVehicleAndShipWeapons@Level3QueuedOrBetter"/>
     </CRequirement>
-    <CRequirement id="RaynorCommanderViking">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-    </CRequirement>
     <CRequirement id="RaynorCommanderVikingMode@2">
         <EditorCategories value="Race:Raynor,TechType:Ability"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderVulture">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderYamatoGun@Requirement">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Use" Link="CountUpgradeBattlecruiserEnableSpecializationsCompleteOnly3622066930TechTreeCheat"/>
     </CRequirement>
 </Catalog>

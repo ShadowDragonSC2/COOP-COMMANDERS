@@ -50,7 +50,7 @@
         <WebPriority value="0"/>
         <EffectArrayTemplate Reference="Weapon,^ParamId^,Level" Value="1"/>
         <EffectArrayTemplate Reference="Effect,^ParamId^@Damage,Amount" Value="{DataCollection,^ParamId^,UpgradeInfoWeapon[0].DamagePerDice}"/>
-        <EffectArrayTemplate Operation="Set" Reference="Weapon,^ParamId^,Icon" Value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel^ParamLevel^.dds"/>
+        <EffectArrayTemplate Operation="Set" Reference="Weapon,^ParamId^,Icon" Value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel^ParamLevel^.dds"/>
         <EditorCategories value="Race:Raynor,UpgradeType:AttackBonus"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-vehicleweaponslevel1.dds"/>
         <MaxLevel value="3"/>
@@ -141,15 +141,6 @@
     <CUpgrade id="RaynorCommanderNewUnitBattlecruiser">
         <Icon value="Assets\Textures\talent-raynor-level06-unlockbattlecruiser.dds"/>
         <EditorCategories value="Race:Raynor,UpgradeType:Talents"/>
-    </CUpgrade>
-    <CUpgrade id="RaynorCommanderPunisherGrenades@PunisherGrenades">
-        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
-        <Alert value="ResearchComplete"/>
-        <Race value="Terr"/>
-        <ScoreAmount value="100"/>
-        <ScoreResult value="BuildOrder"/>
-        <EditorCategories value="Race:Raynor,UpgradeType:Talents"/>
-        <AffectedUnitArray value="RaynorCommanderMarauder"/>
     </CUpgrade>
     <CUpgrade id="RaynorCommanderRapidRecruitment">
         <Icon value="Assets\Textures\talent-raynor-level01-infantryspecialist.dds"/>

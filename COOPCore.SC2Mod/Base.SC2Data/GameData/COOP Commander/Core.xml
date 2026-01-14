@@ -173,6 +173,9 @@
     <CDataCollectionUnit default="1" id="CommanderAbilityTeleport">
         <Pattern value="CommanderAbilities_Teleport"/>
     </CDataCollectionUnit>
+    <CDataCollectionUnit default="1" id="CommanderAbilityTarget">
+        <Pattern value="CommanderAbilities_AbilTarget"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit default="1" id="CommanderWeaponInstant">
         <EditorIconSource value="Weapon"/>
         <Pattern value="CommanderWeapon_Instant"/>

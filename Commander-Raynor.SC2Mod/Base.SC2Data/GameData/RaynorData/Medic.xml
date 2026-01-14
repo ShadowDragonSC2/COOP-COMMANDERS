@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="RaynorCommanderMedic">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderMedic">
+        <Icon value="Assets\Textures\btn-unit-terran-medic.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-medic.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CLight id="RaynorCommanderMedic" parent="default">
+        <ToDInfoArray index="0" Id="MedicPortrait" AmbientColor="0.113725,0.062745,0.000000">
+            <Param index="HDRExposure" value="1.480000"/>
+            <Param index="HDRBloomThreshold" value="1.950000"/>
+            <DirectionalLight index="Key">
+                <Color value="0.419608,0.647059,0.988235"/>
+                <ColorMultiplier value="1.970000"/>
+                <SpecColorMultiplier value="1.698000"/>
+                <Direction value="-0.020512,-0.061553,-0.997893"/>
+            </DirectionalLight>
+            <DirectionalLight index="Fill" Color="0.992157,0.819608,0.666667" ColorMultiplier="0.569000" Direction="-0.399916,0.547217,0.735270"/>
+            <DirectionalLight index="Back" Color="0.086275,0.121569,0.552941" ColorMultiplier="0.871000" Direction="0.672465,0.588492,-0.448851"/>
+        </ToDInfoArray>
+        <EditorCategories value="LightGroup:Portraits"/>
+    </CLight>
+    <CActorUnit id="RaynorCommanderMedic" parent="CommanderGroundUnit" unitName="RaynorCommanderMedic">
+        <EditorCategories value=""/>
+        <BarOffset value="20"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-medic.dds"/>
+    </CActorUnit>
+    <CModel id="RaynorCommanderMedic" parent="Unit">
+        <Model value="Assets\Units\Terran\Medic\Medic.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CModel id="RaynorCommanderMedic@Death" parent="UnitDeath">
+        <Model value="Assets\Units\Terran\MedicDeath\MedicDeath.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMedic@DeathRagdol" parent="UnitDeathRagdoll">
+        <Model value="Assets\Units\Terran\MedicDeathRagdoll\MedicDeathRagdoll.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMedic@Portrait" parent="FXAPortrait">
+        <Model value="Assets\Portraits\Terran\MedicPortrait\MedicPortrait.m3"/>
+        <FacialController value="LocalizedData\Facial\MedicPortrait.fxa"/>
+        <Image value="Assets\Textures\medivacportrait_static.dds"/>
+        <Lighting value="RaynorCommanderMedic"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CSound id="RaynorCommanderMedic@Death" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Zerg\SharedEffects\Explosions\Zerg_ExplosionSmall6.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderMedic@Attack" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Attack00.ogg" FacialAnim="Medic_Attack00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Attack01.ogg" FacialAnim="Medic_Attack01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Attack02.ogg" FacialAnim="Medic_Attack02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Attack03.ogg" FacialAnim="Medic_Attack03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Attack04.ogg" FacialAnim="Medic_Attack04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Attack05.ogg" FacialAnim="Medic_Attack05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Attack06.ogg" FacialAnim="Medic_Attack06"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMedic@DeathVoice" parent="DeathVoice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Death00.wav" FacialAnim="Medic_Death00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Death01.wav" FacialAnim="Medic_Death01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Death02.wav" FacialAnim="Medic_Death02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Death03.wav" FacialAnim="Medic_Death03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Death04.wav" FacialAnim="Medic_Death04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Death05.wav" FacialAnim="Medic_Death05"/>
+    </CSound>
+    <CSound id="RaynorCommanderMedic@Help" parent="TerranHelp">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Help00.ogg" FacialAnim="Medic_Help00"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMedic@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed00.ogg" FacialAnim="Medic_Pissed00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed01.ogg" FacialAnim="Medic_Pissed01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed02.ogg" FacialAnim="Medic_Pissed02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed03.ogg" FacialAnim="Medic_Pissed03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed04.ogg" FacialAnim="Medic_Pissed04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed05.ogg" FacialAnim="Medic_Pissed05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed06.ogg" FacialAnim="Medic_Pissed06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed07.ogg" FacialAnim="Medic_Pissed07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed08.ogg" FacialAnim="Medic_Pissed08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed09.ogg" FacialAnim="Medic_Pissed09"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed10.ogg" FacialAnim="Medic_Pissed10"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed11.ogg" FacialAnim="Medic_Pissed11"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Pissed12.ogg" FacialAnim="Medic_Pissed12"/>
+    </CSound>
+    <CSound id="RaynorCommanderMedic@Ready" parent="TerranReady">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Ready00.ogg" FacialAnim="Medic_Ready00"/>
+    </CSound>
+    <CSound id="RaynorCommanderMedic@What" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_What00.ogg" FacialAnim="Medic_What00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_What01.ogg" FacialAnim="Medic_What01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_What02.ogg" FacialAnim="Medic_What02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_What03.ogg" FacialAnim="Medic_What03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_What04.ogg" FacialAnim="Medic_What04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_What05.ogg" FacialAnim="Medic_What05"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMedic@Yes" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Yes00.ogg" FacialAnim="Medic_Yes00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Yes01.ogg" FacialAnim="Medic_Yes01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Yes02.ogg" FacialAnim="Medic_Yes02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Yes03.ogg" FacialAnim="Medic_Yes03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Yes04.ogg" FacialAnim="Medic_Yes04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Medic\Medic_Yes05.ogg" FacialAnim="Medic_Yes05"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderMedic" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,RaynorCommanderMedic"/>
+        <DataRecord Entry="Button,RaynorCommanderMedic"/>
+        <DataRecord Entry="Model,RaynorCommanderMedic"/>
+        <DataRecord Entry="Model,RaynorCommanderMedic@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderMedic@DeathRagdol"/>
+        <DataRecord Entry="Unit,RaynorCommanderMedic"/>
+        <DataRecord Entry="Model,RaynorCommanderMedic@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderMedic@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderMedic@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderMedic@DeathVoice"/>
+        <DataRecord Entry="Sound,RaynorCommanderMedic@Pissed"/>
+        <DataRecord Entry="Sound,RaynorCommanderMedic@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderMedic@Help"/>
+        <DataRecord Entry="Sound,RaynorCommanderMedic@Ready"/>
+        <DataRecord Entry="Light,RaynorCommanderMedic"/>
+        <DataRecord Entry="Requirement,RaynorCommanderMedic"/>
+        <DataRecord Entry="Sound,RaynorCommanderMedic@Death"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderMedic" parent="CommanderGround" race="COOPRaynor">
+        <AbilArray Link="RaynorCommanderHeal"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="RaynorCommanderHeal" Type="AbilCmd" AbilCmd="RaynorCommanderHeal,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <Attributes index="Light" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="60"/>
+        <LifeMax value="60"/>
+        <LifeArmor value="1"/>
+        <EnergyStart value="50"/>
+        <EnergyMax value="200"/>
+        <EnergyRegenRate value="0.5625"/>
+        <Sight value="10"/>
+        <Food value="-2"/>
+        <CostResource index="Minerals" value="75"/>
+        <CostResource index="Vespene" value="50"/>
+        <BuildTime value="12.5"/>
+    </CUnit>
+</Catalog>

@@ -407,6 +407,7 @@ Unit/Description/RaynorCommanderMedic=Легкая единица поддерж
 Unit/LifeArmorName/TerranBuildingPlating=Terran Building Plating
 Unit/Name/COOP/RaynorCommanderArmory=Armory
 Unit/Name/COOP/RaynorCommanderBanshee=Banshee
+Unit/Name/COOP/RaynorCommanderDuskWings=Сумеречная стая
 Unit/Name/COOP/RaynorCommanderEngineeringBay=Engineering Bay
 Unit/Name/COOP/RaynorCommanderFirebat=Firebat
 Unit/Name/COOP/RaynorCommanderFusionCore=Fusion Core

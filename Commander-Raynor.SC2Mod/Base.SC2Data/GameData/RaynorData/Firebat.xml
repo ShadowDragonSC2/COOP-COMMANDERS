@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="RaynorCommanderPerditionThrower@Damage">
+        <EditorCategories value="Race:Raynor"/>
+        <DebugTrace value="1"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Amount value="15"/>
+        <Death value="Fire"/>
+        <AreaArray Radius="1" Fraction="0.8"/>
+        <AreaRelativeOffset value="0,-1"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Missile,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="CenterAtLaunch" value="1"/>
+        <SearchFlags index="OffsetAreaByAngle" value="1"/>
+    </CEffectDamage>
+    <CRequirement id="RaynorCommanderFirebat">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderFirebat">
+        <Icon value="Assets\Textures\btn-unit-terran-firebat.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-firebat.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorAction id="RaynorCommanderPerditionThrower@Attack" parent="GenericAttack" effectAttack="" effectImpact="" effectLaunch="RaynorCommanderPerditionThrower@Damage">
+        <EditorCategories value=""/>
+        <LaunchAssets Model="RaynorCommanderPerditionThrower@AttackModel"/>
+        <On index="0" Terms="Effect.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>
+        <On index="1" Terms="Effect.Start; FromEffectTreeDescendant" Send="ActionImpact"/>
+        <On index="2" Terms="Effect.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>
+        <On index="5" Terms="Effect.Start; At Caster" Send="Create"/>
+        <On index="6" Terms="Effect.RaynorCommanderPerditionThrower@Damage.Start; At Caster; ValidatePlayer RaynorCommanderInciniratorGauntlets@Not" Send="Create"/>
+        <On Terms="Abil.attack.ReadyStop" Send="SetOpacity 0.000000 0.250000"/>
+    </CActorAction>
+    <CActorModel id="RaynorCommanderPerditionThrower@AttackModel" parent="ModelAddition">
+        <EditorCategories value=""/>
+        <Flags index="SuppressCreationErrors" value="1"/>
+        <On Terms="ActorCreation; ValidatePlayer RaynorCommanderInciniratorGauntlets" Send="SetScale 2.250000,1.800000,1.000000"/>
+    </CActorModel>
+    <CActorUnit id="RaynorCommanderFirebat" parent="CommanderGroundUnit" unitName="RaynorCommanderFirebat">
+        <EditorCategories value=""/>
+        <GroupIcon>
+            <Image value="Assets\Textures\wireframe-terran-firebat.dds"/>
+        </GroupIcon>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-firebat.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-firebat.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CModel id="RaynorCommanderPerditionThrower@AttackModel">
+        <Model value="Assets\Effects\Terran\FirebatFireSprite\FirebatFireSprite.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderPerditionThrower@UpgradeAttackModel">
+        <Model value="Assets\Effects\Terran\FirebatFireSprite\FirebatFireSprite.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="2.250000,1.800000,1.000000"/>
+        <ScaleMin value="2.250000,1.800000,1.000000"/>
+    </CModel>
+    <CModel id="RaynorCommanderFirebat" parent="Unit">
+        <Model value="Assets\Units\Terran\Firebat\Firebat.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFirebat@Death" parent="UnitDeath">
+        <Model value="Assets\Units\Terran\FirebatDeath\FirebatDeath.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFirebat@Portrait" parent="Portrait">
+        <Model value="Assets\Portraits\Terran\FirebatPortrait\FirebatPortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Image value="Assets\Textures\firebat_heavens_coop_portrait_static.dds"/>
+    </CModel>
+    <CWeaponLegacy id="RaynorCommanderPerditionThrower">
+        <EditorCategories value="Race:Raynor"/>
+        <Range value="2"/>
+        <Period value="1.2"/>
+        <DamagePoint value="1.2"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <TargetFilters value="Ground,Visible;Self,Missile,Hidden,Invulnerable"/>
+        <DisplayEffect value="RaynorCommanderPerditionThrower@Damage"/>
+        <Effect value="RaynorCommanderPerditionThrower@Damage"/>
+    </CWeaponLegacy>
+    <CSound id="RaynorCommanderPerditionThrower@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Firebat\Firebat_AttackLaunch0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Firebat\Firebat_AttackLaunch1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Firebat\Firebat_AttackLaunch2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Firebat\Firebat_AttackLaunch3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\Firebat\Firebat_AttackLaunch4.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderFirebat@Attack" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Attack00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Attack01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Attack02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Attack03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Attack04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Attack05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Attack06.ogg" FacialGroup=""/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderFirebat@Death" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall9.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderFirebat@DeathVoice" parent="DeathVoice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Death00.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Death01.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Death02.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Death03.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Death04.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Death05.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderFirebat@Help" parent="TerranHelp">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Help00.ogg" FacialGroup=""/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderFirebat@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed06.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed07.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed08.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed09.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed10.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed11.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Pissed12.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderFirebat@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Ready00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderFirebat@What" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_What00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_What01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_What02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_What03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_What04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_What05.ogg" FacialGroup=""/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderFirebat@Yes" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Yes00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Yes01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Yes02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Yes03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Yes04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Yes05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Firebat\Firebat_Yes06.ogg" FacialGroup=""/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderPerditionThrower" parent="CommanderWeaponInstantAOE">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Instant"/>
+        <DataRecord Entry="Actor,RaynorCommanderPerditionThrower@Attack"/>
+        <DataRecord Entry="Actor,RaynorCommanderPerditionThrower@AttackModel"/>
+        <DataRecord Entry="Effect,RaynorCommanderPerditionThrower@Damage"/>
+        <DataRecord Entry="Model,RaynorCommanderPerditionThrower@AttackModel"/>
+        <DataRecord Entry="Sound,RaynorCommanderPerditionThrower@AttackLaunch"/>
+        <DataRecord Entry="Weapon,RaynorCommanderPerditionThrower"/>
+        <DataRecord Entry="Model,RaynorCommanderPerditionThrower@UpgradeAttackModel"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderInfantryWeapon"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderFirebat" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,RaynorCommanderFirebat"/>
+        <DataRecord Entry="Model,RaynorCommanderFirebat"/>
+        <DataRecord Entry="Model,RaynorCommanderFirebat@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderFirebat@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderFirebat@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderFirebat@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderFirebat@Pissed"/>
+        <DataRecord Entry="Sound,RaynorCommanderFirebat@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderFirebat@Help"/>
+        <DataRecord Entry="Sound,RaynorCommanderFirebat@Ready"/>
+        <DataRecord Entry="Unit,RaynorCommanderFirebat"/>
+        <DataRecord Entry="Sound,RaynorCommanderFirebat@DeathVoice"/>
+        <DataRecord Entry="Sound,RaynorCommanderFirebat@Death"/>
+        <DataRecord Entry="Button,RaynorCommanderFirebat"/>
+        <DataRecord Entry="Requirement,RaynorCommanderFirebat"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderJuggernautPlating"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderFirebat" parent="CommanderGround" race="COOPRaynor">
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <LifeArmor value="1"/>
+        <Food value="-2"/>
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="25"/>
+        <BuildTime value="30"/>
+        <WeaponArray Link="RaynorCommanderPerditionThrower"/>
+    </CUnit>
+</Catalog>

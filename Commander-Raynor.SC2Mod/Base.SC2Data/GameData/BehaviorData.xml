@@ -17,121 +17,6 @@
             <AdditiveMoveSpeedFactor value="0.5"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderBansheeAirstrike@Drop">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.1"/>
-        <Modification Height="10" MoveSpeedMultiplier="0.1">
-            <StateFlags index="NoDraw" value="1"/>
-            <HeightTime index="Stop" value="3"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderBansheeAirstrike@Raise">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="7"/>
-        <ExpireEffect value="SuicideRemove"/>
-        <Modification Height="25">
-            <HeightTime index="Start" value="7"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderBansheeAirstrike@TimeLifed" parent="TimedLife">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="30"/>
-        <ExpireEffect value="RaynorCommanderBansheeAirstrike@Raise"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderHyperionTopbar@AB" parent="TimedLife">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="60"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderTacticalJump@AB">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.05"/>
-        <ExpireEffect value="RaynorCommanderTacticalJump@In"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderTacticalJump@In">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.6"/>
-        <Modification>
-            <ModifyFlags index="SuppressMoving" value="1"/>
-            <ModifyFlags index="SuppressTurning" value="1"/>
-            <StateFlags index="Invulnerable" value="1"/>
-            <StateFlags index="Stasis" value="1"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderTacticalJump@Out">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.6"/>
-        <ExpireEffect value="RaynorCommanderTacticalJump@Set"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderTacticalJump@TargetAB">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.0625"/>
-        <ExpireEffect value="SuicideRemove"/>
-        <Modification>
-            <ModifyFlags index="SuppressMoving" value="1"/>
-            <ModifyFlags index="SuppressTurning" value="1"/>
-            <StateFlags index="Invulnerable" value="1"/>
-            <StateFlags index="Stasis" value="1"/>
-        </Modification>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderPDDLaser">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="3"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderATALaserBatteryAir@Damage@AB">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <InfoFlags index="Hidden" value="1"/>
-        <Duration value="0.6"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderATSLaserBattery@AB">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <InfoFlags index="Hidden" value="1"/>
-        <Duration value="0.6"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderBurrowSpiderMine">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="5"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderHyperJump@In">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.6"/>
-        <Modification>
-            <ModifyFlags index="SuppressMoving" value="1"/>
-            <ModifyFlags index="SuppressTurning" value="1"/>
-            <StateFlags index="Invulnerable" value="1"/>
-            <StateFlags index="Stasis" value="1"/>
-        </Modification>
-        <InfoFlags index="Hidden" value="1"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderHyperJump@Out">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.6"/>
-        <ExpireEffect value="RaynorCommanderHyperJump@Set"/>
-        <InfoFlags index="Hidden" value="1"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderHyperJump@AB">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.05"/>
-        <ExpireEffect value="RaynorCommanderHyperJump@In"/>
-        <InfoFlags index="Hidden" value="1"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderHyperJump@TargetAB">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="0.0625"/>
-        <ExpireEffect value="SuicideRemove"/>
-        <Modification>
-            <ModifyFlags index="SuppressMoving" value="1"/>
-            <ModifyFlags index="SuppressTurning" value="1"/>
-            <StateFlags index="Invulnerable" value="1"/>
-            <StateFlags index="Stasis" value="1"/>
-        </Modification>
-        <InfoFlags index="Hidden" value="1"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="RaynorCommanderTechLabBarrack">
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
@@ -144,27 +29,12 @@
         <InfoFlags index="Hidden" value="1"/>
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
     </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderStimpack">
-        <Alignment value="Positive"/>
-        <InfoIcon value="Assets\Textures\btn-ability-terran-stimpack.dds"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <Duration value="15"/>
-        <Modification MoveSpeedMultiplier="1.5" AttackSpeedMultiplier="1.5"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="RaynorCommanderStimpackMara">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-stimpack.dds"/>
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
         <Duration value="15"/>
         <Modification MoveSpeedMultiplier="1.5" AttackSpeedMultiplier="1.5"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderPunisherGrenades">
-        <Alignment value="Negative"/>
-        <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
-        <RemoveValidatorArray value="RaynorCommanderPunisherGrenades@NoPurificationNova"/>
-        <Duration value="1.5"/>
-        <Modification MoveSpeedMultiplier="0.5"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="RaynorCommanderReactorFactory">
         <InfoFlags index="Hidden" value="1"/>

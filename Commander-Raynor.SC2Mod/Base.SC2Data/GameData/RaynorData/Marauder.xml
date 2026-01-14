@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectLaunchMissile id="RaynorCommanderPunisherGrenades@LM">
+        <EditorCategories value="Race:Raynor"/>
+        <ImpactEffect value="RaynorCommanderPunisherGrenades@Set"/>
+        <Movers Link="PunisherGrenadesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="RaynorCommanderPunisherGrenades@Set">
+        <EditorCategories value="Race:Raynor"/>
+        <EffectArray value="RaynorCommanderPunisherGrenades@AB"/>
+        <EffectArray value="RaynorCommanderPunisherGrenades"/>
+    </CEffectSet>
+    <CEffectApplyBehavior id="RaynorCommanderPunisherGrenades@AB">
+        <ValidatorArray index="0" value="PunisherGrenadesResearched"/>
+        <ValidatorArray value="RaynorCommanderPunisherGrenades@NotMassive"/>
+        <ValidatorArray value="RaynorCommanderPunisherGrenades@NotStructure"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Behavior value="RaynorCommanderPunisherGrenades"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="RaynorCommanderPunisherGrenades" parent="DU_WEAP">
+        <EditorCategories value="Race:Raynor"/>
+        <AttributeBonus index="Armored" value="10"/>
+        <Kind value="Ranged"/>
+        <Amount value="10"/>
+        <Death value="Blast"/>
+    </CEffectDamage>
+    <CValidatorPlayerRequirement id="RaynorCommanderPunisherGrenades@Researched">
+        <ResultNoPlayer value="Error"/>
+        <Find value="1"/>
+        <Value value="RaynorCommanderPunisherGrenades@Use"/>
+    </CValidatorPlayerRequirement>
+    <CValidatorUnitFilters id="RaynorCommanderPunisherGrenades@NotMassive">
+        <Filters value="-;Massive"/>
+    </CValidatorUnitFilters>
+    <CValidatorUnitFilters id="RaynorCommanderPunisherGrenades@NotStructure">
+        <Filters value="-;Structure"/>
+    </CValidatorUnitFilters>
+    <CValidatorUnitCompareBehaviorCount id="RaynorCommanderPunisherGrenades@NoPurificationNova">
+        <Behavior value="PurificationNova"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareBehaviorCount id="RaynorCommanderPunisherGrenades@TargetIsSlowed">
+        <Compare value="GT"/>
+        <Behavior value="RaynorCommanderPunisherGrenades"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CRequirement id="RaynorCommanderPunisherGrenades@Use">
+        <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
+        <NodeArray index="Use" Link="CountUpgradeRaynorCommanderPunisherGrenades@PunisherGrenadesCompleteOnly679349TechTreeCheat"/>
+    </CRequirement>
+    <CRequirement id="RaynorCommanderMarauder">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderMarauder">
+        <Icon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        <AlertIcon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorAction id="RaynorCommanderPunisherGrenades@Attack" parent="MarauderAttackBase" effectImpact="RaynorCommanderPunisherGrenades" effectLaunch="PunisherGrenadesLM">
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; !ValidateEffect PunisherGrenadesResearched" Send="Create"/>
+        <LaunchAttachQuery Methods="AMPatternMarauder"/>
+        <LaunchAssets Sound="RaynorCommanderPunisherGrenades@AttackLaunch"/>
+        <ContainerAssets Sound="RaynorCommanderPunisherGrenades@AttackLaunch"/>
+        <Missile value="RaynorCommanderPunisherGrenades@Missile"/>
+        <ImpactMap index="None" Model="RaynorCommanderPunisherGrenades@AttackImpact" Sound="RaynorCommanderPunisherGrenades@AttackImpact"/>
+        <ImpactPhysics Name="PunisherGrenadesImpact" MatchKeys="Basic" Physics="MarauderAttackDeathForce"/>
+    </CActorAction>
+    <CActorSimple id="RaynorCommanderPunisherGrenades@AttackAnimation">
+        <EditorCategories value=""/>
+        <On Terms="Abil.attack.ReadyStart" Target="_Unit" Send="AnimGroupApply Ready"/>
+        <On Terms="ActorCreation" Send="StatusSet WeaponNext 0"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster" Send="StatusIncrement WeaponNext"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 2" Send="StatusSet WeaponNext 0"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 0" Target="_Unit" Send="AnimClear AttackRight"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 0" Target="_Unit" Send="AnimPlay AttackLeft Attack,Left"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 1" Target="_Unit" Send="AnimClear AttackLeft"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 1" Target="_Unit" Send="AnimPlay AttackRight Attack,Right"/>
+        <On Terms="UnitCreation.RaynorCommanderMarauder" Send="Create"/>
+    </CActorSimple>
+    <CActorMissile id="RaynorCommanderPunisherGrenades@Missile" parent="GenericAttackMissile" unitName="RaynorCommanderPunisherGrenades@LMWeapon">
+        <Model value="RaynorCommanderPunisherGrenades@Missile"/>
+    </CActorMissile>
+    <CActorAction id="RaynorCommanderPunisherGrenades@UpgradedAttack" parent="MarauderAttackBase" effectImpact="RaynorCommanderPunisherGrenades" effectLaunch="PunisherGrenadesLM">
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; ValidateEffect PunisherGrenadesResearched" Send="Create"/>
+        <LaunchAttachQuery Methods="AMPatternMarauder"/>
+        <LaunchAssets Model="RaynorCommanderPunisherGrenades@AttackLaunch" Sound="RaynorCommanderPunisherGrenades@AttackLaunch"/>
+        <ContainerAssets Sound="RaynorCommanderPunisherGrenades@AttackLaunch"/>
+        <Missile value="RaynorCommanderPunisherGrenades@Missile"/>
+        <ImpactMap index="None" Model="RaynorCommanderPunisherGrenades@UpgradedAttackImpact" Sound="RaynorCommanderPunisherGrenades@AttackImpact"/>
+        <ImpactPhysics Name="PunisherGrenadesImpact" MatchKeys="Basic" Physics="MarauderAttackDeathForce"/>
+    </CActorAction>
+    <CActorUnit id="RaynorCommanderMarauder" parent="CommanderGroundUnit" unitName="RaynorCommanderMarauder">
+        <Aliases value="_UnitMedium"/>
+        <On index="65" Terms="ActorCreation" Send="StatusSet WeaponNext 0"/>
+        <On index="66" Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster" Send="StatusIncrement WeaponNext"/>
+        <On index="67" Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 2" Send="StatusSet WeaponNext 0"/>
+        <On index="68" Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 0" Send="AnimClear AttackRight"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 0" Send="AnimPlay AttackLeft Attack,Left"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 1" Send="AnimClear AttackLeft"/>
+        <On Terms="Effect.RaynorCommanderPunisherGrenades@LM.Start; At Caster; IsStatus WeaponNext 1" Send="AnimPlay AttackRight Attack,Right"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackLeft"/>
+        <On Terms="UnitMovementUpdate.*.Walk" Send="AnimClear AttackRight"/>
+        <On Terms="ModelEvent; ModelEventName AnimClear" Send="AnimClear AttackLeft"/>
+        <On Terms="ModelEvent; ModelEventName AnimClear" Send="AnimClear AttackRight"/>
+        <On Terms="Abil.attack.ReadyStop" Send="AnimGroupRemove Ready"/>
+        <On Terms="AbilMorph.*.Finish; MorphTo Marauder" Send="Create"/>
+        <On Terms="UnitHeightUpdate.*.Land" Send="Create Marauder_Land"/>
+        <On Terms="UnitDeathCustomize; PassChance 1.000000; ValidateUnit IsNotNeuralParasited" Send="Create Marauder_Death"/>
+        <On Terms="UnitDeathCustomize; PassChance 10.000000; !ValidateUnit IsNotNeuralParasited" Send="Create Marauder_Death_NP"/>
+        <ModelFlags index="OutlineEmitter" value="1"/>
+        <TerrainSquibs index="0">
+            <MovementDistance value="0.150000,0.150000"/>
+            <IdlePeriod value="0.100000,0.250000"/>
+            <RangeUp value="0.800000"/>
+            <RangeDown value="0.800000"/>
+            <RangeDownFade value="0.000000"/>
+            <Visuals index="0" TerrainPhysicsMaterial="Water" ActorModel="TerrainSquibHarnessContinuous" ModelLink="WaterRippleLarge"/>
+        </TerrainSquibs>
+        <BarOffset value="60"/>
+        <BarWidth value="50"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-Marauder.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-infantryarmorlevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-terran-marauder.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-Marauder.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CModel id="RaynorCommanderPunisherGrenades@AttackLaunch" parent="LaunchFX">
+        <Model value="Assets\Effects\Terran\MarauderMissileLaunch\MarauderMissileLaunch.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderPunisherGrenades@AttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\MarauderBaseMissileImpact\MarauderBaseMissileImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderPunisherGrenades@UpgradedAttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Terran\MarauderMissileImpact\MarauderMissileImpact.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderPunisherGrenades@Missile" parent="MissileFX">
+        <Model value="Assets\Effects\Terran\MarauderMissile\MarauderMissile.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarauder" parent="Unit">
+        <Model value="Assets\Units\Terran\Marauder\Marauder.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarauder@Death" parent="UnitDeath">
+        <Model value="Assets\Units\Terran\MarauderDeath\MarauderDeath.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarauder@DeathEviscerate" parent="UnitDeath">
+        <Model value="Assets\Units\Terran\MarauderDeathEviscerateEx1\MarauderDeathEviscerateEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarauder@DeathRagdoll" parent="UnitDeathRagdoll">
+        <Model value="Assets\Units\Terran\MarauderDeathRagdoll\MarauderDeathRagdoll.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMarauder@Portrait" parent="Portrait">
+        <Model value="Assets\Portraits\Terran\MarauderPortrait\MarauderPortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Image value="Assets\Textures\marauderportrait_static.dds"/>
+        <Lighting value="MarauderPortrait"/>
+    </CModel>
+    <CWeaponLegacy id="RaynorCommanderPunisherGrenades">
+        <EditorCategories value="Race:Raynor"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <Period value="1.5"/>
+        <DamagePoint value="0"/>
+        <Backswing value="0"/>
+        <Effect value="RaynorCommanderPunisherGrenades@LM"/>
+    </CWeaponLegacy>
+    <CMoverMissile id="RaynorCommanderPunisherGrenades@Weapon">
+        <MotionPhases>
+            <Driver value="Guidance"/>
+            <Acceleration value="3200"/>
+            <MaxSpeed value="20"/>
+            <YawPitchRoll value="MAX"/>
+        </MotionPhases>
+    </CMoverMissile>
+    <CSound id="RaynorCommanderPunisherGrenades@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="3"/>
+        <DupeThresholdPoints/>
+        <DupeThresholdPoints Count="2" Volume="-3.000000"/>
+        <DupePrioritization value="Oldest"/>
+        <Pitch value="1.000000,2.000000"/>
+        <Volume value="-10.000000,-10.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderPunisherGrenades@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_AttackLaunch0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_AttackLaunch1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_AttackLaunch2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_AttackLaunch3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_AttackLaunch4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_AttackLaunch5.wav"/>
+        <DupeDestroyCount value="5"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="3"/>
+        <DupeThresholdPoints/>
+        <DupeThresholdPoints Count="2" Volume="-4.500000"/>
+        <DupePrioritization value="Oldest"/>
+        <OverlapTimeDelta value="100"/>
+        <Pitch value="3.160000,7.010000"/>
+        <Volume value="-10.480000,-7.960000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarauder@DeathVoice" parent="DeathVoice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Death00.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Death01.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Death02.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Death03.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Death04.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Death05.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Death06.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderMarauder@Attack" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Attack00.ogg" FacialAnim="Marauder_Attack00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Attack01.ogg" FacialAnim="Marauder_Attack01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Attack02.ogg" FacialAnim="Marauder_Attack02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Attack03.ogg" FacialAnim="Marauder_Attack03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Attack04.ogg" FacialAnim="Marauder_Attack04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Attack05.ogg" FacialAnim="Marauder_Attack05"/>
+        <Flags index="Download" value="0"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarauder@Death" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_Explode0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_Explode1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_Explode2.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_Explode3.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_Explode4.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_Explode5.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\Marauder\Marauder_Explode6.wav"/>
+        <Flags index="Ignorable" value="0"/>
+        <Flags index="Purgable" value="1"/>
+        <Category value="Combat"/>
+        <Pitch value="-2.000000,2.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarauder@Help" parent="Alert">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Help00.ogg" FacialAnim="Marauder_Help00"/>
+        <Mode value="3DWorld"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarauder@Pissed" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Pissed00.ogg" FacialAnim="Marauder_Pissed00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Pissed01.ogg" FacialAnim="Marauder_Pissed01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Pissed02.ogg" FacialAnim="Marauder_Pissed02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Pissed03.ogg" FacialAnim="Marauder_Pissed03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Pissed04.ogg" FacialAnim="Marauder_Pissed04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Pissed05.ogg" FacialAnim="Marauder_Pissed05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Pissed06.ogg" FacialAnim="Marauder_Pissed06"/>
+        <Flags index="Download" value="0"/>
+        <Select value="Sequential"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarauder@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Attack02.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Ready00.ogg" FacialAnim="Marauder_Ready00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes00.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes04.ogg"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes05.ogg"/>
+        <Volume value="-1.000000,-1.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarauder@What" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_What00.ogg" FacialAnim="Marauder_What00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_What01.ogg" FacialAnim="Marauder_What01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_What02.ogg" FacialAnim="Marauder_What02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_What03.ogg" FacialAnim="Marauder_What03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_What04.ogg" FacialAnim="Marauder_What04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_What05.ogg" FacialAnim="Marauder_What05"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderMarauder@Yes" parent="TerranAck">
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes00.ogg" FacialAnim="Marauder_Yes00"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes01.ogg" FacialAnim="Marauder_Yes01"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes02.ogg" FacialAnim="Marauder_Yes02"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes03.ogg" FacialAnim="Marauder_Yes03"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes04.ogg" FacialAnim="Marauder_Yes04"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes05.ogg" FacialAnim="Marauder_Yes05"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes06.ogg" FacialAnim="Marauder_Yes06"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes07.ogg" FacialAnim="Marauder_Yes07"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes08.ogg" FacialAnim="Marauder_Yes08"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes09.ogg" FacialAnim="Marauder_Yes09"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes10.ogg" FacialAnim="Marauder_Yes10"/>
+        <AssetArray File="LocalizedData\Sounds\TerranUnitVO\Marauder\Marauder_Yes11.ogg" FacialAnim="Marauder_Yes11"/>
+        <Volume value="-1.000000,-1.000000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderPunisherGrenades" parent="CommanderWeaponMissile">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Projectile"/>
+        <DataRecord Entry="Actor,RaynorCommanderPunisherGrenades@Attack"/>
+        <DataRecord Entry="Actor,RaynorCommanderPunisherGrenades@AttackAnimation"/>
+        <DataRecord Entry="Actor,RaynorCommanderPunisherGrenades@Missile"/>
+        <DataRecord Entry="Actor,RaynorCommanderPunisherGrenades@UpgradedAttack"/>
+        <DataRecord Entry="Behavior,RaynorCommanderPunisherGrenades"/>
+        <DataRecord Entry="Effect,RaynorCommanderPunisherGrenades@LM"/>
+        <DataRecord Entry="Effect,RaynorCommanderPunisherGrenades@Set"/>
+        <DataRecord Entry="Effect,RaynorCommanderPunisherGrenades@AB"/>
+        <DataRecord Entry="Effect,RaynorCommanderPunisherGrenades"/>
+        <DataRecord Entry="Model,RaynorCommanderPunisherGrenades@AttackImpact"/>
+        <DataRecord Entry="Model,RaynorCommanderPunisherGrenades@AttackLaunch"/>
+        <DataRecord Entry="Model,RaynorCommanderPunisherGrenades@Missile"/>
+        <DataRecord Entry="Model,RaynorCommanderPunisherGrenades@UpgradedAttackImpact"/>
+        <DataRecord Entry="Mover,RaynorCommanderPunisherGrenades@Weapon"/>
+        <DataRecord Entry="Requirement,RaynorCommanderPunisherGrenades@Use"/>
+        <DataRecord Entry="Sound,RaynorCommanderPunisherGrenades@AttackLaunch"/>
+        <DataRecord Entry="Sound,RaynorCommanderPunisherGrenades@AttackImpact"/>
+        <DataRecord Entry="Unit,RaynorCommanderPunisherGrenades@LMWeapon"/>
+        <DataRecord Entry="Upgrade,RaynorCommanderPunisherGrenades@PunisherGrenades"/>
+        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@NoPurificationNova"/>
+        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@NotMassive"/>
+        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@NotStructure"/>
+        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@Researched"/>
+        <DataRecord Entry="Validator,RaynorCommanderPunisherGrenades@TargetIsSlowed"/>
+        <DataRecord Entry="Weapon,RaynorCommanderPunisherGrenades"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderInfantryWeapon"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderMercenaryMunitions"/>
+        <UpgradeInfoWeapon DamagePerDice="2"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderMarauder" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,RaynorCommanderMarauder"/>
+        <DataRecord Entry="Model,RaynorCommanderMarauder"/>
+        <DataRecord Entry="Model,RaynorCommanderMarauder@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderMarauder@DeathEviscerate"/>
+        <DataRecord Entry="Model,RaynorCommanderMarauder@DeathRagdoll"/>
+        <DataRecord Entry="Model,RaynorCommanderMarauder@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarauder@Attack"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarauder@Death"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarauder@Help"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarauder@Pissed"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarauder@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarauder@Yes"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarauder@What"/>
+        <DataRecord Entry="Unit,RaynorCommanderMarauder"/>
+        <DataRecord Entry="Button,RaynorCommanderMarauder"/>
+        <DataRecord Entry="Requirement,RaynorCommanderMarauder"/>
+        <DataRecord Entry="Sound,RaynorCommanderMarauder@DeathVoice"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderPunisherGrenades@LMWeapon" parent="MISSILE">
+        <Race value="COOPRaynor"/>
+        <Mover value="RaynorCommanderPunisherGrenades@Weapon"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Raynor"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderMarauder" parent="CommanderGround" race="COOPRaynor">
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Raynor"/>
+        <WeaponArray Link="RaynorCommanderPunisherGrenades"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Biological" value="1"/>
+        <LifeStart value="125"/>
+        <LifeMax value="125"/>
+        <LifeArmor value="1"/>
+        <LateralAcceleration value="69.125"/>
+        <Sight value="10"/>
+        <Food value="-2"/>
+        <CostResource index="Minerals" value="100"/>
+        <CostResource index="Vespene" value="50"/>
+        <BuildTime value="30"/>
+        <AIOverideTargetPriority value="20"/>
+        <Radius value="0.5625"/>
+        <ScoreMake value="75"/>
+        <ScoreKill value="150"/>
+        <RepairTime value="25"/>
+        <KillXP value="15"/>
+        <InnerRadius value="0.375"/>
+        <SubgroupPriority value="14"/>
+        <GlossaryStrongArray value="Thor"/>
+        <GlossaryStrongArray value="Roach"/>
+        <GlossaryStrongArray value="Stalker"/>
+        <GlossaryWeakArray value="Marine"/>
+        <GlossaryWeakArray value="Zergling"/>
+        <GlossaryWeakArray value="Zealot"/>
+        <TauntDuration index="Cheer" value="5"/>
+        <TauntDuration index="Dance" value="5"/>
+    </CUnit>
+    <CBehaviorBuff id="RaynorCommanderPunisherGrenades">
+        <Alignment value="Negative"/>
+        <InfoIcon value="Assets\Textures\btn-ability-terran-slow.dds"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <RemoveValidatorArray value="RaynorCommanderPunisherGrenades@NoPurificationNova"/>
+        <Duration value="1.5"/>
+        <Modification MoveSpeedMultiplier="0.5"/>
+    </CBehaviorBuff>
+    <CUpgrade id="RaynorCommanderPunisherGrenades@PunisherGrenades">
+        <Icon value="Assets\Textures\btn-ability-terran-punishergrenade-color.dds"/>
+        <Alert value="ResearchComplete"/>
+        <Race value="Terr"/>
+        <ScoreAmount value="100"/>
+        <ScoreResult value="BuildOrder"/>
+        <EditorCategories value="Race:Raynor,UpgradeType:Talents"/>
+        <AffectedUnitArray value="RaynorCommanderMarauder"/>
+    </CUpgrade>
+</Catalog>
