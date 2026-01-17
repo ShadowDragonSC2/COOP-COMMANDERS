@@ -245,13 +245,6 @@
         <DataRecord Entry="Unit,ZeratulCommanderVoidShrine"/>
         <DataRecord Entry="Model,ZeratulCommanderVoidShrine@Placement"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderWarpBlade" parent="CommanderWeaponInstant">
-        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Instant"/>
-        <DataRecord Entry="Actor,ZeratulCommanderWarpBlade@Attack"/>
-        <DataRecord Entry="Effect,ZeratulCommanderWarpBlade@Damage"/>
-        <DataRecord Entry="Sound,ZeratulCommanderWarpBlade@AttackLaunch"/>
-        <DataRecord Entry="Weapon,ZeratulCommanderWarpBlade"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
         <DataRecord Entry="Actor,ZeratulCommanderXelNagaEnforcer"/>

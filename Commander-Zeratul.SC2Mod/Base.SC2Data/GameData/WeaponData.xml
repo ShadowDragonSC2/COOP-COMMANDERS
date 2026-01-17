@@ -31,10 +31,4 @@
         <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
         <TargetFilters value="Visible;Air,Missile,Dead,Hidden"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="ZeratulCommanderWarpBlade" parent="CommanderWeapon_Melee">
-        <EditorCategories value="Race:Zeratul"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Period value="1.21"/>
-    </CWeaponLegacy>
 </Catalog>

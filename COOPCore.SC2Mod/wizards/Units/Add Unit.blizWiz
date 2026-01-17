@@ -189,10 +189,6 @@
                 <name>Name Button Train</name>
                 <layout page="3"/>
             </input>
-            <input id="BtnIcon" type="CImagePath">
-                <name>Icon Button</name>
-                <layout page="3"/>
-            </input>
 
             <!-- Sounds -->
             <input id="SoundBirth" type="CSoundPath">
@@ -762,6 +758,5 @@
         <id>^UnitIDCommander^@Requirement</id>
         <name>Requirement</name>
     </entry>
-
     
 </wizard>

@@ -59,14 +59,6 @@
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch1.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch2.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="ZeratulCommanderWarpBlade@AttackLaunch" parent="Combat">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch1.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch2.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch3.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch4.wav" FacialGroup=""/>
-    </CSound>
     <CSound id="ZeratulCommanderXelNagaEnforcer@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Help00.ogg" FacialGroup=""/>

@@ -226,4 +226,41 @@
         <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
         <DataRecord Entry="Sound,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
     </CDataCollectionUnit>
+
+    <!-- ===================== -->
+    <!--        Weapons        -->
+    <!-- ===================== -->
+
+    <!-- Warp Blade -->
+    <CWeaponLegacy id="ZeratulCommanderWarpBlade" parent="CommanderWeapon_Melee">
+        <EditorCategories value="Race:Zeratul"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="1.21"/>
+    </CWeaponLegacy>
+
+    <CEffectDamage id="ZeratulCommanderWarpBlade@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="60"/>
+    </CEffectDamage>
+    
+    <CActorAction id="ZeratulCommanderWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderWarpBlade@Damage">
+    </CActorAction>
+    
+    <CSound id="ZeratulCommanderWarpBlade@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch4.wav" FacialGroup=""/>
+    </CSound>
+
+    <CDataCollectionUnit id="ZeratulCommanderWarpBlade" parent="CommanderWeaponInstant">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Instant"/>
+        <DataRecord Entry="Actor,ZeratulCommanderWarpBlade@Attack"/>
+        <DataRecord Entry="Effect,ZeratulCommanderWarpBlade@Damage"/>
+        <DataRecord Entry="Sound,ZeratulCommanderWarpBlade@AttackLaunch"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderWarpBlade"/>
+    </CDataCollectionUnit>
 </Catalog>

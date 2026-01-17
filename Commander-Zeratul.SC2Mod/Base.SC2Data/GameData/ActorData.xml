@@ -199,8 +199,6 @@
     </CActorAction>
     <CActorBeamSimple id="ZeratulCommanderVengeanceoftheVoid@AttackBeam" parent="BeamSimpleAnimationStyleOneShot">
     </CActorBeamSimple>
-    <CActorAction id="ZeratulCommanderWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderWarpBlade@Damage">
-    </CActorAction>
     <CActorTurret id="ZeratulCommanderXelNagaVoidArray@Turret">
         <On Terms="TurretEnable.ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
         <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>

@@ -13,10 +13,6 @@
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="20"/>
     </CEffectDamage>
-    <CEffectDamage id="ZeratulCommanderWarpBlade@Damage" parent="DU_WEAP">
-        <EditorCategories value="Race:Zeratul"/>
-        <Amount value="60"/>
-    </CEffectDamage>
     <CEffectDamage id="ZeratulCommanderParticularBeam@Damage" parent="DU_WEAP">
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="12"/>
