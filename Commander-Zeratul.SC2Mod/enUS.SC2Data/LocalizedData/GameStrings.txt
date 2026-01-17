@@ -11,8 +11,6 @@ Abil/Name/ZeratulCommanderPredictiveBlink=Predictive Blink
 Abil/Name/ZeratulCommanderProphecy=Prophetic vision
 Abil/Name/ZeratulCommanderShadowCleave=Shadow Cleave
 Behavior/Name/ZeratulCommanderMindControl=Mind Control
-Button/Name/ZeratulCommanderXelnagaAmbusher=Warp In <d stringref="Unit,ZeratulCommanderXelnagaAmbusher,Name">
-Button/Name/ZeratulCommanderVoidTemplar=Warp In <d stringref="Unit,ZeratulCommanderVoidTemplar,Name">
 Button/Name/ZeratulCommaderDarkArchon=<d stringref="Unit,ZeratulCommaderDarkArchon,Name">
 Button/Name/ZeratulCommanderAncientNexus=Build <d stringref="Unit,ZeratulCommanderAncientNexus,Name"/>
 Button/Name/ZeratulCommanderAvatarOfEssence=<d stringref="Unit,ZeratulCommanderAvatarOfEssence,Name"> Avatar of Essence
@@ -34,8 +32,10 @@ Button/Name/ZeratulCommanderTesseractCannon=Warp In <d stringref="Unit,ZeratulCo
 Button/Name/ZeratulCommanderVengeanceoftheVoid=Vegeance of the Void
 Button/Name/ZeratulCommanderVoidFury=Void Fury
 Button/Name/ZeratulCommanderVoidShrine=Build <d stringref="Unit,ZeratulCommanderVoidShrine,Name"/>
+Button/Name/ZeratulCommanderVoidTemplar=Warp In <d stringref="Unit,ZeratulCommanderVoidTemplar,Name">
 Button/Name/ZeratulCommanderXelNagaPassageway=Build <d stringref="Unit,ZeratulCommanderXelNagaPassageway,Name"/>
 Button/Name/ZeratulCommanderXelNagaVoidArray=Warp In <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/>
+Button/Name/ZeratulCommanderXelnagaAmbusher=Warp In <d stringref="Unit,ZeratulCommanderXelnagaAmbusher,Name">
 Button/Name/ZeratulCommanderZeratul=Warp In <d stringref="Unit,ZeratulCommanderZeratul,Name"/>
 Button/Tooltip/ZeratulCommanderAvatarOfEssence=
 Button/Tooltip/ZeratulCommanderConstructsBay=
@@ -116,6 +116,8 @@ Effect/Name/ZeratulCommanderForceCannon@CU=CU
 Effect/Name/ZeratulCommanderForceCannon@LM=LM
 Effect/Name/ZeratulCommanderForceCannon@RemovePrecursor=Remove Precursor
 Effect/Name/ZeratulCommanderForceCannon@Set@1=Set @ 1
+Effect/Name/ZeratulCommanderMaelstrom@AB=AB
+Effect/Name/ZeratulCommanderMaelstrom=Search
 Effect/Name/ZeratulCommanderMasterWarpBlade@Damage=Damage
 Effect/Name/ZeratulCommanderMindControl=AB
 Effect/Name/ZeratulCommanderNullBeam@CP=Interval

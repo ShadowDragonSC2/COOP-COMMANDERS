@@ -1,73 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CUnit id="ZeratulCommaderDarkArchon" parent="CommanderGround_Prot" race="COOPZeratul">
-        <AbilArray Link="ZeratulCommanderMindControl"/>
-        <CardLayouts index="0">
-            <LayoutButtons Face="ZeratulCommanderMindControl" Type="AbilCmd" AbilCmd="ZeratulCommanderMindControl,Execute" Row="2" Column="0"/>
-        </CardLayouts>
-    </CUnit>
-
     <CButton id="ZeratulCommaderDarkArchon">
         <Icon value="Assets\Textures\btn-unit-protoss-darkarchon.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
 
+    <CUnit id="ZeratulCommaderDarkArchon" parent="CommanderGround_Prot" race="COOPZeratul">
+        <AbilArray Link="ZeratulCommanderMindControl"/>
+        <AbilArray Link="ZeratulCommanderMaelstrom"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ZeratulCommanderMindControl" Type="AbilCmd" AbilCmd="ZeratulCommanderMindControl,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderMaelstrom" Type="AbilCmd" AbilCmd="ZeratulCommanderMaelstrom,Execute" Row="2" Column="1"/>
+        </CardLayouts>
+    </CUnit>
+    
     <CActorUnit id="ZeratulCommaderDarkArchon" parent="CommanderGroundUnit" unitName="ZeratulCommaderDarkArchon">
         <UnitIcon value="Assets\Textures\btn-unit-protoss-darkarchon.dds"/>
     </CActorUnit>
-
+    
     <CModel id="ZeratulCommaderDarkArchon" parent="Archon">
         <Model value="Assets\Units\Protoss\Void_DarkArchon\Void_DarkArchon.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
     <CModel id="ZeratulCommaderDarkArchon@Death" parent="UnitDeath"/>
     <CModel id="ZeratulCommaderDarkArchon@Portrait" parent="Portrait"/>
-    <!-- Data Collection -->
+    
     <CDataCollectionUnit id="ZeratulCommaderDarkArchon" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
+        <DataRecord Entry="Button,ZeratulCommaderDarkArchon"/>
         <DataRecord Entry="Unit,ZeratulCommaderDarkArchon"/>
         <DataRecord Entry="Actor,ZeratulCommaderDarkArchon"/>
-        <DataRecord Entry="Button,ZeratulCommaderDarkArchon"/>
         <DataRecord Entry="Model,ZeratulCommaderDarkArchon"/>
+        <DataRecord Entry="Model,ZeratulCommaderDarkArchon@Death"/>
+        <DataRecord Entry="Model,ZeratulCommaderDarkArchon@Portrait"/>
     </CDataCollectionUnit>
+
     <!-- ================== -->
     <!--      Abilities     -->
     <!-- ================== -->
 
     <!-- Maelstrom -->
-    <CAbilEffectTarget id="ZeratulCommanderMaelstrom">
-        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderMaelstrom"/>
-        <AutoCastValidatorArray value="ZeratulCommanderMaelstrom@Search"/>
-    </CAbilEffectTarget>
-
     <CButton id="ZeratulCommanderMaelstrom">
         <Icon value="Assets\Textures\btn-ability-zeratul-darkarchon-maelstrom.dds"/>
     </CButton>
 
+    <CAbilEffectTarget id="ZeratulCommanderMaelstrom">
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderMaelstrom"/>
+        <AutoCastValidatorArray value="ZeratulCommanderMaelstrom@Search"/>
+        <Range value="8"/>
+    </CAbilEffectTarget>
+
+    <CEffectApplyBehavior id="ZeratulCommanderMaelstrom@AB">
+        <Behavior value="ZeratulCommanderMaelstrom"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="ZeratulCommanderMaelstrom">
+        <AreaArray Radius="2" Effect="ZeratulCommanderMaelstrom@AB"/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <ImpactLocation Value="TargetUnit"/>
+    </CEffectEnumArea>
+    
     <CBehaviorBuff id="ZeratulCommanderMaelstrom">
         <Modification>
             <ModifyFlags index="DisableAbils" value="1"/>
             <ModifyFlags index="Reveal" value="1"/>
             <ModifyFlags index="SuppressMoving" value="1"/>
-            <ModifyFlags index="SupressTurning" value="1"/>
+            <ModifyFlags index="SuppressTurning" value="1"/>
         </Modification>
         <Duration value="12"/>
         <Alignment value="Negative"/>
     </CBehaviorBuff>
-    <CEffectApplyBehavior id="ZeratulCommanderMaelstrom@AB"/>
-    <CEffectEnumSearch id="ZeratulCommanderMaelstrom@Search">
-        <AreaArray Effect="ZeratulCommanderMaelstrom" Radius="2"/>
-        <Impactlocation value="TargetPoint"/>
-        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Heroic,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-    </CEffectEnumSearch>
 
     <CValidatorLocationEnumArea id="ZeratulCommanderMaelstrom@Search">
-        <AreaArray>
-            <Arc value="360"/>
-            <Compare value="GE"/>
-            <Count value="2"/>
-            <Radius value="10"/>
-        </AreaArray>
+        <AreaArray Compare="GE" Count="2" Radius="10"/>
         <SearchFilters value="Visible;Self,Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
         <SearchFlags index="ExtendByUnitRadius" value="1"/>
     </CValidatorLocationEnumArea>
@@ -75,27 +79,41 @@
         <Behavior value="ZeratulCommanderMaelstrom"/>
     </CValidatorUnitCompareBehaviorCount>
 
-    <CActorSplat id="ZeratulCommanderMaelstrom@Splat" parent="ProtossCursorSplat"/>
-    <CActorModel id="ZeratulCommanderMaelstrom@ImpactSearch" parent="ModelAnimationStyleOneShot"/>
-    <CActorModel id="ZeratulCommanderMaelstrom@Impact" parent="ModelAnimationStyleContinuous"/>
-    <CActorSound id="ZeratulCommanderMaelstrom@LaunchSound" parent="SoundOneShot"/>
-
-    <CModel id="ZeratulCommanderMaelstrom@ImpactSearch" parent="OneShotSpellFX"/>
-    <CModel id="ZeratulCommanderMaelstrom@Impact" parent="PersistentSpellFX"/>
-
-    <CSound id="ZeratulCommanderMaelstrom@LaunchSound" parent="Spell">
-        <DupeMuteCount value="3"/>
-        <Pitch value="-1,1"/>
-    </CSound>
-
     <CRequirement id="ZeratulCommanderMaelstrom"/>
 
+    <CActorSplat id="ZeratulCommanderMaelstrom@Splat" abil="ZeratulCommanderMaelstrom" parent="ProtossCursorSplat"/>
+    <CActorModel id="ZeratulCommanderMaelstrom@ImpactSearch" parent="ModelAnimationStyleOneShot">
+        <On Terms="Effect.ZeratulCommanderMaelstrom.Start" Send="Create"/>
+    </CActorModel>
+    <CActorModel id="ZeratulCommanderMaelstrom@Impact" parent="ModelAnimationStyleContinuous">
+        <On Terms="Behavior.ZeratulCommanderMaelstrom.On" Send="Create"/>
+        <On Terms="Behavior.ZeratulCommanderMaelstrom.Off" Send="AnimBracketStop BSD"/>
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <AutoScaleFactor value="1.0"/>
+    </CActorModel>
+    <CActorSound id="ZeratulCommanderMaelstrom@LaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.ZeratulCommanderMaelstrom.Start" Send="Create"/>
+    </CActorSound>
+    
+    <CModel id="ZeratulCommanderMaelstrom@ImpactSearch" parent="OneShotSpellFX">
+        <Model value="Assets\Effects\Protoss\DarkArchon_Confusion\DarkArchon_Confusion.m3"/>
+    </CModel>
+    <CModel id="ZeratulCommanderMaelstrom@Impact" parent="PersistentSpellFX">
+        <Model value="Assets\COOP\Zeratul\Effects\DarkArchon_Zeratul_COOP_Maelstrom\DarkArchon_Zeratul_COOP_Maelstrom.m3"/>
+        <ScaleMin value="0.65,0.65,0.65"/>
+        <ScaleMax value="0.65,0.65,0.65"/>
+    </CModel>
+    <CSound id="ZeratulCommanderMaelstrom@LaunchSound" parent="Spell">
+        <DupeMuteCount value="3"/>
+        <Pitch value="-1.000000,1.000000"/>
+    </CSound>
+    
     <CDataCollectionUnit id="ZeratulCommanderMaelstrom" parent="CommanderAbilityTarget">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Target"/>
         <DataRecord Entry="Abil,ZeratulCommanderMaelstrom"/>
         <DataRecord Entry="Button,ZeratulCommanderMaelstrom"/>
         <DataRecord Entry="Behavior,ZeratulCommanderMaelstrom"/>
-        <DataRecord Entry="Effect,ZeratulCommanderMaelstrom@Search"/>
+        <DataRecord Entry="Effect,ZeratulCommanderMaelstrom"/>
         <DataRecord Entry="Effect,ZeratulCommanderMaelstrom@AB"/>
         <DataRecord Entry="Actor,ZeratulCommanderMaelstrom@Splat"/>
         <DataRecord Entry="Actor,ZeratulCommanderMaelstrom@ImpactSearch"/>
@@ -108,15 +126,19 @@
     </CDataCollectionUnit>
 
     <!-- Mind Control -->
+    <CButton id="ZeratulCommanderMindControl">
+        <Icon value="Assets\Textures\btn-ability-protoss-mindcontrol.dds"/>
+    </CButton>
+
     <CAbilEffectTarget id="ZeratulCommanderMindControl">
         <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderMindControl"/>
         <Range value="9"/>
     </CAbilEffectTarget>
 
-    <CButton id="ZeratulCommanderMindControl">
-        <Icon value="Assets\Textures\btn-ability-protoss-mindcontrol.dds"/>
-    </CButton>
-
+    <CEffectApplyBehavior id="ZeratulCommanderMindControl">
+        <ValidatorArray value="ZeratulCommanderMindControl@NotMindControl"/>
+    </CEffectApplyBehavior>
+    
     <CBehaviorBuff id="ZeratulCommanderMindControl">
         <Duration value="11"/>
         <FinalEffect value="Suicide"/>
@@ -126,10 +148,11 @@
         <DisplayDuration index="Ally" value="1"/>
         <Player Value="Caster"/>
     </CBehaviorBuff>
-    
-    <CEffectApplyBehavior id="ZeratulCommanderMindControl">
-        <ValidatorArray value="ZeratulCommanderMindControl@NotMindControl"/>
-    </CEffectApplyBehavior>
+
+    <CValidatorUnitCompareBehaviorCount id="ZeratulCommanderMindControl@NotMindControl">
+        <ResultFailed value="Error,CC/e_CmdNotMindControlled"/>
+        <Behavior value="ZeratulCommanderMindControl"/>
+    </CValidatorUnitCompareBehaviorCount>
 
     <CActorModel id="ZeratulCommanderMindControl" parent="ModelAnimationStyleContinuousUNIT">
         <EditorCategories value=""/>
@@ -151,7 +174,7 @@
         <HostImpact Subject="_Unit" Scope="Target" Actor="Find"/>
         <HostImpactSiteOps Ops="SOpAttachHead"/>
     </CActorBeamSimple>
-    
+
     <CModel id="ZeratulCommanderMindControl">
         <Model value="Assets\Effects\Protoss\DarkArchon_MindControl_State\DarkArchon_MindControl_State.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -161,7 +184,6 @@
         <Model value="Assets\Effects\Protoss\DarkArchon_MindControl_Beam\DarkArchon_MindControl_Beam.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
-    
     <CSound id="ZeratulCommanderMindControl@ImpactSound" parent="Spell">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00016.ogg" FacialGroup=""/>
@@ -176,11 +198,6 @@
         <AssetArray File="LocalizedData\Sounds\Announcer\ModUtilityVoiceModUtilityVoice00025.ogg" FacialGroup=""/>
         <Select value="Sequential"/>
     </CSound>
-
-    <CValidatorUnitCompareBehaviorCount id="ZeratulCommanderMindControl@NotMindControl">
-        <ResultFailed value="Error,CC/e_CmdNotMindControlled"/>
-        <Behavior value="ZeratulCommanderMindControl"/>
-    </CValidatorUnitCompareBehaviorCount>
 
     <CRequirement id="ZeratulCommanderMindControl"/>
 
