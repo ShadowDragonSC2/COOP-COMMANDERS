@@ -21,6 +21,7 @@ Button/Name/ZeratulCommanderConstructsFacility=Build <d stringref="Unit,ZeratulC
 Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderCoreForge,Name"/>
 Button/Name/ZeratulCommanderDevolutionWave=<d stringref="Abil,ZeratulCommanderDevolutionWave,Name"/>
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
+Button/Name/ZeratulCommanderXelNagaEnforcer=Warp In <d stringref="Unit,ZeratulCommanderXelNagaEnforcer,Name"/>
 Button/Name/ZeratulCommanderForceCannon=Force Cannon
 Button/Name/ZeratulCommanderMaelstrom=Maelstrom
 Button/Name/ZeratulCommanderMindControl=Mind Control

@@ -227,9 +227,9 @@
         <DataRecord Entry="Sound,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
     </CDataCollectionUnit>
 
-    <!-- ===================== -->
-    <!--        Weapons        -->
-    <!-- ===================== -->
+    <!-- ========================= -->
+    <!--          Weapons          -->
+    <!-- ========================= -->
 
     <!-- Warp Blade -->
     <CWeaponLegacy id="ZeratulCommanderWarpBlade" parent="CommanderWeapon_Melee">
@@ -246,7 +246,7 @@
     
     <CActorAction id="ZeratulCommanderWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderWarpBlade@Damage">
     </CActorAction>
-    
+
     <CSound id="ZeratulCommanderWarpBlade@AttackLaunch" parent="Combat">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch0.wav" FacialGroup=""/>

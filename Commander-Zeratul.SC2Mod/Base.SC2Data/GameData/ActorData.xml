@@ -39,10 +39,6 @@
         <LifeArmorIcon value="Assets\Textures\protossbuildingarmor.dds"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
     </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaEnforcer">
-        <WalkAnimMoveSpeed value="1"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>
-    </CActorUnit>
     <CActorUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaAbrogator">
         <WalkAnimMoveSpeed value="3"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldisruptor.dds"/>

@@ -1,4 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Catalog>
+
+    <CButton id="ZeratulCommanderXelNagaEnforcer">
+        <Icon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
     
+    <CUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGround_Prot" race="COOPZeratul">
+        <Collide index="Small" value="1"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmor value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <ShieldsStart value="200"/>
+        <ShieldsMax value="200"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="10"/>
+        <Food value="-2"/>
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="50"/>
+        <RepairTime value="21"/>
+        <WeaponArray Link="ZeratulCommanderPhaseDisruptors"/>
+        <WeaponArray Link="ZeratulCommanderAnnihilationCannon"/>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0.625"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0.65"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <CargoSize value="4"/>
+        <GlossaryPriority value="85"/>
+        <BehaviorArray Link="ZeratulCommanderForceCannon"/>
+    </CUnit>
+    
+    <CActorUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaEnforcer">
+        <WalkAnimMoveSpeed value="1"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>
+    </CActorUnit>
+
+    <CModel id="ZeratulCommanderXelNagaEnforcer" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Units\Immortal_Zeratul_COOP\Immortal_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <Radius value="0.800000"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+        <SelectionRadius value="0.800000"/>
+        <ShadowRadius value="0.800000"/>
+        <Tipability value="1.000000"/>
+        <TipabilityLength value="0.300000"/>
+        <TipabilityWidth value="0.400000"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaEnforcer@Portrait" parent="Portrait">
+        <Model value="Assets\COOP\Zeratul\Portraits\Immortal_Zeratul_COOP_Portrait\Immortal_Zeratul_COOP_Portrait.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaEnforcer@Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Zeratul\Units\Immortal_Zeratul_COOP_Death\Immortal_Zeratul_COOP_Death.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <VariationCount value="2"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaEnforcer@DeathRagdoll" parent="UnitDeathRagdoll">
+        <Model value="Assets\COOP\Zeratul\Units\Immortal_Zeratul_COOP_DeathRagdoll\Immortal_Zeratul_COOP_DeathRagdoll.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    
+    <CSound id="ZeratulCommanderXelNagaEnforcer@Help" parent="ProtossHelp">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Help00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaEnforcer@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed06.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed07.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed08.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaEnforcer@Ready" parent="Ready">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Ready00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaEnforcer@What" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What06.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaEnforcer@Yes" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes05.ogg" FacialGroup=""/>
+    </CSound>
+    
+    <CDataCollectionUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
+        <DataRecord Entry="Button,ZeratulCommanderXelNagaEnforcer"/>
+        <DataRecord Entry="Actor,ZeratulCommanderXelNagaEnforcer"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaEnforcer"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaEnforcer@Portrait"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaEnforcer@Death"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaEnforcer@DeathRagdoll"/>
+        <DataRecord Entry="Unit,ZeratulCommanderXelNagaEnforcer"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Ready"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Help"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@What"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Yes"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Pissed"/>
+    </CDataCollectionUnit>
 </Catalog>

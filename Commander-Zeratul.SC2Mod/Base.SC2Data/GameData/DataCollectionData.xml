@@ -245,20 +245,6 @@
         <DataRecord Entry="Unit,ZeratulCommanderVoidShrine"/>
         <DataRecord Entry="Model,ZeratulCommanderVoidShrine@Placement"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,ZeratulCommanderXelNagaEnforcer"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaEnforcer"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaEnforcer@Portrait"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaEnforcer@Death"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaEnforcer@DeathRagdoll"/>
-        <DataRecord Entry="Unit,ZeratulCommanderXelNagaEnforcer"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Ready"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Help"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@What"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Yes"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Pissed"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
         <DataRecord Entry="Actor,ZeratulCommanderXelNagaAbrogator"/>

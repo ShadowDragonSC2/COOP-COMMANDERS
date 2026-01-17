@@ -59,45 +59,6 @@
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch1.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch2.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="ZeratulCommanderXelNagaEnforcer@Help" parent="ProtossHelp">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Help00.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaEnforcer@Pissed" parent="Pissed">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed00.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed01.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed02.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed03.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed04.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed05.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed06.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed07.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Pissed08.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaEnforcer@Ready" parent="Ready">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Ready00.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaEnforcer@What" parent="Voice">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What00.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What01.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What02.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What03.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What04.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What05.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_What06.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaEnforcer@Yes" parent="Voice">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes00.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes01.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes02.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes03.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes04.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes05.ogg" FacialGroup=""/>
-    </CSound>
     <CSound id="ZeratulCommanderXelNagaAbrogator@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Help00.ogg" FacialGroup=""/>

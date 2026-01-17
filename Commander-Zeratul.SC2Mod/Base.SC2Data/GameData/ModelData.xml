@@ -18,10 +18,6 @@
         <Model value="Assets\COOP\Zeratul\Portraits\Construct_Essence_Zeratul_COOP_Portrait\Construct_Essence_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
-    <CModel id="ZeratulCommanderXelNagaEnforcer@Portrait" parent="Portrait">
-        <Model value="Assets\COOP\Zeratul\Portraits\Immortal_Zeratul_COOP_Portrait\Immortal_Zeratul_COOP_Portrait.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CModel>
     <CModel id="ZeratulCommanderXelNagaAbrogator@Portrait" parent="Portrait">
         <Model value="Assets\COOP\Zeratul\Portraits\Disruptor_Zeratul_COOP_Portrait\Disruptor_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -67,18 +63,6 @@
     </CModel>
     <CModel id="ZeratulCommanderXelNagaAbrogator" parent="Unit">
         <Model value="Assets\COOP\Zeratul\Units\Disruptor_Zeratul_COOP\Disruptor_Zeratul_COOP.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-        <Radius value="0.800000"/>
-        <ScaleMax value="0.800000,0.800000,0.800000"/>
-        <ScaleMin value="0.800000,0.800000,0.800000"/>
-        <SelectionRadius value="0.800000"/>
-        <ShadowRadius value="0.800000"/>
-        <Tipability value="1.000000"/>
-        <TipabilityLength value="0.300000"/>
-        <TipabilityWidth value="0.400000"/>
-    </CModel>
-    <CModel id="ZeratulCommanderXelNagaEnforcer" parent="Unit">
-        <Model value="Assets\COOP\Zeratul\Units\Immortal_Zeratul_COOP\Immortal_Zeratul_COOP.m3"/>
         <EditorCategories value="Race:Zeratul"/>
         <Radius value="0.800000"/>
         <ScaleMax value="0.800000,0.800000,0.800000"/>
@@ -188,11 +172,6 @@
         <Model value="Assets\COOP\Zeratul\Buildings\DarkShrine_Zeratul_COOP_Death\DarkShrine_Zeratul_COOP_Death.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
-    <CModel id="ZeratulCommanderXelNagaEnforcer@Death" parent="UnitDeath">
-        <Model value="Assets\COOP\Zeratul\Units\Immortal_Zeratul_COOP_Death\Immortal_Zeratul_COOP_Death.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-        <VariationCount value="2"/>
-    </CModel>
     <CModel id="ZeratulCommanderXelNagaAbrogator@Death" parent="UnitDeath">
         <Model value="Assets\COOP\Zeratul\Units\Disruptor_Zeratul_COOP_Death\Disruptor_Zeratul_COOP_Death.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -214,10 +193,6 @@
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
     <!-- Death Ragdol -->
-    <CModel id="ZeratulCommanderXelNagaEnforcer@DeathRagdoll" parent="UnitDeathRagdoll">
-        <Model value="Assets\COOP\Zeratul\Units\Immortal_Zeratul_COOP_DeathRagdoll\Immortal_Zeratul_COOP_DeathRagdoll.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CModel>
     <CModel id="ZeratulCommanderXelNagaAbrogator@DeathRagdoll" parent="UnitDeathRagdoll">
         <Model value="Assets\COOP\Zeratul\Units\Disruptor_Zeratul_COOP_DeathRagdoll\Disruptor_Zeratul_COOP_DeathRagdoll.m3"/>
         <EditorCategories value="Race:Zeratul"/>
