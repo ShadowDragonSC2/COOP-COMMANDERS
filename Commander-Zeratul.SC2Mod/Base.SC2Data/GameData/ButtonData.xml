@@ -50,10 +50,6 @@
         <Icon value="Assets\Textures\btn-ability-zeratul-hero-propheticvision.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
-    <CButton id="ZeratulCommanderShadowCleave">
-        <Icon value="Assets\Textures\btn-ability-zeratul-hero-shadowcleave.dds"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CButton>
     <CButton id="ZeratulCommanderTesseractCannon">
         <Icon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
         <EditorCategories value="Race:Zeratul"/>

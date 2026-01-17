@@ -42,15 +42,6 @@
             <Cooldown Location="Player" TimeUse="10"/>
         </Cost>
     </CAbilEffectInstant>
-    <CAbilEffectInstant id="ZeratulCommanderShadowCleave">
-        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
-        <Effect index="0" value="ZeratulCommanderShadowCleave@Search"/>
-        <Flags index="Transient" value="1"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderShadowCleave"/>
-        <Cost>
-            <Cooldown TimeUse="10"/>
-        </Cost>
-    </CAbilEffectInstant>
     <!-- Build -->
     <CAbilBuild id="ZeratulCommanderBuildProbe">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>

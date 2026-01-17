@@ -304,4 +304,70 @@
         <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ImpactModel"/>
         <DataRecord Entry="Sound,ZeratulCommanderPredictiveBlink@ImpactSound"/>
     </CDataCollectionUnit>
+
+    <!-- Shadow Cleave -->
+    <CButton id="ZeratulCommanderShadowCleave">
+        <Icon value="Assets\Textures\btn-ability-zeratul-hero-shadowcleave.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    
+    <CAbilEffectInstant id="ZeratulCommanderShadowCleave">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <Effect index="0" value="ZeratulCommanderShadowCleave@Search"/>
+        <Flags index="Transient" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderShadowCleave"/>
+        <Cost>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+    </CAbilEffectInstant>
+
+    <CEffectDamage id="ZeratulCommanderShadowCleave@Damage">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="100"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="ZeratulCommanderShadowCleave@Search">
+        <EditorCategories value="Race:Zeratul"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="ZeratulCommanderShadowCleave@Damage"/>
+    </CEffectEnumArea>
+
+    <CActorSimple id="ZeratulCommanderShadowCleave@Animation">
+        <On Terms="Abil.ZeratulCommanderShadowCleave.SourceCastStart" Send="Create"/>
+        <On Terms="ActorCreation" Target="_Unit" Send="AnimBracketStart Spell Spell,B,Start Spell,B,End {} ContentPlayOnce"/>
+    </CActorSimple>
+    <CActorModel id="ZeratulCommanderShadowCleave@LaunchModel" parent="ModelAnimationStyleOneShot">
+        <HostSiteOps Ops="SOpAttachCenter"/>
+        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
+    </CActorModel>
+    <CActorSound id="ZeratulCommanderShadowCleave@LaunchSound" parent="SoundOneShot">
+        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
+    </CActorSound>
+
+    <CModel id="ZeratulCommanderShadowCleave@LaunchModel" parent="LaunchFX">
+        <Model value="Assets\Effects\Protoss\Zeratul_ShadowBlade\Zeratul_ShadowBlade.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CSound id="ZeratulCommanderShadowCleave@LaunchSound" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Zeratul\Zeratul_AC_Cleave_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Zeratul\Zeratul_AC_Cleave_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Zeratul\Zeratul_AC_Cleave_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Zeratul\Zeratul_AC_Cleave_04.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Zeratul\Zeratul_AC_Cleave_06.wav" FacialGroup=""/>
+    </CSound>
+    
+    <CDataCollectionUnit id="ZeratulCommanderShadowCleave" parent="CommanderAbilityAB">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Instant"/>
+        <DataRecord Entry="Abil,ZeratulCommanderShadowCleave"/>
+        <DataRecord Entry="Effect,ZeratulCommanderShadowCleave@Search"/>
+        <DataRecord Entry="Effect,ZeratulCommanderShadowCleave@Damage"/>
+        <DataRecord Entry="Actor,ZeratulCommanderShadowCleave@LaunchModel"/>
+        <DataRecord Entry="Actor,ZeratulCommanderShadowCleave@Animation"/>
+        <DataRecord Entry="Actor,ZeratulCommanderShadowCleave@LaunchSound"/>
+        <DataRecord Entry="Model,ZeratulCommanderShadowCleave@LaunchModel"/>
+        <DataRecord Entry="Sound,ZeratulCommanderShadowCleave@LaunchSound"/>
+        <DataRecord Entry="Button,ZeratulCommanderShadowCleave"/>
+        <EditorIconSource value="Button"/>
+    </CDataCollectionUnit>
 </Catalog>

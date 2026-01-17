@@ -223,17 +223,6 @@
         <On Terms="Effect.ZeratulCommanderProphecy@CP.Stop; FromEffectTreeDescendant" Send="AnimBracketStop BSD"/>
         <ModelFlags index="AutomateGlobalLoops" value="1"/>
     </CActorModel>
-    <CActorSimple id="ZeratulCommanderShadowCleave@Animation">
-        <On Terms="Abil.ZeratulCommanderShadowCleave.SourceCastStart" Send="Create"/>
-        <On Terms="ActorCreation" Target="_Unit" Send="AnimBracketStart Spell Spell,B,Start Spell,B,End {} ContentPlayOnce"/>
-    </CActorSimple>
-    <CActorModel id="ZeratulCommanderShadowCleave@LaunchModel" parent="ModelAnimationStyleOneShot">
-        <HostSiteOps Ops="SOpAttachCenter"/>
-        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
-    </CActorModel>
-    <CActorSound id="ZeratulCommanderShadowCleave@LaunchSound" parent="SoundOneShot">
-        <On Terms="Effect.ZeratulCommanderShadowCleave@Search.Start" Send="Create"/>
-    </CActorSound>
     <CActorAction id="ZeratulCommanderVengeanceoftheVoid@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderVengeanceoftheVoid@Damage">
     </CActorAction>
     <CActorBeamSimple id="ZeratulCommanderVengeanceoftheVoid@AttackBeam" parent="BeamSimpleAnimationStyleOneShot">

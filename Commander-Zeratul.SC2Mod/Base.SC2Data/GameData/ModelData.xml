@@ -369,10 +369,6 @@
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
 
-    <CModel id="ZeratulCommanderShadowCleave@LaunchModel" parent="LaunchFX">
-        <Model value="Assets\Effects\Protoss\Zeratul_ShadowBlade\Zeratul_ShadowBlade.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CModel>
     <!-- Splat -->
     <CModel id="ZeratulCommanderDisruptorPhase@Cursor" parent="Splat">
         <Model value="Assets\UI\SOA_MassRecallCursor\SOA_MassRecallCursor.m3"/>

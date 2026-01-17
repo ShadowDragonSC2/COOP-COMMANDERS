@@ -37,10 +37,6 @@
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="100"/>
     </CEffectDamage>
-    <CEffectDamage id="ZeratulCommanderShadowCleave@Damage">
-        <EditorCategories value="Race:Zeratul"/>
-        <Amount value="100"/>
-    </CEffectDamage>
     <CEffectDamage id="ZeratulCommanderVengeanceoftheVoid@CU@Suicide">
         <EditorCategories value="Race:Zeratul"/>
         <ImpactLocation Effect="ZeratulCommanderVengeanceoftheVoid@Interval" Value="TargetUnit"/>
@@ -207,12 +203,6 @@
         <DebugTrace value="1"/>
         <SearchFilters value="Ground;Self,Player,Ally,Missile,Stasis,Hidden,Invulnerable"/>
         <AreaArray Radius="1.5" Effect="ZeratulCommanderDisruptorPhase@Damage"/>
-    </CEffectEnumArea>
-    <CEffectEnumArea id="ZeratulCommanderShadowCleave@Search">
-        <EditorCategories value="Race:Zeratul"/>
-        <ImpactLocation Value="TargetUnit"/>
-        <SearchFilters value="Ground;Self,Player,Ally,Neutral,Dead,Hidden,Invulnerable"/>
-        <AreaArray Radius="3" Effect="ZeratulCommanderShadowCleave@Damage"/>
     </CEffectEnumArea>
     <CEffectEnumArea id="ZeratulCommanderVengeanceoftheVoid@Search">
         <EditorCategories value="Race:Zeratul"/>
