@@ -162,11 +162,14 @@
         <Range value="11"/>
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestCliff" value="1"/>
+        <TeleportFlags index="TestZone" value="1"/>
+        <TeleportFlags index="TestFog" value="1"/>
         <TeleportEffect value="ZeratulCommanderBlinkVoidTemplar@Effects"/>
     </CEffectTeleport>
 
     <CActorAction id="ZeratulCommanderBlinkVoidTemplar@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderVoidFury@Damage" effectLaunch="ZeratulCommanderVoidFury@Search">
         <ImpactPhysics Name="PhysicsImpactMedium" MatchKeys="Basic" Physics="CC_AttackDeathForceMedium"/>
+        <ImpactMap index="None" Model="ZeratulCommanderBlinkVoidTemplar@Impact"/>
     </CActorAction>
     <CActorModel id="ZeratulCommanderBlinkVoidTemplar@ImpactModel" parent="ModelAnimationStyleOneShot">
         <Host Subject="_Selectable"/>
@@ -175,7 +178,7 @@
         <On Terms="ActorCreation" Send="RefSet ::scope.Impact ::Self"/>
     </CActorModel>
     <CActorSound id="ZeratulCommanderBlinkVoidTemplar@ImpactSound" parent="SoundOneShot">
-        <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Stop" Send="Create"/>
+        <On Terms="Effect.ZeratulCommanderBlinkVoidTemplar@Teleport.Start; At Caster" Send="Create"/>
     </CActorSound>
     <CActorModel id="ZeratulCommanderBlinkVoidTemplar@LaunchModel" parent="ModelAnimationStyleOneShot">
         <Host Subject="_Selectable"/>
@@ -188,6 +191,10 @@
         <Range value="11.000000"/>
     </CActorRange>
 
+    <CModel id="ZeratulCommanderBlinkVoidTemplar@Impact">
+        <Model value="Assets\COOP\Zeratul\Effects\DarkTemplar_Zeratul_COOP_BlinkStrike\DarkTemplar_Zeratul_COOP_BlinkStrike.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderBlinkVoidTemplar@ImpactModel" parent="ImpactFX">
         <Model value="Assets\Effects\Protoss\ZeratulBlinkIn\ZeratulBlinkIn.m3"/>
         <EditorCategories value="Race:Zeratul"/>
