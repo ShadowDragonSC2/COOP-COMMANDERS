@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <!-- Target -->
-    <CAbilEffectTarget id="ZeratulCommanderBlinkVoidTemplar">
-        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
-        <Effect index="0" value="ZeratulCommanderBlinkVoidTemplar@Set"/>
-        <Flags index="BestUnit" value="0"/>
-        <Range value="500"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderBlinkVoidTemplar"/>
-        <Arc value="360"/>
-    </CAbilEffectTarget>
     <CAbilEffectTarget id="ZeratulCommanderPickupArtifact">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
         <DebugTrace value="1"/>

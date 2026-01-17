@@ -327,10 +327,6 @@
         <Model value="Assets\Effects\Protoss\StalkerMissileImpact\StalkerMissileImpact.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
-    <CModel id="ZeratulCommanderBlinkVoidTemplar@ImpactModel" parent="ImpactFX">
-        <Model value="Assets\Effects\Protoss\ZeratulBlinkIn\ZeratulBlinkIn.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CModel>
     <CModel id="ZeratulCommanderDisruptorPhase@Impact" parent="ImpactFX">
         <Model value="Assets\COOP\Zeratul\Effects\Disruptor_Zeratul_COOP_PurificationNova\Disruptor_Zeratul_COOP_PurificationNova.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -342,10 +338,6 @@
     <!-- Launch Model -->
     <CModel id="ZeratulCommanderPhaseDisruptors@AttackLaunch" parent="LaunchFX">
         <Model value="Assets\COOP\Zeratul\Effects\Immortal_Zeratul_COOP_CannonLaunch\Immortal_Zeratul_COOP_CannonLaunch.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CModel>
-    <CModel id="ZeratulCommanderBlinkVoidTemplar@LaunchModel" parent="LaunchFX">
-        <Model value="Assets\Effects\Protoss\ZeratulBlinkOut\ZeratulBlinkOut.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
     <!-- Splat -->

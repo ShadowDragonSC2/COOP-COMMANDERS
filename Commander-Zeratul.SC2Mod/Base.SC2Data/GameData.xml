@@ -3,4 +3,9 @@
     <Catalog path="GameData/ZeratulData/base.xml"/>
     <Catalog path="GameData/ZeratulData/DarkArchon.xml"/>
     <Catalog path="GameData/ZeratulData/Ambusher.xml"/>
+    <Catalog path="GameData/ZeratulData/Abrogator.xml"/>
+    <Catalog path="GameData/ZeratulData/Enforcer.xml"/>
+    <Catalog path="GameData/ZeratulData/VoidArray.xml"/>
+    <Catalog path="GameData/ZeratulData/VoidTemplar.xml"/>
+    <Catalog path="GameData/ZeratulData/Zeratul.xml"/>
 </Includes>

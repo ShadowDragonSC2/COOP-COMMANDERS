@@ -57,11 +57,6 @@
         <EffectArray value="ZeratulCommanderAnnihilationCannon@Damage"/>
         <EffectArray value="ZeratulCommanderAnnihilationCannon@Effects"/>
     </CEffectSet>
-    <CEffectSet id="ZeratulCommanderBlinkVoidTemplar@Effects">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderVoidFury@LM"/>
-        <TargetLocationType value="UnitOrPoint"/>
-    </CEffectSet>
     <CEffectSet id="ZeratulCommanderDisruptorPhase@Effects">
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="ZeratulCommanderClusterNova@CP"/>
@@ -70,12 +65,6 @@
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="ZeratulCommanderProphecy@CP"/>
         <EffectArray value="ZeratulCommanderProphecy@RB"/>
-    </CEffectSet>
-    <CEffectSet id="ZeratulCommanderBlinkVoidTemplar@Set">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderBlinkVoidTemplar@Facing"/>
-        <EffectArray value="ZeratulCommanderBlinkVoidTemplar@Teleport"/>
-        <TargetLocationType value="Point"/>
     </CEffectSet>
     <CEffectSet id="ZeratulCommanderDevolutionWave@TriggerHandler">
         <EditorCategories value="Race:Zeratul"/>
@@ -259,28 +248,10 @@
         <CaseArray Effect="ZeratulCommanderProphecy@CP" FallThrough="1"/>
     </CEffectSwitch>
     <!-- Effect Modify Unit-->
-    <CEffectModifyUnit id="ZeratulCommanderBlinkVoidTemplar@Facing">
-        <EditorCategories value="Race:Zeratul"/>
-        <ImpactUnit Value="Caster"/>
-        <FacingLocation Effect="ZeratulCommanderBlinkVoidTemplar@Set" Value="TargetPoint"/>
-        <FacingType value="LookAt"/>
-    </CEffectModifyUnit>
     <CEffectModifyUnit id="ZeratulCommanderProphecy@Handler">
         <EditorCategories value="Race:Zeratul"/>
     </CEffectModifyUnit>
     <!-- Effect Teleport-->
-    <CEffectTeleport id="ZeratulCommanderBlinkVoidTemplar@Teleport">
-        <ValidatorArray value="CasterNotFungalGrowthed"/>
-        <EditorCategories value="Race:Zeratul"/>
-        <WhichUnit Value="Caster"/>
-        <ClearQueuedOrders value="0"/>
-        <PlacementAround Value="CasterUnit"/>
-        <PlacementRange value="11"/>
-        <Range value="11"/>
-        <TargetLocation Value="TargetPoint"/>
-        <TeleportFlags index="TestCliff" value="1"/>
-        <TeleportEffect value="ZeratulCommanderBlinkVoidTemplar@Effects"/>
-    </CEffectTeleport>
     <!-- Effect Issue Order -->
     <CEffectIssueOrder id="ZeratulCommanderDisruptorPhase@Issue">
         <EditorCategories value="Race:Zeratul"/>

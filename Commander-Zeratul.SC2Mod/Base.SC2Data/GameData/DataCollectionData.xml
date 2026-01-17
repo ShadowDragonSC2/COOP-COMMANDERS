@@ -22,23 +22,6 @@
         <DataRecord Entry="Requirement,ZeratulCommanderAvatarOfEssence@Requirement"/>
         <DataRecord Entry="Unit,ZeratulCommanderAvatarOfEssence"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderBlinkVoidTemplar" parent="CommanderAbilityTeleport">
-        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Target"/>
-        <DataRecord Entry="Abil,ZeratulCommanderBlinkVoidTemplar"/>
-        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@ImpactModel"/>
-        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
-        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
-        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@Range"/>
-        <DataRecord Entry="Actor,ZeratulCommanderBlinkVoidTemplar@Attack"/>
-        <DataRecord Entry="Button,ZeratulCommanderBlinkVoidTemplar"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Teleport"/>
-        <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@ImpactModel"/>
-        <DataRecord Entry="Model,ZeratulCommanderBlinkVoidTemplar@LaunchModel"/>
-        <DataRecord Entry="Sound,ZeratulCommanderBlinkVoidTemplar@ImpactSound"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Effects"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Facing"/>
-        <DataRecord Entry="Effect,ZeratulCommanderBlinkVoidTemplar@Set"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderClusterNova">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Passive"/>
         <DataRecord Entry="Button,ZeratulCommanderClusterNova"/>

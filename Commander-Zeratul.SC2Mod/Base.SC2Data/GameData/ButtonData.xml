@@ -8,10 +8,6 @@
         <Icon value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
-    <CButton id="ZeratulCommanderBlinkVoidTemplar">
-        <Icon value="Assets\Textures\btn-ability-zeratul-darktemplar-blink.dds"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CButton>
     <CButton id="ZeratulCommanderClusterNova">
         <Icon value="Assets\Textures\btn-ability-zeratul-disruptor-clusternova.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zeratul-disruptor-clusternova.dds"/>
