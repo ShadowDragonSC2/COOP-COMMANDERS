@@ -85,26 +85,6 @@
         <ShieldsMax value="500"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
-    <CUnit id="ZeratulCommanderVoidTemplar" parent="CommanderGround_Prot" race="COOPZeratul">
-        <FlagArray index="Cloaked" value="1"/>
-        <LifeStart value="100"/>
-        <LifeMax value="750"/>
-        <ShieldsStart value="100"/>
-        <ShieldsMax value="100"/>
-        <Speed value="2.9492"/>
-        <LateralAcceleration value="46"/>
-        <Sight value="10"/>
-        <CostResource index="Minerals" value="300"/>
-        <CostResource index="Vespene" value="50"/>
-        <WeaponArray Link="ZeratulCommanderWarpBlade"/>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
-        <AbilArray Link="ZeratulCommanderBlinkVoidTemplar"/>
-        <CardLayouts index="0">
-            <LayoutButtons Face="ZeratulCommanderBlinkVoidTemplar" Type="AbilCmd" AbilCmd="ZeratulCommanderBlinkVoidTemplar,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="ZeratulCommanderVoidFury" Type="Passive" Row="1" Column="1"/>
-        </CardLayouts>
-        <GlossaryPriority value="45"/>
-    </CUnit>
     <CUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
         <LifeStart value="400"/>

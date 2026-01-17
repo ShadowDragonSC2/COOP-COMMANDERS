@@ -39,12 +39,6 @@
         <LifeArmorIcon value="Assets\Textures\protossbuildingarmor.dds"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
     </CActorUnit>
-    <CActorUnit id="ZeratulCommanderVoidTemplar" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidTemplar">
-        <WalkAnimMoveSpeed value="3"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldarktemplar.dds"/>
-        <DeathArray index="Normal" SoundLink="DarkTemplar_DeathFX"/>
-        <DeathArray index="Freeze" SoundLink="ZeratulCommanderVoidTemplar@DeathVoice"/>
-    </CActorUnit>
     <CActorUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaEnforcer">
         <WalkAnimMoveSpeed value="1"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>

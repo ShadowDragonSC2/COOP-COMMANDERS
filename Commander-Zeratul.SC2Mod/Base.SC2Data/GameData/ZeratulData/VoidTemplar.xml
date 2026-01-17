@@ -1,4 +1,118 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Catalog>
+
+    <CButton id="ZeratulCommanderVoidTemplar">
+        <Icon value="Assets\Textures\btn-unit-protoss-zeratuldarktemplar.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
     
+    <CUnit id="ZeratulCommanderVoidTemplar" parent="CommanderGround_Prot" race="COOPZeratul">
+        <FlagArray index="Cloaked" value="1"/>
+        <LifeStart value="100"/>
+        <LifeMax value="750"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
+        <Speed value="2.9492"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="10"/>
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="50"/>
+        <WeaponArray Link="ZeratulCommanderWarpBlade"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <AbilArray Link="ZeratulCommanderBlinkVoidTemplar"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ZeratulCommanderBlinkVoidTemplar" Type="AbilCmd" AbilCmd="ZeratulCommanderBlinkVoidTemplar,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderVoidFury" Type="Passive" Row="1" Column="1"/>
+        </CardLayouts>
+        <GlossaryPriority value="45"/>
+    </CUnit>
+    
+    <CActorUnit id="ZeratulCommanderVoidTemplar" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidTemplar">
+        <WalkAnimMoveSpeed value="3"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldarktemplar.dds"/>
+        <DeathArray index="Normal" SoundLink="DarkTemplar_DeathFX"/>
+        <DeathArray index="Freeze" SoundLink="ZeratulCommanderVoidTemplar@DeathVoice"/>
+    </CActorUnit>
+    
+    <CModel id="ZeratulCommanderVoidTemplar" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Units\DarkTemplar_Zeratul_COOP\DarkTemplar_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <Radius value="0.800000"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+        <SelectionRadius value="0.800000"/>
+        <ShadowRadius value="0.800000"/>
+        <Tipability value="1.000000"/>
+        <TipabilityLength value="0.300000"/>
+        <TipabilityWidth value="0.400000"/>
+    </CModel>
+    <CModel id="ZeratulCommanderVoidTemplar@Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Zeratul\Units\DarkTemplar_Zeratul_COOP_Death\DarkTemplar_Zeratul_COOP_Death.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderVoidTemplar@Portrait" parent="Portrait">
+        <Model value="Assets\COOP\Zeratul\Portraits\DarkTemplar_Zeratul_COOP_Portrait\DarkTemplar_Zeratul_COOP_Portrait.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    
+    <CSound id="ZeratulCommanderVoidTemplar@DeathVoice" parent="DeathVoice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death00.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death01.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death02.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death03.wav" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Death04.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderVoidTemplar@Help" parent="ProtossHelp">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Help00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderVoidTemplar@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Pissed00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Pissed01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Pissed02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Pissed03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Pissed04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Pissed05.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderVoidTemplar@Ready" parent="Ready">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Ready00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderVoidTemplar@What" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_What00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_What01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_What02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_What03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_What04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_What05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_What06.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderVoidTemplar@Yes" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Yes00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Yes01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Yes02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Yes03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Yes04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Yes05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\DarkTemplar\DarkTemplar_Yes06.ogg" FacialGroup=""/>
+    </CSound>
+    
+    <CDataCollectionUnit id="ZeratulCommanderVoidTemplar" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,ZeratulCommanderVoidTemplar"/>
+        <DataRecord Entry="Model,ZeratulCommanderVoidTemplar"/>
+        <DataRecord Entry="Model,ZeratulCommanderVoidTemplar@Portrait"/>
+        <DataRecord Entry="Model,ZeratulCommanderVoidTemplar@Death"/>
+        <DataRecord Entry="Unit,ZeratulCommanderVoidTemplar"/>
+        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Ready"/>
+        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Help"/>
+        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@What"/>
+        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Yes"/>
+        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Pissed"/>
+        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@DeathVoice"/>
+    </CDataCollectionUnit>
 </Catalog>

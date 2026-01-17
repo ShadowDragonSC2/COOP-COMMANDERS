@@ -18,10 +18,6 @@
         <Model value="Assets\COOP\Zeratul\Portraits\Construct_Essence_Zeratul_COOP_Portrait\Construct_Essence_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
-    <CModel id="ZeratulCommanderVoidTemplar@Portrait" parent="Portrait">
-        <Model value="Assets\COOP\Zeratul\Portraits\DarkTemplar_Zeratul_COOP_Portrait\DarkTemplar_Zeratul_COOP_Portrait.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CModel>
     <CModel id="ZeratulCommanderXelNagaEnforcer@Portrait" parent="Portrait">
         <Model value="Assets\COOP\Zeratul\Portraits\Immortal_Zeratul_COOP_Portrait\Immortal_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -71,18 +67,6 @@
     </CModel>
     <CModel id="ZeratulCommanderXelNagaAbrogator" parent="Unit">
         <Model value="Assets\COOP\Zeratul\Units\Disruptor_Zeratul_COOP\Disruptor_Zeratul_COOP.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-        <Radius value="0.800000"/>
-        <ScaleMax value="0.800000,0.800000,0.800000"/>
-        <ScaleMin value="0.800000,0.800000,0.800000"/>
-        <SelectionRadius value="0.800000"/>
-        <ShadowRadius value="0.800000"/>
-        <Tipability value="1.000000"/>
-        <TipabilityLength value="0.300000"/>
-        <TipabilityWidth value="0.400000"/>
-    </CModel>
-    <CModel id="ZeratulCommanderVoidTemplar" parent="Unit">
-        <Model value="Assets\COOP\Zeratul\Units\DarkTemplar_Zeratul_COOP\DarkTemplar_Zeratul_COOP.m3"/>
         <EditorCategories value="Race:Zeratul"/>
         <Radius value="0.800000"/>
         <ScaleMax value="0.800000,0.800000,0.800000"/>
@@ -202,10 +186,6 @@
     </CModel>
     <CModel id="ZeratulCommanderVoidShrine@Death" parent="UnitDeath">
         <Model value="Assets\COOP\Zeratul\Buildings\DarkShrine_Zeratul_COOP_Death\DarkShrine_Zeratul_COOP_Death.m3"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CModel>
-    <CModel id="ZeratulCommanderVoidTemplar@Death" parent="UnitDeath">
-        <Model value="Assets\COOP\Zeratul\Units\DarkTemplar_Zeratul_COOP_Death\DarkTemplar_Zeratul_COOP_Death.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
     <CModel id="ZeratulCommanderXelNagaEnforcer@Death" parent="UnitDeath">
@@ -368,7 +348,6 @@
         <Model value="Assets\Effects\Protoss\ZeratulBlinkOut\ZeratulBlinkOut.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
-
     <!-- Splat -->
     <CModel id="ZeratulCommanderDisruptorPhase@Cursor" parent="Splat">
         <Model value="Assets\UI\SOA_MassRecallCursor\SOA_MassRecallCursor.m3"/>

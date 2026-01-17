@@ -262,20 +262,6 @@
         <DataRecord Entry="Unit,ZeratulCommanderVoidShrine"/>
         <DataRecord Entry="Model,ZeratulCommanderVoidShrine@Placement"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderVoidTemplar" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,ZeratulCommanderVoidTemplar"/>
-        <DataRecord Entry="Model,ZeratulCommanderVoidTemplar"/>
-        <DataRecord Entry="Model,ZeratulCommanderVoidTemplar@Portrait"/>
-        <DataRecord Entry="Model,ZeratulCommanderVoidTemplar@Death"/>
-        <DataRecord Entry="Unit,ZeratulCommanderVoidTemplar"/>
-        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Ready"/>
-        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Help"/>
-        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@What"/>
-        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Yes"/>
-        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@Pissed"/>
-        <DataRecord Entry="Sound,ZeratulCommanderVoidTemplar@DeathVoice"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderWarpBlade" parent="CommanderWeaponInstant">
         <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Instant"/>
         <DataRecord Entry="Actor,ZeratulCommanderWarpBlade@Attack"/>
