@@ -9,8 +9,4 @@
     <CValidatorUnitType id="ZeratulCommanderProphecy@UnitType">
         <Value value="ZeratulCommanderArtifact"/>
     </CValidatorUnitType>
-    <CValidatorUnitType id="ZeratulCommanderZeratul">
-        <WhichUnit Value="Caster"/>
-        <Value value="ZeratulCommanderZeratul"/>
-    </CValidatorUnitType>
 </Catalog>

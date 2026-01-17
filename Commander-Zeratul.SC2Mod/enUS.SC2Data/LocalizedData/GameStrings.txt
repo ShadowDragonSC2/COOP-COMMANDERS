@@ -2,7 +2,7 @@
 Abil/Name/ZeratulCommanderBuildProbe=Zeratul Commander - Build Probe
 Abil/Name/ZeratulCommanderDevolutionWave=Devolution Wave
 Abil/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
-Abil/Name/ZeratulCommanderMaelstorm=Maelstorm
+Abil/Name/ZeratulCommanderMaelstrom=Maelstrom
 Abil/Name/ZeratulCommanderMindControl=Mind Control
 Abil/Name/ZeratulCommanderMorphVoidArray=Flight
 Abil/Name/ZeratulCommanderMorphVoidArray@Phased=Phased
@@ -11,7 +11,8 @@ Abil/Name/ZeratulCommanderPredictiveBlink=Predictive Blink
 Abil/Name/ZeratulCommanderProphecy=Prophetic vision
 Abil/Name/ZeratulCommanderShadowCleave=Shadow Cleave
 Behavior/Name/ZeratulCommanderMindControl=Mind Control
-Button/Name/ZeratulCommaderDarkArchon=Dark Archon
+Button/Name/ZeratulCommanderXelnagaAmbusher=Warp In <d stringref="Unit,ZeratulCommanderXelnagaAmbusher,Name">
+Button/Name/ZeratulCommaderDarkArchon=<d stringref="Unit,ZeratulCommaderDarkArchon,Name">
 Button/Name/ZeratulCommanderAncientNexus=Build <d stringref="Unit,ZeratulCommanderAncientNexus,Name"/>
 Button/Name/ZeratulCommanderAvatarOfEssence=<d stringref="Unit,ZeratulCommanderAvatarOfEssence,Name"> Avatar of Essence
 Button/Name/ZeratulCommanderBlinkVoidTemplar=<d stringref="Abil,ZeratulCommanderBlinkVoidTemplar,Name"/>
@@ -22,7 +23,7 @@ Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderC
 Button/Name/ZeratulCommanderDevolutionWave=<d stringref="Abil,ZeratulCommanderDevolutionWave,Name"/>
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Button/Name/ZeratulCommanderForceCannon=Force Cannon
-Button/Name/ZeratulCommanderMaelstorm=Maelstorm
+Button/Name/ZeratulCommanderMaelstrom=Maelstrom
 Button/Name/ZeratulCommanderMindControl=Mind Control
 Button/Name/ZeratulCommanderPickupArtifact=Pickup Artifact
 Button/Name/ZeratulCommanderPredictiveBlink=<d stringref="Abil,ZeratulCommanderPredictiveBlink,Name"/>
@@ -60,7 +61,7 @@ DataCollection/Name/ZeratulCommanderCoreForge=Zeratul Commander - Core Forge
 DataCollection/Name/ZeratulCommanderDevolutionWave=Zeratul Commander - Devolution Wave
 DataCollection/Name/ZeratulCommanderDisruptorPhase=Zeratul Commander - Disruptor Phase
 DataCollection/Name/ZeratulCommanderForceCannon=Zeratul Commander - Force Cannon
-DataCollection/Name/ZeratulCommanderMaelstorm=Zeratul Commander - Maelstorm
+DataCollection/Name/ZeratulCommanderMaelstrom=Zeratul Commander - Maelstrom
 DataCollection/Name/ZeratulCommanderMasterWarpBlade=Zeratul Commander - Master Warp Blade
 DataCollection/Name/ZeratulCommanderMindControl=Zeratul Commander - Mind Control
 DataCollection/Name/ZeratulCommanderMorphVoidArray=Zeratul Commander - Morph Void Array

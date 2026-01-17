@@ -70,11 +70,6 @@
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="ZeratulCommanderClusterNova@CP"/>
     </CEffectSet>
-    <CEffectSet id="ZeratulCommanderPredictiveBlink@Effects">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderVengeanceoftheVoid@CU"/>
-        <TargetLocationType value="UnitOrPoint"/>
-    </CEffectSet>
     <CEffectSet id="ZeratulCommanderProphecy@Set">
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="ZeratulCommanderProphecy@CP"/>
@@ -295,19 +290,6 @@
         <TargetLocation Value="TargetPoint"/>
         <TeleportFlags index="TestCliff" value="1"/>
         <TeleportEffect value="ZeratulCommanderBlinkVoidTemplar@Effects"/>
-    </CEffectTeleport>
-    <CEffectTeleport id="ZeratulCommanderPredictiveBlink@Teleport">
-        <EditorCategories value="Race:Zeratul"/>
-        <WhichUnit Value="Caster"/>
-        <ClearQueuedOrders value="0"/>
-        <MinDistance value="1.5"/>
-        <PlacementAround Value="CasterUnit"/>
-        <PlacementRange value="11"/>
-        <Range value="11"/>
-        <TargetLocation Value="TargetPoint"/>
-        <TeleportFlags index="TestCliff" value="1"/>
-        <TeleportEffect value="ZeratulCommanderPredictiveBlink@Effects"/>
-        <ValidatorArray value="CasterNotFungalGrowthed"/>
     </CEffectTeleport>
     <!-- Effect Issue Order -->
     <CEffectIssueOrder id="ZeratulCommanderDisruptorPhase@Issue">

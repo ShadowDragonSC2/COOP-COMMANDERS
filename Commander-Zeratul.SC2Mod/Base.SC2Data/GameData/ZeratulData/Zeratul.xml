@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Catalog>
+    <CButton id="ZeratulCommanderZeratul">
+        <Icon value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+
+    <CUnit id="ZeratulCommanderZeratul" parent="CommanderGround_Prot" race="COOPZeratul">
+        <FlagArray index="Cloaked" value="1"/>
+        <LifeStart value="150"/>
+        <LifeMax value="150"/>
+        <LifeArmor value="1"/>
+        <LifeRegenRate value="1"/>
+        <ShieldsStart value="450"/>
+        <ShieldsMax value="450"/>
+        <ShieldRegenRate value="15"/>
+        <Speed value="3"/>
+        <AbilArray Link="ZeratulCommanderShadowCleave"/>
+        <AbilArray Link="ZeratulCommanderProphecy"/>
+        <WeaponArray Link="ZeratulCommanderMasterWarpBlade"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ZeratulCommanderShadowCleave" Type="AbilCmd" AbilCmd="ZeratulCommanderShadowCleave,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderProphecy" Type="AbilCmd" AbilCmd="ZeratulCommanderProphecy,Execute" Row="2" Column="1"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Hero,ObjectFamily:Coop,Race:Zeratul"/>
+        <GlossaryPriority value="500"/>
+    </CUnit>
+
+    <CActorUnit id="ZeratulCommanderZeratul" parent="CommanderGroundUnit" unitName="ZeratulCommanderZeratul">
+        <WalkAnimMoveSpeed value="3"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\wireframe-protoss-zeratul.dds"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
+        <MinimapIcon value="Assets\Textures\ui_minimap_icon_zeratul.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-zeratul.dds"/>
+        </Wireframe>
+        <WireframeShield>
+            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield01.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield02.dds"/>
+            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield03.dds"/>
+        </WireframeShield>
+        <GlossaryAnim value="stand"/>
+    </CActorUnit>
+
+    <CModel id="ZeratulCommanderZeratul@Death" parent="UnitDeath">
+        <Model value="Assets\Units\Protoss\DarkTemplarDeath\DarkTemplarDeath_01.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderZeratul@Portrait" parent="Portrait">
+        <Model value="Assets\Portraits\Protoss\ZeratulPortrait\ZeratulPortrait.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <RequiredAnims value="Assets\Portraits\Protoss\ZeratulPortrait_RequiredAnims\ZeratulPortrait_RequiredAnims.m3a"/>
+    </CModel>
+    <CModel id="ZeratulCommanderZeratul" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Units\Zeratul_Zeratul_COOP\Zeratul_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+
+    <CSound id="ZeratulCommanderZeratul@Attack" parent="CommanderVOAttack" unitName="ZeratulCommanderZeratul">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray>
+            <TemplateParam value=""/>
+            <File value="LocalizedData\Sounds\ProtossVO\CampaingUnits\Zeratul\Zeratul_Attack00.ogg"/>
+            <LoopCount value="0"/>
+            <LoopTime value="0,0"/>
+            <Offset value="0,0"/>
+            <Pitch value="0.000000,0.000000"/>
+            <Volume value="0.000000,0.000000"/>
+            <Weight value="100"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitAnim value=""/>
+            <FacialFile value=""/>
+            <PortraitModel value=""/>
+            <PortraitActor value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <AssetArray File="LocalizedData\Sounds\ProtossVO\CampaingUnits\Zeratul\Zeratul_Attack01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossVO\CampaingUnits\Zeratul\Zeratul_Attack02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossVO\CampaingUnits\Zeratul\Zeratul_Attack03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossVO\CampaingUnits\Zeratul\Zeratul_Attack04.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderZeratul@Birth" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+    </CSound>
+    <CSound id="ZeratulCommanderZeratul@Help" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\VO\Zeratul_Announcer\Clean\ZeratulA_AllyUnderAttack00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderZeratul@Pissed" parent="CommanderVOPissed" unitName="ZeratulCommanderZeratul">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray>
+            <TemplateParam value=""/>
+            <File value="LocalizedData\Sounds\VO\Protoss\Zeratul_Pissed00.ogg"/>
+            <LoopCount value="0"/>
+            <LoopTime value="0,0"/>
+            <Offset value="0,0"/>
+            <Pitch value="0.000000,0.000000"/>
+            <Volume value="0.000000,0.000000"/>
+            <Weight value="100"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitAnim value=""/>
+            <FacialFile value=""/>
+            <PortraitModel value=""/>
+            <PortraitActor value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Pissed01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Pissed02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Pissed03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Pissed04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Pissed05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Pissed06.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Pissed07.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderZeratul@Ready" parent="Ready">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Ready00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderZeratul@What" parent="CommanderVOWhat" unitName="ZeratulCommanderZeratul">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray>
+            <TemplateParam value=""/>
+            <File value="LocalizedData\Sounds\VO\Protoss\Zeratul_What00.ogg"/>
+            <LoopCount value="0"/>
+            <LoopTime value="0,0"/>
+            <Offset value="0,0"/>
+            <Pitch value="0.000000,0.000000"/>
+            <Volume value="0.000000,0.000000"/>
+            <Weight value="100"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitAnim value=""/>
+            <FacialFile value=""/>
+            <PortraitModel value=""/>
+            <PortraitActor value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_What03.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderZeratul@Yes" parent="CommanderVOYes" unitName="ZeratulCommanderZeratul">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray>
+            <TemplateParam value=""/>
+            <File value="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes00.ogg"/>
+            <LoopCount value="0"/>
+            <LoopTime value="0,0"/>
+            <Offset value="0,0"/>
+            <Pitch value="0.000000,0.000000"/>
+            <Volume value="0.000000,0.000000"/>
+            <Weight value="100"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitAnim value=""/>
+            <FacialFile value=""/>
+            <PortraitModel value=""/>
+            <PortraitActor value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes06.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes07.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\VO\Protoss\Zeratul_Yes08.ogg" FacialGroup=""/>
+    </CSound>
+    
+    <CValidatorUnitType id="ZeratulCommanderZeratul">
+        <WhichUnit Value="Caster"/>
+        <Value value="ZeratulCommanderZeratul"/>
+    </CValidatorUnitType>
+    
+    <CRequirement id="ZeratulCommanderZeratul@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
+    
+    <CDataCollectionUnit id="ZeratulCommanderZeratul" parent="CommanderUnit">
+        <EditorCategories value="ObjectType:Hero,DataGroup:Unit,Race:Zeratul"/>
+        <DataRecord Entry="Button,ZeratulCommanderZeratul"/>
+        <DataRecord Entry="Actor,ZeratulCommanderZeratul"/>
+        <DataRecord Entry="Model,ZeratulCommanderZeratul@Death"/>
+        <DataRecord Entry="Model,ZeratulCommanderZeratul@Portrait"/>
+        <DataRecord Entry="Model,ZeratulCommanderZeratul"/>
+        <DataRecord Entry="Requirement,ZeratulCommanderZeratul@Requirement"/>
+        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Birth"/>
+        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Ready"/>
+        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Help"/>
+        <DataRecord Entry="Sound,ZeratulCommanderZeratul@What"/>
+        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Yes"/>
+        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Attack"/>
+        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Pissed"/>
+        <DataRecord Entry="Unit,ZeratulCommanderZeratul"/>
+        <DataRecord Entry="Validator,ZeratulCommanderZeratul"/>
+    </CDataCollectionUnit>
+
+    <!-- =========================== -->
+    <!--          Abilities          -->
+    <!-- =========================== -->
+
+    <!-- Predictive Blink-->
+    <CButton id="ZeratulCommanderPredictiveBlink">
+        <Icon value="Assets\Textures\btn-ability-zeratul-stalker-predectiveblink.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    
+    <CAbilEffectTarget id="ZeratulCommanderPredictiveBlink">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <Range value="500"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderPredictiveBlink">
+            <Flags index="ToSelection" value="1"/>
+        </CmdButtonArray>
+        <AbilSetId value="Blnk"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
+        <Arc value="360"/>
+        <Cost>
+            <Cooldown TimeUse="11.28"/>
+        </Cost>
+        <Effect index="0" value="ZeratulCommanderPredictiveBlink@Teleport"/>
+        <AINotifyEffect value="ZeratulCommanderPredictiveBlink@Teleport"/>
+    </CAbilEffectTarget>
+    
+    <CEffectSet id="ZeratulCommanderPredictiveBlink@Effects">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderVengeanceoftheVoid@CU"/>
+        <TargetLocationType value="UnitOrPoint"/>
+    </CEffectSet>
+    <CEffectTeleport id="ZeratulCommanderPredictiveBlink@Teleport">
+        <EditorCategories value="Race:Zeratul"/>
+        <WhichUnit Value="Caster"/>
+        <ClearQueuedOrders value="0"/>
+        <MinDistance value="1.5"/>
+        <PlacementAround Value="CasterUnit"/>
+        <PlacementRange value="11"/>
+        <Range value="11"/>
+        <TargetLocation Value="TargetPoint"/>
+        <TeleportFlags index="TestCliff" value="1"/>
+        <TeleportEffect value="ZeratulCommanderPredictiveBlink@Effects"/>
+        <ValidatorArray value="CasterNotFungalGrowthed"/>
+    </CEffectTeleport>
+    
+    <CActorModel id="ZeratulCommanderPredictiveBlink@ImpactModel" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Stop; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin" HoldPosition="1" HoldRotation="1"/>
+    </CActorModel>
+    <CActorSound id="ZeratulCommanderPredictiveBlink@ImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Stop" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOrigin"/>
+    </CActorSound>
+    <CActorModel id="ZeratulCommanderPredictiveBlink@LaunchModel" parent="ModelAnimationStyleOneShot">
+        <InheritType value="OneShot"/>
+        <Inherits index="BaseModelScale" value="1"/>
+        <Inherits index="Scale" value="1"/>
+        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Start; At Source" Send="Create"/>
+        <Host Subject="_Selectable"/>
+        <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
+        <ModelFlags index="AllowHitTest" value="0"/>
+    </CActorModel>
+    
+    <CModel id="ZeratulCommanderPredictiveBlink@ImpactModel" parent="ImpactFX">
+        <Model value="Assets\COOP\Zeratul\Effects\Stalker_Zeratul_COOP_BlinkIn\Stalker_Zeratul_COOP_BlinkIn.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderPredictiveBlink@LaunchModel" parent="LaunchFX">
+        <Model value="Assets\COOP\Zeratul\Effects\Stalker_Zeratul_COOP_BlinkOut\Stalker_Zeratul_COOP_BlinkOut.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <ScaleMax value="0.690000,0.690000,0.690000"/>
+        <ScaleMin value="0.690000,0.690000,0.690000"/>
+    </CModel>
+    
+    <CSound id="ZeratulCommanderPredictiveBlink@ImpactSound" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_Blink0.wav" FacialGroup=""/>
+    </CSound>
+    
+    <CDataCollectionUnit id="ZeratulCommanderPredictiveBlink" parent="CommanderAbilityTeleport">
+        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Target"/>
+        <DataRecord Entry="Button,ZeratulCommanderPredictiveBlink"/>
+        <DataRecord Entry="Abil,ZeratulCommanderPredictiveBlink"/>
+        <DataRecord Entry="Effect,ZeratulCommanderPredictiveBlink@Teleport"/>
+        <DataRecord Entry="Effect,ZeratulCommanderPredictiveBlink@Effects"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@LaunchModel"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ImpactModel"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ImpactSound"/>
+        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@LaunchModel"/>
+        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ImpactModel"/>
+        <DataRecord Entry="Sound,ZeratulCommanderPredictiveBlink@ImpactSound"/>
+    </CDataCollectionUnit>
+</Catalog>

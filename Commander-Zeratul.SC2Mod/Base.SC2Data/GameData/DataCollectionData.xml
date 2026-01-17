@@ -244,19 +244,6 @@
         <DataRecord Entry="Sound,ZeratulCommanderPhaseDisruptors@AttackImpact"/>
         <DataRecord Entry="Weapon,ZeratulCommanderPhaseDisruptors"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderPredictiveBlink" parent="CommanderAbilityTeleport">
-        <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Target"/>
-        <DataRecord Entry="Abil,ZeratulCommanderPredictiveBlink"/>
-        <DataRecord Entry="Button,ZeratulCommanderPredictiveBlink"/>
-        <DataRecord Entry="Effect,ZeratulCommanderPredictiveBlink@Teleport"/>
-        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@LaunchModel"/>
-        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ImpactModel"/>
-        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@LaunchModel"/>
-        <DataRecord Entry="Model,ZeratulCommanderPredictiveBlink@ImpactModel"/>
-        <DataRecord Entry="Actor,ZeratulCommanderPredictiveBlink@ImpactSound"/>
-        <DataRecord Entry="Sound,ZeratulCommanderPredictiveBlink@ImpactSound"/>
-        <DataRecord Entry="Effect,ZeratulCommanderPredictiveBlink@Effects"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderShadowCleave" parent="CommanderAbilityAB">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Instant"/>
         <DataRecord Entry="Abil,ZeratulCommanderShadowCleave"/>
@@ -369,21 +356,6 @@
         <DataRecord Entry="Actor,ZeratulCommanderXelNagaVoidArray@Alternate"/>
         <DataRecord Entry="Turret,ZeratulCommanderXelNagaVoidArray@Alternate"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,ZeratulCommanderXelnagaAmbusher"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelnagaAmbusher"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelnagaAmbusher@Portrait"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelnagaAmbusher@Death"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelnagaAmbusher@DeathRagdoll"/>
-        <DataRecord Entry="Unit,ZeratulCommanderXelnagaAmbusher"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelnagaAmbusher@Ready"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelnagaAmbusher@Help"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelnagaAmbusher@What"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelnagaAmbusher@Yes"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelnagaAmbusher@Pissed"/>
-        <DataRecord Entry="Requirement,ZeratulCommanderXelnagaAmbusher"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
         <DataRecord Entry="Actor,ZeratulCommanderXelNagaShieldguard"/>
@@ -412,23 +384,5 @@
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaProbe@Yes"/>
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaProbe@Pissed"/>
         <DataRecord Entry="Requirement,ZeratulCommanderXelNagaProbe"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderZeratul" parent="CommanderUnit">
-        <EditorCategories value="ObjectType:Hero,DataGroup:Unit,Race:Zeratul"/>
-        <DataRecord Entry="Button,ZeratulCommanderZeratul"/>
-        <DataRecord Entry="Actor,ZeratulCommanderZeratul"/>
-        <DataRecord Entry="Model,ZeratulCommanderZeratul@Death"/>
-        <DataRecord Entry="Model,ZeratulCommanderZeratul@Portrait"/>
-        <DataRecord Entry="Model,ZeratulCommanderZeratul"/>
-        <DataRecord Entry="Requirement,ZeratulCommanderZeratul@Requirement"/>
-        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Birth"/>
-        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Ready"/>
-        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Help"/>
-        <DataRecord Entry="Sound,ZeratulCommanderZeratul@What"/>
-        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Yes"/>
-        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Attack"/>
-        <DataRecord Entry="Sound,ZeratulCommanderZeratul@Pissed"/>
-        <DataRecord Entry="Unit,ZeratulCommanderZeratul"/>
-        <DataRecord Entry="Validator,ZeratulCommanderZeratul"/>
     </CDataCollectionUnit>
 </Catalog>

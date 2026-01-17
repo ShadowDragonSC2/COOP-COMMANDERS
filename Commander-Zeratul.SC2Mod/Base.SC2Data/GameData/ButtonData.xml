@@ -46,10 +46,6 @@
     <CButton id="ZeratulCommanderPickupArtifact">
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
-    <CButton id="ZeratulCommanderPredictiveBlink">
-        <Icon value="Assets\Textures\btn-ability-zeratul-stalker-predectiveblink.dds"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CButton>
     <CButton id="ZeratulCommanderProphecy">
         <Icon value="Assets\Textures\btn-ability-zeratul-hero-propheticvision.dds"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -82,10 +78,6 @@
     </CButton>
     <CButton id="ZeratulCommanderXelNagaVoidArray">
         <Icon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CButton>
-    <CButton id="ZeratulCommanderZeratul">
-        <Icon value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
 </Catalog>

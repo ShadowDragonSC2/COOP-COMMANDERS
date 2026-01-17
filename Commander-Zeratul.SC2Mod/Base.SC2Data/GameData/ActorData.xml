@@ -211,28 +211,6 @@
     <CActorAction id="ZeratulCommanderBlinkVoidTemplar@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderVoidFury@Damage" effectLaunch="ZeratulCommanderVoidFury@Search">
         <ImpactPhysics Name="PhysicsImpactMedium" MatchKeys="Basic" Physics="CC_AttackDeathForceMedium"/>
     </CActorAction>
-    <CActorModel id="ZeratulCommanderPredictiveBlink@ImpactModel" parent="ModelAnimationStyleOneShot">
-        <InheritType value="OneShot"/>
-        <Inherits index="BaseModelScale" value="1"/>
-        <Inherits index="Scale" value="1"/>
-        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Stop; At Source" Send="Create"/>
-        <Host Subject="_Selectable"/>
-        <HostSiteOps Ops="SOpAttachOrigin" HoldPosition="1" HoldRotation="1"/>
-    </CActorModel>
-    <CActorSound id="ZeratulCommanderPredictiveBlink@ImpactSound" parent="SoundOneShot">
-        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Stop" Send="Create"/>
-        <Host Subject="_Selectable"/>
-        <HostSiteOps Ops="SOpAttachOrigin"/>
-    </CActorSound>
-    <CActorModel id="ZeratulCommanderPredictiveBlink@LaunchModel" parent="ModelAnimationStyleOneShot">
-        <InheritType value="OneShot"/>
-        <Inherits index="BaseModelScale" value="1"/>
-        <Inherits index="Scale" value="1"/>
-        <On Terms="Effect.ZeratulCommanderPredictiveBlink@Teleport.Start; At Source" Send="Create"/>
-        <Host Subject="_Selectable"/>
-        <HostSiteOps Ops="SOpAttachOriginStationary" HoldPosition="1" HoldRotation="1"/>
-        <ModelFlags index="AllowHitTest" value="0"/>
-    </CActorModel>
     <CActorAction id="ZeratulCommanderProphecy@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderProphecy@Handler">
         <Beam value="ZeratulCommanderProphecy@Beam"/>
         <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
@@ -266,11 +244,6 @@
         <On Terms="TurretEnable.ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
         <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
     </CActorTurret>
-    <CActorUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelnagaAmbusher">
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulstalker.dds"/>
-        <WalkAnimMoveSpeed value="3.1328"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
-    </CActorUnit>
     <CActorUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaShieldguard">
         <WalkAnimMoveSpeed value="3"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulsentry.dds"/>
@@ -278,25 +251,6 @@
     <CActorUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaProbe">
         <WalkAnimMoveSpeed value="3"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulprobe.dds"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderZeratul" parent="CommanderGroundUnit" unitName="ZeratulCommanderZeratul">
-        <WalkAnimMoveSpeed value="3"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\wireframe-protoss-zeratul.dds"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulcoop.dds"/>
-        <MinimapIcon value="Assets\Textures\ui_minimap_icon_zeratul.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-protoss-zeratul.dds"/>
-        </Wireframe>
-        <WireframeShield>
-            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield01.dds"/>
-            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield02.dds"/>
-            <Image value="Assets\Textures\wireframe-protoss-zeratul-shield03.dds"/>
-        </WireframeShield>
-        <GlossaryAnim value="stand"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderProphecyCamera" parent="GenericUnitStandard" unitName="ZeratulCommanderProphecyCamera">
         <HostSiteOps Ops="ZeratulCommanderSOpProphecyCameraOffset SOpPointToCamera"/>

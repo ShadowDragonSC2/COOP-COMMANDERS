@@ -17,6 +17,7 @@ const int lib6CA20615_gv_cOUNT_BUTTONS = 64;
 const string lib6CA20615_gv_unitsBuffer = "CheatEngine.unit";
 const string lib6CA20615_gv_unitsStatsBuffer = "CheatEngine.unitstats";
 const string lib6CA20615_gv_unitsOrientationBuffer = "CheatEngine.unitorientation";
+const int lib6CA20615_gv_mAXIMUM_WORD_IN_COMMAND = 10;
 
 // Structures
 struct lib6CA20615_gs_button {
@@ -114,9 +115,6 @@ struct lib6CA20615_gs_UIGiveUpgrade {
 };
 
 // Variable Declarations
-int lib6CA20615_gv_context_menu;
-int lib6CA20615_gv_context_menu_dialog;
-unit lib6CA20615_gv_context_menu_unit;
 int lib6CA20615_gv_dialog;
 lib6CA20615_gs_button[49] lib6CA20615_gv_button;
 unit lib6CA20615_gv_caster;
@@ -148,6 +146,9 @@ int lib6CA20615_gv_datatable_Window;
 int[16] lib6CA20615_gv_nameDatatable;
 int[16] lib6CA20615_gv_valueDatatable;
 int lib6CA20615_gv_refreshdata_button;
+int lib6CA20615_gv_context_menu;
+int lib6CA20615_gv_context_menu_dialog;
+unit lib6CA20615_gv_context_menu_unit;
 
 // Function Declarations
 void lib6CA20615_gf_updatespawnerui ();
@@ -178,7 +179,7 @@ playergroup lib6CA20615_gf_GetParameterFromCommandPlayerGroup (string lp_command
 bool lib6CA20615_gf_BoolParameterDefined (string lp_command, int lp_index);
 playergroup lib6CA20615_gf_AllPlayersInUnitGroup (unitgroup lp_unitGroup);
 int lib6CA20615_gf_IntegerOrInteger (int lp_integer1, int lp_integer2, bool lp_condition);
-void lib6CA20615_gf_MoveDialogItemCell (int lp_control, int lp_index, int lp_sizeItem, int lp_sizeParentWidth, int lp_anchor, playergroup lp_players);
+void lib6CA20615_gf_MoveDialogItemControl (int lp_control, int lp_index, int lp_sizeItem, int lp_sizeParentWidth, int lp_anchor, playergroup lp_players);
 text lib6CA20615_gf_ConvertKeyToText (int lp_key);
 string lib6CA20615_gf_ConvertKeyToString (int lp_key);
 bool lib6CA20615_gf_EntryHasIcon (int lp_catalogType, string lp_catalogEntry);
@@ -205,9 +206,6 @@ string lib6CA20615_gf_CheatType (string lp_cheat);
 string lib6CA20615_gf_CheckParametersForCheatnumber (string lp_cheat, string lp_command, int lp_index);
 
 // Trigger Declarations
-trigger lib6CA20615_gt_disablemoveabil;
-trigger lib6CA20615_gt_context_menu;
-trigger lib6CA20615_gt_context_menu_selected;
 trigger lib6CA20615_gt_Test;
 trigger lib6CA20615_gt_init;
 trigger lib6CA20615_gt_CheatCodeUnits;
@@ -238,8 +236,12 @@ trigger lib6CA20615_gt_hookdatatableview;
 trigger lib6CA20615_gt_updatedata;
 trigger lib6CA20615_gt_showdatatablewindow;
 trigger lib6CA20615_gt_hidedatatablewindow;
-trigger lib6CA20615_gt_ChangeOwnerGlobal;
 trigger lib6CA20615_gt_ChangeOwnerUnit;
+trigger lib6CA20615_gt_ChangeOwnerGlobal;
+trigger lib6CA20615_gt_disablemoveabil;
+trigger lib6CA20615_gt_context_menu;
+trigger lib6CA20615_gt_context_menu_selected;
+trigger lib6CA20615_gt_CheckStringIsBool;
 
 // Library Initialization
 void lib6CA20615_InitVariables ();

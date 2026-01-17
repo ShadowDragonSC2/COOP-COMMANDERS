@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement default="1" id="ZeratulCommanderArtifactFound">
+        <NodeArray index="Use" Link="CountUpgrade##id##CompleteOnly"/>
+    </CRequirement>
+    <CRequirement id="ZeratulCommanderArtifactFound1" parent="ZeratulCommanderArtifactFound"/>
+    <CRequirement id="ZeratulCommanderArtifactFound2" parent="ZeratulCommanderArtifactFound"/>
+    <CRequirement id="ZeratulCommanderArtifactFound3" parent="ZeratulCommanderArtifactFound"/>
+    <CRequirement id="ZeratulCommanderArtifactFound4" parent="ZeratulCommanderArtifactFound"/>
+    <CRequirement id="ZeratulCommanderArtifactFound5" parent="ZeratulCommanderArtifactFound"/>
+
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound1CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound1" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound2CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound2" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound3CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound3" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound4CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound4" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound5CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound5" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound6CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound5" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound7CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound5" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound8CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound5" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound9CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound5" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound10CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound5" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeZeratulCommanderArtifactFound11CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value="RequirementNode/Tooltip/##id##"/>
+        <Count Link="ZeratulCommanderArtifactFound5" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    
+    <CUpgrade id="ZeratulCommanderArtifactFound1"/>
+    <CUpgrade id="ZeratulCommanderArtifactFound2"/>
+    <CUpgrade id="ZeratulCommanderArtifactFound3"/>
+    <CUpgrade id="ZeratulCommanderArtifactFound4"/>
+    <CUpgrade id="ZeratulCommanderArtifactFound5"/>
+    <CUpgrade id="ZeratulCommanderArtifactFound6"/>
+    <CUpgrade id="ZeratulCommanderArtifactFound7"/>
+    <CUpgrade id="ZeratulCommanderArtifactFound8"/>
+
+</Catalog>

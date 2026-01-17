@@ -23,8 +23,6 @@ void lib6CA20615_InitVariables () {
 
     lib6CA20615_InitVariables_completed = true;
 
-    lib6CA20615_gv_context_menu = c_invalidDialogControlId;
-    lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
     lib6CA20615_gv_dialog = c_invalidDialogId;
     for (init_i = 0; init_i <= 48; init_i += 1) {
         lib6CA20615_gv_button[init_i].lv_btn = c_invalidDialogControlId;
@@ -103,6 +101,8 @@ void lib6CA20615_InitVariables () {
         lib6CA20615_gv_valueDatatable[init_i] = c_invalidDialogControlId;
     }
     lib6CA20615_gv_refreshdata_button = c_invalidDialogControlId;
+    lib6CA20615_gv_context_menu = c_invalidDialogControlId;
+    lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
 }
 
 // Presets
@@ -249,10 +249,10 @@ void lib6CA20615_gf__moveCellUpgradeForPlayerGroup (playergroup lp_player, int l
         lv_p = PlayerGroupNextPlayer(auto4E2237A9_g, lv_p);
         if (lv_p < 0) { break; }
         if ((libNtve_gf_DialogItemIsChecked(lib6CA20615_gv_uIGiveUpgrades.lv_checkmark_AbilCategory, lv_p) == true)) {
-            lib6CA20615_gf_MoveDialogItemCell(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lp_index].lv_button, lp_position, lp_itemSize, lv_smallContainerWidth, c_anchorTopLeft, PlayerGroupSingle(lv_p));
+            lib6CA20615_gf_MoveDialogItemControl(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lp_index].lv_button, lp_position, lp_itemSize, lv_smallContainerWidth, c_anchorTopLeft, PlayerGroupSingle(lv_p));
         }
         else {
-            lib6CA20615_gf_MoveDialogItemCell(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lp_index].lv_button, lp_position, lp_itemSize, lv_containerWidth, c_anchorTopLeft, PlayerGroupSingle(lv_p));
+            lib6CA20615_gf_MoveDialogItemControl(lib6CA20615_gv_uIGiveUpgrades.lv_buttonUpgrade[lp_index].lv_button, lp_position, lp_itemSize, lv_containerWidth, c_anchorTopLeft, PlayerGroupSingle(lv_p));
         }
     }
 }
@@ -975,7 +975,7 @@ int lib6CA20615_gf_GetParameterFromCommandInteger (string lp_command, int lp_ind
     string lv_word;
 
     // Automatic Variable Declarations
-    const int auto7F303D7D_ae = 10;
+    const int auto7F303D7D_ae = lib6CA20615_gv_mAXIMUM_WORD_IN_COMMAND;
     const int auto7F303D7D_ai = 1;
 
     // Variable Initialization
@@ -1009,7 +1009,7 @@ string lib6CA20615_gf_GetParameterFromCommandString (string lp_command, int lp_i
     string lv_word;
 
     // Automatic Variable Declarations
-    const int auto2191CD1D_ae = 10;
+    const int auto2191CD1D_ae = lib6CA20615_gv_mAXIMUM_WORD_IN_COMMAND;
     const int auto2191CD1D_ai = 1;
 
     // Variable Initialization
@@ -1043,7 +1043,7 @@ bool lib6CA20615_gf_GetParameterFromCommandBoolean (string lp_command, int lp_in
     string lv_word;
 
     // Automatic Variable Declarations
-    const int auto223E1B6C_ae = 10;
+    const int auto223E1B6C_ae = lib6CA20615_gv_mAXIMUM_WORD_IN_COMMAND;
     const int auto223E1B6C_ai = 1;
 
     // Variable Initialization
@@ -1078,7 +1078,7 @@ unitgroup lib6CA20615_gf_GetParameterFromCommandUnitGroup (string lp_command, in
     unitgroup lv_unitgroup;
 
     // Automatic Variable Declarations
-    const int autoDDDC51FF_ae = 10;
+    const int autoDDDC51FF_ae = lib6CA20615_gv_mAXIMUM_WORD_IN_COMMAND;
     const int autoDDDC51FF_ai = 1;
 
     // Variable Initialization
@@ -1118,7 +1118,7 @@ playergroup lib6CA20615_gf_GetParameterFromCommandPlayerGroup (string lp_command
     playergroup lv_playergroup;
 
     // Automatic Variable Declarations
-    const int auto889B0240_ae = 10;
+    const int auto889B0240_ae = lib6CA20615_gv_mAXIMUM_WORD_IN_COMMAND;
     const int auto889B0240_ai = 1;
 
     // Variable Initialization
@@ -1157,7 +1157,7 @@ bool lib6CA20615_gf_BoolParameterDefined (string lp_command, int lp_index) {
     string lv_word;
 
     // Automatic Variable Declarations
-    const int auto4EE1134F_ae = 10;
+    const int auto4EE1134F_ae = lib6CA20615_gv_mAXIMUM_WORD_IN_COMMAND;
     const int auto4EE1134F_ai = 1;
 
     // Variable Initialization
@@ -1218,7 +1218,7 @@ int lib6CA20615_gf_IntegerOrInteger (int lp_integer1, int lp_integer2, bool lp_c
     }
 }
 
-void lib6CA20615_gf_MoveDialogItemCell (int lp_control, int lp_index, int lp_sizeItem, int lp_sizeParentWidth, int lp_anchor, playergroup lp_players) {
+void lib6CA20615_gf_MoveDialogItemControl (int lp_control, int lp_index, int lp_sizeItem, int lp_sizeParentWidth, int lp_anchor, playergroup lp_players) {
     // Variable Declarations
     int lv_maxnumsinrow;
     int lv_x;
@@ -1871,19 +1871,32 @@ bool lib6CA20615_gf_EntryHasIcon (int lp_catalogType, string lp_catalogEntry) {
 string lib6CA20615_gf_IconCatalogEntry (int lp_catalogType, string lp_catalogEntry) {
     // Variable Declarations
     string lv__img;
+    string lv_tmp_img;
 
     // Automatic Variable Declarations
+    int auto592BDC77_val;
+
     // Variable Initialization
-    lv__img = (CatalogFieldValueGet(c_gameCatalogUpgrade, lp_catalogEntry, "Icon", c_playerAny));
+    lv__img = ("Assets\\Textures\\btn-missing-kaeo.dds");
+    lv_tmp_img = ("");
 
     // Implementation
-    if ((lp_catalogType == c_gameCatalogUpgrade)) {
-        if (lib6CA20615_gf_EntryHasIcon(c_gameCatalogUpgrade, lp_catalogEntry)) {
+    auto592BDC77_val = lp_catalogType;
+    if (auto592BDC77_val == c_gameCatalogUnit) {
+        lv_tmp_img = (lib6CA20615_gf_SearchIconForUnit(((lp_catalogEntry))));
+        if ((lv_tmp_img != null)) {
             lv__img = (CatalogFieldValueGet(lp_catalogType, lp_catalogEntry, "Icon", c_playerAny));
         }
-        else {
-            lv__img = ("Assets\\Textures\\btn-missing-kaeo.dds");
+
+    }
+    else if (auto592BDC77_val == c_gameCatalogActor) {
+        lv__img = (CatalogFieldValueGet(lp_catalogType, lp_catalogEntry, "Icon", c_playerAny));
+    }
+    else {
+        if (lib6CA20615_gf_EntryHasIcon(lp_catalogType, lp_catalogEntry)) {
+            lv__img = (CatalogFieldValueGet(lp_catalogType, lp_catalogEntry, "Icon", c_playerAny));
         }
+
     }
     return lv__img;
 }
@@ -2252,168 +2265,6 @@ string lib6CA20615_gf_CheckParametersForCheatnumber (string lp_cheat, string lp_
 }
 
 // Triggers
-//--------------------------------------------------------------------------------------------------
-// Trigger: disable move abil
-//--------------------------------------------------------------------------------------------------
-bool lib6CA20615_gt_disablemoveabil_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((TechTreeAbilityIsAllowed(EventPlayer(), AbilityCommand("move", 0)) == true)) {
-        TechTreeAbilityAllow(EventPlayer(), AbilityCommand("move", 0), false);
-    }
-    else {
-        TechTreeAbilityAllow(EventPlayer(), AbilityCommand("move", 0), true);
-    }
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void lib6CA20615_gt_disablemoveabil_Init () {
-    lib6CA20615_gt_disablemoveabil = TriggerCreate("lib6CA20615_gt_disablemoveabil_Func");
-    TriggerAddEventKeyPressed(lib6CA20615_gt_disablemoveabil, c_playerAny, c_keyAlt, false, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
-    TriggerAddEventKeyPressed(lib6CA20615_gt_disablemoveabil, c_playerAny, c_keyAlt, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: context_menu
-//--------------------------------------------------------------------------------------------------
-bool lib6CA20615_gt_context_menu_Func (bool testConds, bool runActions) {
-    // Variable Declarations
-    point lv_mouseClick;
-
-    // Automatic Variable Declarations
-    // Variable Initialization
-    lv_mouseClick = Point(EventMouseClickedPosXWorld(), EventMouseClickedPosYWorld());
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((lib6CA20615_gv_context_menu_dialog != c_invalidDialogId)) {
-        DialogDestroy(lib6CA20615_gv_context_menu_dialog);
-        lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
-        UnitRemove(lib6CA20615_gv_context_menu_unit);
-    }
-
-    if ((EventKeyAlt() == false)) {
-        return true;
-    }
-
-    DialogCreate(300, 100, c_anchorCenter, 0, 0, true);
-    DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), true);
-    lib6CA20615_gv_context_menu_dialog = DialogLastCreated();
-    UnitCreate(1, "System_Snapshot_Dummy", 0, EventPlayer(), lv_mouseClick, 270.0);
-    lib6CA20615_gv_context_menu_unit = UnitLastCreated();
-    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateHidden, true);
-    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateInvulnerable, true);
-    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateUsingSupply, false);
-    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateTargetable, false);
-    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateSelectable, false);
-    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateSilenced, true);
-    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateCursorable, false);
-    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateMoveSuppressed, false);
-    DialogSetPositionRelativeToUnit(DialogLastCreated(), lib6CA20615_gv_context_menu_unit, "Ref_Origin", -150, -50);
-
-    DialogControlCreate(lib6CA20615_gv_context_menu_dialog, c_triggerControlTypePulldown);
-    lib6CA20615_gv_context_menu = DialogControlLastCreated();
-    DialogControlSetFullDialog(DialogControlLastCreated(), PlayerGroupAll(), true);
-
-    DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_65DDDB8E"));
-    DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_4B2D0E94"));
-
-    if ((UnitGroupCount(UnitGroupSelected(EventPlayer()), c_unitCountAlive) > 0)) {
-        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_71047A98"));
-        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_BDC2139F"));
-        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_6F8D62EE"));
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void lib6CA20615_gt_context_menu_Init () {
-    lib6CA20615_gt_context_menu = TriggerCreate("lib6CA20615_gt_context_menu_Func");
-    TriggerAddEventMouseClicked(lib6CA20615_gt_context_menu, c_playerAny, c_mouseButtonRight, true);
-}
-
-//--------------------------------------------------------------------------------------------------
-// Trigger: context_menu_selected
-//--------------------------------------------------------------------------------------------------
-bool lib6CA20615_gt_context_menu_selected_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    int auto04F88134_val;
-    unitgroup autoD4926B4E_g;
-    int autoD4926B4E_u;
-    unit autoD4926B4E_var;
-    unitgroup auto64830165_g;
-    int auto64830165_u;
-    unit auto64830165_var;
-    unitgroup auto5D0B1C01_g;
-    int auto5D0B1C01_u;
-    unit auto5D0B1C01_var;
-
-    // Conditions
-    if (testConds) {
-        if (!((EventDialogControl() == lib6CA20615_gv_context_menu))) {
-            return false;
-        }
-    }
-
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    auto04F88134_val = DialogControlGetSelectedItem(lib6CA20615_gv_context_menu, EventPlayer());
-    if (auto04F88134_val == 2) {
-        lib6CA20615_gf_SpawnUnitAdvanced(UnitGetPosition(lib6CA20615_gv_context_menu_unit), EventPlayer(), "");
-    }
-    else if (auto04F88134_val == 3) {
-        autoD4926B4E_g = UnitGroupSelected(EventPlayer());
-        autoD4926B4E_u = UnitGroupCount(autoD4926B4E_g, c_unitCountAll);
-        for (;; autoD4926B4E_u -= 1) {
-            autoD4926B4E_var = UnitGroupUnitFromEnd(autoD4926B4E_g, autoD4926B4E_u);
-            if (autoD4926B4E_var == null) { break; }
-            UnitSetPosition(autoD4926B4E_var, UnitGetPosition(lib6CA20615_gv_context_menu_unit), false);
-        }
-    }
-    else if (auto04F88134_val == 4) {
-        auto64830165_g = UnitGroupSelected(EventPlayer());
-        auto64830165_u = UnitGroupCount(auto64830165_g, c_unitCountAll);
-        for (;; auto64830165_u -= 1) {
-            auto64830165_var = UnitGroupUnitFromEnd(auto64830165_g, auto64830165_u);
-            if (auto64830165_var == null) { break; }
-            UnitKill(auto64830165_var);
-        }
-    }
-    else if (auto04F88134_val == 5) {
-        auto5D0B1C01_g = UnitGroupSelected(EventPlayer());
-        auto5D0B1C01_u = UnitGroupCount(auto5D0B1C01_g, c_unitCountAll);
-        for (;; auto5D0B1C01_u -= 1) {
-            auto5D0B1C01_var = UnitGroupUnitFromEnd(auto5D0B1C01_g, auto5D0B1C01_u);
-            if (auto5D0B1C01_var == null) { break; }
-            libNtve_gf_MakeUnitFacePoint(auto5D0B1C01_var, UnitGetPosition(lib6CA20615_gv_context_menu_unit), 0.0);
-        }
-    }
-    else {
-    }
-    DialogDestroy(lib6CA20615_gv_context_menu_dialog);
-    lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
-    UnitRemove(lib6CA20615_gv_context_menu_unit);
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void lib6CA20615_gt_context_menu_selected_Init () {
-    lib6CA20615_gt_context_menu_selected = TriggerCreate("lib6CA20615_gt_context_menu_selected_Func");
-    TriggerAddEventDialogControl(lib6CA20615_gt_context_menu_selected, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeSelectionChanged);
-}
-
 //--------------------------------------------------------------------------------------------------
 // Trigger: Test
 //--------------------------------------------------------------------------------------------------
@@ -3733,33 +3584,6 @@ void lib6CA20615_gt_hidedatatablewindow_Init () {
 }
 
 //--------------------------------------------------------------------------------------------------
-// Trigger: Change Owner (Global)
-//--------------------------------------------------------------------------------------------------
-bool lib6CA20615_gt_ChangeOwnerGlobal_Func (bool testConds, bool runActions) {
-    // Automatic Variable Declarations
-    // Actions
-    if (!runActions) {
-        return true;
-    }
-
-    if ((StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 1, 3) == "Num")) {
-        lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn = StringToInt(StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5));
-        if ((EventKeyControl() == true) && ((lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn >= 0) && (lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn <= 5))) {
-            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn = StringToInt(("1" + StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5)));
-        }
-
-    }
-
-    return true;
-}
-
-//--------------------------------------------------------------------------------------------------
-void lib6CA20615_gt_ChangeOwnerGlobal_Init () {
-    lib6CA20615_gt_ChangeOwnerGlobal = TriggerCreate("lib6CA20615_gt_ChangeOwnerGlobal_Func");
-    TriggerAddEventKeyPressed(lib6CA20615_gt_ChangeOwnerGlobal, c_playerAny, c_keyNone, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateExclude);
-}
-
-//--------------------------------------------------------------------------------------------------
 // Trigger: Change Owner (Unit)
 //--------------------------------------------------------------------------------------------------
 bool lib6CA20615_gt_ChangeOwnerUnit_Func (bool testConds, bool runActions) {
@@ -3812,10 +3636,216 @@ void lib6CA20615_gt_ChangeOwnerUnit_Init () {
     TriggerAddEventKeyPressed(lib6CA20615_gt_ChangeOwnerUnit, c_playerAny, c_keyNone, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateRequire);
 }
 
+//--------------------------------------------------------------------------------------------------
+// Trigger: Change Owner (Global)
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_ChangeOwnerGlobal_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 1, 3) == "Num")) {
+        lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn = StringToInt(StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5));
+        if ((EventKeyControl() == true) && ((lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn >= 0) && (lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn <= 5))) {
+            lib6CA20615_gv_player_Cheat[EventPlayer()].lv_ownerUnitSpawn = StringToInt(("1" + StringSub(lib6CA20615_gf_ConvertKeyToString(EventKeyPressed()), 5, 5)));
+        }
+
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_ChangeOwnerGlobal_Init () {
+    lib6CA20615_gt_ChangeOwnerGlobal = TriggerCreate("lib6CA20615_gt_ChangeOwnerGlobal_Func");
+    TriggerAddEventKeyPressed(lib6CA20615_gt_ChangeOwnerGlobal, c_playerAny, c_keyNone, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateExclude);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: disable move abil
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_disablemoveabil_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((TechTreeAbilityIsAllowed(EventPlayer(), AbilityCommand("move", 0)) == true)) {
+        TechTreeAbilityAllow(EventPlayer(), AbilityCommand("move", 0), false);
+    }
+    else {
+        TechTreeAbilityAllow(EventPlayer(), AbilityCommand("move", 0), true);
+    }
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_disablemoveabil_Init () {
+    lib6CA20615_gt_disablemoveabil = TriggerCreate("lib6CA20615_gt_disablemoveabil_Func");
+    TriggerAddEventKeyPressed(lib6CA20615_gt_disablemoveabil, c_playerAny, c_keyAlt, false, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
+    TriggerAddEventKeyPressed(lib6CA20615_gt_disablemoveabil, c_playerAny, c_keyAlt, true, c_keyModifierStateIgnore, c_keyModifierStateIgnore, c_keyModifierStateIgnore);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: context_menu
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_context_menu_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    point lv_mouseClick;
+
+    // Automatic Variable Declarations
+    // Variable Initialization
+    lv_mouseClick = Point(EventMouseClickedPosXWorld(), EventMouseClickedPosYWorld());
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    if ((lib6CA20615_gv_context_menu_dialog != c_invalidDialogId)) {
+        DialogDestroy(lib6CA20615_gv_context_menu_dialog);
+        lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
+        UnitRemove(lib6CA20615_gv_context_menu_unit);
+    }
+
+    if ((EventKeyAlt() == false)) {
+        return true;
+    }
+
+    DialogCreate(300, 100, c_anchorCenter, 0, 0, true);
+    DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), true);
+    lib6CA20615_gv_context_menu_dialog = DialogLastCreated();
+    UnitCreate(1, "System_Snapshot_Dummy", 0, EventPlayer(), lv_mouseClick, 270.0);
+    lib6CA20615_gv_context_menu_unit = UnitLastCreated();
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateHidden, true);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateInvulnerable, true);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateUsingSupply, false);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateTargetable, false);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateSelectable, false);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateSilenced, true);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateCursorable, false);
+    UnitSetState(lib6CA20615_gv_context_menu_unit, c_unitStateMoveSuppressed, false);
+    DialogSetPositionRelativeToUnit(DialogLastCreated(), lib6CA20615_gv_context_menu_unit, "Ref_Origin", -150, -50);
+
+    DialogControlCreate(lib6CA20615_gv_context_menu_dialog, c_triggerControlTypePulldown);
+    lib6CA20615_gv_context_menu = DialogControlLastCreated();
+    DialogControlSetFullDialog(DialogControlLastCreated(), PlayerGroupAll(), true);
+
+    DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_65DDDB8E"));
+    DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_4B2D0E94"));
+
+    if ((UnitGroupCount(UnitGroupSelected(EventPlayer()), c_unitCountAlive) > 0)) {
+        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_71047A98"));
+        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_BDC2139F"));
+        DialogControlAddItem(lib6CA20615_gv_context_menu, PlayerGroupAll(), StringExternal("Param/Value/lib_6CA20615_6F8D62EE"));
+    }
+
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_context_menu_Init () {
+    lib6CA20615_gt_context_menu = TriggerCreate("lib6CA20615_gt_context_menu_Func");
+    TriggerAddEventMouseClicked(lib6CA20615_gt_context_menu, c_playerAny, c_mouseButtonRight, true);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: context_menu_selected
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_context_menu_selected_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    int auto04F88134_val;
+    unitgroup autoD4926B4E_g;
+    int autoD4926B4E_u;
+    unit autoD4926B4E_var;
+    unitgroup auto64830165_g;
+    int auto64830165_u;
+    unit auto64830165_var;
+    unitgroup auto5D0B1C01_g;
+    int auto5D0B1C01_u;
+    unit auto5D0B1C01_var;
+
+    // Conditions
+    if (testConds) {
+        if (!((EventDialogControl() == lib6CA20615_gv_context_menu))) {
+            return false;
+        }
+    }
+
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    auto04F88134_val = DialogControlGetSelectedItem(lib6CA20615_gv_context_menu, EventPlayer());
+    if (auto04F88134_val == 2) {
+        lib6CA20615_gf_SpawnUnitAdvanced(UnitGetPosition(lib6CA20615_gv_context_menu_unit), EventPlayer(), "");
+    }
+    else if (auto04F88134_val == 3) {
+        autoD4926B4E_g = UnitGroupSelected(EventPlayer());
+        autoD4926B4E_u = UnitGroupCount(autoD4926B4E_g, c_unitCountAll);
+        for (;; autoD4926B4E_u -= 1) {
+            autoD4926B4E_var = UnitGroupUnitFromEnd(autoD4926B4E_g, autoD4926B4E_u);
+            if (autoD4926B4E_var == null) { break; }
+            UnitSetPosition(autoD4926B4E_var, UnitGetPosition(lib6CA20615_gv_context_menu_unit), false);
+        }
+    }
+    else if (auto04F88134_val == 4) {
+        auto64830165_g = UnitGroupSelected(EventPlayer());
+        auto64830165_u = UnitGroupCount(auto64830165_g, c_unitCountAll);
+        for (;; auto64830165_u -= 1) {
+            auto64830165_var = UnitGroupUnitFromEnd(auto64830165_g, auto64830165_u);
+            if (auto64830165_var == null) { break; }
+            UnitKill(auto64830165_var);
+        }
+    }
+    else if (auto04F88134_val == 5) {
+        auto5D0B1C01_g = UnitGroupSelected(EventPlayer());
+        auto5D0B1C01_u = UnitGroupCount(auto5D0B1C01_g, c_unitCountAll);
+        for (;; auto5D0B1C01_u -= 1) {
+            auto5D0B1C01_var = UnitGroupUnitFromEnd(auto5D0B1C01_g, auto5D0B1C01_u);
+            if (auto5D0B1C01_var == null) { break; }
+            libNtve_gf_MakeUnitFacePoint(auto5D0B1C01_var, UnitGetPosition(lib6CA20615_gv_context_menu_unit), 0.0);
+        }
+    }
+    else {
+    }
+    DialogDestroy(lib6CA20615_gv_context_menu_dialog);
+    lib6CA20615_gv_context_menu_dialog = c_invalidDialogId;
+    UnitRemove(lib6CA20615_gv_context_menu_unit);
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_context_menu_selected_Init () {
+    lib6CA20615_gt_context_menu_selected = TriggerCreate("lib6CA20615_gt_context_menu_selected_Func");
+    TriggerAddEventDialogControl(lib6CA20615_gt_context_menu_selected, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeSelectionChanged);
+}
+
+//--------------------------------------------------------------------------------------------------
+// Trigger: Check (String Is Bool)
+//--------------------------------------------------------------------------------------------------
+bool lib6CA20615_gt_CheckStringIsBool_Func (bool testConds, bool runActions) {
+    // Automatic Variable Declarations
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, libNtve_gf_ConvertBooleanToText(lib6CA20615_gf_StringIsBool(EventChatMessage(false))));
+    return true;
+}
+
+//--------------------------------------------------------------------------------------------------
+void lib6CA20615_gt_CheckStringIsBool_Init () {
+    lib6CA20615_gt_CheckStringIsBool = TriggerCreate("lib6CA20615_gt_CheckStringIsBool_Func");
+    TriggerAddEventChatMessage(lib6CA20615_gt_CheckStringIsBool, c_playerAny, "", false);
+}
+
 void lib6CA20615_InitTriggers () {
-    lib6CA20615_gt_disablemoveabil_Init();
-    lib6CA20615_gt_context_menu_Init();
-    lib6CA20615_gt_context_menu_selected_Init();
     lib6CA20615_gt_Test_Init();
     lib6CA20615_gt_init_Init();
     lib6CA20615_gt_CheatCodeUnits_Init();
@@ -3846,8 +3876,12 @@ void lib6CA20615_InitTriggers () {
     lib6CA20615_gt_updatedata_Init();
     lib6CA20615_gt_showdatatablewindow_Init();
     lib6CA20615_gt_hidedatatablewindow_Init();
-    lib6CA20615_gt_ChangeOwnerGlobal_Init();
     lib6CA20615_gt_ChangeOwnerUnit_Init();
+    lib6CA20615_gt_ChangeOwnerGlobal_Init();
+    lib6CA20615_gt_disablemoveabil_Init();
+    lib6CA20615_gt_context_menu_Init();
+    lib6CA20615_gt_context_menu_selected_Init();
+    lib6CA20615_gt_CheckStringIsBool_Init();
 }
 
 //--------------------------------------------------------------------------------------------------

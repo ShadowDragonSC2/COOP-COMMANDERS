@@ -27,13 +27,7 @@
     <CRequirement id="ZeratulCommanderXelNagaVoidArray@Requirement">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
-    <CRequirement id="ZeratulCommanderXelnagaAmbusher">
-        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
-    </CRequirement>
     <CRequirement id="ZeratulCommanderXelNagaProbe">
-        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
-    </CRequirement>
-    <CRequirement id="ZeratulCommanderZeratul@Requirement">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
 </Catalog>

@@ -28,22 +28,6 @@
         <Arc value="360"/>
         <AINotifyEffect value="ZeratulCommanderDisruptorPhase@CU"/>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="ZeratulCommanderPredictiveBlink">
-        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
-        <Range value="500"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderPredictiveBlink">
-            <Flags index="ToSelection" value="1"/>
-        </CmdButtonArray>
-        <AbilSetId value="Blnk"/>
-        <Flags index="BestUnit" value="0"/>
-        <Flags index="RequireTargetVision" value="0"/>
-        <Arc value="360"/>
-        <Cost>
-            <Cooldown TimeUse="11.28"/>
-        </Cost>
-        <Effect index="0" value="ZeratulCommanderPredictiveBlink@Teleport"/>
-        <AINotifyEffect value="ZeratulCommanderPredictiveBlink@Teleport"/>
-    </CAbilEffectTarget>
     <!-- Instant -->
     <CAbilEffectInstant id="ZeratulCommanderDevolutionWave">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
