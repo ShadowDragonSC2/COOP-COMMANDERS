@@ -103,6 +103,8 @@
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes04.ogg" FacialGroup=""/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes05.ogg" FacialGroup=""/>
     </CSound>
+
+    <CRequirement id="ZeratulCommanderXelNagaEnforcer"/>
     
     <CDataCollectionUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
@@ -118,5 +120,6 @@
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@What"/>
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Yes"/>
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Pissed"/>
+        <DataRecord Entry="Requirement,ZeratulCommanderXelNagaEnforcer"/>
     </CDataCollectionUnit>
 </Catalog>
