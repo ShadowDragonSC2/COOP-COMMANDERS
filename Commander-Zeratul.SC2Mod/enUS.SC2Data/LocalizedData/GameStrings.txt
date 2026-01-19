@@ -11,7 +11,6 @@ Abil/Name/ZeratulCommanderPredictiveBlink=Predictive Blink
 Abil/Name/ZeratulCommanderProphecy=Prophetic vision
 Abil/Name/ZeratulCommanderShadowCleave=Shadow Cleave
 Behavior/Name/ZeratulCommanderMindControl=Mind Control
-Button/Name/ZeratulCommaderDarkArchon=<d stringref="Unit,ZeratulCommaderDarkArchon,Name">
 Button/Name/ZeratulCommanderAncientNexus=Build <d stringref="Unit,ZeratulCommanderAncientNexus,Name"/>
 Button/Name/ZeratulCommanderAvatarOfEssence=<d stringref="Unit,ZeratulCommanderAvatarOfEssence,Name"> Avatar of Essence
 Button/Name/ZeratulCommanderBlinkVoidTemplar=<d stringref="Abil,ZeratulCommanderBlinkVoidTemplar,Name"/>
@@ -19,6 +18,7 @@ Button/Name/ZeratulCommanderClusterNova=Cluster Nova
 Button/Name/ZeratulCommanderConstructsBay=Build <d stringref="Unit,ZeratulCommanderConstructsBay,Name"/>
 Button/Name/ZeratulCommanderConstructsFacility=Build <d stringref="Unit,ZeratulCommanderConstructsFacility,Name"/>
 Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderCoreForge,Name"/>
+Button/Name/ZeratulCommanderDarkArchon=<d stringref="Unit,ZeratulCommaderDarkArchon,Name">
 Button/Name/ZeratulCommanderDevolutionWave=<d stringref="Abil,ZeratulCommanderDevolutionWave,Name"/>
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
 Button/Name/ZeratulCommanderXelNagaEnforcer=Warp In <d stringref="Unit,ZeratulCommanderXelNagaEnforcer,Name"/>
@@ -49,7 +49,6 @@ Button/Tooltip/ZeratulCommanderXelNagaVoidArray=
 Button/Tooltip/ZeratulCommanderXelNagaVoidArray@Alternate=
 Button/Tooltip/ZeratulCommanderZeratul=
 CC/e_CmdNotMindControlled=Цель уже находится под действием "<d stringref="Abil,ZeratulCommanderMindControl,Name"/>"
-DataCollection/Name/ZeratulCommaderDarkArchon=Zeratul Commader - Dark Archon
 DataCollection/Name/ZeratulCommanderAncientNexus=Zeratul Commander - Ancient Nexus
 DataCollection/Name/ZeratulCommanderAnnihilationCannon=Zeratul Commander - Annihilation Cannon
 DataCollection/Name/ZeratulCommanderArtifact=Zeratul Commander - Artifact
@@ -60,6 +59,8 @@ DataCollection/Name/ZeratulCommanderClusterNova=Zeratul Commander - Cluster Nova
 DataCollection/Name/ZeratulCommanderConstructsBay=Zeratul Commander - Constructs Bay
 DataCollection/Name/ZeratulCommanderConstructsFacility=Zeratul Commander - Constructs Facility
 DataCollection/Name/ZeratulCommanderCoreForge=Zeratul Commander - Core Forge
+DataCollection/Name/ZeratulCommanderDarkArchon=Zeratul Commader - Dark Archon
+DataCollection/Name/ZeratulCommanderDarkArchonWeapon=Zeratul Commader - Chaotic Torrent
 DataCollection/Name/ZeratulCommanderDevolutionWave=Zeratul Commander - Devolution Wave
 DataCollection/Name/ZeratulCommanderDisruptorPhase=Zeratul Commander - Disruptor Phase
 DataCollection/Name/ZeratulCommanderForceCannon=Zeratul Commander - Force Cannon
@@ -113,6 +114,7 @@ Effect/Name/ZeratulCommanderDisruptorPhase@Search=Search
 Effect/Name/ZeratulCommanderDisruptorPhase@Set=Set
 Effect/Name/ZeratulCommanderDisruptorPhase@Set@1=Set @ 1
 Effect/Name/ZeratulCommanderDisruptorPhase@TimeLife=AB
+Effect/Name/ZeratulCommanderDarkArchonWeapon@Damage=Damage
 Effect/Name/ZeratulCommanderForceCannon@CU=CU
 Effect/Name/ZeratulCommanderForceCannon@LM=LM
 Effect/Name/ZeratulCommanderForceCannon@RemovePrecursor=Remove Precursor
@@ -158,12 +160,12 @@ Param/Expression/lib_3A96CF55_EE8FE678=~A~ - ~B~ - ~C~
 Race/Name/COOPZeratul=Zeratul
 UI/HelpMenuDialogTechGlossary_Control_Glossary/Category/COOPZeratul=Войска Зератула
 Unit/LifeArmorName/COOPZeratulArmor=Void armor
-Unit/Name/COOP/ZeratulCommaderDarkArchon=Dark Archon
 Unit/Name/COOP/ZeratulCommanderAncientNexus=Ancient Nexus
 Unit/Name/COOP/ZeratulCommanderAvatarOfEssence=Avatar of Essence
 Unit/Name/COOP/ZeratulCommanderConstructsBay=Constructs Bay
 Unit/Name/COOP/ZeratulCommanderConstructsFacility=Constructs Facility
 Unit/Name/COOP/ZeratulCommanderCoreForge=Core Forge
+Unit/Name/COOP/ZeratulCommanderDarkArchon=Dark Archon
 Unit/Name/COOP/ZeratulCommanderTesseractCannon=Tesseract Cannon
 Unit/Name/COOP/ZeratulCommanderVoidShrine=Void Shrine
 Unit/Name/COOP/ZeratulCommanderVoidTemplar=Void templar
@@ -187,6 +189,7 @@ Unit/Name/ZeratulCommanderVengeanceoftheVoid=Vengeance of the Void
 Unit/ShieldArmorName/COOPZeratulPlasmaShields=Void shields
 Upgrade/Name/ZeratulCommanderVengeanceoftheVoid=Vengeance of the void
 Weapon/Name/ZeratulCommanderAnnihilationCannon=Annihilation Cannon
+Weapon/Name/ZeratulCommanderDarkArchonWeapon=Chaotic Torrent
 Weapon/Name/ZeratulCommanderMasterWarpBlade=Master Warp Blade
 Weapon/Name/ZeratulCommanderNullBeam=Null Beam
 Weapon/Name/ZeratulCommanderParticularBeam=Particular Beam

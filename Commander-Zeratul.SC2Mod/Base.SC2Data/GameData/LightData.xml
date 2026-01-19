@@ -11,21 +11,4 @@
         </ToDInfoArray>
         <EditorCategories value="LightGroup:PortraitsBuildings"/>
     </CLight>
-    <CLight id="ZeratulCommanderVoidTemplar@Portrait" parent="default">
-        <ToDInfoArray index="0" Id="ZeratulCommanderVoidTemplar@Portrait" AmbientColor="0.062745,0.223529,0.270588">
-            <Param index="HDRExposure" value="1.575000"/>
-            <Param index="HDRBloomThreshold" value="0.500000"/>
-            <Param index="HDRSpecMultiplier" value="0.350000"/>
-            <Param index="HDREmisMultiplier" value="1.650000"/>
-            <Param index="ShadowPenumbraSize" value="0.496000"/>
-            <DirectionalLight index="Key">
-                <Color value="0.000000,0.215686,0.396078"/>
-                <ColorMultiplier value="0.610000"/>
-                <SpecularColor value="0.000000,0.513726,0.666667"/>
-                <Direction value="0.043042,0.623350,-0.780757"/>
-            </DirectionalLight>
-            <DirectionalLight index="Fill" Color="0.419608,0.462745,0.666667" ColorMultiplier="0.933000"/>
-        </ToDInfoArray>
-        <EditorCategories value="LightGroup:PortraitsUnitsProtoss"/>
-    </CLight>
 </Catalog>
