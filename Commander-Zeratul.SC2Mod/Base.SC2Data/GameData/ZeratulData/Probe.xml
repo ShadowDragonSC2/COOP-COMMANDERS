@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectDamage id="ZeratulCommanderParticularBeam@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="5"/>
+        <AreaArray Radius="2" Fraction="0.4"/>
+    </CEffectDamage>
     <CRequirement id="ZeratulCommanderXelNagaProbe">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
+    <CActorAction id="ZeratulCommanderParticularBeam@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderParticularBeam@Damage">
+        <EditorCategories value=""/>
+    </CActorAction>
+    <CActorBeamSimple id="ZeratulCommanderParticularBeam@AttackBeam" parent="BeamSimpleAnimationStyleOneShot">
+        <EditorCategories value=""/>
+    </CActorBeamSimple>
     <CActorUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaProbe">
         <WalkAnimMoveSpeed value="3"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulprobe.dds"/>
     </CActorUnit>
+    <CModel id="ZeratulCommanderParticularBeam@AttackBeam" parent="PersistentSpellFX">
+        <Model value="Assets\Effects\Protoss\ProbeBeam\ProbeBeam.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderParticularBeam@AttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\ProbeImpact\ProbeImpact.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderParticularBeam@AttackLaunch">
+        <Model value="Assets\Effects\Protoss\ProbeLaunch\ProbeLaunch.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderXelNagaProbe@Portrait" parent="Portrait">
         <Model value="Assets\COOP\Zeratul\Portraits\Probe_Zeratul_COOP_Portrait\Probe_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -15,12 +38,12 @@
         <Model value="Assets\COOP\Zeratul\Units\Probe_Zeratul_COOP\Probe_Zeratul_COOP.m3"/>
         <EditorCategories value="Race:Zeratul"/>
         <Radius value="0.800000"/>
-        <ScaleMax value="0.650000,0.650000,0.650000"/>
-        <ScaleMin value="0.650000,0.650000,0.650000"/>
-        <SelectionRadius value="0.650000"/>
-        <ShadowRadius value="0.650000"/>
-        <Tipability value="1.000000"/>
-        <TipabilityLength value="0.300000"/>
+        <ScaleMax value="0.910000,0.910000,0.910000"/>
+        <ScaleMin value="0.910000,0.910000,0.910000"/>
+        <SelectionRadius value="0.416500"/>
+        <ShadowRadius value="0.416500"/>
+        <Tipability value="0.750000"/>
+        <TipabilityLength value="0.400000"/>
         <TipabilityWidth value="0.400000"/>
         <UnitGlossaryCamera value="Star2CameraMid05"/>
     </CModel>
@@ -32,6 +55,33 @@
         <Model value="Assets\COOP\Zeratul\Units\Probe_Zeratul_COOP_DeathRagdoll\Probe_Zeratul_COOP_DeathRagdoll.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
+    <CWeaponLegacy id="ZeratulCommanderParticularBeam" parent="CommanderWeapon_Instant">
+        <EditorCategories value="Race:Zeratul"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Dead,Hidden"/>
+        <Range value="0.1"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <CSound id="ZeratulCommanderParticularBeam@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackImpact0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackImpact1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackImpact2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackImpact3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackImpact4.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,2.000000"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
+    <CSound id="ZeratulCommanderParticularBeam@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_AttackLaunch4.wav" FacialGroup=""/>
+        <Pitch value="-2.000000,2.000000"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
     <CSound id="ZeratulCommanderXelNagaProbe@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="Assets\Sounds\Probe_Wake.wav" FacialGroup=""/>
@@ -59,6 +109,18 @@
         <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Yes2.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Yes3.ogg" FacialGroup=""/>
     </CSound>
+    <CDataCollectionUnit id="ZeratulCommanderParticularBeam" parent="CommanderWeaponInstant">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Beam"/>
+        <DataRecord Entry="Actor,ZeratulCommanderParticularBeam@Attack"/>
+        <DataRecord Entry="Actor,ZeratulCommanderParticularBeam@AttackBeam"/>
+        <DataRecord Entry="Model,ZeratulCommanderParticularBeam@AttackLaunch"/>
+        <DataRecord Entry="Model,ZeratulCommanderParticularBeam@AttackImpact"/>
+        <DataRecord Entry="Model,ZeratulCommanderParticularBeam@AttackBeam"/>
+        <DataRecord Entry="Effect,ZeratulCommanderParticularBeam@Damage"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderParticularBeam"/>
+        <DataRecord Entry="Sound,ZeratulCommanderParticularBeam@AttackLaunch"/>
+        <DataRecord Entry="Sound,ZeratulCommanderParticularBeam@AttackImpact"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
         <DataRecord Entry="Actor,ZeratulCommanderXelNagaProbe"/>
@@ -80,14 +142,14 @@
         <LifeMax value="20"/>
         <ShieldsStart value="100"/>
         <ShieldsMax value="100"/>
-        <Speed value="2.9492"/>
+        <Speed value="2.8125"/>
         <LateralAcceleration value="46"/>
         <Sight value="10"/>
         <Food value="-2"/>
         <CostResource index="Minerals" value="300"/>
         <CostResource index="Vespene" value="50"/>
         <RepairTime value="21"/>
-        <WeaponArray Link="ZeratulCommanderParticularDisruptors"/>
+        <WeaponArray Link="ZeratulCommanderParticularBeam"/>
         <Radius value="0.625"/>
         <SeparationRadius value="0.625"/>
         <InnerRadius value="0.5"/>
@@ -109,5 +171,6 @@
             <LayoutButtons Face="ZeratulCommanderVoidShrine" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build6" Row="1" Column="0"/>
         </CardLayouts>
         <GlossaryPriority value="5"/>
+        <Acceleration value="2.5"/>
     </CUnit>
 </Catalog>

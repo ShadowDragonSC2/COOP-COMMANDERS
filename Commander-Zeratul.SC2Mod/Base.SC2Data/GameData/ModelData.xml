@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <CModel default="1" id="COOP_ZERATUL_PORTRAIT_STRUCT" parent="Portrait">
-        <Model value="Assets\Portraits\Protoss\AmonDarkEx2Portrait\AmonDarkEx2Portrait.m3"/>
+        <Model value="Assets\COOP\Zeratul\Portraits\DarkVoice_Zeratul_COOP_Portrait\DarkVoice_Zeratul_COOP_Portrait.m3"/>
         <Image value="Assets\Textures\darkvoice_zeratul_coop_portrait_static.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
