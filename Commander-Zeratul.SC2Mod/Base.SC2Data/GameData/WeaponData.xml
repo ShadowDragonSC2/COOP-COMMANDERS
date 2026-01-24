@@ -6,12 +6,6 @@
         <TargetFilters value="Air,Visible;Ground,Missile,Dead,Hidden"/>
         <Range value="11"/>
     </CWeaponLegacy>
-    <CWeaponLegacy id="ZeratulCommanderMasterWarpBlade" parent="CommanderWeapon_Instant">
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <TargetFilters value="Ground,Visible;Missile,Dead,Hidden"/>
-        <Range value="0.1"/>
-        <Period value="1.5"/>
-    </CWeaponLegacy>
     <CWeaponLegacy id="ZeratulCommanderNullBeam" parent="CommanderWeapon_Beam">
         <EditorCategories value="Race:Zeratul"/>
         <Range value="6"/>

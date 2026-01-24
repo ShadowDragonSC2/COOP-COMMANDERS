@@ -166,25 +166,6 @@
         <DataRecord Entry="Sound,ZeratulCommanderDisruptorPhase@ImpactSound"/>
         <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Effects"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderAncientNexus" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Structure"/>
-        <DataRecord Entry="Unit,ZeratulCommanderAncientNexus"/>
-        <DataRecord Entry="Actor,ZeratulCommanderAncientNexus"/>
-        <DataRecord Entry="Model,ZeratulCommanderAncientNexus"/>
-        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Death"/>
-        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Build"/>
-        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Portrait"/>
-        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Building"/>
-        <DataRecord Entry="Button,ZeratulCommanderAncientNexus"/>
-        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Birth"/>
-        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Placement"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderMasterWarpBlade" parent="CommanderWeaponInstant">
-        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Instant"/>
-        <DataRecord Entry="Effect,ZeratulCommanderMasterWarpBlade@Damage"/>
-        <DataRecord Entry="Weapon,ZeratulCommanderMasterWarpBlade"/>
-        <DataRecord Entry="Actor,ZeratulCommanderMasterWarpBlade@Attack"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderMorphVoidArray">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Other"/>
         <DataRecord Entry="Abil,ZeratulCommanderMorphVoidArray"/>
@@ -244,21 +225,6 @@
         <DataRecord Entry="Requirement,ZeratulCommanderVoidShrine@Requirement"/>
         <DataRecord Entry="Unit,ZeratulCommanderVoidShrine"/>
         <DataRecord Entry="Model,ZeratulCommanderVoidShrine@Placement"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,ZeratulCommanderXelNagaAbrogator"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaAbrogator"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaAbrogator@Portrait"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaAbrogator@Death"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaAbrogator@DeathRagdoll"/>
-        <DataRecord Entry="Unit,ZeratulCommanderXelNagaAbrogator"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@Ready"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@Help"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@What"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@Yes"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@Pissed"/>
-        <DataRecord Entry="Requirement,ZeratulCommanderXelNagaAbrogator"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelNagaPassageway" parent="CommanderUnit">
         <EditorCategories value="ObjectType:Structure,DataGroup:Unit,Race:Zeratul"/>

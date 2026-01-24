@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CButton id="ZeratulCommanderAncientNexus">
+        <Icon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CActorUnit id="ZeratulCommanderAncientNexus" parent="CommanderUnitBase" unitName="ZeratulCommanderAncientNexus">
+        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
+        <On Terms="UnitConstruction.ZeratulCommanderAncientNexus.Start" Send="Create ZeratulCommanderAncientNexus@Building"/>
+        <EventDataSound Name="BuildingWarpIn" Actor="UnitSound" Sound="Protoss_BuildingWarpIn"/>
+        <Aliases value="_UnitHuge"/>
+        <Aliases value="_SpecialPowerNexus"/>
+        <Aliases value="_ProtossBuildModel"/>
+    </CActorUnit>
+    <CModel id="ZeratulCommanderAncientNexus" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Buildings\Nexus_Zeratul_COOP\Nexus_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+    </CModel>
+    <CModel id="ZeratulCommanderAncientNexus@Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Zeratul\Buildings\Nexus_Zeratul_COOP_Death\Nexus_Zeratul_COOP_Death.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderAncientNexus@Build" Prefix="Buildings\" Race="Protoss">
+        <Events>
+            <Anim value="Stand,Build,End"/>
+            <Name value="BuildingWarpIn"/>
+            <Type value="Sound"/>
+            <Time value="1.100000"/>
+        </Events>
+        <Radius value="1.400000"/>
+        <ScaleMax value="1.200000,1.200000,1.200000"/>
+        <ScaleMin value="1.200000,1.200000,1.200000"/>
+        <SelectionRadius value="2.499700"/>
+        <ShadowRadius value="2.499700"/>
+        <Model value="Assets\COOP\Zeratul\Buildings\Nexus_Zeratul_COOP_WarpIn\Nexus_Zeratul_COOP_WarpIn.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <SelectionLayer value="2"/>
+        <SquibTypeDefault value="Metal"/>
+    </CModel>
+    <CModel id="ZeratulCommanderAncientNexus@Placement" parent="Placement">
+        <Model value="Assets\COOP\Zeratul\Buildings\Nexus_Zeratul_COOP_Placement\Nexus_Zeratul_COOP_Placement.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderAncientNexus@Portrait" parent="COOP_ZERATUL_PORTRAIT_STRUCT"/>
+    <CDataCollectionUnit id="ZeratulCommanderAncientNexus" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Structure"/>
+        <DataRecord Entry="Unit,ZeratulCommanderAncientNexus"/>
+        <DataRecord Entry="Actor,ZeratulCommanderAncientNexus"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Death"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Build"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Portrait"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Building"/>
+        <DataRecord Entry="Button,ZeratulCommanderAncientNexus"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Birth"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Placement"/>
+        <DataRecord Entry="Actor,ZeratulCommanderAncientNexus@Building"/>
+        <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Building"/>
+    </CDataCollectionUnit>
+    
+    <CUnit id="ZeratulCommanderAncientNexus" parent="CommanderStructure_Prot" race="COOPZeratul">
+        <Footprint value="Footprint5x5Contour"/>
+        <PlacementFootprint value="Footprint5x5DropOff"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
+        <BuildTime value="35"/>
+    </CUnit>
+</Catalog>

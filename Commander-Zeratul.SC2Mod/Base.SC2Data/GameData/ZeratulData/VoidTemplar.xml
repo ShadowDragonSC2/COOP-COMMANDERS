@@ -133,6 +133,11 @@
         <Range value="500"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderBlinkVoidTemplar"/>
         <Arc value="360"/>
+        <Cost>
+            <Cooldown>
+                <TimeUse value="8"/>
+            </Cooldown>
+        </Cost>
     </CAbilEffectTarget>
     
     <CEffectSet id="ZeratulCommanderBlinkVoidTemplar@Effects">

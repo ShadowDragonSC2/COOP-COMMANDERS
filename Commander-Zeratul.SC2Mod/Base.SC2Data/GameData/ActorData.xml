@@ -2,11 +2,6 @@
 <Catalog>
     <!-- Macro -->
     <!-- Actor Unit -->
-    <CActorUnit id="ZeratulCommanderAncientNexus" parent="CommanderUnitBase" unitName="ZeratulCommanderAncientNexus">
-        <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
-        <On Terms="UnitConstruction.ZeratulCommanderAncientNexus.Start" Send="Create Build_COOPZeratul"/>
-        <EventDataSound Name="BuildingWarpIn" Actor="UnitSound" Sound="Protoss_BuildingWarpIn"/>
-    </CActorUnit>
     <CActorUnit id="ZeratulCommanderVoidShrine" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidShrine">
         <GroupIcon>
             <Image value="Assets\Textures\btn-building-protoss-zeratuldarkshrine.dds"/>
@@ -38,10 +33,6 @@
     <CActorUnit id="ZeratulCommanderTesseractCannon" parent="CommanderGroundUnit" unitName="ZeratulCommanderTesseractCannon">
         <LifeArmorIcon value="Assets\Textures\protossbuildingarmor.dds"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaAbrogator">
-        <WalkAnimMoveSpeed value="3"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldisruptor.dds"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAirUnit" unitName="ZeratulCommanderXelNagaVoidArray">
         <GroupIcon>
@@ -81,15 +72,11 @@
     <CActorMissile id="COOPZeratul_Invisible" parent="GenericAttackMissile" unitName="COOPZeratul_Invisible">
         <Model value="Invisible"/>
     </CActorMissile>
-    <CActorMissile id="ZeratulCommanderAnnihilationCannon@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderAnnihilationCannon@Missile">
-    </CActorMissile>
-    <CActorMissile id="ZeratulCommanderClusterNova@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderClusterNova@Missile">
-    </CActorMissile>
+    <CActorMissile id="ZeratulCommanderAnnihilationCannon@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderAnnihilationCannon@Missile"/>
+    <CActorMissile id="ZeratulCommanderClusterNova@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderClusterNova@Missile"/>
     <!-- Actor Model -->
-    <CActorEventMacroRunnable id="BuildMacro_COOPZeratul">
-    </CActorEventMacroRunnable>
-    <CActorModel id="Build_COOPZeratul" parent="ProtossBuildingBuild">
-    </CActorModel>
+    <CActorEventMacroRunnable id="BuildMacro_COOPZeratul"/>
+    <CActorModel id="ZeratulCommanderAncientNexus@Building" parent="ProtossBuildingBuild"/>
     <CActorForceSphere id="CC_AttackDeathForceMedium">
         <HostSiteOps Ops="SOpIncomingDirect SOpRandomPointInSphereDot25"/>
         <Field value="Directional"/>
@@ -148,8 +135,6 @@
     <CActorSound id="ZeratulCommanderDisruptorPhase@ImpactSound" parent="SoundOneShot">
         <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
     </CActorSound>
-    <CActorAction id="ZeratulCommanderMasterWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderMasterWarpBlade@Damage">
-    </CActorAction>
     <CActorAction id="ZeratulCommanderNullBeam@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderNullBeam@CP">
         <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
         <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
@@ -177,24 +162,20 @@
     <CActorMissile id="ZeratulCommanderParticularBeam@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderParticularBeam@Missile">
         <On Terms="ActorCreation" Send="SetLocalTintColor 221,255,26"/>
     </CActorMissile>
-    <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage">
-    </CActorAction>
+    <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage"/>
     <CActorAction id="ZeratulCommanderProphecy@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderProphecy@Handler">
         <Beam value="ZeratulCommanderProphecy@Beam"/>
         <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
         <BeamScope value="Caster"/>
     </CActorAction>
-    <CActorBeamSimple id="ZeratulCommanderProphecy@Beam" parent="BeamSimpleAnimationStyleOneShot">
-    </CActorBeamSimple>
+    <CActorBeamSimple id="ZeratulCommanderProphecy@Beam" parent="BeamSimpleAnimationStyleOneShot"/>
     <CActorModel id="ZeratulCommanderProphecy@Model" parent="ModelAnimationStyleContinuous">
         <On Terms="Effect.ZeratulCommanderProphecy@CP.Start" Send="Create"/>
         <On Terms="Effect.ZeratulCommanderProphecy@CP.Stop; FromEffectTreeDescendant" Send="AnimBracketStop BSD"/>
         <ModelFlags index="AutomateGlobalLoops" value="1"/>
     </CActorModel>
-    <CActorAction id="ZeratulCommanderVengeanceoftheVoid@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderVengeanceoftheVoid@Damage">
-    </CActorAction>
-    <CActorBeamSimple id="ZeratulCommanderVengeanceoftheVoid@AttackBeam" parent="BeamSimpleAnimationStyleOneShot">
-    </CActorBeamSimple>
+    <CActorAction id="ZeratulCommanderVengeanceoftheVoid@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderVengeanceoftheVoid@Damage"/>
+    <CActorBeamSimple id="ZeratulCommanderVengeanceoftheVoid@AttackBeam" parent="BeamSimpleAnimationStyleOneShot"/>
     <CActorTurret id="ZeratulCommanderXelNagaVoidArray@Turret">
         <On Terms="TurretEnable.ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
         <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>

@@ -370,4 +370,42 @@
         <DataRecord Entry="Button,ZeratulCommanderShadowCleave"/>
         <EditorIconSource value="Button"/>
     </CDataCollectionUnit>
+
+    <!-- ========================= -->
+    <!--          Weapons          -->
+    <!-- ========================= -->
+    
+    <CWeaponLegacy id="ZeratulCommanderMasterWarpBlade" parent="CommanderWeapon_Instant">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Dead,Hidden"/>
+        <Range value="0.1"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+
+    <CEffectDamage id="ZeratulCommanderMasterWarpBlade@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="100"/>
+    </CEffectDamage>
+
+    <CActorAction id="ZeratulCommanderMasterWarpBlade@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderMasterWarpBlade@Damage"/>
+    
+    <CSound id="ZeratulCommanderMasterWarpBlade@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+    </CSound>
+    <CSound id="ZeratulCommanderMasterWarpBlade@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch4.wav" FacialGroup=""/>
+    </CSound>
+    
+    <CDataCollectionUnit id="ZeratulCommanderMasterWarpBlade" parent="CommanderWeaponInstant">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Instant"/>
+        <DataRecord Entry="Effect,ZeratulCommanderMasterWarpBlade@Damage"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderMasterWarpBlade"/>
+        <DataRecord Entry="Actor,ZeratulCommanderMasterWarpBlade@Attack"/>
+    </CDataCollectionUnit>
+
 </Catalog>

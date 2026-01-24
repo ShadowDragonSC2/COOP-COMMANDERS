@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CButton id="ZeratulCommanderAncientNexus">
-        <Icon value="Assets\Textures\btn-building-protoss-zeratulnexus.dds"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CButton>
     <CButton id="ZeratulCommanderAvatarOfEssence">
         <Icon value="Assets\Textures\btn-ability-zeratul-topbar-avatarofessence.dds"/>
         <EditorCategories value="Race:Zeratul"/>

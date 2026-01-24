@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
     <!-- Effect Damage -->
-    <CEffectDamage id="ZeratulCommanderMasterWarpBlade@Damage" parent="DU_WEAP">
-        <EditorCategories value="Race:Zeratul"/>
-        <Amount value="100"/>
-    </CEffectDamage>
     <CEffectDamage id="ZeratulCommanderNullBeam@Damage" parent="DU_WEAP">
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="12"/>

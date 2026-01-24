@@ -15,9 +15,6 @@
     <CRequirement id="ZeratulCommanderVoidShrine@Requirement">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
-    <CRequirement id="ZeratulCommanderXelNagaAbrogator">
-        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
-    </CRequirement>
     <CRequirement id="ZeratulCommanderXelNagaPassageway@Requirement">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>

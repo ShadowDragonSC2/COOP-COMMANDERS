@@ -4,12 +4,6 @@
         <Race value="COOPZeratul"/>
         <EditorCategories value="ObjectType:Shape,ObjectFamily:Coop"/>
     </CUnit>
-    <CUnit id="ZeratulCommanderAncientNexus" parent="CommanderStructure_Prot" race="COOPZeratul">
-        <Footprint value="Footprint5x5Contour"/>
-        <PlacementFootprint value="Footprint5x5DropOff"/>
-        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
-        <BuildTime value="35"/>
-    </CUnit>
     <CUnit id="ZeratulCommanderAnnihilationCannon@Missile" parent="MISSILE">
         <Race value="COOPZeratul"/>
         <Mover value="MissileDefault"/>
@@ -84,30 +78,6 @@
         <ShieldsStart value="500"/>
         <ShieldsMax value="500"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
-    </CUnit>
-    <CUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGround_Prot" race="COOPZeratul">
-        <Collide index="Small" value="1"/>
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
-        <ShieldsStart value="100"/>
-        <ShieldsMax value="100"/>
-        <Speed value="2.9492"/>
-        <LateralAcceleration value="46"/>
-        <Sight value="10"/>
-        <CostResource index="Minerals" value="300"/>
-        <CostResource index="Vespene" value="50"/>
-        <RepairTime value="21"/>
-        <Radius value="0.625"/>
-        <SeparationRadius value="0.625"/>
-        <InnerRadius value="0.5"/>
-        <MinimapRadius value="0.65"/>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
-        <AbilArray Link="ZeratulCommanderDisruptorPhase"/>
-        <CardLayouts index="0">
-            <LayoutButtons Face="ZeratulCommanderDisruptorPhase" Type="AbilCmd" AbilCmd="ZeratulCommanderDisruptorPhase,Execute" Row="2" Column="0"/>
-        </CardLayouts>
-        <FlagArray index="Turnable" value="0"/>
-        <GlossaryPriority value="65"/>
     </CUnit>
     <CUnit id="ZeratulCommanderDisruptorPhase">
         <FlagArray index="Turnable" value="0"/>

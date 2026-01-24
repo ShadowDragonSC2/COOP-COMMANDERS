@@ -7,17 +7,6 @@
         <AssetArray File="Assets\Sounds\Disruptor_Discharge_03.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Disruptor_Discharge_06.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="ZeratulCommanderMasterWarpBlade@AttackImpact" parent="Combat">
-        <EditorCategories value="Race:Zeratul"/>
-    </CSound>
-    <CSound id="ZeratulCommanderMasterWarpBlade@AttackLaunch" parent="Combat">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch1.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch2.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch3.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\DarkTemplar\DarkTemplar_AttackLaunch4.wav" FacialGroup=""/>
-    </CSound>
     <CSound id="ZeratulCommanderNullBeam@End" parent="Spell">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_WeaponEnd.wav" FacialGroup=""/>
@@ -58,54 +47,6 @@
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch0.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch1.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch2.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaAbrogator@Help" parent="ProtossHelp">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Help00.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaAbrogator@Pissed" parent="Pissed">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed00.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed01.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed02.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed03.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed04.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed05.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed06.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed07.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed08.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed09.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed10.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed11.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed12.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed13.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed14.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaAbrogator@Ready" parent="Ready">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Ready00.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaAbrogator@What" parent="Voice">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What00.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What01.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What02.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What03.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What04.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What05.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What06.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What07.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaAbrogator@Yes" parent="Voice">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes00.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes01.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes02.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes03.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes04.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes05.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes06.ogg" FacialGroup=""/>
-        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes07.ogg" FacialGroup=""/>
     </CSound>
     <CSound id="ZeratulCommanderXelNagaShieldguard@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>

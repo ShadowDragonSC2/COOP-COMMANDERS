@@ -1,4 +1,122 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    
+    <CRequirement id="ZeratulCommanderXelNagaAbrogator">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
+    <CActorUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaAbrogator">
+        <WalkAnimMoveSpeed value="3"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldisruptor.dds"/>
+    </CActorUnit>
+    <CModel id="ZeratulCommanderXelNagaAbrogator@Portrait" parent="Portrait">
+        <Model value="Assets\COOP\Zeratul\Portraits\Disruptor_Zeratul_COOP_Portrait\Disruptor_Zeratul_COOP_Portrait.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaAbrogator" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Units\Disruptor_Zeratul_COOP\Disruptor_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <Radius value="0.800000"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+        <SelectionRadius value="0.800000"/>
+        <ShadowRadius value="0.800000"/>
+        <Tipability value="1.000000"/>
+        <TipabilityLength value="0.300000"/>
+        <TipabilityWidth value="0.400000"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaAbrogator@Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Zeratul\Units\Disruptor_Zeratul_COOP_Death\Disruptor_Zeratul_COOP_Death.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <!-- Death Ragdol -->
+    <CModel id="ZeratulCommanderXelNagaAbrogator@DeathRagdoll" parent="UnitDeathRagdoll">
+        <Model value="Assets\COOP\Zeratul\Units\Disruptor_Zeratul_COOP_DeathRagdoll\Disruptor_Zeratul_COOP_DeathRagdoll.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CSound id="ZeratulCommanderXelNagaAbrogator@Help" parent="ProtossHelp">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Help00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaAbrogator@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed06.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed07.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed08.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed09.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed10.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed11.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed12.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed13.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Pissed14.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaAbrogator@Ready" parent="Ready">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Ready00.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaAbrogator@What" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What06.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What07.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaAbrogator@Yes" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes00.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes01.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes02.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes03.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes04.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes05.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes06.ogg" FacialGroup=""/>
+        <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes07.ogg" FacialGroup=""/>
+    </CSound>
+    <CDataCollectionUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,ZeratulCommanderXelNagaAbrogator"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaAbrogator"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaAbrogator@Portrait"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaAbrogator@Death"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaAbrogator@DeathRagdoll"/>
+        <DataRecord Entry="Unit,ZeratulCommanderXelNagaAbrogator"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@Ready"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@Help"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@What"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@Yes"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaAbrogator@Pissed"/>
+        <DataRecord Entry="Requirement,ZeratulCommanderXelNagaAbrogator"/>
+    </CDataCollectionUnit>
+    <CUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGround_Prot" race="COOPZeratul">
+        <Collide index="Small" value="1"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
+        <Speed value="2.9492"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="10"/>
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="50"/>
+        <RepairTime value="21"/>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0.625"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0.65"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <AbilArray Link="ZeratulCommanderDisruptorPhase"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ZeratulCommanderDisruptorPhase" Type="AbilCmd" AbilCmd="ZeratulCommanderDisruptorPhase,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <FlagArray index="Turnable" value="0"/>
+        <GlossaryPriority value="65"/>
+    </CUnit>
 </Catalog>
