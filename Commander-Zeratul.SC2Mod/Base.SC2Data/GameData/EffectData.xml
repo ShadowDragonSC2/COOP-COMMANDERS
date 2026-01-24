@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <!-- Effect Damage -->
-    <CEffectDamage id="ZeratulCommanderNullBeam@Damage" parent="DU_WEAP">
-        <EditorCategories value="Race:Zeratul"/>
-        <Amount value="12"/>
-    </CEffectDamage>
-    <CEffectDamage id="ZeratulCommanderParticularDisruptors@Damage" parent="DU_WEAP">
-        <EditorCategories value="Race:Zeratul"/>
-        <Amount value="12"/>
-    </CEffectDamage>
-    <CEffectDamage id="ZeratulCommanderDisruptorPhase@Damage" parent="DU_WEAP_SPLASH">
-        <EditorCategories value="Race:Zeratul"/>
-        <Amount value="175"/>
-    </CEffectDamage>
     <CEffectDamage id="ZeratulCommanderClusterNova@Damage">
         <EditorCategories value="Race:Zeratul"/>
     </CEffectDamage>
     <CEffectDamage id="ZeratulCommanderVoidFury@Damage">
-        <EditorCategories value="Race:Zeratul"/>
-        <Amount value="100"/>
+        <Amount value="50"/>
     </CEffectDamage>
     <CEffectDamage id="ZeratulCommanderVengeanceoftheVoid@CU@Suicide">
         <EditorCategories value="Race:Zeratul"/>
@@ -30,10 +16,6 @@
         <LaunchLocation Effect="ZeratulCommanderVengeanceoftheVoid@Interval" Value="TargetUnit"/>
         <Amount value="13"/>
     </CEffectDamage>
-    <CEffectSet id="ZeratulCommanderDisruptorPhase@Effects">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderClusterNova@CP"/>
-    </CEffectSet>
     <CEffectSet id="ZeratulCommanderProphecy@Set">
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="ZeratulCommanderProphecy@CP"/>
@@ -45,23 +27,6 @@
     <CEffectSet id="ZeratulCommanderForceCannon@Set@1">
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="CommanderEffect_TargetIsRemove"/>
-    </CEffectSet>
-    <CEffectSet id="ZeratulCommanderDisruptorPhase@Set@1">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderDisruptorPhase@TimeLife"/>
-        <EffectArray value="ZeratulCommanderDisruptorPhase@Issue"/>
-    </CEffectSet>
-    <CEffectSet id="ZeratulCommanderDisruptorPhase">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderDisruptorPhase@CU"/>
-        <TargetLocationType value="Point"/>
-    </CEffectSet>
-    <CEffectSet id="ZeratulCommanderDisruptorPhase@Set">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderDisruptorPhase@Effects"/>
-        <EffectArray value="TimedLifeFate"/>
-        <EffectArray value="ZeratulCommanderDisruptorPhase@Search"/>
-        <TargetLocationType value="Point"/>
     </CEffectSet>
     <CEffectSet id="ZeratulCommanderVengeanceoftheVoid@Set">
         <EditorCategories value="Race:Zeratul"/>
@@ -94,11 +59,6 @@
         <Movers Link="ZeratulCommanderForceCannon@Mover"/>
         <DeathType value="Unknown"/>
     </CEffectLaunchMissile>
-    <CEffectLaunchMissile id="ZeratulCommanderParticularDisruptors@LM">
-        <EditorCategories value="Race:Zeratul"/>
-        <ImpactEffect value="ZeratulCommanderParticularDisruptors@Damage"/>
-        <AmmoUnit value="ZeratulCommanderParticularDisruptors@Missile"/>
-    </CEffectLaunchMissile>
     <!-- Effect Create Persistent-->
     <CEffectCreatePersistent id="ZeratulCommanderClusterNova@CP">
         <EditorCategories value="Race:Zeratul"/>
@@ -114,16 +74,6 @@
         <EditorCategories value="Race:Zeratul"/>
         <Flags index="Channeled" value="1"/>
         <Flags index="PersistUntilDestroyed" value="1"/>
-    </CEffectCreatePersistent>
-    <CEffectCreatePersistent id="ZeratulCommanderNullBeam@CP">
-        <EditorCategories value="Race:Zeratul"/>
-        <Flags index="Channeled" value="1"/>
-        <Flags index="PersistUntilDestroyed" value="1"/>
-        <InitialEffect value="ZeratulCommanderNullBeam@Damage"/>
-        <PeriodicEffectArray value="ZeratulCommanderNullBeam@Damage"/>
-        <PeriodicPeriodArray value="1"/>
-        <WhichLocation Value="TargetUnit"/>
-        <TimeScaleSource Value="Caster"/>
     </CEffectCreatePersistent>
     <CEffectCreatePersistent id="ZeratulCommanderVengeanceoftheVoid@Interval">
         <EditorCategories value="Race:Zeratul"/>
@@ -154,12 +104,6 @@
         <ImpactLocation Value="TargetUnit"/>
         <SearchFilters value="Invulnerable;Ally,Neutral,Enemy"/>
     </CEffectEnumArea>
-    <CEffectEnumArea id="ZeratulCommanderDisruptorPhase@Search">
-        <EditorCategories value="Race:Zeratul"/>
-        <DebugTrace value="1"/>
-        <SearchFilters value="Ground;Self,Player,Ally,Missile,Stasis,Hidden,Invulnerable"/>
-        <AreaArray Radius="1.5" Effect="ZeratulCommanderDisruptorPhase@Damage"/>
-    </CEffectEnumArea>
     <CEffectEnumArea id="ZeratulCommanderVengeanceoftheVoid@Search">
         <EditorCategories value="Race:Zeratul"/>
         <SearchFilters value="Visible;Self,Player,Ally,Neutral,User1,Missile,Item,Dead,Hidden,Invulnerable,MapBoss"/>
@@ -187,18 +131,6 @@
         <SpawnEffect value="ZeratulCommanderVengeanceoftheVoid@Interval"/>
         <SpawnUnit value="ZeratulCommanderVengeanceoftheVoid"/>
     </CEffectCreateUnit>
-    <CEffectCreateUnit id="ZeratulCommanderDisruptorPhase@CU">
-        <EditorCategories value="Race:Zeratul"/>
-        <WhichLocation Value="CasterUnit"/>
-        <CreateFlags index="DropOff" value="0"/>
-        <CreateFlags index="OffsetByRadius" value="0"/>
-        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
-        <CreateFlags index="TechComplete" value="0"/>
-        <CreateFlags index="UseFood" value="0"/>
-        <SpawnEffect value="ZeratulCommanderDisruptorPhase@Set@1"/>
-        <SpawnUnit value="ZeratulCommanderDisruptorPhase"/>
-        <SpawnRange value="1"/>
-    </CEffectCreateUnit>
     <!-- Effect Destroy Persistent-->
     <CEffectDestroyPersistent id="ZeratulCommanderProphecy@DP">
         <EditorCategories value="Race:Zeratul"/>
@@ -218,15 +150,4 @@
     <CEffectModifyUnit id="ZeratulCommanderProphecy@Handler">
         <EditorCategories value="Race:Zeratul"/>
     </CEffectModifyUnit>
-    <!-- Effect Teleport-->
-    <!-- Effect Issue Order -->
-    <CEffectIssueOrder id="ZeratulCommanderDisruptorPhase@Issue">
-        <EditorCategories value="Race:Zeratul"/>
-        <Abil value="move"/>
-        <Target Effect="ZeratulCommanderDisruptorPhase@CU" Value="TargetPoint"/>
-    </CEffectIssueOrder>
-    <!-- Effect Apply Behavior -->
-    <CEffectApplyBehavior id="ZeratulCommanderDisruptorPhase@TimeLife">
-        <EditorCategories value="Race:Zeratul"/>
-    </CEffectApplyBehavior>
 </Catalog>

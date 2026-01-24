@@ -34,34 +34,12 @@
         <LifeArmorIcon value="Assets\Textures\protossbuildingarmor.dds"/>
         <UnitIcon value="Assets\Textures\btn-building-protoss-zeratulphotoncannon.dds"/>
     </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAirUnit" unitName="ZeratulCommanderXelNagaVoidArray">
-        <GroupIcon>
-            <Image value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-protoss-warpprism00.dds"/>
-        </Wireframe>
-        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work Stand,Work,Start {} ContentPlayOnce"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray" Send="Create"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaVoidArray@Alternate" parent="ZeratulCommanderXelNagaVoidArray" unitName="ZeratulCommanderXelNagaVoidArray@Alternate">
-        <On index="69" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work,Start Stand,Work Stand,Work,End ContentForceLooping"/>
-        <On index="70" Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
-        <On index="71" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
-    </CActorUnit>
     <CActorUnit id="ZeratulCommanderVengeanceoftheVoid" parent="GenericUnitStandard" unitName="ZeratulCommanderVengeanceoftheVoid">
         <HeroIcon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
         <UnitIcon value="Assets\Textures\btn-ability-zeratul-stalker-vengeanceofthevoid.dds"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderArtifact" parent="GenericUnitStandard" unitName="ZeratulCommanderArtifact">
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulartifact1.dds"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderDisruptorPhase" parent="GenericUnitStandard" unitName="ZeratulCommanderDisruptorPhase">
-        <HeroIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
-        <UnitIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
     </CActorUnit>
     <!-- Actor Missile -->
     <CActorMissile id="COOPZeratul_Invisible" parent="GenericAttackMissile" unitName="COOPZeratul_Invisible">
@@ -117,45 +95,6 @@
     <CActorModel id="ZeratulCommanderDevolutionWave@ImpactModel" parent="ModelAnimationStyleOneShot">
         <On Terms="Effect.ZeratulCommanderDevolutionWave@Search.Start" Send="Create"/>
     </CActorModel>
-    <CActorModel id="ZeratulCommanderDisruptorPhase@Birth" parent="ModelAnimationStyleOneShotNoOrphan">
-        <On Terms="UnitBirth.ZeratulCommanderDisruptorPhase" Send="Create"/>
-    </CActorModel>
-    <CActorSplat id="ZeratulCommanderDisruptorPhase@Cursor" parent="ProtossCursorSplat" abil="ZeratulCommanderDisruptorPhase">
-        <Model value="ZeratulCommanderDisruptorPhase@Cursor"/>
-    </CActorSplat>
-    <CActorModel id="ZeratulCommanderDisruptorPhase@Impact" parent="ModelAnimationStyleOneShotNoOrphan">
-        <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
-    </CActorModel>
-    <CActorSound id="ZeratulCommanderDisruptorPhase@ImpactSound" parent="SoundOneShot">
-        <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
-    </CActorSound>
-    <CActorAction id="ZeratulCommanderNullBeam@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderNullBeam@CP">
-        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
-        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
-        <!-- Need this so the impact host ops can know which side of the target is closest to 
-             the attacker. -->
-        <ActionFlags index="LaunchForceSite" value="1"/>
-        <On Terms="Effect.ZeratulCommanderNullBeam@Damage.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
-    </CActorAction>
-    <CActorBeamSimple id="ZeratulCommanderNullBeam@AttackBeam" parent="BeamSimpleAnimationStyleContinuous">
-        <Macros value="ActionTargetTeleportDestroy"/>
-        <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="AnimBracketStop BSD"/>
-    </CActorBeamSimple>
-    <CActorSound id="ZeratulCommanderNullBeam@End" parent="SoundOneShot">
-        <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="Create"/>
-    </CActorSound>
-    <CActorSound id="ZeratulCommanderNullBeam@Loop" parent="SoundContinuous">
-        <On Terms="Effect.ZeratulCommanderNullBeam@CP.Start" Send="Create"/>
-        <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="Destroy"/>
-    </CActorSound>
-    <CActorAction id="ZeratulCommanderParticularDisruptors@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderParticularDisruptors@Damage" effectLaunch="ZeratulCommanderParticularDisruptors@LM">
-        <LaunchSiteOps Ops="SOpAttachWeapon"/>
-        <Missile value="ZeratulCommanderParticularDisruptors@Missile"/>
-        <On Terms="Effect.ZeratulCommanderParticularDisruptors@Damage.Start" Send="RefSet ::Host ::Sender"/>
-    </CActorAction>
-    <CActorMissile id="ZeratulCommanderParticularDisruptors@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderParticularDisruptors@Missile">
-        <On Terms="ActorCreation" Send="SetLocalTintColor 221,255,26"/>
-    </CActorMissile>
     <CActorAction id="ZeratulCommanderProphecy@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderProphecy@Handler">
         <Beam value="ZeratulCommanderProphecy@Beam"/>
         <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
@@ -169,14 +108,6 @@
     </CActorModel>
     <CActorAction id="ZeratulCommanderVengeanceoftheVoid@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderVengeanceoftheVoid@Damage"/>
     <CActorBeamSimple id="ZeratulCommanderVengeanceoftheVoid@AttackBeam" parent="BeamSimpleAnimationStyleOneShot"/>
-    <CActorTurret id="ZeratulCommanderXelNagaVoidArray@Turret">
-        <On Terms="TurretEnable.ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
-    </CActorTurret>
-    <CActorUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaShieldguard">
-        <WalkAnimMoveSpeed value="3"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulsentry.dds"/>
-    </CActorUnit>
     <CActorUnit id="ZeratulCommanderProphecyCamera" parent="GenericUnitStandard" unitName="ZeratulCommanderProphecyCamera">
         <HostSiteOps Ops="ZeratulCommanderSOpProphecyCameraOffset SOpPointToCamera"/>
     </CActorUnit>

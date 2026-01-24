@@ -9,5 +9,6 @@
     <Catalog path="GameData/ZeratulData/Enforcer.xml"/>
     <Catalog path="GameData/ZeratulData/VoidArray.xml"/>
     <Catalog path="GameData/ZeratulData/VoidTemplar.xml"/>
+    <Catalog path="GameData/ZeratulData/Shieldguard.xml"/>
     <Catalog path="GameData/ZeratulData/Zeratul.xml"/>
 </Includes>

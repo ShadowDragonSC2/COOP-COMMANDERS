@@ -1,17 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Catalog>
-    <CWeaponLegacy id="ZeratulCommanderNullBeam" parent="CommanderWeapon_Beam">
-        <EditorCategories value="Race:Zeratul"/>
-        <Range value="6"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
-        <LegacyOptions index="KeepChanneling" value="0"/>
-    </CWeaponLegacy>
-    <CWeaponLegacy id="ZeratulCommanderParticularDisruptors" parent="CommanderWeapon_Missile">
-        <EditorCategories value="Race:Zeratul"/>
-        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
-        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="7"/>
-        <Period value="1"/>
-    </CWeaponLegacy>
-</Catalog>
+<Catalog/>

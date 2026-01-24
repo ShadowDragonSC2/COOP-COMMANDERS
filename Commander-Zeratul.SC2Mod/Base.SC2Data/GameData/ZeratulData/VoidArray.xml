@@ -1,4 +1,190 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    
+    <CRequirement id="ZeratulCommanderXelNagaVoidArray@Requirement">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
+    <CButton id="ZeratulCommanderXelNagaVoidArray">
+        <Icon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CActorUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAirUnit" unitName="ZeratulCommanderXelNagaVoidArray">
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-protoss-warpprism00.dds"/>
+        </Wireframe>
+        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work Stand,Work,Start {} ContentPlayOnce"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray" Send="Create"/>
+    </CActorUnit>
+    <CActorUnit id="ZeratulCommanderXelNagaVoidArray@Alternate" parent="ZeratulCommanderXelNagaVoidArray" unitName="ZeratulCommanderXelNagaVoidArray@Alternate">
+        <On index="69" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="AnimBracketStart Morph Stand,Work,Start Stand,Work Stand,Work,End ContentForceLooping"/>
+        <On index="70" Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
+        <On index="71" Terms="AbilMorph.*.Start; MorphTo ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
+    </CActorUnit>
+    <CActorTurret id="ZeratulCommanderXelNagaVoidArray@Turret">
+        <On Terms="TurretEnable.ZeratulCommanderXelNagaVoidArray@Alternate" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom ZeratulCommanderXelNagaVoidArray@Alternate" Send="Destroy"/>
+    </CActorTurret>
+    <CModel id="ZeratulCommanderXelNagaVoidArray@Portrait" parent="Portrait">
+        <Model value="Assets\COOP\Zeratul\Portraits\WarpPrism_Zeratul_COOP_Portrait\WarpPrism_Zeratul_COOP_Portrait.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaVoidArray" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Units\WarpPrism_Zeratul_COOP\WarpPrism_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <ScaleMax value="0.500000,0.500000,0.500000"/>
+        <ScaleMin value="0.500000,0.500000,0.500000"/>
+        <SelectionRadius value="1.500000"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaVoidArray@Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Zeratul\Units\WarpPrism_Zeratul_COOP_Death\WarpPrism_Zeratul_COOP_Death.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CSound id="ZeratulCommanderXelNagaVoidArray@Birth" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaVoidArray@Pissed" parent="CommanderVOPissed" unitName="ZeratulCommanderXelNagaVoidArray">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray>
+            <TemplateParam value=""/>
+            <File value="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Pissed00.ogg"/>
+            <LoopCount value="0"/>
+            <LoopTime value="0,0"/>
+            <Offset value="0,0"/>
+            <Pitch value="0.000000,0.000000"/>
+            <Volume value="0.000000,0.000000"/>
+            <Weight value="100"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitAnim value=""/>
+            <FacialFile value=""/>
+            <PortraitModel value=""/>
+            <PortraitActor value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Pissed01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Pissed02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Pissed03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Pissed04.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaVoidArray@Ready" parent="Ready">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Ready00.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Ready01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Ready02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Ready03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Ready04.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaVoidArray@What" parent="CommanderVOWhat" unitName="ZeratulCommanderXelNagaVoidArray">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray>
+            <TemplateParam value=""/>
+            <File value="Assets\Sounds\Protoss\PhasePrism\PhasePrism_What00.ogg"/>
+            <LoopCount value="0"/>
+            <LoopTime value="0,0"/>
+            <Offset value="0,0"/>
+            <Pitch value="0.000000,0.000000"/>
+            <Volume value="0.000000,0.000000"/>
+            <Weight value="100"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitAnim value=""/>
+            <FacialFile value=""/>
+            <PortraitModel value=""/>
+            <PortraitActor value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_What01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_What02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_What03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_What04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_What05.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaVoidArray@Yes" parent="CommanderVOYes" unitName="ZeratulCommanderXelNagaVoidArray">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray>
+            <TemplateParam value=""/>
+            <File value="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Yes00.ogg"/>
+            <LoopCount value="0"/>
+            <LoopTime value="0,0"/>
+            <Offset value="0,0"/>
+            <Pitch value="0.000000,0.000000"/>
+            <Volume value="0.000000,0.000000"/>
+            <Weight value="100"/>
+            <FacialAnim value=""/>
+            <FacialGroup value=""/>
+            <PortraitAnim value=""/>
+            <FacialFile value=""/>
+            <PortraitModel value=""/>
+            <PortraitActor value=""/>
+            <Speaker value=""/>
+            <Subtitle value=""/>
+        </AssetArray>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Yes01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Yes02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Yes03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Yes04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Yes05.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Yes06.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\PhasePrism\PhasePrism_Yes07.ogg" FacialGroup=""/>
+    </CSound>
+    <CDataCollectionUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderUnitMorphing">
+        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,ZeratulCommanderXelNagaVoidArray"/>
+        <DataRecord Entry="Button,ZeratulCommanderXelNagaVoidArray"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaVoidArray"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaVoidArray@Death"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaVoidArray@Portrait"/>
+        <DataRecord Entry="Requirement,ZeratulCommanderXelNagaVoidArray@Requirement"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaVoidArray@Birth"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaVoidArray@Ready"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaVoidArray@What"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaVoidArray@Yes"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaVoidArray@Pissed"/>
+        <DataRecord Entry="Unit,ZeratulCommanderXelNagaVoidArray"/>
+        <DataRecord Entry="Unit,ZeratulCommanderXelNagaVoidArray@Alternate"/>
+        <DataRecord Entry="Actor,ZeratulCommanderXelNagaVoidArray@Turret"/>
+        <DataRecord Entry="Actor,ZeratulCommanderXelNagaVoidArray@Alternate"/>
+        <DataRecord Entry="Turret,ZeratulCommanderXelNagaVoidArray@Alternate"/>
+    </CDataCollectionUnit>
+    <CTurret id="ZeratulCommanderXelNagaVoidArray@Alternate">
+        <Idle value="Spin"/>
+        <YawRate value="71.8945"/>
+        <YawIdleRate value="-71.8945"/>
+        <YawArc value="360"/>
+        <Fidget DelayMax="30" DelayMin="10"/>
+    </CTurret>
+    <CUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAir_Prot" race="COOPZeratul">
+        <LifeStart value="200"/>
+        <LifeMax value="200"/>
+        <LifeArmor value="1"/>
+        <ShieldsStart value="200"/>
+        <ShieldsMax value="200"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <Speed value="4.789"/>
+        <Acceleration value="3"/>
+        <Deceleration value="3"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Psionic" value="1"/>
+        <AbilArray Link="ZeratulCommanderMorphVoidArray@Phased"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="CommanderZeratulLevel09" Type="AbilCmd" AbilCmd="ZeratulCommanderMorphVoidArray@Phased,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <GlossaryPriority value="80"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderXelNagaVoidArray@Alternate" parent="ZeratulCommanderXelNagaVoidArray">
+        <Speed value="0"/>
+        <Acceleration value="0"/>
+        <AbilArray index="3" Link="ZeratulCommanderMorphVoidArray"/>
+        <WeaponArray Turret="ZeratulCommanderXelNagaVoidArray@Alternate"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="5" Face="CommanderZeratulLevel09" Type="AbilCmd" AbilCmd="ZeratulCommanderMorphVoidArray,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+    </CUnit>
 </Catalog>

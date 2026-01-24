@@ -13,13 +13,6 @@
         <AutoCastValidatorArray value="ZeratulCommanderZeratul"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderPickupArtifact"/>
     </CAbilEffectTarget>
-    <CAbilEffectTarget id="ZeratulCommanderDisruptorPhase">
-        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
-        <Range value="8"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderDisruptorPhase"/>
-        <Arc value="360"/>
-        <AINotifyEffect value="ZeratulCommanderDisruptorPhase@CU"/>
-    </CAbilEffectTarget>
     <!-- Instant -->
     <CAbilEffectInstant id="ZeratulCommanderDevolutionWave">
         <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>

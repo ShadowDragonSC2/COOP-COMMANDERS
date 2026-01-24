@@ -26,10 +26,6 @@
         <Icon value="Assets\Textures\btn-ability-zeratul-avatarofessence-devolutionwave.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
-    <CButton id="ZeratulCommanderDisruptorPhase">
-        <Icon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CButton>
     <CButton id="ZeratulCommanderForceCannon">
         <Icon value="Assets\Textures\btn-ability-zeratul-immortal-forcecannon.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-zeratul-immortal-forcecannon.dds"/>
@@ -62,10 +58,6 @@
     </CButton>
     <CButton id="ZeratulCommanderXelNagaPassageway">
         <Icon value="Assets\Textures\btn-building-protoss-gateway-ihanrii.dds"/>
-        <EditorCategories value="Race:Zeratul"/>
-    </CButton>
-    <CButton id="ZeratulCommanderXelNagaVoidArray">
-        <Icon value="Assets\Textures\btn-unit-protoss-zeratulwarpprism.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
 </Catalog>

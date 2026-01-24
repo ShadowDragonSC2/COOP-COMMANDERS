@@ -1,12 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectDamage id="ZeratulCommanderDisruptorPhase@Damage" parent="DU_WEAP_SPLASH">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="175"/>
+    </CEffectDamage>
+    <CEffectSet id="ZeratulCommanderDisruptorPhase@Effects">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderClusterNova@CP"/>
+    </CEffectSet>
+    <CEffectSet id="ZeratulCommanderDisruptorPhase@Set@1">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderDisruptorPhase@TimeLife"/>
+        <EffectArray value="ZeratulCommanderDisruptorPhase@Issue"/>
+    </CEffectSet>
+    <CEffectSet id="ZeratulCommanderDisruptorPhase">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderDisruptorPhase@CU"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectSet id="ZeratulCommanderDisruptorPhase@Set">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderDisruptorPhase@Effects"/>
+        <EffectArray value="TimedLifeFate"/>
+        <EffectArray value="ZeratulCommanderDisruptorPhase@Search"/>
+        <TargetLocationType value="Point"/>
+    </CEffectSet>
+    <CEffectEnumArea id="ZeratulCommanderDisruptorPhase@Search">
+        <EditorCategories value="Race:Zeratul"/>
+        <DebugTrace value="1"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Missile,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="ZeratulCommanderDisruptorPhase@Damage"/>
+    </CEffectEnumArea>
+    <CEffectCreateUnit id="ZeratulCommanderDisruptorPhase@CU">
+        <EditorCategories value="Race:Zeratul"/>
+        <WhichLocation Value="CasterUnit"/>
+        <CreateFlags index="DropOff" value="0"/>
+        <CreateFlags index="OffsetByRadius" value="0"/>
+        <CreateFlags index="PlacementIgnoreBlockers" value="1"/>
+        <CreateFlags index="TechComplete" value="0"/>
+        <CreateFlags index="UseFood" value="0"/>
+        <SpawnEffect value="ZeratulCommanderDisruptorPhase@Set@1"/>
+        <SpawnUnit value="ZeratulCommanderDisruptorPhase"/>
+        <SpawnRange value="1"/>
+    </CEffectCreateUnit>
+    <!-- Effect Teleport-->
+    <!-- Effect Issue Order -->
+    <CEffectIssueOrder id="ZeratulCommanderDisruptorPhase@Issue">
+        <EditorCategories value="Race:Zeratul"/>
+        <Abil value="move"/>
+        <Target Effect="ZeratulCommanderDisruptorPhase@CU" Value="TargetPoint"/>
+    </CEffectIssueOrder>
+    <!-- Effect Apply Behavior -->
+    <CEffectApplyBehavior id="ZeratulCommanderDisruptorPhase@TimeLife">
+        <EditorCategories value="Race:Zeratul"/>
+    </CEffectApplyBehavior>
+    <CAbilEffectTarget id="ZeratulCommanderDisruptorPhase">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <Range value="8"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="ZeratulCommanderDisruptorPhase"/>
+        <Arc value="360"/>
+        <AINotifyEffect value="ZeratulCommanderDisruptorPhase@CU"/>
+    </CAbilEffectTarget>
     <CRequirement id="ZeratulCommanderXelNagaAbrogator">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
+    <CButton id="ZeratulCommanderDisruptorPhase">
+        <Icon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CButton>
+    <CActorUnit id="ZeratulCommanderDisruptorPhase" parent="GenericUnitStandard" unitName="ZeratulCommanderDisruptorPhase">
+        <HeroIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
+        <UnitIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
+    </CActorUnit>
+    <CActorModel id="ZeratulCommanderDisruptorPhase@Birth" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="UnitBirth.ZeratulCommanderDisruptorPhase" Send="Create"/>
+    </CActorModel>
+    <CActorSplat id="ZeratulCommanderDisruptorPhase@Cursor" parent="ProtossCursorSplat" abil="ZeratulCommanderDisruptorPhase">
+        <Model value="ZeratulCommanderDisruptorPhase@Cursor"/>
+    </CActorSplat>
+    <CActorModel id="ZeratulCommanderDisruptorPhase@Impact" parent="ModelAnimationStyleOneShotNoOrphan">
+        <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
+    </CActorModel>
+    <CActorSound id="ZeratulCommanderDisruptorPhase@ImpactSound" parent="SoundOneShot">
+        <On Terms="Effect.ZeratulCommanderDisruptorPhase@Search.Start" Send="Create"/>
+    </CActorSound>
     <CActorUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaAbrogator">
         <WalkAnimMoveSpeed value="3"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratuldisruptor.dds"/>
     </CActorUnit>
+    <CModel id="ZeratulCommanderDisruptorPhase" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Effects\Disruptor_Zeratul_COOP_PhaseMode\Disruptor_Zeratul_COOP_PhaseMode.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <!-- Birth -->
+    <CModel id="ZeratulCommanderDisruptorPhase@Birth">
+        <Model value="Assets\COOP\Zeratul\Effects\Disruptor_Zeratul_COOP_PhaseMode_Birth\Disruptor_Zeratul_COOP_PhaseMode_Birth.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderDisruptorPhase@Impact" parent="ImpactFX">
+        <Model value="Assets\COOP\Zeratul\Effects\Disruptor_Zeratul_COOP_PurificationNova\Disruptor_Zeratul_COOP_PurificationNova.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <!-- Splat -->
+    <CModel id="ZeratulCommanderDisruptorPhase@Cursor" parent="Splat">
+        <Model value="Assets\UI\SOA_MassRecallCursor\SOA_MassRecallCursor.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderXelNagaAbrogator@Portrait" parent="Portrait">
         <Model value="Assets\COOP\Zeratul\Portraits\Disruptor_Zeratul_COOP_Portrait\Disruptor_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -32,6 +131,13 @@
         <Model value="Assets\COOP\Zeratul\Units\Disruptor_Zeratul_COOP_DeathRagdoll\Disruptor_Zeratul_COOP_DeathRagdoll.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
+    <CSound id="ZeratulCommanderDisruptorPhase@ImpactSound" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Disruptor_Discharge_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Disruptor_Discharge_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Disruptor_Discharge_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Disruptor_Discharge_06.wav" FacialGroup=""/>
+    </CSound>
     <CSound id="ZeratulCommanderXelNagaAbrogator@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Help00.ogg" FacialGroup=""/>
@@ -80,6 +186,32 @@
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes06.ogg" FacialGroup=""/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Yes07.ogg" FacialGroup=""/>
     </CSound>
+    <CDataCollectionUnit id="ZeratulCommanderDisruptorPhase">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,ObjectType:Spell"/>
+        <DataRecord Entry="Abil,ZeratulCommanderDisruptorPhase"/>
+        <DataRecord Entry="Actor,ZeratulCommanderDisruptorPhase"/>
+        <DataRecord Entry="Button,ZeratulCommanderDisruptorPhase"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@CU"/>
+        <DataRecord Entry="Model,ZeratulCommanderDisruptorPhase"/>
+        <DataRecord Entry="Unit,ZeratulCommanderDisruptorPhase"/>
+        <DataRecord Entry="Behavior,ZeratulCommanderDisruptorPhase@TimeLife"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Set"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Search"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Damage"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@TimeLife"/>
+        <DataRecord Entry="Actor,ZeratulCommanderDisruptorPhase@Cursor"/>
+        <DataRecord Entry="Model,ZeratulCommanderDisruptorPhase@Cursor"/>
+        <DataRecord Entry="Actor,ZeratulCommanderDisruptorPhase@Impact"/>
+        <DataRecord Entry="Model,ZeratulCommanderDisruptorPhase@Impact"/>
+        <DataRecord Entry="Model,ZeratulCommanderDisruptorPhase@Birth"/>
+        <DataRecord Entry="Actor,ZeratulCommanderDisruptorPhase@Birth"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Issue"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Set@1"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase"/>
+        <DataRecord Entry="Actor,ZeratulCommanderDisruptorPhase@ImpactSound"/>
+        <DataRecord Entry="Sound,ZeratulCommanderDisruptorPhase@ImpactSound"/>
+        <DataRecord Entry="Effect,ZeratulCommanderDisruptorPhase@Effects"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelNagaAbrogator" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
         <DataRecord Entry="Actor,ZeratulCommanderXelNagaAbrogator"/>
@@ -136,4 +268,9 @@
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Zeratul"/>
         <Race value="COOPZeratul"/>
     </CUnit>
+    <CBehaviorBuff id="ZeratulCommanderDisruptorPhase@TimeLife" parent="TimedLife">
+        <EditorCategories value="Race:Zeratul,AbilityorEffectType:Units"/>
+        <Duration value="5"/>
+        <ExpireEffect value="ZeratulCommanderDisruptorPhase@Set"/>
+    </CBehaviorBuff>
 </Catalog>

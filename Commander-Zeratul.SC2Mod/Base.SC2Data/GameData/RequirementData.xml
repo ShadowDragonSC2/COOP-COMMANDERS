@@ -21,7 +21,4 @@
     <CRequirement id="ZeratulCommanderXelNagaShieldguard">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
-    <CRequirement id="ZeratulCommanderXelNagaVoidArray@Requirement">
-        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
-    </CRequirement>
 </Catalog>

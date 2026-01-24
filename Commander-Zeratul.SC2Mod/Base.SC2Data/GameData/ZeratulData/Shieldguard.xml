@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <!-- Effect Damage -->
+    <CEffectDamage id="ZeratulCommanderNullBeam@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="12"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="ZeratulCommanderNullBeam@CP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Flags index="Channeled" value="1"/>
+        <Flags index="PersistUntilDestroyed" value="1"/>
+        <InitialEffect value="ZeratulCommanderNullBeam@Damage"/>
+        <PeriodicEffectArray value="ZeratulCommanderNullBeam@Damage"/>
+        <PeriodicPeriodArray value="1"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+    </CEffectCreatePersistent>
+    <CActorAction id="ZeratulCommanderNullBeam@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderNullBeam@CP">
+        <ActionFlags index="AlignedImpactsAndDamages" value="1"/>
+        <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+        <!-- Need this so the impact host ops can know which side of the target is closest to 
+             the attacker. -->
+        <ActionFlags index="LaunchForceSite" value="1"/>
+        <On Terms="Effect.ZeratulCommanderNullBeam@Damage.Start; FromEffectTreeDescendant" Send="ActionDamage"/>
+    </CActorAction>
+    <CActorBeamSimple id="ZeratulCommanderNullBeam@AttackBeam" parent="BeamSimpleAnimationStyleContinuous">
+        <Macros value="ActionTargetTeleportDestroy"/>
+        <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="AnimBracketStop BSD"/>
+    </CActorBeamSimple>
+    <CActorSound id="ZeratulCommanderNullBeam@End" parent="SoundOneShot">
+        <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="ZeratulCommanderNullBeam@Loop" parent="SoundContinuous">
+        <On Terms="Effect.ZeratulCommanderNullBeam@CP.Start" Send="Create"/>
+        <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="Destroy"/>
+    </CActorSound>
+    <CActorUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaShieldguard">
+        <WalkAnimMoveSpeed value="3"/>
+        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulsentry.dds"/>
+    </CActorUnit>
+    <CModel id="ZeratulCommanderXelNagaShieldguard@Portrait" parent="Portrait">
+        <Model value="Assets\COOP\Zeratul\Portraits\Sentry_Zeratul_COOP_Portrait\Sentry_Zeratul_COOP_Portrait.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaShieldguard" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Units\Sentry_Zeratul_COOP\Sentry_Zeratul_COOP.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <Radius value="0.650000"/>
+        <ScaleMax value="0.690000,0.690000,0.690000"/>
+        <ScaleMin value="0.690000,0.690000,0.690000"/>
+        <SelectionRadius value="0.650000"/>
+        <ShadowRadius value="0.650000"/>
+        <Tipability value="1.000000"/>
+        <TipabilityLength value="0.300000"/>
+        <TipabilityWidth value="0.400000"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaShieldguard@Death" parent="UnitDeath">
+        <Model value="Assets\COOP\Zeratul\Units\Sentry_Zeratul_COOP_Death\Sentry_Zeratul_COOP_Death.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CModel id="ZeratulCommanderXelNagaShieldguard@DeathRagdoll" parent="UnitDeathRagdoll">
+        <Model value="Assets\COOP\Zeratul\Units\Sentry_Zeratul_COOP_DeathRagdoll\Sentry_Zeratul_COOP_DeathRagdoll.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <!-- Beam -->
+    <CModel id="ZeratulCommanderNullBeam@AttackBeam">
+        <Model value="Assets\COOP\Zeratul\Effects\Sentry_Zeratul_COOP_NullBeam\Sentry_Zeratul_COOP_NullBeam.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <CWeaponLegacy id="ZeratulCommanderNullBeam" parent="CommanderWeapon_Beam">
+        <EditorCategories value="Race:Zeratul"/>
+        <Range value="6"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <LegacyOptions index="CanRetargetWhileChanneling" value="1"/>
+        <LegacyOptions index="KeepChanneling" value="0"/>
+    </CWeaponLegacy>
+    <CSound id="ZeratulCommanderNullBeam@End" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_WeaponEnd.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderNullBeam@Loop" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_WeaponLoop.wav" FacialGroup=""/>
+        <LoopCount value="-1"/>
+    </CSound>
+    <CSound id="ZeratulCommanderNullBeam@AttackLaunch" parent="Spell">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_WeaponStart.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaShieldguard@Help" parent="ProtossHelp">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Pissed01.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaShieldguard@Pissed" parent="Pissed">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Pissed00.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Pissed01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Pissed02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Pissed03.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaShieldguard@Ready" parent="Ready">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Ready00.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Ready01.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaShieldguard@What" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_What00.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_What01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_What02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_What03.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_What04.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_What05.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderXelNagaShieldguard@Yes" parent="Voice">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Yes00.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Yes01.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Yes02.ogg" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Yes03.ogg" FacialGroup=""/>
+    </CSound>
+    <CDataCollectionUnit id="ZeratulCommanderNullBeam" parent="CommanderWeaponMissile">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Beam"/>
+        <DataRecord Entry="Actor,ZeratulCommanderNullBeam@Attack"/>
+        <DataRecord Entry="Actor,ZeratulCommanderNullBeam@AttackBeam"/>
+        <DataRecord Entry="Actor,ZeratulCommanderNullBeam@End"/>
+        <DataRecord Entry="Actor,ZeratulCommanderNullBeam@Loop"/>
+        <DataRecord Entry="Effect,ZeratulCommanderNullBeam@CP"/>
+        <DataRecord Entry="Effect,ZeratulCommanderNullBeam@Damage"/>
+        <DataRecord Entry="Model,ZeratulCommanderNullBeam@AttackBeam"/>
+        <DataRecord Entry="Sound,ZeratulCommanderNullBeam@AttackLaunch"/>
+        <DataRecord Entry="Sound,ZeratulCommanderNullBeam@End"/>
+        <DataRecord Entry="Sound,ZeratulCommanderNullBeam@Loop"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderNullBeam"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
+        <DataRecord Entry="Actor,ZeratulCommanderXelNagaShieldguard"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaShieldguard"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaShieldguard@Portrait"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaShieldguard@Death"/>
+        <DataRecord Entry="Model,ZeratulCommanderXelNagaShieldguard@DeathRagdoll"/>
+        <DataRecord Entry="Unit,ZeratulCommanderXelNagaShieldguard"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaShieldguard@Ready"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaShieldguard@Help"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaShieldguard@What"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaShieldguard@Yes"/>
+        <DataRecord Entry="Sound,ZeratulCommanderXelNagaShieldguard@Pissed"/>
+    </CDataCollectionUnit>
+    <CUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGround_Prot" race="COOPZeratul">
+        <Collide index="Small" value="1"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
+        <Speed value="2.9492"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="10"/>
+        <Food value="-2"/>
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="50"/>
+        <RepairTime value="21"/>
+        <WeaponArray Link="ZeratulCommanderNullBeam"/>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0.625"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0.65"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <GlossaryPriority value="20"/>
+    </CUnit>
+
+    <!-- =================== -->
+    <!--      Abilities      -->
+    <!-- =================== -->
+
+    <!-- Guardian Shields -->
+    <CButton id="ZeratulCommanderGuardianshield"/>
+
+    <CAbilEffectInstant id="ZeratulCommanderGuardianshield">
+        <CmdButtonArray index="Execute">
+            <DefaultButtonFace value="ZeratulCommanderGuardianshield"/>
+            <Requirements value="ZeratulCommanderGuardianshield"/>
+        </CmdButtonArray>
+        <Effect value="ZeratulCommanderGuardianshield@Caster"/>
+    </CAbilEffectInstant>
+
+    <CBehaviorBuff id="ZeratulCommanderGuardianshield@Caster"/>
+    <CBehaviorBuff id="ZeratulCommanderGuardianshield@Target"/>
+
+    <CEffectApplyBehavior id="ZeratulCommanderGuardianshield@AB@1">
+        <Behavior value="ZeratulCommanderGuardianshield@Caster"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="ZeratulCommanderGuardianshield@AB@2">
+        <Behavior value="ZeratulCommanderGuardianshield@Target"/>
+    </CEffectApplyBehavior>
+    <CEffectEnumArea id="ZeratulCommanderGuardianshield@Search"/>
+
+    <CRequirement id="ZeratulCommanderGuardianshield"/>
+
+    <CDataCollectionUnit>
+        <DataRecord Entry="Button,ZeratulCommanderGuardianshield"/>
+        <DataRecord Entry="Abil,ZeratulCommanderGuardianshield"/>
+        <DataRecord Entry="Behavior,ZeratulCommanderGuardianshield@Caster"/>
+        <DataRecord Entry="Behavior,ZeratulCommanderGuardianshield@Target"/>
+        <DataRecord Entry="Effect,ZeratulCommanderGuardianshield@AB@1"/>
+        <DataRecord Entry="Effect,ZeratulCommanderGuardianshield@AB@2"/>
+        <DataRecord Entry="Effect,ZeratulCommanderGuardianshield@Search"/>
+        <DataRecord Entry="Requirement,ZeratulCommanderGuardianshield"/>
+    </CDataCollectionUnit>
+
+</Catalog>

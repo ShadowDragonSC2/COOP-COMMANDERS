@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectDamage id="ZeratulCommanderParticularDisruptors@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="12"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="ZeratulCommanderParticularDisruptors@LM">
+        <EditorCategories value="Race:Zeratul"/>
+        <ImpactEffect value="ZeratulCommanderParticularDisruptors@Damage"/>
+        <AmmoUnit value="ZeratulCommanderParticularDisruptors@Missile"/>
+    </CEffectLaunchMissile>
     <CRequirement id="ZeratulCommanderXelnagaAmbusher">
         <EditorCategories value="Race:Zeratul,TechType:Unit"/>
     </CRequirement>
@@ -7,11 +16,29 @@
         <Icon value="Assets\Textures\btn-unit-protoss-zeratulstalker.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
+    <CActorAction id="ZeratulCommanderParticularDisruptors@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderParticularDisruptors@Damage" effectLaunch="ZeratulCommanderParticularDisruptors@LM">
+        <LaunchSiteOps Ops="SOpAttachWeapon"/>
+        <Missile value="ZeratulCommanderParticularDisruptors@Missile"/>
+        <On Terms="Effect.ZeratulCommanderParticularDisruptors@Damage.Start" Send="RefSet ::Host ::Sender"/>
+    </CActorAction>
+    <CActorMissile id="ZeratulCommanderParticularDisruptors@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderParticularDisruptors@Missile">
+        <On Terms="ActorCreation" Send="SetLocalTintColor 221,255,26"/>
+    </CActorMissile>
     <CActorUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelnagaAmbusher">
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulstalker.dds"/>
         <WalkAnimMoveSpeed value="3.1328"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel0.dds"/>
     </CActorUnit>
+    <CModel id="ZeratulCommanderParticularDisruptors@Missile" parent="MissileFX">
+        <Model value="Assets\Effects\Protoss\StalkerMissile\StalkerMissile.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+        <ScaleMax value="0.714000,0.714000,0.714000"/>
+        <ScaleMin value="0.714000,0.714000,0.714000"/>
+    </CModel>
+    <CModel id="ZeratulCommanderParticularDisruptors@AttackImpact" parent="ImpactFX">
+        <Model value="Assets\Effects\Protoss\StalkerMissileImpact\StalkerMissileImpact.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderXelnagaAmbusher" parent="Unit">
         <Model value="Assets\COOP\Zeratul\Units\Stalker_Zeratul_COOP\Stalker_Zeratul_COOP.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -41,6 +68,28 @@
         <Model value="Assets\COOP\Zeratul\Portraits\Stalker_Zeratul_COOP_Portrait\Stalker_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
+    <CWeaponLegacy id="ZeratulCommanderParticularDisruptors" parent="CommanderWeapon_Missile">
+        <EditorCategories value="Race:Zeratul"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="7"/>
+        <Period value="1"/>
+    </CWeaponLegacy>
+    <CSound id="ZeratulCommanderParticularDisruptors@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact3.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderParticularDisruptors@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch4.wav" FacialGroup=""/>
+    </CSound>
     <CSound id="ZeratulCommanderXelnagaAmbusher@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Help00.ogg" FacialGroup=""/>
@@ -89,6 +138,19 @@
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What06.ogg" FacialGroup=""/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What07.ogg" FacialGroup=""/>
     </CSound>
+    <CDataCollectionUnit id="ZeratulCommanderParticularDisruptors" parent="CommanderWeaponMissile">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Projectile"/>
+        <DataRecord Entry="Actor,ZeratulCommanderParticularDisruptors@Missile"/>
+        <DataRecord Entry="Actor,ZeratulCommanderParticularDisruptors@Attack"/>
+        <DataRecord Entry="Effect,ZeratulCommanderParticularDisruptors@Damage"/>
+        <DataRecord Entry="Effect,ZeratulCommanderParticularDisruptors@LM"/>
+        <DataRecord Entry="Model,ZeratulCommanderParticularDisruptors@Missile"/>
+        <DataRecord Entry="Model,ZeratulCommanderParticularDisruptors@AttackImpact"/>
+        <DataRecord Entry="Sound,ZeratulCommanderParticularDisruptors@AttackLaunch"/>
+        <DataRecord Entry="Sound,ZeratulCommanderParticularDisruptors@AttackImpact"/>
+        <DataRecord Entry="Unit,ZeratulCommanderParticularDisruptors@Missile"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderParticularDisruptors"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
         <DataRecord Entry="Button,ZeratulCommanderXelnagaAmbusher"/>
@@ -105,6 +167,11 @@
         <DataRecord Entry="Sound,ZeratulCommanderXelnagaAmbusher@Pissed"/>
         <DataRecord Entry="Requirement,ZeratulCommanderXelnagaAmbusher"/>
     </CDataCollectionUnit>
+    <CUnit id="ZeratulCommanderParticularDisruptors@Missile" parent="MISSILE">
+        <Mover value="StalkerWeapon"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Zeratul"/>
+        <Race value="COOPZeratul"/>
+    </CUnit>
     <CUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
         <Attributes index="Armored" value="1"/>
