@@ -119,4 +119,21 @@
         <FlagArray index="Turnable" value="0"/>
         <GlossaryPriority value="65"/>
     </CUnit>
+    <CUnit id="ZeratulCommanderDisruptorPhase">
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="Uncloakable" value="1"/>
+        <FlagArray index="Invulnerable" value="1"/>
+        <Collide index="Phased" value="1"/>
+        <Speed value="4"/>
+        <Acceleration value="1000"/>
+        <Sight value="3"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="stop"/>
+        <CardLayouts>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+        </CardLayouts>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Zeratul"/>
+        <Race value="COOPZeratul"/>
+    </CUnit>
 </Catalog>

@@ -21,7 +21,6 @@ Button/Name/ZeratulCommanderCoreForge=Build <d stringref="Unit,ZeratulCommanderC
 Button/Name/ZeratulCommanderDarkArchon=<d stringref="Unit,ZeratulCommaderDarkArchon,Name">
 Button/Name/ZeratulCommanderDevolutionWave=<d stringref="Abil,ZeratulCommanderDevolutionWave,Name"/>
 Button/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
-Button/Name/ZeratulCommanderXelNagaEnforcer=Warp In <d stringref="Unit,ZeratulCommanderXelNagaEnforcer,Name"/>
 Button/Name/ZeratulCommanderForceCannon=Force Cannon
 Button/Name/ZeratulCommanderMaelstrom=Maelstrom
 Button/Name/ZeratulCommanderMindControl=Mind Control
@@ -34,6 +33,7 @@ Button/Name/ZeratulCommanderVengeanceoftheVoid=Vegeance of the Void
 Button/Name/ZeratulCommanderVoidFury=Void Fury
 Button/Name/ZeratulCommanderVoidShrine=Build <d stringref="Unit,ZeratulCommanderVoidShrine,Name"/>
 Button/Name/ZeratulCommanderVoidTemplar=Warp In <d stringref="Unit,ZeratulCommanderVoidTemplar,Name">
+Button/Name/ZeratulCommanderXelNagaEnforcer=Warp In <d stringref="Unit,ZeratulCommanderXelNagaEnforcer,Name"/>
 Button/Name/ZeratulCommanderXelNagaPassageway=Build <d stringref="Unit,ZeratulCommanderXelNagaPassageway,Name"/>
 Button/Name/ZeratulCommanderXelNagaVoidArray=Warp In <d stringref="Unit,ZeratulCommanderXelNagaVoidArray,Name"/>
 Button/Name/ZeratulCommanderXelnagaAmbusher=Warp In <d stringref="Unit,ZeratulCommanderXelnagaAmbusher,Name">
@@ -69,7 +69,7 @@ DataCollection/Name/ZeratulCommanderMasterWarpBlade=Zeratul Commander - Master W
 DataCollection/Name/ZeratulCommanderMindControl=Zeratul Commander - Mind Control
 DataCollection/Name/ZeratulCommanderMorphVoidArray=Zeratul Commander - Morph Void Array
 DataCollection/Name/ZeratulCommanderNullBeam=Zeratul Commander - Null Beam
-DataCollection/Name/ZeratulCommanderParticularBeam=Zeratul Commander - Particular Beam
+DataCollection/Name/ZeratulCommanderParticularDisruptors=Zeratul Commander - Particular Disruptors
 DataCollection/Name/ZeratulCommanderPhaseDisruptors=Zeratul Commander - Phase Disruptors
 DataCollection/Name/ZeratulCommanderPredictiveBlink=Zeratul Commander - Predictive Blink
 DataCollection/Name/ZeratulCommanderProphecy=Zeratul Commander - Prophecy
@@ -103,6 +103,7 @@ Effect/Name/ZeratulCommanderClusterNova@CP=CP
 Effect/Name/ZeratulCommanderClusterNova@Damage=Damage
 Effect/Name/ZeratulCommanderClusterNova@LM=LM
 Effect/Name/ZeratulCommanderClusterNova@Search=Search
+Effect/Name/ZeratulCommanderDarkArchonWeapon@Damage=Damage
 Effect/Name/ZeratulCommanderDevolutionWave@Search=Search
 Effect/Name/ZeratulCommanderDevolutionWave@TriggerHandler=Trigger
 Effect/Name/ZeratulCommanderDisruptorPhase=Set @ Initial
@@ -114,19 +115,18 @@ Effect/Name/ZeratulCommanderDisruptorPhase@Search=Search
 Effect/Name/ZeratulCommanderDisruptorPhase@Set=Set
 Effect/Name/ZeratulCommanderDisruptorPhase@Set@1=Set @ 1
 Effect/Name/ZeratulCommanderDisruptorPhase@TimeLife=AB
-Effect/Name/ZeratulCommanderDarkArchonWeapon@Damage=Damage
 Effect/Name/ZeratulCommanderForceCannon@CU=CU
 Effect/Name/ZeratulCommanderForceCannon@LM=LM
 Effect/Name/ZeratulCommanderForceCannon@RemovePrecursor=Remove Precursor
 Effect/Name/ZeratulCommanderForceCannon@Set@1=Set @ 1
-Effect/Name/ZeratulCommanderMaelstrom@AB=AB
 Effect/Name/ZeratulCommanderMaelstrom=Search
+Effect/Name/ZeratulCommanderMaelstrom@AB=AB
 Effect/Name/ZeratulCommanderMasterWarpBlade@Damage=Damage
 Effect/Name/ZeratulCommanderMindControl=AB
 Effect/Name/ZeratulCommanderNullBeam@CP=Interval
 Effect/Name/ZeratulCommanderNullBeam@Damage=Damage
-Effect/Name/ZeratulCommanderParticularBeam@Damage=Damage
-Effect/Name/ZeratulCommanderParticularBeam@LM=LM
+Effect/Name/ZeratulCommanderParticularDisruptors@Damage=Damage
+Effect/Name/ZeratulCommanderParticularDisruptors@LM=LM
 Effect/Name/ZeratulCommanderPhaseDisruptors@Damage=Damage
 Effect/Name/ZeratulCommanderPredictiveBlink@Effects=Effects
 Effect/Name/ZeratulCommanderPredictiveBlink@Teleport=Teleport
@@ -183,7 +183,7 @@ Unit/Name/ZeratulCommanderAnnihilationCannon@Missile=Missile
 Unit/Name/ZeratulCommanderArtifact=Artifact
 Unit/Name/ZeratulCommanderClusterNova@Missile=Sphere
 Unit/Name/ZeratulCommanderDisruptorPhase=Disruptor Phase
-Unit/Name/ZeratulCommanderParticularBeam@Missile=Missile
+Unit/Name/ZeratulCommanderParticularDisruptors@Missile=Missile
 Unit/Name/ZeratulCommanderProphecyCamera=Prophecy Camera
 Unit/Name/ZeratulCommanderVengeanceoftheVoid=Vengeance of the Void
 Unit/ShieldArmorName/COOPZeratulPlasmaShields=Void shields
@@ -192,6 +192,6 @@ Weapon/Name/ZeratulCommanderAnnihilationCannon=Annihilation Cannon
 Weapon/Name/ZeratulCommanderDarkArchonWeapon=Chaotic Torrent
 Weapon/Name/ZeratulCommanderMasterWarpBlade=Master Warp Blade
 Weapon/Name/ZeratulCommanderNullBeam=Null Beam
-Weapon/Name/ZeratulCommanderParticularBeam=Particular Beam
+Weapon/Name/ZeratulCommanderParticularDisruptors=Particular Beam
 Weapon/Name/ZeratulCommanderPhaseDisruptors=Phase Disruptors
 Weapon/Name/ZeratulCommanderWarpBlade=Warp Blade

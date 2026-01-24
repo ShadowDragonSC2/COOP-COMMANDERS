@@ -63,16 +63,10 @@
         <HeroIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
         <UnitIcon value="Assets\Textures\btn-ability-zeratul-disruptor-purificationnova.dds"/>
     </CActorUnit>
-    <!-- Actor Action -->
-    <CActorAction id="ZeratulCommanderAnnihilationCannon@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderAnnihilationCannon@Damage" effectLaunch="ZeratulCommanderAnnihilationCannon@LM">
-        <LaunchSiteOps Ops="SOpAttachWeapon"/>
-        <Missile value="ZeratulCommanderAnnihilationCannon@Missile"/>
-    </CActorAction>
     <!-- Actor Missile -->
     <CActorMissile id="COOPZeratul_Invisible" parent="GenericAttackMissile" unitName="COOPZeratul_Invisible">
         <Model value="Invisible"/>
     </CActorMissile>
-    <CActorMissile id="ZeratulCommanderAnnihilationCannon@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderAnnihilationCannon@Missile"/>
     <CActorMissile id="ZeratulCommanderClusterNova@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderClusterNova@Missile"/>
     <!-- Actor Model -->
     <CActorEventMacroRunnable id="BuildMacro_COOPZeratul"/>
@@ -154,15 +148,14 @@
         <On Terms="Effect.ZeratulCommanderNullBeam@CP.Start" Send="Create"/>
         <On Terms="Effect.ZeratulCommanderNullBeam@CP.Stop" Send="Destroy"/>
     </CActorSound>
-    <CActorAction id="ZeratulCommanderParticularBeam@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderParticularBeam@Damage" effectLaunch="ZeratulCommanderParticularBeam@LM">
+    <CActorAction id="ZeratulCommanderParticularDisruptors@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderParticularDisruptors@Damage" effectLaunch="ZeratulCommanderParticularDisruptors@LM">
         <LaunchSiteOps Ops="SOpAttachWeapon"/>
-        <Missile value="ZeratulCommanderParticularBeam@Missile"/>
-        <On Terms="Effect.ZeratulCommanderParticularBeam@Damage.Start" Send="RefSet ::Host ::Sender"/>
+        <Missile value="ZeratulCommanderParticularDisruptors@Missile"/>
+        <On Terms="Effect.ZeratulCommanderParticularDisruptors@Damage.Start" Send="RefSet ::Host ::Sender"/>
     </CActorAction>
-    <CActorMissile id="ZeratulCommanderParticularBeam@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderParticularBeam@Missile">
+    <CActorMissile id="ZeratulCommanderParticularDisruptors@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderParticularDisruptors@Missile">
         <On Terms="ActorCreation" Send="SetLocalTintColor 221,255,26"/>
     </CActorMissile>
-    <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage"/>
     <CActorAction id="ZeratulCommanderProphecy@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderProphecy@Handler">
         <Beam value="ZeratulCommanderProphecy@Beam"/>
         <LaunchAttachQuery Methods="AMFilterWeaponLeft"/>
@@ -183,10 +176,6 @@
     <CActorUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaShieldguard">
         <WalkAnimMoveSpeed value="3"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulsentry.dds"/>
-    </CActorUnit>
-    <CActorUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaProbe">
-        <WalkAnimMoveSpeed value="3"/>
-        <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulprobe.dds"/>
     </CActorUnit>
     <CActorUnit id="ZeratulCommanderProphecyCamera" parent="GenericUnitStandard" unitName="ZeratulCommanderProphecyCamera">
         <HostSiteOps Ops="ZeratulCommanderSOpProphecyCameraOffset SOpPointToCamera"/>

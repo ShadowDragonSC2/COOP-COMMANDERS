@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CDataCollectionUnit id="ZeratulCommanderAnnihilationCannon" parent="CommanderWeaponMissile">
-        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,ZeratulCommanderAnnihilationCannon@Missile"/>
-        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Damage"/>
-        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@LM"/>
-        <DataRecord Entry="Model,ZeratulCommanderAnnihilationCannon@Missile"/>
-        <DataRecord Entry="Unit,ZeratulCommanderAnnihilationCannon@Missile"/>
-        <DataRecord Entry="Weapon,ZeratulCommanderAnnihilationCannon"/>
-        <DataRecord Entry="Actor,ZeratulCommanderAnnihilationCannon@Attack"/>
-        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Set"/>
-        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Effects"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderAvatarOfEssence" parent="CommanderUnit">
         <EditorCategories value="ObjectType:AbilityTopbars,DataGroup:Unit,Race:Zeratul"/>
         <DataRecord Entry="Button,ZeratulCommanderAvatarOfEssence"/>
@@ -185,28 +173,18 @@
         <DataRecord Entry="Sound,ZeratulCommanderNullBeam@Loop"/>
         <DataRecord Entry="Weapon,ZeratulCommanderNullBeam"/>
     </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderParticularBeam" parent="CommanderWeaponMissile">
+    <CDataCollectionUnit id="ZeratulCommanderParticularDisruptors" parent="CommanderWeaponMissile">
         <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Projectile"/>
-        <DataRecord Entry="Actor,ZeratulCommanderParticularBeam@Missile"/>
-        <DataRecord Entry="Actor,ZeratulCommanderParticularBeam@Attack"/>
-        <DataRecord Entry="Effect,ZeratulCommanderParticularBeam@Damage"/>
-        <DataRecord Entry="Effect,ZeratulCommanderParticularBeam@LM"/>
-        <DataRecord Entry="Model,ZeratulCommanderParticularBeam@Missile"/>
-        <DataRecord Entry="Model,ZeratulCommanderParticularBeam@AttackImpact"/>
-        <DataRecord Entry="Sound,ZeratulCommanderParticularBeam@AttackLaunch"/>
-        <DataRecord Entry="Sound,ZeratulCommanderParticularBeam@AttackImpact"/>
-        <DataRecord Entry="Unit,ZeratulCommanderParticularBeam@Missile"/>
-        <DataRecord Entry="Weapon,ZeratulCommanderParticularBeam"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderPhaseDisruptors" parent="CommanderWeaponInstant">
-        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Instant"/>
-        <DataRecord Entry="Actor,ZeratulCommanderPhaseDisruptors@Attack"/>
-        <DataRecord Entry="Effect,ZeratulCommanderPhaseDisruptors@Damage"/>
-        <DataRecord Entry="Model,ZeratulCommanderPhaseDisruptors@AttackLaunch"/>
-        <DataRecord Entry="Model,ZeratulCommanderPhaseDisruptors@AttackImpact"/>
-        <DataRecord Entry="Sound,ZeratulCommanderPhaseDisruptors@AttackLaunch"/>
-        <DataRecord Entry="Sound,ZeratulCommanderPhaseDisruptors@AttackImpact"/>
-        <DataRecord Entry="Weapon,ZeratulCommanderPhaseDisruptors"/>
+        <DataRecord Entry="Actor,ZeratulCommanderParticularDisruptors@Missile"/>
+        <DataRecord Entry="Actor,ZeratulCommanderParticularDisruptors@Attack"/>
+        <DataRecord Entry="Effect,ZeratulCommanderParticularDisruptors@Damage"/>
+        <DataRecord Entry="Effect,ZeratulCommanderParticularDisruptors@LM"/>
+        <DataRecord Entry="Model,ZeratulCommanderParticularDisruptors@Missile"/>
+        <DataRecord Entry="Model,ZeratulCommanderParticularDisruptors@AttackImpact"/>
+        <DataRecord Entry="Sound,ZeratulCommanderParticularDisruptors@AttackLaunch"/>
+        <DataRecord Entry="Sound,ZeratulCommanderParticularDisruptors@AttackImpact"/>
+        <DataRecord Entry="Unit,ZeratulCommanderParticularDisruptors@Missile"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderParticularDisruptors"/>
     </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderVoidFury">
         <EditorCategories value="DataGroup:Ability,Race:Zeratul,ObjectType:Passive"/>
@@ -270,20 +248,5 @@
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaShieldguard@What"/>
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaShieldguard@Yes"/>
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaShieldguard@Pissed"/>
-    </CDataCollectionUnit>
-    <CDataCollectionUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderUnit">
-        <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
-        <DataRecord Entry="Actor,ZeratulCommanderXelNagaProbe"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaProbe"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaProbe@Portrait"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaProbe@Death"/>
-        <DataRecord Entry="Model,ZeratulCommanderXelNagaProbe@DeathRagdoll"/>
-        <DataRecord Entry="Unit,ZeratulCommanderXelNagaProbe"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaProbe@Ready"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaProbe@Help"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaProbe@What"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaProbe@Yes"/>
-        <DataRecord Entry="Sound,ZeratulCommanderXelNagaProbe@Pissed"/>
-        <DataRecord Entry="Requirement,ZeratulCommanderXelNagaProbe"/>
     </CDataCollectionUnit>
 </Catalog>

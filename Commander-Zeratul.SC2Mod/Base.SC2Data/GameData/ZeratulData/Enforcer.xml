@@ -1,43 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-
+    <CEffectDamage id="ZeratulCommanderPhaseDisruptors@Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zeratul"/>
+        <Amount value="20"/>
+    </CEffectDamage>
+    <CEffectDamage id="ZeratulCommanderAnnihilationCannon@Damage" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zeratul"/>
+        <Flags index="Impact" value="1"/>
+        <Amount value="75"/>
+    </CEffectDamage>
+    <!-- Effect Set -->
+    <CEffectSet id="ZeratulCommanderAnnihilationCannon@Effects">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderForceCannon@CU"/>
+    </CEffectSet>
+    <CEffectSet id="ZeratulCommanderAnnihilationCannon@Set">
+        <EditorCategories value="Race:Zeratul"/>
+        <EffectArray value="ZeratulCommanderAnnihilationCannon@Damage"/>
+        <EffectArray value="ZeratulCommanderAnnihilationCannon@Effects"/>
+    </CEffectSet>
+    <!-- Effect LM -->
+    <CEffectLaunchMissile id="ZeratulCommanderAnnihilationCannon@LM">
+        <EditorCategories value="Race:Zeratul"/>
+        <ImpactEffect value="ZeratulCommanderAnnihilationCannon@Set"/>
+        <AmmoUnit value="ZeratulCommanderAnnihilationCannon@Missile"/>
+    </CEffectLaunchMissile>
+    <CRequirement id="ZeratulCommanderXelNagaEnforcer"/>
     <CButton id="ZeratulCommanderXelNagaEnforcer">
         <Icon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
-    
-    <CUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGround_Prot" race="COOPZeratul">
-        <Collide index="Small" value="1"/>
-        <LifeStart value="400"/>
-        <LifeMax value="400"/>
-        <LifeArmor value="1"/>
-        <Attributes index="Armored" value="1"/>
-        <Attributes index="Mechanical" value="1"/>
-        <ShieldsStart value="200"/>
-        <ShieldsMax value="200"/>
-        <LateralAcceleration value="46"/>
-        <Sight value="10"/>
-        <Food value="-2"/>
-        <CostResource index="Minerals" value="300"/>
-        <CostResource index="Vespene" value="50"/>
-        <RepairTime value="21"/>
-        <WeaponArray Link="ZeratulCommanderPhaseDisruptors"/>
-        <WeaponArray Link="ZeratulCommanderAnnihilationCannon"/>
-        <Radius value="0.625"/>
-        <SeparationRadius value="0.625"/>
-        <InnerRadius value="0.5"/>
-        <MinimapRadius value="0.65"/>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
-        <CargoSize value="4"/>
-        <GlossaryPriority value="85"/>
-        <BehaviorArray Link="ZeratulCommanderForceCannon"/>
-    </CUnit>
-    
+    <!-- Actor Action -->
+    <CActorAction id="ZeratulCommanderAnnihilationCannon@Attack" parent="GenericAttack" effectImpact="ZeratulCommanderAnnihilationCannon@Damage" effectLaunch="ZeratulCommanderAnnihilationCannon@LM">
+        <LaunchSiteOps Ops="SOpAttachWeapon"/>
+        <Missile value="ZeratulCommanderAnnihilationCannon@Missile"/>
+    </CActorAction>
+    <CActorMissile id="ZeratulCommanderAnnihilationCannon@Missile" parent="GenericAttackMissile" unitName="ZeratulCommanderAnnihilationCannon@Missile"/>
+    <CActorAction id="ZeratulCommanderPhaseDisruptors@Attack" parent="GenericAttack" effectAttack="ZeratulCommanderPhaseDisruptors@Damage"/>
     <CActorUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelNagaEnforcer">
         <WalkAnimMoveSpeed value="1"/>
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulimmortal.dds"/>
     </CActorUnit>
-
+    <CModel id="ZeratulCommanderAnnihilationCannon@Missile" parent="Unit">
+        <Model value="Assets\COOP\Zeratul\Effects\Immortal_Zeratul_COOP_CannonMissile\Immortal_Zeratul_COOP_CannonMissile.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <!-- Impact Model -->
+    <CModel id="ZeratulCommanderPhaseDisruptors@AttackImpact" parent="ImpactFX">
+        <Model value="Assets\COOP\Zeratul\Effects\Immortal_Zeratul_COOP_CannonImpact\Immortal_Zeratul_COOP_CannonImpact.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
+    <!-- Launch Model -->
+    <CModel id="ZeratulCommanderPhaseDisruptors@AttackLaunch" parent="LaunchFX">
+        <Model value="Assets\COOP\Zeratul\Effects\Immortal_Zeratul_COOP_CannonLaunch\Immortal_Zeratul_COOP_CannonLaunch.m3"/>
+        <EditorCategories value="Race:Zeratul"/>
+    </CModel>
     <CModel id="ZeratulCommanderXelNagaEnforcer" parent="Unit">
         <Model value="Assets\COOP\Zeratul\Units\Immortal_Zeratul_COOP\Immortal_Zeratul_COOP.m3"/>
         <EditorCategories value="Race:Zeratul"/>
@@ -63,7 +80,30 @@
         <Model value="Assets\COOP\Zeratul\Units\Immortal_Zeratul_COOP_DeathRagdoll\Immortal_Zeratul_COOP_DeathRagdoll.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
-    
+    <CWeaponLegacy id="ZeratulCommanderAnnihilationCannon" parent="CommanderWeapon_Missile">
+        <EditorCategories value="Race:Zeratul"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <TargetFilters value="Air,Visible;Ground,Missile,Dead,Hidden"/>
+        <Range value="11"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ZeratulCommanderPhaseDisruptors" parent="CommanderWeapon_Instant">
+        <EditorCategories value="Race:Zeratul"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <TargetFilters value="Visible;Air,Missile,Dead,Hidden"/>
+    </CWeaponLegacy>
+    <CSound id="ZeratulCommanderPhaseDisruptors@AttackImpact" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Explosion_Deep_Amb_01.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Explosion_Deep_Amb_02.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Explosion_Deep_Amb_03.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Explosion_Deep_Amb_04.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="ZeratulCommanderPhaseDisruptors@AttackLaunch" parent="Combat">
+        <EditorCategories value="Race:Zeratul"/>
+        <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch2.wav" FacialGroup=""/>
+    </CSound>
     <CSound id="ZeratulCommanderXelNagaEnforcer@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Help00.ogg" FacialGroup=""/>
@@ -103,9 +143,28 @@
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes04.ogg" FacialGroup=""/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Immortal\Immortal_Yes05.ogg" FacialGroup=""/>
     </CSound>
-
-    <CRequirement id="ZeratulCommanderXelNagaEnforcer"/>
-    
+    <CDataCollectionUnit id="ZeratulCommanderAnnihilationCannon" parent="CommanderWeaponMissile">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Projectile"/>
+        <DataRecord Entry="Actor,ZeratulCommanderAnnihilationCannon@Missile"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Damage"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@LM"/>
+        <DataRecord Entry="Model,ZeratulCommanderAnnihilationCannon@Missile"/>
+        <DataRecord Entry="Unit,ZeratulCommanderAnnihilationCannon@Missile"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderAnnihilationCannon"/>
+        <DataRecord Entry="Actor,ZeratulCommanderAnnihilationCannon@Attack"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Set"/>
+        <DataRecord Entry="Effect,ZeratulCommanderAnnihilationCannon@Effects"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="ZeratulCommanderPhaseDisruptors" parent="CommanderWeaponInstant">
+        <EditorCategories value="DataGroup:Weapon,Race:Zeratul,DataFamily:Coop,ObjectType:Instant"/>
+        <DataRecord Entry="Actor,ZeratulCommanderPhaseDisruptors@Attack"/>
+        <DataRecord Entry="Effect,ZeratulCommanderPhaseDisruptors@Damage"/>
+        <DataRecord Entry="Model,ZeratulCommanderPhaseDisruptors@AttackLaunch"/>
+        <DataRecord Entry="Model,ZeratulCommanderPhaseDisruptors@AttackImpact"/>
+        <DataRecord Entry="Sound,ZeratulCommanderPhaseDisruptors@AttackLaunch"/>
+        <DataRecord Entry="Sound,ZeratulCommanderPhaseDisruptors@AttackImpact"/>
+        <DataRecord Entry="Weapon,ZeratulCommanderPhaseDisruptors"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
         <DataRecord Entry="Button,ZeratulCommanderXelNagaEnforcer"/>
@@ -122,4 +181,35 @@
         <DataRecord Entry="Sound,ZeratulCommanderXelNagaEnforcer@Pissed"/>
         <DataRecord Entry="Requirement,ZeratulCommanderXelNagaEnforcer"/>
     </CDataCollectionUnit>
+    <CUnit id="ZeratulCommanderAnnihilationCannon@Missile" parent="MISSILE">
+        <Race value="COOPZeratul"/>
+        <Mover value="MissileDefault"/>
+        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop"/>
+    </CUnit>
+    <CUnit id="ZeratulCommanderXelNagaEnforcer" parent="CommanderGround_Prot" race="COOPZeratul">
+        <Collide index="Small" value="1"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmor value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <ShieldsStart value="200"/>
+        <ShieldsMax value="200"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="10"/>
+        <Food value="-2"/>
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="50"/>
+        <RepairTime value="21"/>
+        <WeaponArray Link="ZeratulCommanderPhaseDisruptors"/>
+        <WeaponArray Link="ZeratulCommanderAnnihilationCannon"/>
+        <Radius value="0.625"/>
+        <SeparationRadius value="0.625"/>
+        <InnerRadius value="0.5"/>
+        <MinimapRadius value="0.65"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <CargoSize value="4"/>
+        <GlossaryPriority value="85"/>
+        <BehaviorArray Link="ZeratulCommanderForceCannon"/>
+    </CUnit>
 </Catalog>

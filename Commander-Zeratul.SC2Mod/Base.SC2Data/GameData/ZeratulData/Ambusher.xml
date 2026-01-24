@@ -1,37 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-
-    <CUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderGround_Prot" race="COOPZeratul">
-        <Collide index="Small" value="1"/>
-        <Attributes index="Armored" value="1"/>
-        <Attributes index="Mechanical" value="1"/>
-        <LifeStart value="100"/>
-        <LifeMax value="100"/>
-        <LifeArmor value="1"/>
-        <ShieldsStart value="100"/>
-        <ShieldsMax value="100"/>
-        <Speed value="2.9492"/>
-        <LateralAcceleration value="46"/>
-        <Sight value="10"/>
-        <Food value="-2"/>
-        <CostResource index="Minerals" value="300"/>
-        <CostResource index="Vespene" value="50"/>
-        <RepairTime value="21"/>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
-        <WeaponArray Link="ZeratulCommanderParticularBeam"/>
-        <AbilArray Link="ZeratulCommanderPredictiveBlink"/>
-        <CardLayouts index="0">
-            <LayoutButtons Face="ZeratulCommanderPredictiveBlink" Type="AbilCmd" AbilCmd="ZeratulCommanderPredictiveBlink,Execute" Row="2" Column="0"/>
-            <LayoutButtons Face="ZeratulCommanderVengeanceoftheVoid" Type="Passive" Row="1" Column="2"/>
-        </CardLayouts>
-        <GlossaryPriority value="25"/>
-    </CUnit>
-
+    <CRequirement id="ZeratulCommanderXelnagaAmbusher">
+        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
+    </CRequirement>
     <CButton id="ZeratulCommanderXelnagaAmbusher">
         <Icon value="Assets\Textures\btn-unit-protoss-zeratulstalker.dds"/>
         <EditorCategories value="Race:Zeratul"/>
     </CButton>
-    
     <CActorUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderGroundUnit" unitName="ZeratulCommanderXelnagaAmbusher">
         <UnitIcon value="Assets\Textures\btn-unit-protoss-zeratulstalker.dds"/>
         <WalkAnimMoveSpeed value="3.1328"/>
@@ -66,7 +41,6 @@
         <Model value="Assets\COOP\Zeratul\Portraits\Stalker_Zeratul_COOP_Portrait\Stalker_Zeratul_COOP_Portrait.m3"/>
         <EditorCategories value="Race:Zeratul"/>
     </CModel>
-
     <CSound id="ZeratulCommanderXelnagaAmbusher@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_Help00.ogg" FacialGroup=""/>
@@ -115,11 +89,6 @@
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What06.ogg" FacialGroup=""/>
         <AssetArray File="LocalizedData\Sounds\ProtossUnitVO\Stalker\Stalker_What07.ogg" FacialGroup=""/>
     </CSound>
-    
-    <CRequirement id="ZeratulCommanderXelnagaAmbusher">
-        <EditorCategories value="Race:Zeratul,TechType:Unit"/>
-    </CRequirement>
-
     <CDataCollectionUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Zeratul,ObjectType:Unit"/>
         <DataRecord Entry="Button,ZeratulCommanderXelnagaAmbusher"/>
@@ -136,4 +105,29 @@
         <DataRecord Entry="Sound,ZeratulCommanderXelnagaAmbusher@Pissed"/>
         <DataRecord Entry="Requirement,ZeratulCommanderXelnagaAmbusher"/>
     </CDataCollectionUnit>
+    <CUnit id="ZeratulCommanderXelnagaAmbusher" parent="CommanderGround_Prot" race="COOPZeratul">
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
+        <LifeArmor value="1"/>
+        <ShieldsStart value="100"/>
+        <ShieldsMax value="100"/>
+        <Speed value="2.9492"/>
+        <LateralAcceleration value="46"/>
+        <Sight value="10"/>
+        <Food value="-2"/>
+        <CostResource index="Minerals" value="300"/>
+        <CostResource index="Vespene" value="50"/>
+        <RepairTime value="21"/>
+        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
+        <WeaponArray Link="ZeratulCommanderParticularDisruptors"/>
+        <AbilArray Link="ZeratulCommanderPredictiveBlink"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="ZeratulCommanderPredictiveBlink" Type="AbilCmd" AbilCmd="ZeratulCommanderPredictiveBlink,Execute" Row="2" Column="0"/>
+            <LayoutButtons Face="ZeratulCommanderVengeanceoftheVoid" Type="Passive" Row="1" Column="2"/>
+        </CardLayouts>
+        <GlossaryPriority value="25"/>
+    </CUnit>
 </Catalog>

@@ -20,33 +20,20 @@
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_WeaponStart.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="ZeratulCommanderParticularBeam@AttackImpact" parent="Combat">
+    <CSound id="ZeratulCommanderParticularDisruptors@AttackImpact" parent="Combat">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact0.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact1.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact2.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackImpact3.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="ZeratulCommanderParticularBeam@AttackLaunch" parent="Combat">
+    <CSound id="ZeratulCommanderParticularDisruptors@AttackLaunch" parent="Combat">
         <EditorCategories value="Race:Zeratul"/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch0.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch1.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch2.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch3.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Stalker\Stalker_AttackLaunch4.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderPhaseDisruptors@AttackImpact" parent="Combat">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Explosion_Deep_Amb_01.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Explosion_Deep_Amb_02.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Explosion_Deep_Amb_03.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Explosion_Deep_Amb_04.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderPhaseDisruptors@AttackLaunch" parent="Combat">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch1.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Immortal\Immortal_AttackLaunch2.wav" FacialGroup=""/>
     </CSound>
     <CSound id="ZeratulCommanderXelNagaShieldguard@Help" parent="ProtossHelp">
         <EditorCategories value="Race:Zeratul"/>
@@ -79,33 +66,6 @@
         <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Yes01.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Yes02.ogg" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Protoss\Sentry\Sentry_Yes03.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaProbe@Help" parent="ProtossHelp">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Probe_Wake.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaProbe@Pissed" parent="Pissed">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Pissed0.ogg" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Pissed1.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaProbe@Ready" parent="Ready">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Ready0.ogg" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Ready1.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaProbe@What" parent="Voice">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_What0.ogg" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_What1.ogg" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_What2.ogg" FacialGroup=""/>
-    </CSound>
-    <CSound id="ZeratulCommanderXelNagaProbe@Yes" parent="Voice">
-        <EditorCategories value="Race:Zeratul"/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Yes0.ogg" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Yes1.ogg" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Yes2.ogg" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Protoss\Probe\Probe_Yes3.ogg" FacialGroup=""/>
     </CSound>
     <CSound id="ZeratulCommanderXelNagaVoidArray@Birth" parent="Voice">
         <EditorCategories value="Race:Zeratul"/>

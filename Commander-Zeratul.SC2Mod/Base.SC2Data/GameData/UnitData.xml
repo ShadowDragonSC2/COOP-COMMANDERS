@@ -4,11 +4,6 @@
         <Race value="COOPZeratul"/>
         <EditorCategories value="ObjectType:Shape,ObjectFamily:Coop"/>
     </CUnit>
-    <CUnit id="ZeratulCommanderAnnihilationCannon@Missile" parent="MISSILE">
-        <Race value="COOPZeratul"/>
-        <Mover value="MissileDefault"/>
-        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop"/>
-    </CUnit>
     <CUnit id="ZeratulCommanderArtifact" parent="ITEM">
         <AbilArray Link="ZeratulCommanderPickupArtifact"/>
         <EditorCategories value="ObjectType:Item,ObjectFamily:Coop,Race:Zeratul"/>
@@ -79,23 +74,6 @@
         <ShieldsMax value="500"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Zeratul"/>
     </CUnit>
-    <CUnit id="ZeratulCommanderDisruptorPhase">
-        <FlagArray index="Turnable" value="0"/>
-        <FlagArray index="Uncloakable" value="1"/>
-        <FlagArray index="Invulnerable" value="1"/>
-        <Collide index="Phased" value="1"/>
-        <Speed value="4"/>
-        <Acceleration value="1000"/>
-        <Sight value="3"/>
-        <AbilArray Link="move"/>
-        <AbilArray Link="stop"/>
-        <CardLayouts>
-            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
-            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
-        </CardLayouts>
-        <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Zeratul"/>
-        <Race value="COOPZeratul"/>
-    </CUnit>
     <CUnit id="ZeratulCommanderXelNagaShieldguard" parent="CommanderGround_Prot" race="COOPZeratul">
         <Collide index="Small" value="1"/>
         <LifeStart value="100"/>
@@ -116,42 +94,6 @@
         <MinimapRadius value="0.65"/>
         <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
         <GlossaryPriority value="20"/>
-    </CUnit>
-    <CUnit id="ZeratulCommanderXelNagaProbe" parent="CommanderGround_Prot" race="COOPZeratul">
-        <Collide index="Small" value="1"/>
-        <LifeStart value="20"/>
-        <LifeMax value="20"/>
-        <ShieldsStart value="100"/>
-        <ShieldsMax value="100"/>
-        <Speed value="2.9492"/>
-        <LateralAcceleration value="46"/>
-        <Sight value="10"/>
-        <Food value="-2"/>
-        <CostResource index="Minerals" value="300"/>
-        <CostResource index="Vespene" value="50"/>
-        <RepairTime value="21"/>
-        <WeaponArray Link="ZeratulCommanderParticularBeam"/>
-        <Radius value="0.625"/>
-        <SeparationRadius value="0.625"/>
-        <InnerRadius value="0.5"/>
-        <MinimapRadius value="0.65"/>
-        <EditorCategories value="ObjectType:Unit,ObjectFamily:Coop,Race:Zeratul"/>
-        <AbilArray Link="ZeratulCommanderBuildProbe"/>
-        <CardLayouts index="0">
-            <LayoutButtons Face="ProtossBuild" Type="Submenu" SubmenuCardId="0002" Row="2" Column="0"/>
-            <LayoutButtons Face="ProtossBuildAdvanced" Type="Submenu" SubmenuCardId="0003" Row="2" Column="1"/>
-        </CardLayouts>
-        <CardLayouts CardId="0002">
-            <LayoutButtons Face="ZeratulCommanderAncientNexus" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build1" Row="0" Column="0"/>
-            <LayoutButtons Face="ZeratulCommanderXelNagaPassageway" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build2" Row="1" Column="0"/>
-            <LayoutButtons Face="ZeratulCommanderCoreForge" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build3" Row="2" Column="0"/>
-        </CardLayouts>
-        <CardLayouts CardId="0003">
-            <LayoutButtons Face="ZeratulCommanderConstructsBay" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build5" Row="0" Column="0"/>
-            <LayoutButtons Face="ZeratulCommanderConstructsFacility" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build4" Row="0" Column="1"/>
-            <LayoutButtons Face="ZeratulCommanderVoidShrine" Type="AbilCmd" AbilCmd="ZeratulCommanderBuildProbe,Build6" Row="1" Column="0"/>
-        </CardLayouts>
-        <GlossaryPriority value="5"/>
     </CUnit>
     <CUnit id="ZeratulCommanderXelNagaVoidArray" parent="CommanderAir_Prot" race="COOPZeratul">
         <LifeStart value="200"/>
@@ -180,7 +122,7 @@
             <LayoutButtons index="5" Face="CommanderZeratulLevel09" Type="AbilCmd" AbilCmd="ZeratulCommanderMorphVoidArray,Execute" Row="2" Column="0"/>
         </CardLayouts>
     </CUnit>
-    <CUnit id="ZeratulCommanderParticularBeam@Missile" parent="MISSILE">
+    <CUnit id="ZeratulCommanderParticularDisruptors@Missile" parent="MISSILE">
         <Mover value="StalkerWeapon"/>
         <EditorCategories value="ObjectType:Projectile,ObjectFamily:Coop,Race:Zeratul"/>
         <Race value="COOPZeratul"/>

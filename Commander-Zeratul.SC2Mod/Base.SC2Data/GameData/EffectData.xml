@@ -5,18 +5,9 @@
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="12"/>
     </CEffectDamage>
-    <CEffectDamage id="ZeratulCommanderPhaseDisruptors@Damage" parent="DU_WEAP">
-        <EditorCategories value="Race:Zeratul"/>
-        <Amount value="20"/>
-    </CEffectDamage>
-    <CEffectDamage id="ZeratulCommanderParticularBeam@Damage" parent="DU_WEAP">
+    <CEffectDamage id="ZeratulCommanderParticularDisruptors@Damage" parent="DU_WEAP">
         <EditorCategories value="Race:Zeratul"/>
         <Amount value="12"/>
-    </CEffectDamage>
-    <CEffectDamage id="ZeratulCommanderAnnihilationCannon@Damage" parent="DU_WEAP_MISSILE">
-        <EditorCategories value="Race:Zeratul"/>
-        <Flags index="Impact" value="1"/>
-        <Amount value="75"/>
     </CEffectDamage>
     <CEffectDamage id="ZeratulCommanderDisruptorPhase@Damage" parent="DU_WEAP_SPLASH">
         <EditorCategories value="Race:Zeratul"/>
@@ -39,16 +30,6 @@
         <LaunchLocation Effect="ZeratulCommanderVengeanceoftheVoid@Interval" Value="TargetUnit"/>
         <Amount value="13"/>
     </CEffectDamage>
-    <!-- Effect Set -->
-    <CEffectSet id="ZeratulCommanderAnnihilationCannon@Effects">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderForceCannon@CU"/>
-    </CEffectSet>
-    <CEffectSet id="ZeratulCommanderAnnihilationCannon@Set">
-        <EditorCategories value="Race:Zeratul"/>
-        <EffectArray value="ZeratulCommanderAnnihilationCannon@Damage"/>
-        <EffectArray value="ZeratulCommanderAnnihilationCannon@Effects"/>
-    </CEffectSet>
     <CEffectSet id="ZeratulCommanderDisruptorPhase@Effects">
         <EditorCategories value="Race:Zeratul"/>
         <EffectArray value="ZeratulCommanderClusterNova@CP"/>
@@ -87,12 +68,6 @@
         <EffectArray value="ZeratulCommanderVengeanceoftheVoid@Search"/>
         <EffectArray value="ZeratulCommanderVengeanceoftheVoid@CU@Suicide"/>
     </CEffectSet>
-    <!-- Effect LM -->
-    <CEffectLaunchMissile id="ZeratulCommanderAnnihilationCannon@LM">
-        <EditorCategories value="Race:Zeratul"/>
-        <ImpactEffect value="ZeratulCommanderAnnihilationCannon@Set"/>
-        <AmmoUnit value="ZeratulCommanderAnnihilationCannon@Missile"/>
-    </CEffectLaunchMissile>
     <CEffectLaunchMissile id="ZeratulCommanderClusterNova@LM">
         <EditorCategories value="Race:Zeratul"/>
         <LaunchLocation Value="CasterOuterPoint"/>
@@ -119,10 +94,10 @@
         <Movers Link="ZeratulCommanderForceCannon@Mover"/>
         <DeathType value="Unknown"/>
     </CEffectLaunchMissile>
-    <CEffectLaunchMissile id="ZeratulCommanderParticularBeam@LM">
+    <CEffectLaunchMissile id="ZeratulCommanderParticularDisruptors@LM">
         <EditorCategories value="Race:Zeratul"/>
-        <ImpactEffect value="ZeratulCommanderParticularBeam@Damage"/>
-        <AmmoUnit value="ZeratulCommanderParticularBeam@Missile"/>
+        <ImpactEffect value="ZeratulCommanderParticularDisruptors@Damage"/>
+        <AmmoUnit value="ZeratulCommanderParticularDisruptors@Missile"/>
     </CEffectLaunchMissile>
     <!-- Effect Create Persistent-->
     <CEffectCreatePersistent id="ZeratulCommanderClusterNova@CP">

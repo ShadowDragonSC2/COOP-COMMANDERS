@@ -2,6 +2,7 @@
 <Includes>
     <Catalog path="GameData/ZeratulData/base.xml"/>
     <Catalog path="GameData/ZeratulData/Buildings/AncientNexus.xml"/>
+    <Catalog path="GameData/ZeratulData/Probe.xml"/>
     <Catalog path="GameData/ZeratulData/DarkArchon.xml"/>
     <Catalog path="GameData/ZeratulData/Ambusher.xml"/>
     <Catalog path="GameData/ZeratulData/Abrogator.xml"/>
