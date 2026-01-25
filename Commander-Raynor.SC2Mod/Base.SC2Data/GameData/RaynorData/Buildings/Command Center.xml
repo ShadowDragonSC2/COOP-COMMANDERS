@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="RaynorCommanderCommandCenter">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderCommandCenter">
+        <Icon value="Assets\Textures\btn-building-terran-commandcenter.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-commandcenter.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorModel id="RaynorCommanderCommandCenter@Build" parent="TerranBuildingBuild">
+        <EditorCategories value=""/>
+        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
+    </CActorModel>
+    <CActorUnit id="RaynorCommanderCommandCenter" parent="TerranBuildingFlyerEx" unitName="RaynorCommanderCommandCenter">
+        <Macros value="MacroTownhallDeco_Terran"/>
+        <Macros value="TerranCommandCenterPlayerDecalMacro"/>
+        <Macros value="SprayHelperMacro"/>
+        <AcceptedHostedPropTransfers index="Decal" value="0"/>
+        <On index="69" Send="Create RaynorCommanderCommandCenter@Build"/>
+        <On index="80" Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="Create"/>
+        <On index="81" Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End Instant"/>
+        <On index="82" Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="AliasRemove _CreepEngulfable"/>
+        <On index="83" Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="CreepEngulfmentStopTransition"/>
+        <On index="84" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End"/>
+        <On index="85" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Send="AliasRemove _CreepEngulfable"/>
+        <On index="86" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Send="CreepEngulfmentStopTransition"/>
+        <On index="87" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="88" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly; ScopeContains GroundLocalSelection" Send="StatusIncrement FlyerHelper"/>
+        <On index="89" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="AnimGroupRemove Fly"/>
+        <On index="90" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="AliasAdd _CreepEngulfable"/>
+        <On index="91" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="Create BuildingTerrainFlatten"/>
+        <On index="92" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter; ScopeContains FlyerHelperSplat; HasStatus FlyerHelper" Send="StatusDecrement FlyerHelper"/>
+        <On index="93" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
+        <On index="94" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Target="FlyerHelperSplat" Send="Destroy"/>
+        <On Terms="ActorCreation" Send="AnimGroupRemove A"/>
+        <On Terms="ActorCreation" Send="AnimGroupRemove B"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimGroupApply B"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimBaselineStop"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimPlay Morph Morph 0 0.000000"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimClear Morph"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimGroupRemove B"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimBaselineStart"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimGroupApply A"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimBaselineStop"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimPlay Morph Morph 0 1.500000"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimClear Morph"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimGroupRemove A"/>
+        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimBaselineStart"/>
+        <On Terms="Abil.*.TransportOccupy" Send="AnimPlay StandC Stand,Work,C PlayForever"/>
+        <On Terms="Abil.*.TransportEmpty" Send="AnimClear StandC"/>
+        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationCommandCenter"/>
+        <On Terms="Behavior.Corruption.On" Send="AnimSetPaused Morph"/>
+        <On Terms="Behavior.Corruption.Off" Send="AnimSetPaused Morph 0"/>
+        <On Terms="UnitDeathCustomize; AnimPlaying Morph; !ModelIsLowQuality" Send="Create CommandCenterMorphDeath"/>
+        <On Terms="UnitDeathCustomize; AnimPlaying Morph" Send="DeathCustomize Variation2"/>
+        <On Terms="Abil.CommandCenterLiftOff.Start" Send="StatusSet FlyDeathAnim 1"/>
+        <On Terms="Abil.CommandCenterLiftOff.Start" Send="TimerSet 1.100000 FlyDeathAnimChange"/>
+        <On Terms="TimerExpired; TimerName FlyDeathAnimChange" Send="StatusSet FlyDeathAnim 2"/>
+        <On Terms="UnitBirth.CommandCenterFlying" Send="StatusSet FlyDeathAnim 2"/>
+        <On Terms="Abil.CommandCenterLand.Start" Send="TimerSet 0.700000 LandDeathAnimChange"/>
+        <On Terms="Abil.CommandCenterLand.Start" Send="TimerSet 1.100000 LandDeathAnimChangeB"/>
+        <On Terms="TimerExpired; TimerName LandDeathAnimChange" Send="StatusSet FlyDeathAnim 1"/>
+        <On Terms="TimerExpired; TimerName LandDeathAnimChangeB" Send="StatusSet FlyDeathAnim 0"/>
+        <On Terms="UnitDeathCustomize; IsStatus FlyDeathAnim 1" Send="DeathCustomize Variation3"/>
+        <On Terms="UnitDeathCustomize; IsStatus FlyDeathAnim 2" Send="DeathCustomize Flying"/>
+        <On Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="HideWorkerCount 1"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="HideWorkerCount"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Send="HideWorkerCount 1"/>
+        <On Terms="UnitBirth.RaynorCommanderCommandCenter" Send="Create PlayerLogoDoodadList"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Target="PlayerLogoDoodadList" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="Create PlayerLogoDoodadList"/>
+        <On Terms="Behavior.250mmStrikeCannons.On" Send="AnimSetPaused Morph"/>
+        <On Terms="Behavior.250mmStrikeCannons.Off" Send="AnimSetPaused Morph 0"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Target="TerranClanFlag" Send="Signal DestroyFlag"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter; PlayerHasClanDecal" Send="Create TerranClanFlag"/>
+        <On Terms="UnitBirth.RaynorCommanderCommandCenter; PlayerHasClanDecal" Send="Create TerranClanFlag"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Target="TerranPlayerTrophy" Send="Signal DestroyFlag"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter; PlayerHasTrophy" Send="Create TerranPlayerTrophy"/>
+        <On Terms="UnitBirth.RaynorCommanderCommandCenter; PlayerHasTrophy" Send="Create TerranPlayerTrophy"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderCommandCenter@Death"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranLargeBuildingDeath" SoundLink="RaynorCommanderCommandCenter@Explode"/>
+        <DeathCustoms index="5" ModelLink="RaynorCommanderCommandCenter@Death" SoundLink="RaynorCommanderCommandCenter@Explode" Name="Variation2"/>
+        <DeathCustoms ModelLink="RaynorCommanderCommandCenter@FlyDeath" SoundLink="RaynorCommanderCommandCenter@Explode" Name="Flying"/>
+        <DeathCustoms ModelLink="RaynorCommanderCommandCenter@DeathLow" Name="Variation3"/>
+        <PlacementModel value="RaynorCommanderCommandCenter@Placement"/>
+        <PortraitModel value="RaynorCommanderCommandCenter@Portrait"/>
+        <BarOffset value="165"/>
+        <BarWidth value="200"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-CommandCenter.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-terran-CommandCenter.dds"/>
+        <NameOffset value="150"/>
+        <SoundArray index="Ready" value="RaynorCommanderCommandCenter@Ready"/>
+        <SoundArray index="What" value="RaynorCommanderCommandCenter@What"/>
+        <SoundArray index="Movement" value="RaynorCommanderCommandCenter@Movement"/>
+        <StatusHarvesterData Text="UI/HarvesterCountMinerals" SearchFilters="HarvestableResource;Player,Ally,Enemy" SearchRadius="8"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-CommandCenter.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-CommandCenter.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorSplat id="RaynorCommanderCommandCenter@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderCommandCenter">
+        <On Terms="AbilMorph.*.Finish; MorphFrom CommandCenter; MorphTo PlanetaryFortress" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom CommandCenter; MorphTo OrbitalCommand" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Start; MorphTo CommandCenter; MorphFrom CommandCenterFlying" Send="Create"/>
+        <On Terms="AbilMorph.*.Start; MorphFrom CommandCenter; MorphTo CommandCenterFlying" Send="Destroy"/>
+    </CActorSplat>
+    <CModel id="RaynorCommanderCommandCenter@Build" parent="TerranBuildingBuild">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderCommandCenter" parent="CommandCenterBase">
+        <Model value="Assets\Buildings\Terran\CommandCenterEx1\CommandCenterEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderCommandCenter@Death" parent="CommandCenterDeathBase" low="RaynorCommanderCommandCenter@DeathLow">
+        <Model value="Assets\Buildings\Terran\CommandCenterDeathEx1\CommandCenterDeathEx1.m3"/>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.070000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.230000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.510000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.800000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranExplosionLarge"/>
+            <Type value="Sound"/>
+            <Time value="1.630000"/>
+        </Events>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderCommandCenter@DeathLow" parent="BuildingDeath" Race="Terran">
+        <Model value="Assets\Effects\Terran\TerranLargeBuildingDeath\TerranLargeBuildingDeath_Low.m3"/>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranExplosionLarge"/>
+            <Type value="Sound"/>
+            <Time value="0.010000"/>
+        </Events>
+        <Lighting value="TerranLargeBuildingDeathLow"/>
+        <SelectionRadius value="0.250000"/>
+        <ShadowRadius value="0.250000"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderCommandCenter@FlyDeath" parent="CommandCenterFlyDeathBase">
+        <Model value="Assets\Buildings\Terran\CommandCenterFlyDeathEx1\CommandCenterFlyDeathEx1.m3"/>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.070000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.230000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.510000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranPreExplosionSmall"/>
+            <Type value="Sound"/>
+            <Time value="0.800000"/>
+        </Events>
+        <Events>
+            <Anim value="Death,00"/>
+            <Name value="TerranExplosionLarge"/>
+            <Type value="Sound"/>
+            <Time value="1.630000"/>
+        </Events>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderCommandCenter@Placement" parent="CommandCenterPlacementBase" low="RaynorCommanderCommandCenter">
+        <Model value="Assets\Buildings\Terran\CommandCenterPlacement\CommandCenterPlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderCommandCenter@Portrait" parent="TerranBuildingPortraitBase">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <Image value="Assets\Textures\AdjutantPortrait_Static.dds"/>
+        <Lighting value="AdjutantPortrait"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderCommandCenter@Splat" parent="Splat">
+        <Model value="Assets\Splats\splat_commandcenter\splat_commandcenter.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.800000,0.800000,0.800000"/>
+        <ScaleMin value="0.800000,0.800000,0.800000"/>
+    </CModel>
+    <CSound id="RaynorCommanderCommandCenter@Explode" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+        <DupeHistoryCount value="15"/>
+        <DupeMuteCount value="3"/>
+        <Volume value="-3.000000,0.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderCommandCenter@Movement" parent="Movement">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement0.wav" LoopCount="-1"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement1.wav" LoopCount="-1"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement2.wav" LoopCount="-1"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="200"/>
+        <Pitch value="-3.000000,-2.000000"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderCommandCenter@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\CommandCenter\CommandCenter_What.ogg"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderCommandCenter@What" parent="Voice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\CommandCenter\CommandCenter_What.ogg"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderCommandCenter" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Button,RaynorCommanderCommandCenter"/>
+        <DataRecord Entry="Requirement,RaynorCommanderCommandCenter"/>
+        <DataRecord Entry="Actor,RaynorCommanderCommandCenter"/>
+        <DataRecord Entry="Actor,RaynorCommanderCommandCenter@Splat"/>
+        <DataRecord Entry="Model,RaynorCommanderCommandCenter"/>
+        <DataRecord Entry="Model,RaynorCommanderCommandCenter@Splat"/>
+        <DataRecord Entry="Model,RaynorCommanderCommandCenter@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderCommandCenter@DeathLow"/>
+        <DataRecord Entry="Model,RaynorCommanderCommandCenter@FlyDeath"/>
+        <DataRecord Entry="Model,RaynorCommanderCommandCenter@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderCommandCenter@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderCommandCenter@Explode"/>
+        <DataRecord Entry="Sound,RaynorCommanderCommandCenter@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderCommandCenter@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderCommandCenter@Movement"/>
+        <DataRecord Entry="Unit,RaynorCommanderCommandCenter"/>
+        <DataRecord Entry="Unit,RaynorCommanderCommandCenter@Fly"/>
+        <DataRecord Entry="Actor,RaynorCommanderCommandCenter@Build"/>
+        <DataRecord Entry="Model,RaynorCommanderCommandCenter@Build"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderCommandCenter" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <Facing value="315"/>
+        <FlagArray index="PreventReveal" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="0"/>
+        <FlagArray index="TownCamera" value="1"/>
+        <ResourceDropOff index="Minerals" value="1"/>
+        <ResourceDropOff index="Vespene" value="1"/>
+        <ResourceDropOff index="Terrazine" value="1"/>
+        <ResourceDropOff index="Custom" value="1"/>
+        <LifeStart value="1500"/>
+        <LifeMax value="1500"/>
+        <Sight value="11"/>
+        <Food value="11"/>
+        <CostCategory value="Economy"/>
+        <CostResource index="Minerals" value="400"/>
+        <RepairTime value="100"/>
+        <DamageDealtXP value="0"/>
+        <DamageTakenXP value="0"/>
+        <AbilArray index="1" Link="que5CancelToSelection"/>
+        <AbilArray Link="RaynorCommanderTrainCC"/>
+        <AbilArray Link="RallyCommand"/>
+        <AbilArray Link="CommandCenterTransport"/>
+        <AbilArray Link="RaynorCommanderLiftCommandCenter"/>
+        <AbilArray Link="UpgradeToOrbital"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <EffectArray index="Create" value="CCCreateSet"/>
+        <EffectArray index="Birth" value="CCBirthSet"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="SCV" Type="AbilCmd" AbilCmd="RaynorCommanderTrainCC,Train1" Row="0" Column="0"/>
+            <LayoutButtons Face="OrbitalCommand" Type="AbilCmd" AbilCmd="UpgradeToOrbital,Execute" Row="0" Column="4"/>
+            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="RallyCommand,Rally1" Row="1" Column="4"/>
+            <LayoutButtons Face="CommandCenterLoad" Type="AbilCmd" AbilCmd="CommandCenterTransport,LoadAll" Row="2" Column="0"/>
+            <LayoutButtons Face="CommandCenterUnloadAll" Type="AbilCmd" AbilCmd="CommandCenterTransport,UnloadAll" Row="2" Column="1"/>
+            <LayoutButtons Face="Lift" Type="AbilCmd" AbilCmd="RaynorCommanderLiftCommandCenter,Execute" Row="2" Column="3"/>
+            <LayoutButtons Face="CancelUpgradeMorph" Type="AbilCmd" AbilCmd="UpgradeToPlanetaryFortress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelUpgradeMorph" Type="AbilCmd" AbilCmd="UpgradeToOrbital,Cancel" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="2.5"/>
+        <SeparationRadius value="2.5"/>
+        <Footprint value="Footprint5x5Contour"/>
+        <PlacementFootprint value="Footprint5x5DropOff"/>
+        <ScoreMake value="400"/>
+        <ScoreMakeCostFactor index="Minerals" value="0"/>
+        <ScoreMakeCostFactor index="Vespene" value="0"/>
+        <ScoreKill value="400"/>
+        <ScoreKillCostFactor index="Minerals" value="0"/>
+        <ScoreKillCostFactor index="Vespene" value="0"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="2.5"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <TacticalAI value="CommandCenter"/>
+        <TacticalAIThink value="AIThinkCommandCenter"/>
+        <TechAliasArray index="0" value="Alias_CommandCenter"/>
+        <TechTreeProducedUnitArray value="SCV"/>
+        <TechTreeProducedUnitArray value="PlanetaryFortress"/>
+        <TechTreeProducedUnitArray value="OrbitalCommand"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderCommandCenter@Fly">
+        <DeathRevealRadius value="3"/>
+        <Facing value="315"/>
+        <Race value="COOPRaynor"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="PreventReveal" value="1"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="1500"/>
+        <LifeMax value="1500"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <Mover value="Fly"/>
+        <Speed value="0.9375"/>
+        <Acceleration value="1.3125"/>
+        <Sight value="11"/>
+        <Height value="3.25"/>
+        <VisionHeight value="4"/>
+        <Food value="11"/>
+        <CostCategory value="Economy"/>
+        <CostResource index="Minerals" value="400"/>
+        <RepairTime value="100"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="RaynorCommanderLiftCommandCenter@Land"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="CommandCenterTransport"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts>
+            <LayoutButtons Face="Land" Type="AbilCmd" AbilCmd="RaynorCommanderLiftCommandCenter@Land,Execute" Row="2" Column="3"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="CommandCenterLoad" Type="AbilCmd" AbilCmd="CommandCenterTransport,LoadAll" Row="2" Column="0"/>
+            <LayoutButtons Face="CommandCenterUnloadAll" Type="AbilCmd" AbilCmd="CommandCenterTransport,UnloadAll" Row="2" Column="1"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <Radius value="2.5"/>
+        <SeparationRadius value="2.5"/>
+        <ScoreKill value="400"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="2.5"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <LeaderAlias value="CommandCenter"/>
+        <HotkeyAlias value="CommandCenter"/>
+        <TechAliasArray value="Alias_CommandCenter"/>
+        <GlossaryAlias value="CommandCenter"/>
+        <Name value="Unit/Name/COOP/RaynorCommanderCommandCenter"/>
+    </CUnit>
+</Catalog>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CButton id="RaynorCommanderRefinery">
+        <Icon value="Assets\Textures\btn-building-terran-refinery.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-refinery.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorUnit id="RaynorCommanderRefinery" parent="CommanderUnitBase" unitName="RaynorCommanderRefinery">
+        <Aliases value="_CreepEngulfable"/>
+        <Aliases value="_UnitHuge"/>
+        <CreepHeightClass value="Medium"/>
+        <CreepRateGrow value="Grow"/>
+        <CreepRateShrink value="Shrink"/>
+        <PlacementSound value="RaynorCommanderRefinery@Placement"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-refinery.dds"/>
+    </CActorUnit>
+    <CModel id="RaynorCommanderRefinery" parent="Refinery">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderRefinery@Build" parent="TerranBuildingBuild">
+        <Model value="Assets\Buildings\Terran\RefineryBuild\RefineryBuild.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderRefinery@Death" parent="RefineryDeath">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderRefinery@Placement" parent="RefineryPlacement">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderRefinery@Portrait" parent="AdjutantPortrait">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CSound id="RaynorCommanderRefinery@Placement" parent="Terran_BuildingPlacement">
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderRefinery" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderRefinery"/>
+        <DataRecord Entry="Button,RaynorCommanderRefinery"/>
+        <DataRecord Entry="Model,RaynorCommanderRefinery"/>
+        <DataRecord Entry="Model,RaynorCommanderRefinery@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderRefinery@Build"/>
+        <DataRecord Entry="Model,RaynorCommanderRefinery@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderRefinery@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderRefinery@Placement"/>
+        <DataRecord Entry="Unit,RaynorCommanderRefinery"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderRefinery" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <Facing value="315"/>
+        <LifeStart value="100"/>
+        <LifeMax value="100"/>
+        <CostResource index="Minerals" value="75"/>
+        <BuildTime value="40"/>
+        <BehaviorArray Link="HarvestableVespeneGeyserGas"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <Footprint value="FootprintGeyserRoundedBuilt"/>
+        <PlacementFootprint value="Footprint3x3CappedGeyser"/>
+        <BuiltOn value="VespeneGeyser"/>
+        <BuiltOn value="SpacePlatformGeyser"/>
+        <BuiltOn value="RichVespeneGeyser"/>
+        <BuiltOn value="ProtossVespeneGeyser"/>
+        <BuiltOn value="PurifierVespeneGeyser"/>
+        <BuiltOn value="ShakurasVespeneGeyser"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+    </CUnit>
+</Catalog>

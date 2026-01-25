@@ -1,135 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CActorUnit id="RaynorCommanderArmory" parent="GenericUnitStandard" unitName="RaynorCommanderArmory">
-        <EditorCategories value=""/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-armory.dds"/>
-        <On Terms="UnitConstruction.RaynorCommanderArmory" Send="Create RaynorCommanderArmory@Build"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderArmory@Death" SoundLink="RaynorCommanderArmory@Death"/>
-        <PlacementModel value="RaynorCommanderArmory@Placement"/>
-        <PlacementSound value="Terran_BuildingPlacement"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-terran-armory.dds"/>
-        </Wireframe>
-        <Aliases value="_CreepEngulfable"/>
-        <Aliases value="_UnitHuge"/>
-    </CActorUnit>
-    <CActorModel id="RaynorCommanderArmory@Build" parent="TerranBuildingBuild">
-        <EditorCategories value=""/>
-        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
-    </CActorModel>
-    <CActorSplat id="RaynorCommanderArmory@Splat" parent="GenericUnitSplat">
-        <EditorCategories value=""/>
-    </CActorSplat>
     <CActorSound id="RaynorCommanderBansheeAirstrike@Sound" parent="SoundOneShot">
         <EditorCategories value=""/>
         <On Terms="Effect.RaynorCommanderBansheeAirstrike" Send="Create"/>
     </CActorSound>
-    <CActorModel id="RaynorCommanderBunker@Build" parent="TerranBuildingBuild">
-        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
-    </CActorModel>
-    <CActorUnit id="RaynorCommanderBunker" parent="TerranBuildingEx" unitName="RaynorCommanderBunker">
-        <Aliases value="_UnitHuge"/>
-        <Macros value="BunkerTransportAnim"/>
-        <On index="69" Terms="UnitConstruction.RaynorCommanderBunker.Start" Send="Create RaynorCommanderBunker@Build"/>
-        <On Terms="UnitDeathCustomize; ValidateUnit BunkerIsEmpty" Send="DeathCustomize Empty"/>
-        <On Terms="UnitDeathCustomize; ValidateUnit NeosteelFramePurchasedNoConstruction" Send="DeathCustomize Upgrade"/>
-        <On Terms="Upgrade.NeosteelFrame.Add; ValidateUnit HasCargo" Send="AnimGroupApply Stand,Work Stand,Work,Start Stand,Work,End"/>
-        <On Terms="UnitBirth.RaynorCommanderBunker; ValidateUnit NeosteelFramePurchased" Send="ModelSwap BunkerUpgrade"/>
-        <On Terms="Upgrade.NeosteelFrame.Add; ValidateUnit NotDeadOrConstruction" Send="ModelSwap BunkerUpgrade"/>
-        <On Terms="UnitBirth.RaynorCommanderBunker" Send="StatusSet BunkerBuilt 1"/>
-        <On Terms="Behavior.ShrikeTurret.On" Send="StatusSet ShrikeTurret 1"/>
-        <On Terms="Behavior.ShrikeTurret.On" Send="Create ShrikeTurret"/>
-        <On Terms="Behavior.ShrikeTurret.On; IsStatus BunkerBuilt 0" Send="Create ShrikeTurretPlaceholder"/>
-        <On Terms="Behavior.ShrikeTurret.On; IsStatus BunkerBuilt 0" Target="ShrikeTurret" Send="Signal TurretHide"/>
-        <On Terms="UnitDeathCustomize; IsStatus ShrikeTurret 1" Target="ShrikeTurret" Send="Signal TurretDeath"/>
-        <On Terms="UnitDeathCustomize; IsStatus ShrikeTurret 1" Target="ShrikeTurretPlaceholder" Send="Signal TurretDeath"/>
-        <On Terms="UnitBirth.RaynorCommanderBunker" Target="ShrikeTurretPlaceholder" Send="Destroy"/>
-        <On Terms="UnitBirth.RaynorCommanderBunker" Target="ShrikeTurret" Send="Signal TurretShow"/>
-        <On Terms="Upgrade.TerranBuildingArmor.Add; ValidateUnit HasCargo" Send="AnimGroupApply Stand,Work Stand,Work,Start Stand,Work,End"/>
-        <On Terms="Upgrade.TerranBuildingArmor.Add; ValidateUnit NotDeadOrConstruction" Send="ModelSwap BunkerUpgrade"/>
-        <CreepHeightClass value="Small"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderBunker@Death"/>
-        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="RaynorCommanderBunker@Explode"/>
-        <DeathCustoms ModelLink="RaynorCommanderBunker@Death@2" Name="Upgrade"/>
-        <DeathCustoms ModelLink="RaynorCommanderBunker@DeathEmpty" Name="Empty"/>
-        <PlacementModel value="RaynorCommanderBunker@Placement"/>
-        <PlacementActorModel value="BunkerPlacementModel"/>
-        <PlaceholderActorModel value="BunkerPlaceholderModel"/>
-        <PortraitModel value="RaynorCommanderBunker@Portrait"/>
-        <BarOffset value="80"/>
-        <BarWidth value="85"/>
-        <GlossaryAnim value="Stand,Work"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-Bunker.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-terran-Bunker.dds"/>
-        <NameOffset value="70"/>
-        <SoundArray index="Ready" value="RaynorCommanderBunker@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderBunker@What"/>
-        <UnitFlags index="ShowBlobShadow" value="0"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-Bunker.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-Bunker.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderBunker@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderBunker"/>
-    <CActorModel id="RaynorCommanderCommandCenter@Build" parent="TerranBuildingBuild">
-        <EditorCategories value=""/>
-        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
-    </CActorModel>
-    <CActorUnit id="RaynorCommanderEngineeringBay" parent="CommanderUnitBase" unitName="RaynorCommanderEngineeringBay">
-        <EditorCategories value=""/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <On Terms="UnitConstruction.RaynorCommanderEngineeringBay.Start" Send="Create RaynorCommanderEngineeringBay@Build"/>
-        <BuildModel value="RaynorCommanderEngineeringBay"/>
-        <HeroIcon value="Assets\Textures\btn-building-terran-engineeringbay.dds"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-engineeringbay.dds"/>
-    </CActorUnit>
-    <CActorModel id="RaynorCommanderEngineeringBay@Build" parent="TerranBuildingBuild">
-        <EditorCategories value=""/>
-        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
-    </CActorModel>
-    <CActorModel id="RaynorCommanderFactory@Build" parent="TerranBuildingBuild">
-        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
-    </CActorModel>
-    <CActorUnit id="RaynorCommanderFusionCore" parent="CommanderUnitBase" unitName="RaynorCommanderFusionCore">
-        <EditorCategories value=""/>
-        <On Terms="UnitConstruction.RaynorCommanderFusionCore.Start" Send="Create RaynorCommanderFusionCore@Build"/>
-        <PlacementSound value="RaynorCommanderFusionCore@Placement"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\btn-building-terran-fusioncore.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-upgrade-protoss-shieldslevel0.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-fusioncore.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-terran-fusioncore.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorModel id="RaynorCommanderFusionCore@Build" parent="TerranBuildingBuild">
-        <EditorCategories value=""/>
-        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
-    </CActorModel>
     <CActorSound id="RaynorCommanderLoweredSupplies@Lowered" parent="SoundOneShot">
         <EditorCategories value=""/>
     </CActorSound>
     <CActorSound id="RaynorCommanderLoweredSupplies@Raised" parent="SoundOneShot">
         <EditorCategories value=""/>
     </CActorSound>
-    <CActorUnit id="RaynorCommanderMissileTurret" parent="CommanderUnitBase" unitName="RaynorCommanderMissileTurret">
-        <EditorCategories value=""/>
-        <PlacementSound value="RaynorCommanderMissileTurret@Placement"/>
-        <HeroIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
-        <HighlightTooltip value="Unit/Name/Bogus"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel1.dds"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\wireframe-terran-missileturret.dds"/>
-        </Wireframe>
-    </CActorUnit>
     <CActorModel id="RaynorCommanderOrbitaldroppods" parent="ModelAddition">
         <EditorCategories value=""/>
         <On Terms="Effect.RaynorCommanderOrbitaldroppods@CP.Start" Send="Create"/>
@@ -140,66 +20,12 @@
     <CActorSound id="RaynorCommanderOrbitaldroppods@Sound" parent="SoundOneShot">
         <EditorCategories value=""/>
     </CActorSound>
-    <CActorUnit id="RaynorCommanderRefinery" parent="CommanderUnitBase" unitName="RaynorCommanderRefinery">
-        <Aliases value="_CreepEngulfable"/>
-        <Aliases value="_UnitHuge"/>
-        <CreepHeightClass value="Medium"/>
-        <CreepRateGrow value="Grow"/>
-        <CreepRateShrink value="Shrink"/>
-        <PlacementSound value="RaynorCommanderRefinery@Placement"/>
-        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-refinery.dds"/>
-    </CActorUnit>
     <CActorModel id="RaynorCommanderStarport@Build" parent="TerranBuildingBuild">
         <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
     </CActorModel>
     <CActorSound id="RaynorCommanderSupplyDepot@Sound" parent="SoundOneShot">
         <EditorCategories value=""/>
     </CActorSound>
-    <CActorUnit id="RaynorCommanderReactor" parent="ReactorBase" unitName="RaynorCommanderReactor">
-        <On index="69" Send="Create RaynorCommanderReactor@Build"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderReactor@Death" SoundLink="RaynorCommanderReactor@Explode"/>
-        <PlacementModel value="RaynorCommanderReactor@Placement"/>
-        <PortraitModel value="RaynorCommanderReactor@Portrait"/>
-        <GroupSoundArray index="What" value="RaynorCommanderReactor@What"/>
-        <HighlightTooltip value="Unit/Name/RaynorCommanderReactor"/>
-        <SoundArray index="Birth" value="RaynorCommanderReactor@Birth"/>
-        <SoundArray index="Ready" value="RaynorCommanderReactor@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderReactor@What"/>
-    </CActorUnit>
-    <CActorModel id="RaynorCommanderReactor@Build" parent="TerranBuildingBuildSmall">
-        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
-    </CActorModel>
-    <CActorSplat id="RaynorCommanderReactor@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderReactor"/>
-    <CActorUnit id="RaynorCommanderReactorBarrack" parent="ReactorBase" unitName="RaynorCommanderReactorBarrack">
-        <On index="69" Send="Create RaynorCommanderReactor@Build"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderReactor@Death" SoundLink="RaynorCommanderReactor@Explode"/>
-        <DeathArray index="UnderConstruction" SoundLink="RaynorCommanderReactor@Explode"/>
-        <SoundArray index="Ready" value="RaynorCommanderReactor@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderReactor@What"/>
-    </CActorUnit>
-    <CActorModel id="RaynorCommanderReactorBarrack@Build" parent="TerranBuildingBuildSmall">
-        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
-        <Model value="RaynorCommanderTechLab@Build"/>
-    </CActorModel>
-    <CActorSplat id="RaynorCommanderReactorBarrack@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderReactorBarrack"/>
-    <CActorUnit id="RaynorCommanderReactorFactory" parent="ReactorBase" unitName="RaynorCommanderReactorFactory">
-        <On index="69" Send="Create RaynorCommanderReactor@Build"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderReactor@Death" SoundLink="RaynorCommanderReactor@Explode"/>
-        <SoundArray index="Ready" value="RaynorCommanderReactor@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderReactor@What"/>
-    </CActorUnit>
-    <CActorModel id="RaynorCommanderReactorFactory@Build" parent="TerranBuildingBuildSmall">
-        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
-    </CActorModel>
-    <CActorSplat id="RaynorCommanderReactorFactory@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderReactorFactory"/>
-    <CActorUnit id="RaynorCommanderReactorStarport" parent="ReactorBase" unitName="RaynorCommanderReactorStarport">
-        <On index="69" Send="Create RaynorCommanderReactor@Build"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderReactor@Death" SoundLink="RaynorCommanderReactor@Explode"/>
-        <SoundArray index="Ready" value="RaynorCommanderReactor@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderReactor@What"/>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderReactorStarport@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderReactorStarport"/>
     <CActorUnit id="RaynorCommanderVikingMode@2@Morph" parent="GenericUnitBaseMorphTransition" unitName="AssaultMorphModel">
         <Aliases value="_UnitLarge"/>
         <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderViking@Alternate" Send="Create"/>
@@ -263,103 +89,6 @@
             <Image value="Assets\Textures\Wireframe-Terran-Viking-Fighter.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="RaynorCommanderCommandCenter" parent="TerranBuildingFlyerEx" unitName="RaynorCommanderCommandCenter">
-        <Macros value="MacroTownhallDeco_Terran"/>
-        <Macros value="TerranCommandCenterPlayerDecalMacro"/>
-        <Macros value="SprayHelperMacro"/>
-        <AcceptedHostedPropTransfers index="Decal" value="0"/>
-        <On index="69" Send="Create RaynorCommanderCommandCenter@Build"/>
-        <On index="80" Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="Create"/>
-        <On index="81" Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End Instant"/>
-        <On index="82" Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="AliasRemove _CreepEngulfable"/>
-        <On index="83" Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="CreepEngulfmentStopTransition"/>
-        <On index="84" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End"/>
-        <On index="85" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Send="AliasRemove _CreepEngulfable"/>
-        <On index="86" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Send="CreepEngulfmentStopTransition"/>
-        <On index="87" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Target="_BuildingTerrainFlatten" Send="Destroy"/>
-        <On index="88" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly; ScopeContains GroundLocalSelection" Send="StatusIncrement FlyerHelper"/>
-        <On index="89" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="AnimGroupRemove Fly"/>
-        <On index="90" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="AliasAdd _CreepEngulfable"/>
-        <On index="91" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="Create BuildingTerrainFlatten"/>
-        <On index="92" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter; ScopeContains FlyerHelperSplat; HasStatus FlyerHelper" Send="StatusDecrement FlyerHelper"/>
-        <On index="93" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
-        <On index="94" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Target="FlyerHelperSplat" Send="Destroy"/>
-        <On Terms="ActorCreation" Send="AnimGroupRemove A"/>
-        <On Terms="ActorCreation" Send="AnimGroupRemove B"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimGroupApply B"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimBaselineStop"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimPlay Morph Morph 0 0.000000"/>
-        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimClear Morph"/>
-        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimGroupRemove B"/>
-        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo OrbitalCommand" Send="AnimBaselineStart"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimGroupApply A"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimBaselineStop"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimPlay Morph Morph 0 1.500000"/>
-        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimClear Morph"/>
-        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimGroupRemove A"/>
-        <On Terms="AbilMorph.*.Cancel; MorphFrom RaynorCommanderCommandCenter; MorphTo PlanetaryFortress" Send="AnimBaselineStart"/>
-        <On Terms="Abil.*.TransportOccupy" Send="AnimPlay StandC Stand,Work,C PlayForever"/>
-        <On Terms="Abil.*.TransportEmpty" Send="AnimClear StandC"/>
-        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationCommandCenter"/>
-        <On Terms="Behavior.Corruption.On" Send="AnimSetPaused Morph"/>
-        <On Terms="Behavior.Corruption.Off" Send="AnimSetPaused Morph 0"/>
-        <On Terms="UnitDeathCustomize; AnimPlaying Morph; !ModelIsLowQuality" Send="Create CommandCenterMorphDeath"/>
-        <On Terms="UnitDeathCustomize; AnimPlaying Morph" Send="DeathCustomize Variation2"/>
-        <On Terms="Abil.CommandCenterLiftOff.Start" Send="StatusSet FlyDeathAnim 1"/>
-        <On Terms="Abil.CommandCenterLiftOff.Start" Send="TimerSet 1.100000 FlyDeathAnimChange"/>
-        <On Terms="TimerExpired; TimerName FlyDeathAnimChange" Send="StatusSet FlyDeathAnim 2"/>
-        <On Terms="UnitBirth.CommandCenterFlying" Send="StatusSet FlyDeathAnim 2"/>
-        <On Terms="Abil.CommandCenterLand.Start" Send="TimerSet 0.700000 LandDeathAnimChange"/>
-        <On Terms="Abil.CommandCenterLand.Start" Send="TimerSet 1.100000 LandDeathAnimChangeB"/>
-        <On Terms="TimerExpired; TimerName LandDeathAnimChange" Send="StatusSet FlyDeathAnim 1"/>
-        <On Terms="TimerExpired; TimerName LandDeathAnimChangeB" Send="StatusSet FlyDeathAnim 0"/>
-        <On Terms="UnitDeathCustomize; IsStatus FlyDeathAnim 1" Send="DeathCustomize Variation3"/>
-        <On Terms="UnitDeathCustomize; IsStatus FlyDeathAnim 2" Send="DeathCustomize Flying"/>
-        <On Terms="UnitBirth.RaynorCommanderCommandCenter@Fly" Send="HideWorkerCount 1"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="HideWorkerCount"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Send="HideWorkerCount 1"/>
-        <On Terms="UnitBirth.RaynorCommanderCommandCenter" Send="Create PlayerLogoDoodadList"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Target="PlayerLogoDoodadList" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter" Send="Create PlayerLogoDoodadList"/>
-        <On Terms="Behavior.250mmStrikeCannons.On" Send="AnimSetPaused Morph"/>
-        <On Terms="Behavior.250mmStrikeCannons.Off" Send="AnimSetPaused Morph 0"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Target="TerranClanFlag" Send="Signal DestroyFlag"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter; PlayerHasClanDecal" Send="Create TerranClanFlag"/>
-        <On Terms="UnitBirth.RaynorCommanderCommandCenter; PlayerHasClanDecal" Send="Create TerranClanFlag"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderCommandCenter; MorphTo RaynorCommanderCommandCenter@Fly" Target="TerranPlayerTrophy" Send="Signal DestroyFlag"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderCommandCenter@Fly; MorphTo RaynorCommanderCommandCenter; PlayerHasTrophy" Send="Create TerranPlayerTrophy"/>
-        <On Terms="UnitBirth.RaynorCommanderCommandCenter; PlayerHasTrophy" Send="Create TerranPlayerTrophy"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderCommandCenter@Death"/>
-        <DeathArray index="UnderConstruction" ModelLink="TerranLargeBuildingDeath" SoundLink="RaynorCommanderCommandCenter@Explode"/>
-        <DeathCustoms index="5" ModelLink="RaynorCommanderCommandCenter@Death" SoundLink="RaynorCommanderCommandCenter@Explode" Name="Variation2"/>
-        <DeathCustoms ModelLink="RaynorCommanderCommandCenter@FlyDeath" SoundLink="RaynorCommanderCommandCenter@Explode" Name="Flying"/>
-        <DeathCustoms ModelLink="RaynorCommanderCommandCenter@DeathLow" Name="Variation3"/>
-        <PlacementModel value="RaynorCommanderCommandCenter@Placement"/>
-        <PortraitModel value="RaynorCommanderCommandCenter@Portrait"/>
-        <BarOffset value="165"/>
-        <BarWidth value="200"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-CommandCenter.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-terran-CommandCenter.dds"/>
-        <NameOffset value="150"/>
-        <SoundArray index="Ready" value="RaynorCommanderCommandCenter@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderCommandCenter@What"/>
-        <SoundArray index="Movement" value="RaynorCommanderCommandCenter@Movement"/>
-        <StatusHarvesterData Text="UI/HarvesterCountMinerals" SearchFilters="HarvestableResource;Player,Ally,Enemy" SearchRadius="8"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-CommandCenter.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-CommandCenter.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderCommandCenter@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderCommandCenter">
-        <On Terms="AbilMorph.*.Finish; MorphFrom CommandCenter; MorphTo PlanetaryFortress" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom CommandCenter; MorphTo OrbitalCommand" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Start; MorphTo CommandCenter; MorphFrom CommandCenterFlying" Send="Create"/>
-        <On Terms="AbilMorph.*.Start; MorphFrom CommandCenter; MorphTo CommandCenterFlying" Send="Destroy"/>
-    </CActorSplat>
     <CActorAction id="RaynorCommanderAbilPDD@Attack" parent="GenericAttack" effectImpact="RemovePrecursor" effectLaunch="RaynorCommanderAbilPDD@LM">
         <EditorCategories value=""/>
         <LaunchAssets Sound="RaynorCommanderAbilPDD@Launch"/>
@@ -387,48 +116,6 @@
         <EditorCategories value=""/>
         <On Terms="AbilMorph.RaynorCommanderLiftStarport@LiftOff.Start" Send="Create"/>
     </CActorSound>
-    <CActorUnit id="RaynorCommanderFactory" parent="TerranBuildingFlyerEx" unitName="RaynorCommanderFactory">
-        <On index="69" Send="Create RaynorCommanderFactory@Build"/>
-        <On index="80" Terms="UnitBirth.RaynorCommanderFactory@Fly" Send="Create"/>
-        <On index="81" Terms="UnitBirth.RaynorCommanderFactory@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End Instant"/>
-        <On index="82" Terms="UnitBirth.RaynorCommanderFactory@Fly" Send="AliasRemove _CreepEngulfable"/>
-        <On index="83" Terms="UnitBirth.RaynorCommanderFactory@Fly" Send="CreepEngulfmentStopTransition"/>
-        <On index="84" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End"/>
-        <On index="85" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly" Send="AliasRemove _CreepEngulfable"/>
-        <On index="86" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly" Send="CreepEngulfmentStopTransition"/>
-        <On index="87" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly" Target="_BuildingTerrainFlatten" Send="Destroy"/>
-        <On index="88" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly; ScopeContains GroundLocalSelection" Send="StatusIncrement FlyerHelper"/>
-        <On index="89" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Send="AnimGroupRemove Fly"/>
-        <On index="90" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Send="AliasAdd _CreepEngulfable"/>
-        <On index="91" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Send="Create BuildingTerrainFlatten"/>
-        <On index="92" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory; ScopeContains FlyerHelperSplat; HasStatus FlyerHelper" Send="StatusDecrement FlyerHelper"/>
-        <On index="93" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
-        <On index="94" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Target="FlyerHelperSplat" Send="Destroy"/>
-        <On Terms="UnitDeathCustomize.FactoryFlying" Send="DeathCustomize Flying"/>
-        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestedVisual"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderFactory@Death"/>
-        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="RaynorCommanderFactory@Explode"/>
-        <DeathCustoms index="5" ModelLink="RaynorCommanderFactory@FlyDeath" SoundLink="RaynorCommanderFactory@Explode" Name="Flying"/>
-        <PlacementModel value="RaynorCommanderFactory@Placement"/>
-        <PlacementSound value="RaynorCommanderFactory@Placement"/>
-        <PortraitModel value="RaynorCommanderFactory@Portrait"/>
-        <BarOffset value="150"/>
-        <BarWidth value="160"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-Factory.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-terran-Factory.dds"/>
-        <NameOffset value="110"/>
-        <SoundArray index="Ready" value="RaynorCommanderFactory@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderFactory@What"/>
-        <SoundArray index="Movement" value="RaynorCommanderFactory@Movement"/>
-        <SoundArray index="Construction" value="RaynorCommanderFactory@ConstructionWhat"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-Factory.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-Factory.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderFactory@Splat" parent="TerranBuildingMorphSplat" unitName="RaynorCommanderFactory"/>
     <CActorSound id="RaynorCommanderLiftFactory@Land" parent="SoundOneShot">
         <EditorCategories value=""/>
         <On Terms="AbilMorph.RaynorCommanderLiftFactory@Land.Start" Send="Create"/>
@@ -437,66 +124,6 @@
         <EditorCategories value=""/>
         <On Terms="AbilMorph.RaynorCommanderLiftFactory@LiftOff.Start" Send="Create"/>
     </CActorSound>
-    <CActorModel id="RaynorCommanderTechLabBarrack@Build" parent="TerranBuildingBuildSmall">
-        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
-        <Model value="RaynorCommanderTechLab@Build"/>
-    </CActorModel>
-    <CActorModel id="RaynorCommanderTechLabFactory@Build" parent="TerranBuildingBuildSmall">
-        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
-    </CActorModel>
-    <CActorUnit id="RaynorCommanderTechLabFactory" parent="TechLabBase" unitName="RaynorCommanderTechLabFactory">
-        <SoundArray index="Ready" value="RaynorCommanderTechLab@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderTechLab@What"/>
-        <On index="69" Send="Create RaynorCommanderTechLabFactory@Build"/>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderTechLabFactory@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderTechLabFactory"/>
-    <CActorUnit id="RaynorCommanderTechLabBarrack" parent="TechLabBase" unitName="RaynorCommanderTechLabBarrack">
-        <SoundArray index="Ready" value="RaynorCommanderTechLab@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderTechLab@What"/>
-        <On index="69" Send="Create RaynorCommanderTechLabBarrack@Build"/>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderTechLabBarrack@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderTechLabBarrack"/>
-    <CActorModel id="RaynorCommanderBarracks@Build" parent="TerranBuildingBuild">
-        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
-    </CActorModel>
-    <CActorUnit id="RaynorCommanderBarracks" parent="TerranBuildingFlyerEx" unitName="RaynorCommanderBarracks">
-        <On index="69" Send="Create RaynorCommanderBarracks@Build"/>
-        <On index="80" Terms="UnitBirth.RaynorCommanderBarracks@Fly" Send="Create"/>
-        <On index="81" Terms="UnitBirth.RaynorCommanderBarracks@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End Instant"/>
-        <On index="82" Terms="UnitBirth.RaynorCommanderBarracks@Fly" Send="AliasRemove _CreepEngulfable"/>
-        <On index="83" Terms="UnitBirth.RaynorCommanderBarracks@Fly" Send="CreepEngulfmentStopTransition"/>
-        <On index="84" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End"/>
-        <On index="85" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly" Send="AliasRemove _CreepEngulfable"/>
-        <On index="86" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly" Send="CreepEngulfmentStopTransition"/>
-        <On index="87" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly" Target="_BuildingTerrainFlatten" Send="Destroy"/>
-        <On index="88" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly; ScopeContains GroundLocalSelection" Send="StatusIncrement FlyerHelper"/>
-        <On index="89" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Send="AnimGroupRemove Fly"/>
-        <On index="90" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Send="AliasAdd _CreepEngulfable"/>
-        <On index="91" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Send="Create BuildingTerrainFlatten"/>
-        <On index="92" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks; ScopeContains FlyerHelperSplat; HasStatus FlyerHelper" Send="StatusDecrement FlyerHelper"/>
-        <On index="93" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
-        <On index="94" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Target="FlyerHelperSplat" Send="Destroy"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderBarracks@Death"/>
-        <DeathArray index="UnderConstruction" ModelLink="TerranLargeBuildingDeath" SoundLink="RaynorCommanderBarracks@Explode"/>
-        <DeathCustoms index="5" ModelLink="RaynorCommanderBarracks@FlyDeath" SoundLink="RaynorCommanderBarracks@Explode" Name="Flying"/>
-        <PlacementModel value="RaynorCommanderBarracks@Placement"/>
-        <PortraitModel value="RaynorCommanderBarracks@Portrait"/>
-        <BarOffset value="155"/>
-        <BarWidth value="160"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-Barracks.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-terran-Barracks.dds"/>
-        <NameOffset value="110"/>
-        <SoundArray index="Ready" value="RaynorCommanderBarracks@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderBarracks@What"/>
-        <SoundArray index="Movement" value="RaynorCommanderBarracks@Movement"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-Barracks.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-Barracks.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderBarracks@Splat" parent="TerranBuildingMorphSplat" unitName="RaynorCommanderBarracks"/>
     <CActorSimple id="RaynorCommanderHeal@Animation">
         <EditorCategories value=""/>
         <On Terms="Abil.RaynorCommanderHeal.SourceChannelStart" Send="Create"/>
@@ -597,65 +224,6 @@
         <On Terms="ProgressLevel.RaynorCommanderConstruction@Attached.Start; Level 6" Send="Create"/>
         <On Terms="ProgressLevel.RaynorCommanderConstruction@Attached.Stop; Level 6" Send="Destroy"/>
     </CActorSound>
-    <CActorUnit id="RaynorCommanderTechLab" parent="TechLabBase" unitName="RaynorCommanderTechLab">
-        <Model value="RaynorCommanderTechLab"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderTechLab@Death" SoundLink="RaynorCommanderTechLab@Explode"/>
-        <DeathArray index="UnderConstruction" SoundLink="RaynorCommanderTechLab@Explode"/>
-        <DeathCustoms index="5" ModelLink="RaynorCommanderTechLab@DeathDetached" Name="Detached"/>
-        <PlacementModel value="RaynorCommanderTechLab@Placement"/>
-        <AddonIndicator value="Actor/AddonIndicator/RaynorCommanderTechLab"/>
-        <HighlightTooltip value="Unit/Name/RaynorCommanderTechLab"/>
-        <SoundArray index="Birth" value="RaynorCommanderTechLab@Birth"/>
-        <SoundArray index="Ready" value="RaynorCommanderTechLab@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderTechLab@What"/>
-        <On index="69" Send="Create RaynorCommanderTechLab@Build"/>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderTechLab@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderTechLab"/>
-    <CActorUnit id="RaynorCommanderTechLabStarport" parent="TechLabBase" unitName="RaynorCommanderTechLabStarport">
-        <PortraitModel value="RaynorCommanderTechLab@Portrait"/>
-        <SoundArray index="Ready" value="RaynorCommanderTechLab@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderTechLab@What"/>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderTechLabStarport@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderTechLabStarport"/>
-    <CActorModel id="RaynorCommanderTechLab@Build" parent="TerranBuildingBuildSmall">
-        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
-    </CActorModel>
-    <CActorUnit id="RaynorCommanderStarport" parent="TerranBuildingFlyerEx" unitName="RaynorCommanderStarport">
-        <On index="69" Send="Create RaynorCommanderStarport@Build"/>
-        <On index="80" Terms="UnitBirth.RaynorCommanderStarport@Flying" Send="Create"/>
-        <On index="84" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport; MorphTo RaynorCommanderStarport@Flying" Send="AnimGroupApply Fly Fly,Start Fly,End"/>
-        <On index="85" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport; MorphTo RaynorCommanderStarport@Flying" Send="AliasRemove _CreepEngulfable"/>
-        <On index="86" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport; MorphTo RaynorCommanderStarport@Flying" Send="CreepEngulfmentStopTransition"/>
-        <On index="87" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport; MorphTo RaynorCommanderStarport@Flying" Target="_BuildingTerrainFlatten" Send="Destroy"/>
-        <On index="88" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport; MorphTo RaynorCommanderStarport@Flying; ScopeContains GroundLocalSelection" Send="StatusIncrement FlyerHelper"/>
-        <On index="89" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport@Flying; MorphTo RaynorCommanderStarport" Send="AnimGroupRemove Fly"/>
-        <On index="90" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport@Flying; MorphTo RaynorCommanderStarport" Send="AliasAdd _CreepEngulfable"/>
-        <On index="91" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport@Flying; MorphTo RaynorCommanderStarport" Send="Create BuildingTerrainFlatten"/>
-        <On index="92" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderStarport@Flying; MorphTo RaynorCommanderStarport; ScopeContains FlyerHelperSplat; HasStatus FlyerHelper" Send="StatusDecrement FlyerHelper"/>
-        <On index="93" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderStarport@Flying; MorphTo RaynorCommanderStarport" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
-        <On index="94" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderStarport@Flying; MorphTo RaynorCommanderStarport" Target="FlyerHelperSplat" Send="Destroy"/>
-        <On Terms="UnitDeathCustomize.RaynorCommanderStarport@Flying" Send="DeathCustomize Flying"/>
-        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestedVisual"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderStarport@Death"/>
-        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="RaynorCommanderStarport@Explode"/>
-        <DeathCustoms index="5" ModelLink="RaynorCommanderStarport@FlyDeath" SoundLink="RaynorCommanderStarport@Explode" Name="Flying"/>
-        <PlacementModel value="RaynorCommanderStarport@Placement"/>
-        <PortraitModel value="RaynorCommanderStarport@Portrait"/>
-        <BarOffset value="155"/>
-        <BarWidth value="160"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-Starport.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-terran-Starport.dds"/>
-        <NameOffset value="110"/>
-        <SoundArray index="Ready" value="RaynorCommanderStarport@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderStarport@What"/>
-        <SoundArray index="Movement" value="RaynorCommanderStarport@Movement"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-Starport.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-Starport.dds"/>
-        </Wireframe>
-    </CActorUnit>
     <CActorSplat id="RaynorCommanderStarport@Splat" parent="TerranBuildingMorphSplat" unitName="RaynorCommanderStarport"/>
     <CActorUnit id="RaynorTankModeMorphModel" parent="GenericUnitBaseMorphTransition" unitName="TankModeMorphModel">
         <Aliases value="_UnitLarge"/>
@@ -699,92 +267,6 @@
             <Image value="Assets\Textures\Wireframe-Terran-SiegeTank-TankMode.dds"/>
         </Wireframe>
     </CActorUnit>
-    <CActorUnit id="RaynorCommanderSupplyDepot" parent="TerranBuildingEx" unitName="RaynorCommanderSupplyDepot">
-        <Aliases value="_UnitLarge"/>
-        <On index="69" Terms="UnitConstruction.RaynorCommanderSupplyDepot.Start" Send="Create RaynorCommanderSupplyDepot@Build"/>
-        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupRemove Unburrow"/>
-        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupApply Burrow Burrow Stand,Burrow ClosingFull"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot@Alternate" Send="Create"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupRemove Burrow"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupApply Unburrow Stand,Unburrow Stand,Unburrow Instant"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom SupplyDepotDrop" Send="Create"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom SupplyDepotDrop" Send="Create BuildingTerrainFlatten"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom SupplyDepotDrop" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
-        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationSupplyDepot"/>
-        <On Terms="Signal.*.Incoming" Send="RefSetFromMsg ::actor.SupplyDropModel ::Sender"/>
-        <On Terms="Signal.*.Incoming" Target="::actor.SupplyDropModel" Send="Signal Raised"/>
-        <On Terms="ActorCreation; PlayerHasReward SupplyDepotSkin" Send="StatusSet CE 1"/>
-        <On Terms="ActorCreation; PlayerHasReward SupplyDepotSkin" Send="AnimBracketStop ::GL_BSD Instant"/>
-        <CreepHeightClass value="Small"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderSupplyDepot@Death" SoundLink="RaynorCommanderSupplyDepot@Explode"/>
-        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="RaynorCommanderSupplyDepot@Explode"/>
-        <PlacementModel value="RaynorCommanderSupplyDepot@Placement"/>
-        <PlacementSound value="Terran_BuildingPlacementSmall"/>
-        <PortraitModel value="RaynorCommanderSupplyDepot@Portrait"/>
-        <BarOffset value="70"/>
-        <BarWidth value="80"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-SupplyDepot-Raised.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
-        <NameOffset value="40"/>
-        <SoundArray index="Ready" value="RaynorCommanderSupplyDepot@Ready"/>
-        <SoundArray index="What" value="RaynorCommanderSupplyDepot@What"/>
-        <UnitFlags index="ShowBlobShadow" value="0"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-SupplyDepot-Raised.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorSplat id="RaynorCommanderSupplyDepot@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderSupplyDepot">
-        <Model value="SupplyDepotSplat"/>
-    </CActorSplat>
-    <CActorUnit id="RaynorCommanderSupplyDepot@Alternate" parent="TerranBuildingEx" unitName="RaynorCommanderSupplyDepot@Alternate">
-        <Aliases value="_UnitLarge"/>
-        <On index="69" Terms="UnitConstruction.RaynorCommanderSupplyDepot@Alternate.Start" Send="Create RaynorCommanderSupplyDepot@Build"/>
-        <On Terms="UnitBirth.RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupApply Burrow Burrow Stand,Burrow ClosingFull"/>
-        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSupplyDepot" Send="AnimGroupRemove Burrow"/>
-        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSupplyDepot" Send="AnimGroupApply Unburrow Unburrow Stand ClosingFull"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot@Alternate" Send="Destroy"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot" Send="Create"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot" Send="AnimGroupRemove Unburrow"/>
-        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot" Send="AnimGroupApply Burrow Stand,Burrow Stand,Burrow Instant"/>
-        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationSupplyDepot"/>
-        <On Terms="Abil.SupplyDrop.TargetApproachStart" Send="$Spell"/>
-        <On Terms="Signal.*.Incoming" Send="RefSetFromMsg ::actor.SupplyDropModel ::Sender"/>
-        <On Terms="Signal.*.Incoming" Target="::actor.SupplyDropModel" Send="Signal Lowered"/>
-        <On Terms="ActorCreation; PlayerHasReward SupplyDepotSkin" Send="StatusSet CE 1"/>
-        <On Terms="ActorCreation; PlayerHasReward SupplyDepotSkin" Send="AnimBracketStop ::GL_BSD Instant"/>
-        <CreepHeightClass value="Tiny"/>
-        <DeathArray index="Normal" ModelLink="RaynorCommanderSupplyDepot@DeathAlternate" SoundLink="RaynorCommanderSupplyDepot@Explode"/>
-        <PlacementModel value="SupplyDepotPlacement"/>
-        <PlacementSound value="Terran_BuildingPlacementSmall"/>
-        <PortraitModel value="SupplyDepotPortrait"/>
-        <BarOffset value="70"/>
-        <BarWidth value="80"/>
-        <ErrorArray Error="CantBuildLocationInvalid" Text="e_cmdCantRaise" Sound="UI_GenericError"/>
-        <ErrorArray Error="CantFindPlacementLocation" Text="e_cmdCantRaise" Sound="UI_GenericError"/>
-        <ErrorArray Error="CantBuildOnThat" Text="e_cmdCantRaise" Sound="UI_GenericError"/>
-        <GroupIcon>
-            <Image value="Assets\Textures\Wireframe-Terran-SupplyDepot-Lowered.dds"/>
-        </GroupIcon>
-        <HeroIcon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
-        <SoundArray index="Ready" value="RaynorCommanderSupplyDepot@Ready"/>
-        <SoundArray index="Help" value="SupplyDepotHelp"/>
-        <SoundArray index="What" value="RaynorCommanderSupplyDepot@What"/>
-        <SoundArray index="Yes" value="SupplyDepotYes"/>
-        <SoundArray index="Attack" value="SupplyDepotYes"/>
-        <SoundArray index="Pissed" value="SupplyDepotPissed"/>
-        <UnitFlags index="ShowBlobShadow" value="0"/>
-        <UnitIcon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
-        <Wireframe>
-            <Image value="Assets\Textures\Wireframe-Terran-SupplyDepot-Lowered.dds"/>
-        </Wireframe>
-    </CActorUnit>
-    <CActorModel id="RaynorCommanderSupplyDepot@Build" parent="TerranBuildingBuild">
-        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
-    </CActorModel>
     <!--                                                                                         -->
     <!--                                                                                         -->
     <!-- Global Config ========================================================================= -->
@@ -843,6 +325,9 @@
         <On Terms="ProgressLevel.RaynorCommanderConstruction.Start; Level 0" Send="SetTransferOverrideAnim Build,A,Stand"/>
         <On Terms="ProgressLevel.RaynorCommanderConstruction.Stop; Level 0" Send="SetTransferOverrideAnim"/>
         <On Terms="Abil.RaynorCommanderBuildSCV.BuiltStart" Send="Create"/>
+        <On Terms="Abil.RaynorCommanderBuildAddons@Barracks.BuiltStart" Send="Create"/>
+        <On Terms="Abil.RaynorCommanderBuildAddons@Factory.BuiltStart" Send="Create"/>
+        <On Terms="Abil.RaynorCommanderBuildAddons@Starport.BuiltStart" Send="Create"/>
         <StageArray AnimProps="Build,A,Start" BlendTime="0.000000"/>
         <StageArray AnimProps="Build,A,Stand"/>
         <StageArray AnimProps="Build,B,Start"/>

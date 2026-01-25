@@ -47,6 +47,7 @@ Abil/Name/RaynorCommanderYamatoGun=Yamato Gun
 Abil/Name/Stimpack=Stimpack
 Actor/AddonIndicator/RaynorCommanderReactor=T
 Actor/AddonIndicator/RaynorCommanderTechLab=T
+Actor/AddonIndicator/RaynorCommanderTechLabStarport=T
 Behavior/Name/RaynorCommanderAfterburners=Afterburner
 Behavior/Name/RaynorCommanderBansheeAirstrike@Drop=Drop
 Behavior/Name/RaynorCommanderBansheeAirstrike@Raise=Raise
@@ -69,7 +70,7 @@ Button/Name/RaynorCommanderBuildAddons@Barracks=Build <d stringRef="Unit,RaynorC
 Button/Name/RaynorCommanderBuildAddons@Factory=Build <d stringRef="Unit,RaynorCommanderTechLab,Name"/>
 Button/Name/RaynorCommanderBuildAddons@Starport=Build <d stringRef="Unit,RaynorCommanderTechLab,Name"/>
 Button/Name/RaynorCommanderBunker=Build <d stringRef="Unit,RaynorCommanderBunker,Name"/>
-Button/Name/RaynorCommanderCommandCenter=Build <d stringRef="Unit,RaynorCommanderCommandCenter,Name"/>
+Button/Name/RaynorCommanderCommandCenter=Build <d stringRef="DataCollection,RaynorCommanderCommandCenter,Name"/>
 Button/Name/RaynorCommanderEngineeringBay=Build Engineering Bay
 Button/Name/RaynorCommanderFactory=Build <d stringRef="Unit,RaynorCommanderFactory,Name"/>
 Button/Name/RaynorCommanderFirebat=Train <d stringRef="Unit,RaynorCommanderFirebat,Name"/>
@@ -211,7 +212,7 @@ DataCollection/Name/RaynorCommanderBuildAddons=Raynor Commander - Build Addons
 DataCollection/Name/RaynorCommanderBuildSCV=Raynor Commander - Build SCV
 DataCollection/Name/RaynorCommanderBunker=Raynor Commander - Bunker
 DataCollection/Name/RaynorCommanderBurrowSpiderMine=Raynor Commander - Burrow Spider-Mine
-DataCollection/Name/RaynorCommanderCommandCenter=Raynor Commander - Command Center
+DataCollection/Name/RaynorCommanderCommandCenter=Command Center
 DataCollection/Name/RaynorCommanderConstruction=Raynor Commander - Construction
 DataCollection/Name/RaynorCommanderConstructionSounds=Raynor Commander - Construction Sounds
 DataCollection/Name/RaynorCommanderDuskWings=Raynor Commander - Dusk Wings
@@ -407,8 +408,11 @@ Unit/Description/RaynorCommanderMedic=Легкая единица поддерж
 Unit/LifeArmorName/TerranBuildingPlating=Terran Building Plating
 Unit/Name/COOP/RaynorCommanderArmory=Armory
 Unit/Name/COOP/RaynorCommanderBanshee=Banshee
+Unit/Name/COOP/RaynorCommanderBarracks=Barracks
+Unit/Name/COOP/RaynorCommanderCommandCenter=<d stringref="DataCollection,RaynorCommanderCommandCenter,Name"/>
 Unit/Name/COOP/RaynorCommanderDuskWings=Сумеречная стая
 Unit/Name/COOP/RaynorCommanderEngineeringBay=Engineering Bay
+Unit/Name/COOP/RaynorCommanderFactory=Barracks
 Unit/Name/COOP/RaynorCommanderFirebat=Firebat
 Unit/Name/COOP/RaynorCommanderFusionCore=Fusion Core
 Unit/Name/COOP/RaynorCommanderMarauder=Marauder
@@ -416,42 +420,27 @@ Unit/Name/COOP/RaynorCommanderMarine=Marine
 Unit/Name/COOP/RaynorCommanderMedic=Medic
 Unit/Name/COOP/RaynorCommanderMissileTurret=Missile Turret
 Unit/Name/COOP/RaynorCommanderRefinery=Refinery
+Unit/Name/COOP/RaynorCommanderSiegeTank=Siege Tank
+Unit/Name/COOP/RaynorCommanderSiegeTank@Alternate=Siege Tank
+Unit/Name/COOP/RaynorCommanderStarport=Starport
+Unit/Name/COOP/RaynorCommanderSupplyDepot=Хранилище
+Unit/Name/COOP/RaynorCommanderSupplyDepot@Alternate=<d stringRef="Unit,RaynorCommanderSupplyDepot,Name"/>
 Unit/Name/RaynorCommanderATALaserBatteryAir@Damage@Missile=Missile
 Unit/Name/RaynorCommanderATSLaserBattery@Missile=Missile
 Unit/Name/RaynorCommanderAbilPDD@Missile=Missile
 Unit/Name/RaynorCommanderBackslashRockets@Missile=Missile
-Unit/Name/RaynorCommanderBanshee=Banshee
-Unit/Name/RaynorCommanderBarracks=Barracks
-Unit/Name/RaynorCommanderBattlecruiser=Battlecruiser 
-Unit/Name/RaynorCommanderBunker=Bunker
-Unit/Name/RaynorCommanderCommandCenter=Command Center
-Unit/Name/RaynorCommanderDuskWings=Dusk Wings
 Unit/Name/RaynorCommanderDuskWingsRockets@Missile=Missile
-Unit/Name/RaynorCommanderFactory=Factory
-Unit/Name/RaynorCommanderFirebat=Firebat
-Unit/Name/RaynorCommanderHyperion=Hyperion
 Unit/Name/RaynorCommanderHyperionYamatoGun@Missile=Missile
 Unit/Name/RaynorCommanderLanzerTorpedoes@Missile=Missile
-Unit/Name/RaynorCommanderMarauder=Marauder
-Unit/Name/RaynorCommanderMarine=Marine
-Unit/Name/RaynorCommanderMedic=Medic
 Unit/Name/RaynorCommanderPDD=Point Defense Drone
 Unit/Name/RaynorCommanderPunisherGrenades@LMWeapon=Missile
 Unit/Name/RaynorCommanderReactor=Reactor
-Unit/Name/RaynorCommanderSCV=SCV
-Unit/Name/RaynorCommanderSiegeTank=Siege Tank
-Unit/Name/RaynorCommanderSiegeTank@Alternate=Siege Tank
 Unit/Name/RaynorCommanderSpiderMine=Spider mine
 Unit/Name/RaynorCommanderSpiderMine@Burrowed=Spider mine
-Unit/Name/RaynorCommanderStarport=Starport
-Unit/Name/RaynorCommanderSupplyDepot=Хранилище
-Unit/Name/RaynorCommanderSupplyDepot@Alternate=<d stringRef="Unit,RaynorCommanderSupplyDepot,Name"/>
 Unit/Name/RaynorCommanderTechLab=Tech Lab
+Unit/Name/RaynorCommanderTechLabStarport=Tech Lab
 Unit/Name/RaynorCommanderTopBarCaster=Raynor Commander - TopBar Caster
 Unit/Name/RaynorCommanderTorpedoes@Missile=Missile
-Unit/Name/RaynorCommanderViking=Viking
-Unit/Name/RaynorCommanderViking@Alternate=Viking
-Unit/Name/RaynorCommanderVulture="Стервятник"
 Unit/Name/RaynorCommanderYamatoGun@Missile=Missile
 Unit/Subtitle/RaynorCommanderHyperion=Raynor's Raiders Flagship
 Upgrade/Name/RaynorCommanderAirStrike=Air Strike

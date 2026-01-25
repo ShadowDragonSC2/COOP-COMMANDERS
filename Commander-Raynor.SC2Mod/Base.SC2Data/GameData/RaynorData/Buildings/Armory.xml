@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="RaynorCommanderArmory@Requirement">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderArmory">
+        <Icon value="Assets\Textures\btn-building-terran-armory.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-armory.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorUnit id="RaynorCommanderArmory" parent="GenericUnitStandard" unitName="RaynorCommanderArmory">
+        <EditorCategories value=""/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel0.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-armory.dds"/>
+        <On Terms="UnitConstruction.RaynorCommanderArmory" Send="Create RaynorCommanderArmory@Build"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderArmory@Death" SoundLink="RaynorCommanderArmory@Death"/>
+        <PlacementModel value="RaynorCommanderArmory@Placement"/>
+        <PlacementSound value="Terran_BuildingPlacement"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-armory.dds"/>
+        </Wireframe>
+        <Aliases value="_CreepEngulfable"/>
+        <Aliases value="_UnitHuge"/>
+    </CActorUnit>
+    <CActorModel id="RaynorCommanderArmory@Build" parent="TerranBuildingBuild">
+        <EditorCategories value=""/>
+        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
+    </CActorModel>
+    <CActorSplat id="RaynorCommanderArmory@Splat" parent="GenericUnitSplat">
+        <EditorCategories value=""/>
+    </CActorSplat>
+    <CModel id="RaynorCommanderArmory" parent="Unit">
+        <Model value="Assets\Buildings\Terran\ArmoryEx1\ArmoryEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Radius value="1.250000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="1.800000"/>
+        <ShadowRadius value="1.800000"/>
+    </CModel>
+    <CModel id="RaynorCommanderArmory@Build" parent="TerranBuildingBuild">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderArmory@Death" parent="UnitDeath">
+        <Model value="Assets\Buildings\Terran\ArmoryDeathEx1\ArmoryDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderArmory@Placement" parent="Placement">
+        <Model value="Assets\Buildings\Terran\ArmoryPlacement\ArmoryPlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderArmory@Portrait" parent="FXAPortrait">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <FacialController value="LocalizedData\Facial\AdjutantPortrait.fxa"/>
+        <Image value="Assets\Textures\adjutantportrait_static.dds"/>
+    </CModel>
+    <CSound id="RaynorCommanderArmory@Death" parent="Death">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" FacialGroup=""/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderArmory" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderArmory"/>
+        <DataRecord Entry="Button,RaynorCommanderArmory"/>
+        <DataRecord Entry="Model,RaynorCommanderArmory"/>
+        <DataRecord Entry="Model,RaynorCommanderArmory@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderArmory@Portrait"/>
+        <DataRecord Entry="Unit,RaynorCommanderArmory"/>
+        <DataRecord Entry="Model,RaynorCommanderArmory@Placement"/>
+        <DataRecord Entry="Actor,RaynorCommanderArmory@Build"/>
+        <DataRecord Entry="Model,RaynorCommanderArmory@Build"/>
+        <DataRecord Entry="Requirement,RaynorCommanderArmory@Requirement"/>
+        <DataRecord Entry="Actor,RaynorCommanderArmory@Splat"/>
+        <DataRecord Entry="Sound,RaynorCommanderArmory@Death"/>
+    </CDataCollectionUnit>
+    <!-- Structure -->
+    <CUnit id="RaynorCommanderArmory" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <Facing value="0"/>
+        <LifeStart value="750"/>
+        <LifeMax value="750"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="100"/>
+        <BuildTime value="30"/>
+        <RepairTime value="65"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <Attributes index="Mechanical" value="1"/>
+        <AbilArray Link="RaynorCommanderArmoryResearch"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="RaynorCommanderVehicleAndShipWeapons@Level1" Type="AbilCmd" AbilCmd="RaynorCommanderArmoryResearch,Research1" Row="0" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderVehicleAndShipWeapons@Level2" Type="AbilCmd" AbilCmd="RaynorCommanderArmoryResearch,Research2" Row="1" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderVehicleAndShipWeapons@Level3" Type="AbilCmd" AbilCmd="RaynorCommanderArmoryResearch,Research3" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="1.25"/>
+        <SeparationRadius value="1.25"/>
+        <ScoreMake value="250"/>
+        <ScoreKill value="250"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="1.75"/>
+    </CUnit>
+</Catalog>

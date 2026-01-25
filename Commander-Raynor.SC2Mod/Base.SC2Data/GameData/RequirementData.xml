@@ -4,35 +4,13 @@
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderAirStrikeCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="RaynorCommanderArmory@Requirement">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-    </CRequirement>
     <CRequirement id="RaynorCommanderArmoryUpgradeCache">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderArmoryUpgradeCacheCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="RaynorCommanderBarracks">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <CanBeSuppressed index="Use" value="0"/>
-        <NodeArray index="Use" Link="CountUnitAlias_RaynorCommanderSupplyDepotCompleteOnly169109972TechTreeCheat"/>
-    </CRequirement>
     <CRequirement id="RaynorCommanderBattleBunkers">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderBattleBunkersCompleteOnly"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderCommandCenter">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <CanBeSuppressed index="Use" value="0"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderEngineeringBay">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <CanBeSuppressed index="Use" value="0"/>
-        <NodeArray index="Use" Link="CountUnitEngineeringBayCompleteOnlyTechTreeCheat"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderFactory">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <CanBeSuppressed index="Use" value="0"/>
-        <NodeArray index="Use" Link="CountUnitAlias_BarracksCompleteOnly1633119839TechTreeCheat"/>
     </CRequirement>
     <CRequirement id="RaynorCommanderFactoryUpgradeCache">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
@@ -74,19 +52,9 @@
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderRapidRecruitmentCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="RaynorCommanderStarport">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <CanBeSuppressed index="Use" value="0"/>
-        <NodeArray index="Use" Link="CountUnitAlias_FactoryCompleteOnly3407815928TechTreeCheat"/>
-    </CRequirement>
     <CRequirement id="RaynorCommanderStarportUpgradeCache">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderStarportUpgradeCacheCompleteOnly"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderSupplyDepot">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <CanBeSuppressed index="Use" value="0"/>
-        <NodeArray index="Use" Link="CountUnitAlias_SupplyDepotCompleteOnly3975993912TechTreeCheat"/>
     </CRequirement>
     <CRequirement id="RaynorCommanderInciniratorGauntlets">
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
@@ -100,33 +68,9 @@
         <EditorCategories value="Race:Raynor,TechType:Upgrade"/>
         <NodeArray index="Show" Link="CountUpgradeRaynorCommanderJuggernautPlatingCompleteOnly"/>
     </CRequirement>
-    <CRequirement id="RaynorCommanderReactorMorphBarrack@Requirement">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Show" Link="CountUnitAlias_BarracksCompleteOnlyAtUnit"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderTechLabMorphBarrack@Requirement">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Show" Link="CountUnitAlias_BarracksCompleteOnlyAtUnit"/>
-    </CRequirement>
     <CRequirement id="RaynorCommanderReactorMorphDetached@Requirement">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>
         <NodeArray index="Show" Link="NotOrCountUnitAlias_BarracksCompleteOnlyAtUnitCountUnitAlias_FactoryCompleteOnlyAtUnitCountUnitAlias_StarportCompleteOnlyAtUnit"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderReactorMorphFactory@Requirement">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Show" Link="CountUnitAlias_FactoryCompleteOnlyAtUnit"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderTechLabMorphFactory@Requirement">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Show" Link="CountUnitAlias_FactoryCompleteOnlyAtUnit"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderReactorMorphStarport@Requirement">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Show" Link="CountUnitAlias_StarportCompleteOnlyAtUnit"/>
-    </CRequirement>
-    <CRequirement id="RaynorCommanderTechLabMorphStarport@Requirement">
-        <EditorCategories value="Race:Raynor,TechType:Unit"/>
-        <NodeArray index="Show" Link="CountUnitAlias_StarportCompleteOnlyAtUnit"/>
     </CRequirement>
     <CRequirement id="RaynorCommanderTechLabMorphDetached@Requirement">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>

@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilMorph id="RaynorCommanderTechLabMorphBarrack">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderTechLabMorphBarrack" Requirements="RaynorCommanderTechLabMorphBarrack@Requirement"/>
+        <Flags index="Automatic" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <InfoArray Unit="RaynorCommanderTechLabBarrack"/>
+    </CAbilMorph>
+    <CRequirement id="RaynorCommanderTechLabMorphBarrack@Requirement">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <NodeArray index="Show" Link="CountUnitAlias_BarracksCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderTechLabMorphBarrack">
+        <Icon value="Assets\Textures\btn-building-terran-techlab.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorModel id="RaynorCommanderTechLabBarrack@Build" parent="TerranBuildingBuildSmall">
+        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
+        <Model value="RaynorCommanderTechLab@Build"/>
+    </CActorModel>
+    <CActorModel id="RaynorCommanderTechLabFactory@Build" parent="TerranBuildingBuildSmall">
+        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
+    </CActorModel>
+    <CActorUnit id="RaynorCommanderTechLab" parent="TechLabBase">
+        <DeathArray index="Normal" ModelLink="RaynorCommanderTechLab@Death" SoundLink="RaynorCommanderTechLab@Explode"/>
+        <DeathArray index="UnderConstruction" SoundLink="RaynorCommanderTechLab@Explode"/>
+        <DeathCustoms index="5" ModelLink="RaynorCommanderTechLab@DeathDetached" Name="Detached"/>
+        <PlacementModel value="RaynorCommanderTechLab@Placement"/>
+        <AddonIndicator value="Actor/AddonIndicator/RaynorCommanderTechLab"/>
+        <HighlightTooltip value="Unit/Name/RaynorCommanderTechLab"/>
+        <SoundArray index="Birth" value="RaynorCommanderTechLab@Birth"/>
+        <SoundArray index="Ready" value="RaynorCommanderTechLab@Ready"/>
+        <SoundArray index="What" value="RaynorCommanderTechLab@What"/>
+        <On index="69" Send="Create RaynorCommanderTechLab@Build"/>
+    </CActorUnit>
+    <CActorSplat id="RaynorCommanderTechLab@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderTechLab"/>
+    <CActorUnit id="RaynorCommanderTechLabFactory" parent="RaynorCommanderTechLab" unitName="RaynorCommanderTechLabFactory"/>
+    <CActorSplat id="RaynorCommanderTechLabFactory@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderTechLabFactory"/>
+    <CActorUnit id="RaynorCommanderTechLabBarrack" parent="RaynorCommanderTechLab" unitName="RaynorCommanderTechLabBarrack"/>
+    <CActorSplat id="RaynorCommanderTechLabBarrack@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderTechLabBarrack"/>
+    <CActorUnit id="RaynorCommanderTechLabStarport" parent="RaynorCommanderTechLab" unitName="RaynorCommanderTechLabStarport"/>
+    <CActorSplat id="RaynorCommanderTechLabStarport@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderTechLabStarport"/>
+    <CActorModel id="RaynorCommanderTechLab@Build" parent="TerranBuildingBuildSmall">
+        <On Terms="ActorCreation" Send="SetScale 1.350000"/>
+    </CActorModel>
+    <CFootprint id="RaynorCommanderTechLab@3x3AddOn2x2">
+        <Layers index="Check" Area="-3,-1,4,2">
+            <Rows value="..xxx.."/>
+            <Rows value="..xxxxx"/>
+            <Rows value="..xxxxx"/>
+        </Layers>
+        <Layers index="Place" Area="-3,-1,4,2">
+            <Rows value="..xxx.."/>
+            <Rows value="..xxxxx"/>
+            <Rows value="..xxxxx"/>
+        </Layers>
+        <Layers index="Pathing" Area="-7,-3,7,3">
+            <Rows value="......."/>
+            <Rows value="......."/>
+            <Rows value="......."/>
+        </Layers>
+        <Shape>
+            <Radius value="3.808"/>
+            <Offsets value="-1.5,-1.5;3.5,-1.5;1.5,0.5;3.5,0.5;-1.5,1.5;1.5,1.5"/>
+            <Borders value="0,4,2;1,0,2;2,3,2;3,1,2;4,5,2;5,2,2"/>
+        </Shape>
+    </CFootprint>
+    <CModel id="RaynorCommanderTechLabFactory@Build" parent="TechLabBuildBase">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLabFactory" parent="TechLabBase">
+        <Model value="Assets\Buildings\Terran\TechLabEx1\TechLabEx1.m3"/>
+        <Lighting value="TechLab"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLabFactory@Splat" parent="Splat">
+        <Model value="Assets\Splats\Splat_TechLab\Splat_TechLab.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLabBarrack" parent="TechLabBase">
+        <Model value="Assets\Buildings\Terran\TechLabEx1\TechLabEx1.m3"/>
+        <Lighting value="TechLab"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLabBarrack@Splat" parent="Splat">
+        <Model value="Assets\Splats\Splat_TechLab\Splat_TechLab.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLab" parent="TechLabBase">
+        <Model value="Assets\Buildings\Terran\TechLabEx1\TechLabEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLab@Death" parent="TechLabDeathBase">
+        <Model value="Assets\Buildings\Terran\TechLabDeathEx1\TechLabDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLab@DeathDetached" parent="TechLabDetachedDeathBase">
+        <Model value="Assets\Buildings\Terran\TechLabDetachedDeathEx1\TechLabDetachedDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLab@Placement" parent="TechLabPlacementBase" low="RaynorCommanderTechLab">
+        <Model value="Assets\Buildings\Terran\TechLabPlacement\TechLabPlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLab@Splat" parent="Splat">
+        <Model value="Assets\Splats\Splat_TechLab\Splat_TechLab.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLab@Portrait" parent="TerranBuildingPortraitBase">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <Image value="Assets\Textures\AdjutantPortrait_Static.dds"/>
+        <Lighting value="AdjutantPortrait"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLabStarport" parent="TechLabBase">
+        <Model value="Assets\Buildings\Terran\TechLabEx1\TechLabEx1.m3"/>
+        <Lighting value="TechLab"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLabStarport@Splat" parent="Splat">
+        <Model value="Assets\Splats\Splat_TechLab\Splat_TechLab.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CModel id="RaynorCommanderTechLab@Build" parent="TechLabBuildBase">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CSound id="RaynorCommanderTechLab@Birth" parent="Build">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_Birth.wav"/>
+        <Volume value="-13.980000,-13.980000"/>
+    </CSound>
+    <CSound id="RaynorCommanderTechLab@Explode" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+        <DupeMuteCount value="5"/>
+    </CSound>
+    <CSound id="RaynorCommanderTechLab@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderTechLab@What" parent="Voice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderTechLabStarport@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderTechLabStarport@What" parent="Voice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderTechLab" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLab"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLab@Splat"/>
+        <DataRecord Entry="Footprint,RaynorCommanderTechLab@3x3AddOn2x2"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLab"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLab@Splat"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLab@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLab@DeathDetached"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLab@Placement"/>
+        <DataRecord Entry="Sound,RaynorCommanderTechLab@Birth"/>
+        <DataRecord Entry="Sound,RaynorCommanderTechLab@Explode"/>
+        <DataRecord Entry="Sound,RaynorCommanderTechLab@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderTechLab@What"/>
+        <DataRecord Entry="Unit,RaynorCommanderTechLab"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLab@Build"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLab@Build"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLab@Portrait"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderTechLabBarrack" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLabBarrack"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLabBarrack@Splat"/>
+        <DataRecord Entry="Behavior,RaynorCommanderTechLabBarrack"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLabBarrack"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLabBarrack@Splat"/>
+        <DataRecord Entry="Unit,RaynorCommanderTechLabBarrack"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLabBarrack@Build"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderTechLabFactory" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Behavior,RaynorCommanderTechLabFactory"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLabFactory"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLabFactory@Splat"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLabFactory"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLabFactory@Splat"/>
+        <DataRecord Entry="Unit,RaynorCommanderTechLabFactory"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLabFactory@Build"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLabFactory@Build"/>
+    </CDataCollectionUnit>
+    <CDataCollectionUnit id="RaynorCommanderTechLabStarport" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Behavior,RaynorCommanderTechLabStarport"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLabStarport"/>
+        <DataRecord Entry="Actor,RaynorCommanderTechLabStarport@Splat"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLabStarport"/>
+        <DataRecord Entry="Model,RaynorCommanderTechLabStarport@Splat"/>
+        <DataRecord Entry="Unit,RaynorCommanderTechLabStarport"/>
+        <DataRecord Entry="Sound,RaynorCommanderTechLabStarport@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderTechLabStarport@What"/>
+    </CDataCollectionUnit>
+    <CDataCollectionAbil id="RaynorCommanderTechLabMorphBarrack">
+        <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Raynor,ObjectType:Other"/>
+        <DataRecord Entry="Abil,RaynorCommanderTechLabMorphBarrack"/>
+        <DataRecord Entry="Button,RaynorCommanderTechLabMorphBarrack"/>
+        <DataRecord Entry="Requirement,RaynorCommanderTechLabMorphBarrack@Requirement"/>
+    </CDataCollectionAbil>
+    <CUnit id="RaynorCommanderTechLabFactory">
+        <Name value="Unit/Name/RaynorCommanderTechLab"/>
+        <Description value="Button/Tooltip/TechLab"/>
+        <DeathRevealRadius value="3"/>
+        <ReviveType value="RaynorCommanderTechLab"/>
+        <Facing value="315"/>
+        <Race value="COOPRaynor"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="9"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="25"/>
+        <RepairTime value="25"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="que5Addon"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphDetached"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphFactory"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphStarport"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphBarrack"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5Addon,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="ResearchSiegeTech" Type="AbilCmd" AbilCmd="FactoryTechLabResearch,Research1" Row="0" Column="1"/>
+            <LayoutButtons Face="ResearchHighCapacityBarrels" Type="AbilCmd" AbilCmd="FactoryTechLabResearch,Research2" Row="0" Column="0"/>
+            <LayoutButtons Face="ResearchStrikeCannons" Type="AbilCmd" AbilCmd="FactoryTechLabResearch,Research3" Row="0" Column="2"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint3x3AddOn2x2"/>
+        <AddedOnArray UnitLink="RaynorCommanderBarracks" BehaviorLink="RaynorCommanderTechLabBarrack"/>
+        <AddedOnArray UnitLink="RaynorCommanderFactory" BehaviorLink="RaynorCommanderTechLabFactory"/>
+        <AddedOnArray UnitLink="RaynorCommanderStarport" BehaviorLink="RaynorCommanderTechLabStarport"/>
+        <AddOnOffsetX value="2.5"/>
+        <AddOnOffsetY value="-0.5"/>
+        <ScoreMake value="75"/>
+        <ScoreKill value="75"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <TacticalAI value="TechLab"/>
+        <HotkeyAlias value="RaynorCommanderTechLab"/>
+        <SelectAlias value="RaynorCommanderTechLab"/>
+        <TechAliasArray value="Alias_RaynorTechLab"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
+        <AIEvaluateAlias value="TechLab"/>
+        <ReviveInfoBase>
+            <Charge Link="TechLab/Revive"/>
+            <Cooldown Link="TechLab/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
+    <CUnit id="RaynorCommanderTechLabBarrack">
+        <Name value="Unit/Name/RaynorCommanderTechLab"/>
+        <Description value="Button/Tooltip/TechLab"/>
+        <DeathRevealRadius value="3"/>
+        <ReviveType value="RaynorCommanderTechLab"/>
+        <Facing value="315"/>
+        <Race value="COOPRaynor"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="9"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="25"/>
+        <RepairTime value="25"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="que5Addon"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphDetached"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphFactory"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphStarport"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphBarrack"/>
+        <AbilArray Link="RaynorCommanderBarrackResearch"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5Addon,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="RaynorCommanderJuggernautPlating" Type="AbilCmd" AbilCmd="RaynorCommanderBarrackResearch,Research2" Row="0" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderInciniratorGauntlets" Type="AbilCmd" AbilCmd="RaynorCommanderBarrackResearch,Research1" Row="0" Column="1"/>
+            <LayoutButtons Face="ResearchPunisherGrenades" Type="AbilCmd" AbilCmd="RaynorCommanderBarrackResearch,Research3" Row="0" Column="2"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint3x3AddOn2x2"/>
+        <AddedOnArray UnitLink="RaynorCommanderBarracks" BehaviorLink="RaynorCommanderTechLabBarrack"/>
+        <AddedOnArray UnitLink="RaynorCommanderFactory" BehaviorLink="RaynorCommanderTechLabFactory"/>
+        <AddedOnArray UnitLink="RaynorCommanderStarport" BehaviorLink="RaynorCommanderTechLabStarport"/>
+        <AddOnOffsetX value="2.5"/>
+        <AddOnOffsetY value="-0.5"/>
+        <ScoreMake value="75"/>
+        <ScoreKill value="75"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <TacticalAI value="TechLab"/>
+        <HotkeyAlias value="RaynorCommanderTechLab"/>
+        <SelectAlias value="RaynorCommanderTechLab"/>
+        <TechAliasArray value="Alias_RaynorTechLab"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
+        <AIEvaluateAlias value="TechLab"/>
+        <ReviveInfoBase>
+            <Charge Link="TechLab/Revive"/>
+            <Cooldown Link="TechLab/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
+    <CUnit id="RaynorCommanderTechLab">
+        <DeathRevealRadius value="3"/>
+        <Facing value="315"/>
+        <Race value="COOPRaynor"/>
+        <Mob value="Multiplayer"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="9"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="25"/>
+        <RepairTime value="25"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="que5Addon"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphBarrack"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphFactory"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphStarport"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5LongBlend,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="RaynorCommanderTechLab@3x3AddOn2x2"/>
+        <AddedOnArray UnitLink="RaynorCommanderBarracks" BehaviorLink="RaynorCommanderTechLabBarrack"/>
+        <AddedOnArray UnitLink="RaynorCommanderFactory" BehaviorLink="RaynorCommanderTechLabFactory"/>
+        <AddedOnArray UnitLink="RaynorCommanderStarport" BehaviorLink="RaynorCommanderTechLabStarport"/>
+        <AddOnOffsetX value="2.5"/>
+        <AddOnOffsetY value="-0.5"/>
+        <ScoreMake value="75"/>
+        <ScoreKill value="75"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <TechAliasArray value="Alias_RaynorTechLab"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderTechLabStarport">
+        <Name value="Unit/Name/RaynorCommanderTechLab"/>
+        <Description value="Button/Tooltip/TechLab"/>
+        <DeathRevealRadius value="3"/>
+        <ReviveType value="RaynorCommanderTechLab"/>
+        <Facing value="315"/>
+        <Race value="COOPRaynor"/>
+        <FlagArray index="Turnable" value="0"/>
+        <FlagArray index="PreventDefeat" value="1"/>
+        <FlagArray index="PreventDestroy" value="1"/>
+        <FlagArray index="PenaltyRevealed" value="1"/>
+        <FlagArray index="UseLineOfSight" value="1"/>
+        <FlagArray index="TownAlert" value="1"/>
+        <FlagArray index="NoPortraitTalk" value="1"/>
+        <FlagArray index="ArmorDisabledWhileConstructing" value="1"/>
+        <FogVisibility value="Snapshot"/>
+        <PlaneArray index="Ground" value="1"/>
+        <Collide index="Burrow" value="1"/>
+        <Collide index="Ground" value="1"/>
+        <Collide index="Structure" value="1"/>
+        <Collide index="RoachBurrow" value="1"/>
+        <Collide index="ForceField" value="1"/>
+        <Collide index="Small" value="1"/>
+        <Attributes index="Armored" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Attributes index="Structure" value="1"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <LifeArmor value="1"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <Sight value="9"/>
+        <CostCategory value="Technology"/>
+        <CostResource index="Minerals" value="50"/>
+        <CostResource index="Vespene" value="25"/>
+        <RepairTime value="25"/>
+        <AttackTargetPriority value="11"/>
+        <AbilArray Link="BuildInProgress"/>
+        <AbilArray Link="que5Addon"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphDetached"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphFactory"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphStarport"/>
+        <AbilArray Link="RaynorCommanderTechLabMorphBarrack"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5Addon,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="ResearchMedivacEnergyUpgrade" Type="AbilCmd" AbilCmd="StarportTechLabResearch,Research3" Row="0" Column="0"/>
+            <LayoutButtons Face="ResearchBansheeCloak" Type="AbilCmd" AbilCmd="StarportTechLabResearch,Research1" Row="0" Column="4"/>
+            <LayoutButtons Face="ResearchRavenEnergyUpgrade" Type="AbilCmd" AbilCmd="StarportTechLabResearch,Research4" Row="0" Column="3"/>
+            <LayoutButtons Face="ResearchDurableMaterials" Type="AbilCmd" AbilCmd="StarportTechLabResearch,Research8" Row="0" Column="1"/>
+            <LayoutButtons Face="ResearchSeekerMissile" Type="AbilCmd" AbilCmd="StarportTechLabResearch,Research7" Row="0" Column="2"/>
+            <LayoutButtons Face="ResearchLiberatorAGMode" Type="AbilCmd" AbilCmd="StarportTechLabResearch,Research11" Row="0" Column="4"/>
+        </CardLayouts>
+        <Radius value="1"/>
+        <SeparationRadius value="1"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint3x3AddOn2x2"/>
+        <AddedOnArray UnitLink="RaynorCommanderBarracks" BehaviorLink="RaynorCommanderTechLabBarrack"/>
+        <AddedOnArray UnitLink="RaynorCommanderFactory" BehaviorLink="RaynorCommanderTechLabFactory"/>
+        <AddedOnArray UnitLink="RaynorCommanderStarport" BehaviorLink="RaynorCommanderTechLabStarport"/>
+        <AddOnOffsetX value="2.5"/>
+        <AddOnOffsetY value="-0.5"/>
+        <ScoreMake value="75"/>
+        <ScoreKill value="75"/>
+        <ScoreResult value="BuildOrder"/>
+        <SubgroupPriority value="2"/>
+        <MinimapRadius value="1"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <TacticalAI value="TechLab"/>
+        <HotkeyAlias value="RaynorCommanderTechLab"/>
+        <SelectAlias value="RaynorCommanderTechLab"/>
+        <TechAliasArray value="Alias_RaynorTechLab"/>
+        <HotkeyCategory value="Hotkey/Category/##race##"/>
+        <AIEvaluateAlias value="TechLab"/>
+        <ReviveInfoBase>
+            <Charge Link="TechLab/Revive"/>
+            <Cooldown Link="TechLab/Revive"/>
+        </ReviveInfoBase>
+    </CUnit>
+    <CBehaviorBuff id="RaynorCommanderTechLabBarrack">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderTechLabFactory">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+    </CBehaviorBuff>
+    <CBehaviorBuff id="RaynorCommanderTechLabStarport">
+        <InfoFlags index="Hidden" value="1"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+    </CBehaviorBuff>
+</Catalog>

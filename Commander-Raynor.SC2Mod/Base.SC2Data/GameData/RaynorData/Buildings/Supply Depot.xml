@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="RaynorCommanderSupplyDepot">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="CountUnitAlias_SupplyDepotCompleteOnly3975993912TechTreeCheat"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderSupplyDepot">
+        <Icon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorUnit id="RaynorCommanderSupplyDepot" parent="TerranBuildingEx" unitName="RaynorCommanderSupplyDepot">
+        <Aliases value="_UnitLarge"/>
+        <On index="69" Terms="UnitConstruction.RaynorCommanderSupplyDepot.Start" Send="Create RaynorCommanderSupplyDepot@Build"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupRemove Unburrow"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupApply Burrow Burrow Stand,Burrow ClosingFull"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot@Alternate" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupRemove Burrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupApply Unburrow Stand,Unburrow Stand,Unburrow Instant"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom SupplyDepotDrop" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom SupplyDepotDrop" Send="Create BuildingTerrainFlatten"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom SupplyDepotDrop" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
+        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationSupplyDepot"/>
+        <On Terms="Signal.*.Incoming" Send="RefSetFromMsg ::actor.SupplyDropModel ::Sender"/>
+        <On Terms="Signal.*.Incoming" Target="::actor.SupplyDropModel" Send="Signal Raised"/>
+        <On Terms="ActorCreation; PlayerHasReward SupplyDepotSkin" Send="StatusSet CE 1"/>
+        <On Terms="ActorCreation; PlayerHasReward SupplyDepotSkin" Send="AnimBracketStop ::GL_BSD Instant"/>
+        <CreepHeightClass value="Small"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderSupplyDepot@Death" SoundLink="RaynorCommanderSupplyDepot@Explode"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="RaynorCommanderSupplyDepot@Explode"/>
+        <PlacementModel value="RaynorCommanderSupplyDepot@Placement"/>
+        <PlacementSound value="Terran_BuildingPlacementSmall"/>
+        <PortraitModel value="RaynorCommanderSupplyDepot@Portrait"/>
+        <BarOffset value="70"/>
+        <BarWidth value="80"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SupplyDepot-Raised.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <NameOffset value="40"/>
+        <SoundArray index="Ready" value="RaynorCommanderSupplyDepot@Ready"/>
+        <SoundArray index="What" value="RaynorCommanderSupplyDepot@What"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SupplyDepot-Raised.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorSplat id="RaynorCommanderSupplyDepot@Splat" parent="GenericUnitSplat" unitName="RaynorCommanderSupplyDepot">
+        <Model value="SupplyDepotSplat"/>
+    </CActorSplat>
+    <CActorUnit id="RaynorCommanderSupplyDepot@Alternate" parent="TerranBuildingEx" unitName="RaynorCommanderSupplyDepot@Alternate">
+        <Aliases value="_UnitLarge"/>
+        <On index="69" Terms="UnitConstruction.RaynorCommanderSupplyDepot@Alternate.Start" Send="Create RaynorCommanderSupplyDepot@Build"/>
+        <On Terms="UnitBirth.RaynorCommanderSupplyDepot@Alternate" Send="AnimGroupApply Burrow Burrow Stand,Burrow ClosingFull"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSupplyDepot" Send="AnimGroupRemove Burrow"/>
+        <On Terms="AbilMorph.*.Start; MorphTo RaynorCommanderSupplyDepot" Send="AnimGroupApply Unburrow Unburrow Stand ClosingFull"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot@Alternate" Send="Destroy"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot" Send="Create"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot" Send="AnimGroupRemove Unburrow"/>
+        <On Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderSupplyDepot" Send="AnimGroupApply Burrow Stand,Burrow Stand,Burrow Instant"/>
+        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestationSupplyDepot"/>
+        <On Terms="Abil.SupplyDrop.TargetApproachStart" Send="$Spell"/>
+        <On Terms="Signal.*.Incoming" Send="RefSetFromMsg ::actor.SupplyDropModel ::Sender"/>
+        <On Terms="Signal.*.Incoming" Target="::actor.SupplyDropModel" Send="Signal Lowered"/>
+        <On Terms="ActorCreation; PlayerHasReward SupplyDepotSkin" Send="StatusSet CE 1"/>
+        <On Terms="ActorCreation; PlayerHasReward SupplyDepotSkin" Send="AnimBracketStop ::GL_BSD Instant"/>
+        <CreepHeightClass value="Tiny"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderSupplyDepot@DeathAlternate" SoundLink="RaynorCommanderSupplyDepot@Explode"/>
+        <PlacementModel value="SupplyDepotPlacement"/>
+        <PlacementSound value="Terran_BuildingPlacementSmall"/>
+        <PortraitModel value="SupplyDepotPortrait"/>
+        <BarOffset value="70"/>
+        <BarWidth value="80"/>
+        <ErrorArray Error="CantBuildLocationInvalid" Text="e_cmdCantRaise" Sound="UI_GenericError"/>
+        <ErrorArray Error="CantFindPlacementLocation" Text="e_cmdCantRaise" Sound="UI_GenericError"/>
+        <ErrorArray Error="CantBuildOnThat" Text="e_cmdCantRaise" Sound="UI_GenericError"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-SupplyDepot-Lowered.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
+        <SoundArray index="Ready" value="RaynorCommanderSupplyDepot@Ready"/>
+        <SoundArray index="Help" value="SupplyDepotHelp"/>
+        <SoundArray index="What" value="RaynorCommanderSupplyDepot@What"/>
+        <SoundArray index="Yes" value="SupplyDepotYes"/>
+        <SoundArray index="Attack" value="SupplyDepotYes"/>
+        <SoundArray index="Pissed" value="SupplyDepotPissed"/>
+        <UnitFlags index="ShowBlobShadow" value="0"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-SupplyDepot-Lowered.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="RaynorCommanderSupplyDepot@Build" parent="TerranBuildingBuild">
+        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
+    </CActorModel>
+    <CFootprint id="RaynorCommanderSupplyDepot@Footpring@2">
+        <Layers index="Check">
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+        </Layers>
+        <Layers index="Place">
+            <Sets index="0">
+                <Positive index="GroundNoSpawn" value="0"/>
+                <Positive index="Dense" value="1"/>
+            </Sets>
+            <Rows value="xx"/>
+            <Rows value="xx"/>
+        </Layers>
+        <Shape>
+            <Radius value="1.1181"/>
+            <Offsets value="-1,0.5;-0.5,1;0.5,1;1,0.5;1,-0.5;0.5,-1;-0.5,-1;-1,-0.5"/>
+            <Borders value="7,0,1;0,1,1;1,2,1;2,3,1;3,4,1;4,5,1;5,6,1;6,7,1"/>
+        </Shape>
+    </CFootprint>
+    <CModel id="RaynorCommanderSupplyDepot" parent="SupplyDepotBase">
+        <Model value="Assets\Buildings\Terran\SupplyDepotEx1\SupplyDepotEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSupplyDepot@Death" parent="SupplyDepotDeathBase">
+        <Model value="Assets\Buildings\Terran\SupplyDepotDeathEx1\SupplyDepotDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSupplyDepot@Placement" parent="SupplyDepotPlacementBase" low="RaynorCommanderSupplyDepot">
+        <Model value="Assets\Buildings\Terran\SupplyDepotPlacement\SupplyDepotPlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSupplyDepot@Portrait" parent="TerranBuildingPortraitBase">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Image value="Assets\Textures\AdjutantPortrait_Static.dds"/>
+        <Lighting value="AdjutantPortrait"/>
+    </CModel>
+    <CModel id="RaynorCommanderSupplyDepot@Alternate" parent="SupplyDepotBase">
+        <Model value="Assets\Buildings\Terran\SupplyDepotEx1\SupplyDepotEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Lighting value="SupplyDepot"/>
+    </CModel>
+    <CModel id="RaynorCommanderSupplyDepot@DeathAlternate" parent="SupplyDepotLoweredDeathBase">
+        <Model value="Assets\Buildings\Terran\SupplyDepotLoweredDeathEx1\SupplyDepotLoweredDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderSupplyDepot@Build" parent="SupplyDepotBuildBase">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CSound id="RaynorCommanderSupplyDepot@Explode" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+    </CSound>
+    <CSound id="RaynorCommanderSupplyDepot@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SupplyDepot\SupplyDepot_What.ogg"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderSupplyDepot@What" parent="Voice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SupplyDepot\SupplyDepot_What.ogg"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderSupplyDepot" parent="CommanderUnitMorphing">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderSupplyDepot"/>
+        <DataRecord Entry="Actor,RaynorCommanderSupplyDepot@Splat"/>
+        <DataRecord Entry="Actor,RaynorCommanderSupplyDepot@Alternate"/>
+        <DataRecord Entry="Actor,RaynorCommanderSupplyDepot@Attached"/>
+        <DataRecord Entry="Actor,RaynorCommanderSupplyDepot@Build"/>
+        <DataRecord Entry="Button,RaynorCommanderSupplyDepot"/>
+        <DataRecord Entry="Footprint,RaynorCommanderSupplyDepot@Footpring@2"/>
+        <DataRecord Entry="Model,RaynorCommanderSupplyDepot"/>
+        <DataRecord Entry="Model,RaynorCommanderSupplyDepot@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderSupplyDepot@Portrait"/>
+        <DataRecord Entry="Model,RaynorCommanderSupplyDepot@Alternate"/>
+        <DataRecord Entry="Model,RaynorCommanderSupplyDepot@DeathAlternate"/>
+        <DataRecord Entry="Model,RaynorCommanderSupplyDepot@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderSupplyDepot@Build"/>
+        <DataRecord Entry="Requirement,RaynorCommanderSupplyDepot"/>
+        <DataRecord Entry="Sound,RaynorCommanderSupplyDepot@Explode"/>
+        <DataRecord Entry="Sound,RaynorCommanderSupplyDepot@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderSupplyDepot@What"/>
+        <DataRecord Entry="Unit,RaynorCommanderSupplyDepot"/>
+        <DataRecord Entry="Unit,RaynorCommanderSupplyDepot@Alternate"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderSupplyDepot" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <Facing value="315"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="400"/>
+        <LifeMax value="400"/>
+        <Food value="8"/>
+        <CostCategory value="Economy"/>
+        <CostResource index="Minerals" value="100"/>
+        <BuildTime value="30"/>
+        <RepairTime value="30"/>
+        <DamageDealtXP value="0"/>
+        <DamageTakenXP value="0"/>
+        <AbilArray index="1" Link="RaynorCommanderLoweredSupplies@1"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="2" Face="RaynorCommanderLoweredSupplies@1" Type="AbilCmd" AbilCmd="RaynorCommanderLoweredSupplies@1,Execute" Row="2" Column="0"/>
+        </CardLayouts>
+        <Radius value="1.25"/>
+        <SeparationRadius value="1.25"/>
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint2x2"/>
+        <ScoreMake value="100"/>
+        <ScoreMakeCostFactor index="Minerals" value="0"/>
+        <ScoreMakeCostFactor index="Vespene" value="0"/>
+        <ScoreKill value="100"/>
+        <ScoreKillCostFactor index="Minerals" value="0"/>
+        <ScoreKillCostFactor index="Vespene" value="0"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="1.25"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderSupplyDepot@Alternate" parent="RaynorCommanderSupplyDepot">
+        <AbilArray index="1" Link="RaynorCommanderLoweredSupplies@2"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="RaynorCommanderLoweredSupplies@2" AbilCmd="RaynorCommanderLoweredSupplies@2,Execute" Column="0"/>
+            <LayoutButtons index="1" removed="1"/>
+            <LayoutButtons index="2" removed="1"/>
+            <LayoutButtons index="3" removed="1"/>
+        </CardLayouts>
+        <Footprint value="RaynorCommanderSupplyDepot@Footpring@2"/>
+        <PlacementFootprint value=""/>
+        <ScoreResult value=""/>
+    </CUnit>
+</Catalog>

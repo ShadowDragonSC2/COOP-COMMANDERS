@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CButton id="RaynorCommanderFusionCore">
+        <Icon value="Assets\Textures\btn-building-terran-fusioncore.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-fusioncore.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorUnit id="RaynorCommanderFusionCore" parent="CommanderUnitBase" unitName="RaynorCommanderFusionCore">
+        <EditorCategories value=""/>
+        <On Terms="UnitConstruction.RaynorCommanderFusionCore.Start" Send="Create RaynorCommanderFusionCore@Build"/>
+        <PlacementSound value="RaynorCommanderFusionCore@Placement"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\btn-building-terran-fusioncore.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-upgrade-protoss-shieldslevel0.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-fusioncore.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-fusioncore.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorModel id="RaynorCommanderFusionCore@Build" parent="TerranBuildingBuild">
+        <EditorCategories value=""/>
+        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
+    </CActorModel>
+    <CModel id="RaynorCommanderFusionCore" parent="Unit">
+        <Model value="Assets\Buildings\Terran\FusionCore\FusionCore.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+        <SelectionLayer value="2"/>
+        <SelectionRadius value="2.333000"/>
+        <ShadowRadius value="2.333000"/>
+        <SquibTypeDefault value="Metal"/>
+    </CModel>
+    <CModel id="RaynorCommanderFusionCore@Build" parent="TerranBuildingBuild">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFusionCore@Death" parent="UnitDeath">
+        <Model value="Assets\Buildings\Terran\FusionCoreDeathEx1\FusionCoreDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFusionCore@Placement" parent="Placement">
+        <Model value="Assets\Buildings\Terran\FusionCorePlacement\FusionCorePlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
+    <CSound id="RaynorCommanderFusionCore@Placement" parent="Terran_BuildingPlacement">
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderFusionCore" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderFusionCore"/>
+        <DataRecord Entry="Button,RaynorCommanderFusionCore"/>
+        <DataRecord Entry="Model,RaynorCommanderFusionCore"/>
+        <DataRecord Entry="Model,RaynorCommanderFusionCore@Death"/>
+        <DataRecord Entry="Unit,RaynorCommanderFusionCore"/>
+        <DataRecord Entry="Sound,RaynorCommanderFusionCore@Placement"/>
+        <DataRecord Entry="Actor,RaynorCommanderFusionCore@Build"/>
+        <DataRecord Entry="Model,RaynorCommanderFusionCore@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderFusionCore@Build"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderFusionCore" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <BuildTime value="65"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+    </CUnit>
+</Catalog>

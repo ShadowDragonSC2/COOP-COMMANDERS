@@ -17,35 +17,11 @@
             <AdditiveMoveSpeedFactor value="0.5"/>
         </Modification>
     </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderTechLabBarrack">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderReactorBarrack">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderTechLabFactory">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-    </CBehaviorBuff>
     <CBehaviorBuff id="RaynorCommanderStimpackMara">
         <Alignment value="Positive"/>
         <InfoIcon value="Assets\Textures\btn-ability-terran-stimpack.dds"/>
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
         <Duration value="15"/>
         <Modification MoveSpeedMultiplier="1.5" AttackSpeedMultiplier="1.5"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderReactorFactory">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderTechLabStarport">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-    </CBehaviorBuff>
-    <CBehaviorBuff id="RaynorCommanderReactorStarport">
-        <InfoFlags index="Hidden" value="1"/>
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
     </CBehaviorBuff>
 </Catalog>

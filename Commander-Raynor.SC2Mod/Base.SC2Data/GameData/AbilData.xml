@@ -21,13 +21,6 @@
             <Button DefaultButtonFace="RaynorCommanderVehicleAndShipWeapons@Level3"/>
         </InfoArray>
     </CAbilResearch>
-    <CAbilMorph id="RaynorCommanderReactorMorphBarrack">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderReactorMorphBarrack" Requirements="RaynorCommanderReactorMorphBarrack@Requirement"/>
-        <Flags index="Automatic" value="1"/>
-        <Flags index="Produce" value="1"/>
-        <InfoArray Unit="RaynorCommanderReactorBarrack"/>
-    </CAbilMorph>
     <CAbilMorph id="RaynorCommanderReactorMorphDetached">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
         <CmdButtonArray index="Execute" Requirements="RaynorCommanderReactorMorphDetached@Requirement"/>
@@ -37,20 +30,6 @@
                 <DurationArray index="Delay" value="0.125"/>
             </SectionArray>
         </InfoArray>
-    </CAbilMorph>
-    <CAbilMorph id="RaynorCommanderReactorMorphFactory">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderReactorMorphFactory" Requirements="RaynorCommanderReactorMorphFactory@Requirement"/>
-        <Flags index="Automatic" value="1"/>
-        <Flags index="Produce" value="1"/>
-        <InfoArray Unit="RaynorCommanderReactorFactory"/>
-    </CAbilMorph>
-    <CAbilMorph id="RaynorCommanderReactorMorphStarport">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderReactorMorphStarport" Requirements="RaynorCommanderReactorMorphStarport@Requirement"/>
-        <Flags index="Automatic" value="1"/>
-        <Flags index="Produce" value="1"/>
-        <InfoArray Unit="RaynorCommanderReactorStarport"/>
     </CAbilMorph>
     <CAbilMorph id="RaynorCommanderVikingMode@2">
         <AbilSetId value="RaynorCommanderVikingMode@2"/>
@@ -220,20 +199,6 @@
         <InfoArray index="0" Unit="RaynorCommanderFactory@Fly"/>
         <EditorCategories value="Race:Raynor,AbilityorEffectType:MorphsandBurrows"/>
     </CAbilMorph>
-    <CAbilMorph id="RaynorCommanderTechLabMorphFactory">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderTechLabMorphFactory" Requirements="RaynorCommanderTechLabMorphFactory@Requirement"/>
-        <Flags index="Automatic" value="1"/>
-        <Flags index="Produce" value="1"/>
-        <InfoArray Unit="RaynorCommanderTechLabFactory"/>
-    </CAbilMorph>
-    <CAbilMorph id="RaynorCommanderTechLabMorphBarrack">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderTechLabMorphBarrack" Requirements="RaynorCommanderTechLabMorphBarrack@Requirement"/>
-        <Flags index="Automatic" value="1"/>
-        <Flags index="Produce" value="1"/>
-        <InfoArray Unit="RaynorCommanderTechLabBarrack"/>
-    </CAbilMorph>
     <CAbilEffectTarget id="RaynorCommanderHeal">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
         <Flags index="AllowMovement" value="1"/>
@@ -255,29 +220,6 @@
         <AutoCastValidatorArray value="NotWarpingIn"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderHeal"/>
     </CAbilEffectTarget>
-    <CAbilTrain id="RaynorCommanderTrainBarrack">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-        <InfoArray index="Train1" Effect="RaynorCommanderOrbitaldroppods@Set">
-            <Button DefaultButtonFace="RaynorCommanderMarine" State="Restricted" Requirements="RaynorCommanderMarine"/>
-            <Unit value="RaynorCommanderMarine"/>
-        </InfoArray>
-        <InfoArray index="Train2" Effect="RaynorCommanderOrbitaldroppods@Set">
-            <Button DefaultButtonFace="RaynorCommanderFirebat" State="Restricted" Requirements="RaynorCommanderFirebat"/>
-            <Unit value="RaynorCommanderFirebat"/>
-        </InfoArray>
-        <InfoArray index="Train3" Effect="RaynorCommanderOrbitaldroppods@Set">
-            <Button DefaultButtonFace="RaynorCommanderMedic" State="Restricted" Requirements="RaynorCommanderMedic"/>
-            <Unit value="RaynorCommanderMedic"/>
-        </InfoArray>
-        <InfoArray index="Train4" Effect="RaynorCommanderOrbitaldroppods@Set">
-            <Button DefaultButtonFace="RaynorCommanderMarauder" State="Restricted" Requirements="RaynorCommanderMarauder"/>
-            <Unit value="RaynorCommanderMarauder"/>
-        </InfoArray>
-        <InfoArray index="Train5" Time="40">
-            <Button State="Restricted" Requirements="HaveAttachedTechLab"/>
-        </InfoArray>
-        <Flags index="IgnoreUnitBuildTime" value="0"/>
-    </CAbilTrain>
     <CAbilMorphPlacement id="RaynorCommanderLiftBarrack@Land" parent="TerranBuildingLand" unit="Barracks">
         <Name value="Abil/Name/RaynorCommanderLiftBarrack@Land"/>
         <InfoArray index="0" Unit="RaynorCommanderBarracks" CollideRange="0">
@@ -356,13 +298,6 @@
             <Flags index="ToSelection" value="1"/>
         </CmdButtonArray>
     </CAbilEffectInstant>
-    <CAbilMorph id="RaynorCommanderTechLabMorphStarport">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderTechLabMorphStarport" Requirements="RaynorCommanderTechLabMorphStarport@Requirement"/>
-        <Flags index="Automatic" value="1"/>
-        <Flags index="Produce" value="1"/>
-        <InfoArray Unit="RaynorCommanderTechLabStarport"/>
-    </CAbilMorph>
     <CAbilMorph id="RaynorCommanderTechLabMorphDetached">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
         <CmdButtonArray index="Execute" Requirements="RaynorCommanderTechLabMorphDetached@Requirement"/>
@@ -429,23 +364,6 @@
             </SectionArray>
         </InfoArray>
     </CAbilMorph>
-    <CAbilTrain id="RaynorCommanderTrainStarport">
-        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
-        <Activity value="UI/Building"/>
-        <InfoArray index="Train1">
-            <Button DefaultButtonFace="RaynorCommanderBanshee" State="Restricted" Requirements="RaynorCommanderBanshee"/>
-            <Unit value="RaynorCommanderBanshee"/>
-        </InfoArray>
-        <InfoArray index="Train2">
-            <Button DefaultButtonFace="RaynorCommanderBattlecruiser" State="Restricted" Requirements="RaynorCommanderBattlecruiser"/>
-            <Unit value="RaynorCommanderBattlecruiser"/>
-        </InfoArray>
-        <InfoArray index="Train3">
-            <Button DefaultButtonFace="RaynorCommanderViking" State="Restricted"/>
-            <Unit value="RaynorCommanderViking"/>
-        </InfoArray>
-        <Flags index="IgnoreUnitBuildTime" value="0"/>
-    </CAbilTrain>
     <CAbilMorph id="RaynorCommanderTankMode@Unsiege">
         <AbilSetId value="Unsieged"/>
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>

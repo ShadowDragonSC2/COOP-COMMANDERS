@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilTrain id="RaynorCommanderTrainBarrack">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+        <InfoArray index="Train1" Effect="RaynorCommanderOrbitaldroppods@Set">
+            <Button DefaultButtonFace="RaynorCommanderMarine" State="Restricted" Requirements="RaynorCommanderMarine"/>
+            <Unit value="RaynorCommanderMarine"/>
+        </InfoArray>
+        <InfoArray index="Train2" Effect="RaynorCommanderOrbitaldroppods@Set">
+            <Button DefaultButtonFace="RaynorCommanderFirebat" State="Restricted" Requirements="RaynorCommanderFirebat"/>
+            <Unit value="RaynorCommanderFirebat"/>
+        </InfoArray>
+        <InfoArray index="Train3" Effect="RaynorCommanderOrbitaldroppods@Set">
+            <Button DefaultButtonFace="RaynorCommanderMedic" State="Restricted" Requirements="RaynorCommanderMedic"/>
+            <Unit value="RaynorCommanderMedic"/>
+        </InfoArray>
+        <InfoArray index="Train4" Effect="RaynorCommanderOrbitaldroppods@Set">
+            <Button DefaultButtonFace="RaynorCommanderMarauder" State="Restricted" Requirements="RaynorCommanderMarauder"/>
+            <Unit value="RaynorCommanderMarauder"/>
+        </InfoArray>
+        <InfoArray index="Train5" Time="40">
+            <Button State="Restricted" Requirements="HaveAttachedTechLab"/>
+        </InfoArray>
+        <Flags index="IgnoreUnitBuildTime" value="0"/>
+    </CAbilTrain>
+    <CRequirement id="RaynorCommanderBarracks">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="CountUnitAlias_RaynorCommanderSupplyDepotCompleteOnly169109972TechTreeCheat"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderBarracks">
+        <Icon value="Assets\Textures\btn-building-terran-barracks.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-barracks.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorModel id="RaynorCommanderBarracks@Build" parent="TerranBuildingBuild">
+        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
+    </CActorModel>
+    <CActorUnit id="RaynorCommanderBarracks" parent="TerranBuildingFlyerEx" unitName="RaynorCommanderBarracks">
+        <On index="69" Send="Create RaynorCommanderBarracks@Build"/>
+        <On index="80" Terms="UnitBirth.RaynorCommanderBarracks@Fly" Send="Create"/>
+        <On index="81" Terms="UnitBirth.RaynorCommanderBarracks@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End Instant"/>
+        <On index="82" Terms="UnitBirth.RaynorCommanderBarracks@Fly" Send="AliasRemove _CreepEngulfable"/>
+        <On index="83" Terms="UnitBirth.RaynorCommanderBarracks@Fly" Send="CreepEngulfmentStopTransition"/>
+        <On index="84" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End"/>
+        <On index="85" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly" Send="AliasRemove _CreepEngulfable"/>
+        <On index="86" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly" Send="CreepEngulfmentStopTransition"/>
+        <On index="87" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="88" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks; MorphTo RaynorCommanderBarracks@Fly; ScopeContains GroundLocalSelection" Send="StatusIncrement FlyerHelper"/>
+        <On index="89" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Send="AnimGroupRemove Fly"/>
+        <On index="90" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Send="AliasAdd _CreepEngulfable"/>
+        <On index="91" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Send="Create BuildingTerrainFlatten"/>
+        <On index="92" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks; ScopeContains FlyerHelperSplat; HasStatus FlyerHelper" Send="StatusDecrement FlyerHelper"/>
+        <On index="93" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
+        <On index="94" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderBarracks@Fly; MorphTo RaynorCommanderBarracks" Target="FlyerHelperSplat" Send="Destroy"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderBarracks@Death"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranLargeBuildingDeath" SoundLink="RaynorCommanderBarracks@Explode"/>
+        <DeathCustoms index="5" ModelLink="RaynorCommanderBarracks@FlyDeath" SoundLink="RaynorCommanderBarracks@Explode" Name="Flying"/>
+        <PlacementModel value="RaynorCommanderBarracks@Placement"/>
+        <PortraitModel value="RaynorCommanderBarracks@Portrait"/>
+        <BarOffset value="155"/>
+        <BarWidth value="160"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-Barracks.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-terran-Barracks.dds"/>
+        <NameOffset value="110"/>
+        <SoundArray index="Ready" value="RaynorCommanderBarracks@Ready"/>
+        <SoundArray index="What" value="RaynorCommanderBarracks@What"/>
+        <SoundArray index="Movement" value="RaynorCommanderBarracks@Movement"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-Barracks.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-Barracks.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorSplat id="RaynorCommanderBarracks@Splat" parent="TerranBuildingMorphSplat" unitName="RaynorCommanderBarracks"/>
+    <CModel id="RaynorCommanderBarracks@Build" parent="BarracksBuildBase">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderBarracks" parent="BarracksBase">
+        <Model value="Assets\Buildings\Terran\Barracks\Barracks.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderBarracks@Death" parent="BarracksDeathBase">
+        <Model value="Assets\Buildings\Terran\BarracksDeathEx1\BarracksDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderBarracks@FlyDeath" parent="BarracksFlyDeathBase">
+        <Model value="Assets\Buildings\Terran\BarracksFlyDeathEx1\BarracksFlyDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderBarracks@Placement" parent="BarracksPlacementBase" low="RaynorCommanderBarracks">
+        <Model value="Assets\Buildings\Terran\BarracksPlacement\BarracksPlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderBarracks@Portrait" parent="TerranBuildingPortraitBase">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <Image value="Assets\Textures\AdjutantPortrait_Static.dds"/>
+        <Lighting value="AdjutantPortrait"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderBarracks@Splat" parent="Splat">
+        <Model value="Assets\Splats\Splat_Barracks\Splat_Barracks.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CSound id="RaynorCommanderBarracks@Explode" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+    </CSound>
+    <CSound id="RaynorCommanderBarracks@Movement" parent="Movement">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement0.wav" LoopCount="-1"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement1.wav" LoopCount="-1"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement2.wav" LoopCount="-1"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="250"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderBarracks@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Barracks\Barracks_What.ogg"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderBarracks@What" parent="Voice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Barracks\Barracks_What.ogg"/>
+        <Volume value="-12.000000,-12.000000"/>
+    </CSound>
+    <CDataCollectionAbil id="RaynorCommanderTrainBarrack">
+        <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
+        <EditorIconSource value="Actor"/>
+        <DataRecord Entry="Abil,RaynorCommanderTrainBarrack"/>
+    </CDataCollectionAbil>
+    <CDataCollectionUnit id="RaynorCommanderBarracks" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderBarracks"/>
+        <DataRecord Entry="Actor,RaynorCommanderBarracks@Splat"/>
+        <DataRecord Entry="Button,RaynorCommanderBarracks"/>
+        <DataRecord Entry="Model,RaynorCommanderBarracks"/>
+        <DataRecord Entry="Model,RaynorCommanderBarracks@Splat"/>
+        <DataRecord Entry="Model,RaynorCommanderBarracks@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderBarracks@FlyDeath"/>
+        <DataRecord Entry="Model,RaynorCommanderBarracks@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderBarracks@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderBarracks@Explode"/>
+        <DataRecord Entry="Sound,RaynorCommanderBarracks@Movement"/>
+        <DataRecord Entry="Sound,RaynorCommanderBarracks@What"/>
+        <DataRecord Entry="Sound,RaynorCommanderBarracks@Ready"/>
+        <DataRecord Entry="Unit,RaynorCommanderBarracks"/>
+        <DataRecord Entry="Model,RaynorCommanderBarracks@Build"/>
+        <DataRecord Entry="Unit,RaynorCommanderBarracks@Fly"/>
+        <DataRecord Entry="Requirement,RaynorCommanderBarracks"/>
+        <DataRecord Entry="Actor,RaynorCommanderBarracks@Build"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderRapidRecruitment"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderBarracks" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <Facing value="315"/>
+        <LifeStart value="1000"/>
+        <LifeMax value="1000"/>
+        <CostResource index="Minerals" value="150"/>
+        <BuildTime value="65"/>
+        <RepairTime value="65"/>
+        <AbilArray index="1" Link="que5"/>
+        <AbilArray Link="RaynorCommanderTrainBarrack"/>
+        <AbilArray Link="Rally"/>
+        <AbilArray Link="RaynorCommanderBuildAddons@Barracks"/>
+        <AbilArray Link="RaynorCommanderLiftBarrack@LiftOff"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <BehaviorArray Link="ReactorQueue"/>
+        <CardLayouts index="0">
+            <LayoutButtons Face="Lift" Type="AbilCmd" AbilCmd="RaynorCommanderLiftBarrack@LiftOff,Execute" Row="2" Column="3"/>
+            <LayoutButtons Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons Face="Reactor" Type="AbilCmd" AbilCmd="RaynorCommanderBuildAddons@Barracks,Build2" Row="2" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderBuildAddons@Barracks" Type="AbilCmd" AbilCmd="RaynorCommanderBuildAddons@Barracks,Build1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="RaynorCommanderMarine" Type="AbilCmd" AbilCmd="RaynorCommanderTrainBarrack,Train1" Row="0" Column="0"/>
+            <LayoutButtons Face="RaynorCommanderMarauder" Type="AbilCmd" AbilCmd="RaynorCommanderTrainBarrack,Train4" Row="0" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderFirebat" Type="AbilCmd" AbilCmd="RaynorCommanderTrainBarrack,Train2" Row="0" Column="2"/>
+            <LayoutButtons Face="RaynorCommanderMedic" Type="AbilCmd" AbilCmd="RaynorCommanderTrainBarrack,Train3" Row="0" Column="3"/>
+        </CardLayouts>
+        <SeparationRadius value="1.75"/>
+        <ScoreMake value="150"/>
+        <ScoreMakeCostFactor index="Minerals" value="0"/>
+        <ScoreMakeCostFactor index="Vespene" value="0"/>
+        <ScoreKill value="150"/>
+        <ScoreKillCostFactor index="Minerals" value="0"/>
+        <ScoreKillCostFactor index="Vespene" value="0"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="1.75"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <TechAliasArray index="0" value="Alias_Barracks"/>
+        <TechTreeProducedUnitArray value="Marine"/>
+        <TechTreeProducedUnitArray value="Marauder"/>
+        <TechTreeProducedUnitArray value="Reaper"/>
+        <TechTreeProducedUnitArray value="Ghost"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderBarracks@Fly" parent="RaynorCommanderBarracks">
+        <Mob value="Multiplayer"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Attributes index="Mechanical" value="1"/>
+        <Mover value="Fly"/>
+        <Speed value="0.9375"/>
+        <Acceleration value="1.3125"/>
+        <Height value="3.25"/>
+        <VisionHeight value="4"/>
+        <AbilArray index="0" Link="move"/>
+        <AbilArray index="1" Link="stop"/>
+        <AbilArray index="2" Link="RaynorCommanderLiftBarrack@Land"/>
+        <AbilArray index="3" Link="RaynorCommanderBuildAddons@Barracks"/>
+        <AbilArray index="4" removed="1"/>
+        <AbilArray index="5" removed="1"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="Lift" AbilCmd="RaynorCommanderLiftBarrack@Land,Execute" Column="4"/>
+            <LayoutButtons index="1" Face="Reactor" AbilCmd="RaynorCommanderBuildAddons@Barracks,Build2" Column="1"/>
+            <LayoutButtons index="2" Face="RaynorCommanderBuildAddons@Barracks" AbilCmd="RaynorCommanderBuildAddons@Barracks,Build1" Column="0"/>
+            <LayoutButtons index="3" Face="Move" Type="AbilCmd" AbilCmd="move,255" Row="0" Column="0"/>
+            <LayoutButtons index="4" Face="Stop" Type="AbilCmd" AbilCmd="stop,255" Row="0" Column="1"/>
+            <LayoutButtons index="5" Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons index="6" Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+            <LayoutButtons index="7" Face="AcquireMove" Type="AbilCmd" AbilCmd="move,AcquireMove" Row="0" Column="4"/>
+            <LayoutButtons index="8" removed="1"/>
+            <LayoutButtons index="9" removed="1"/>
+            <LayoutButtons index="10" removed="1"/>
+            <LayoutButtons index="11" removed="1"/>
+            <LayoutButtons index="12" removed="1"/>
+        </CardLayouts>
+        <CardLayouts>
+            <LayoutButtons Face="Land" Type="AbilCmd" AbilCmd="RaynorCommanderLiftBarrack@Land,Execute" Row="2" Column="3"/>
+            <LayoutButtons Face="Reactor" Type="AbilCmd" AbilCmd="RaynorCommanderBuildAddons@Barracks,Build2" Row="2" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderBuildAddons@Barracks" Type="AbilCmd" AbilCmd="RaynorCommanderBuildAddons@Barracks,Build1" Row="2" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <Radius value="1.75"/>
+        <LeaderAlias value="Barracks"/>
+        <HotkeyAlias value="Barracks"/>
+        <TechAliasArray value="Alias_Barracks"/>
+    </CUnit>
+</Catalog>

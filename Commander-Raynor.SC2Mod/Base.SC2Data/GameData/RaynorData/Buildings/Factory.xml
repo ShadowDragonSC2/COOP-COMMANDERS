@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilMorph id="RaynorCommanderReactorMorphFactory">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderReactorMorphFactory" Requirements="RaynorCommanderReactorMorphFactory@Requirement"/>
+        <Flags index="Automatic" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <InfoArray Unit="RaynorCommanderReactorFactory"/>
+    </CAbilMorph>
+    <CAbilMorph id="RaynorCommanderTechLabMorphFactory">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderTechLabMorphFactory" Requirements="RaynorCommanderTechLabMorphFactory@Requirement"/>
+        <Flags index="Automatic" value="1"/>
+        <Flags index="Produce" value="1"/>
+        <InfoArray Unit="RaynorCommanderTechLabFactory"/>
+    </CAbilMorph>
+    <CRequirement id="RaynorCommanderReactorMorphFactory@Requirement">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <NodeArray index="Show" Link="CountUnitAlias_FactoryCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="RaynorCommanderTechLabMorphFactory@Requirement">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <NodeArray index="Show" Link="CountUnitAlias_FactoryCompleteOnlyAtUnit"/>
+    </CRequirement>
+    <CRequirement id="RaynorCommanderFactory">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="CountUnitAlias_BarracksCompleteOnly1633119839TechTreeCheat"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderReactorMorphFactory">
+        <Icon value="Assets\Textures\btn-building-terran-reactor.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CButton id="RaynorCommanderTechLabMorphFactory">
+        <Icon value="Assets\Textures\btn-building-terran-techlab.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CButton id="RaynorCommanderFactory">
+        <Icon value="Assets\Textures\btn-building-terran-factory.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-factory.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorModel id="RaynorCommanderFactory@Build" parent="TerranBuildingBuild">
+        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
+    </CActorModel>
+    <CActorUnit id="RaynorCommanderFactory" parent="TerranBuildingFlyerEx" unitName="RaynorCommanderFactory">
+        <On index="69" Send="Create RaynorCommanderFactory@Build"/>
+        <On index="80" Terms="UnitBirth.RaynorCommanderFactory@Fly" Send="Create"/>
+        <On index="81" Terms="UnitBirth.RaynorCommanderFactory@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End Instant"/>
+        <On index="82" Terms="UnitBirth.RaynorCommanderFactory@Fly" Send="AliasRemove _CreepEngulfable"/>
+        <On index="83" Terms="UnitBirth.RaynorCommanderFactory@Fly" Send="CreepEngulfmentStopTransition"/>
+        <On index="84" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly" Send="AnimGroupApply Fly Fly,Start Fly,End"/>
+        <On index="85" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly" Send="AliasRemove _CreepEngulfable"/>
+        <On index="86" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly" Send="CreepEngulfmentStopTransition"/>
+        <On index="87" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly" Target="_BuildingTerrainFlatten" Send="Destroy"/>
+        <On index="88" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory; MorphTo RaynorCommanderFactory@Fly; ScopeContains GroundLocalSelection" Send="StatusIncrement FlyerHelper"/>
+        <On index="89" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Send="AnimGroupRemove Fly"/>
+        <On index="90" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Send="AliasAdd _CreepEngulfable"/>
+        <On index="91" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Send="Create BuildingTerrainFlatten"/>
+        <On index="92" Terms="AbilMorph.*.Start; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory; ScopeContains FlyerHelperSplat; HasStatus FlyerHelper" Send="StatusDecrement FlyerHelper"/>
+        <On index="93" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Send="QueryRadius 1.750000 BuildingCrushQueryResponse"/>
+        <On index="94" Terms="AbilMorph.*.Finish; MorphFrom RaynorCommanderFactory@Fly; MorphTo RaynorCommanderFactory" Target="FlyerHelperSplat" Send="Destroy"/>
+        <On Terms="UnitDeathCustomize.FactoryFlying" Send="DeathCustomize Flying"/>
+        <On Terms="Behavior.ColonyInfestation.On" Send="Create InfestedVisual"/>
+        <DeathArray index="Normal" ModelLink="RaynorCommanderFactory@Death"/>
+        <DeathArray index="UnderConstruction" ModelLink="TerranBuildingDeath" SoundLink="RaynorCommanderFactory@Explode"/>
+        <DeathCustoms index="5" ModelLink="RaynorCommanderFactory@FlyDeath" SoundLink="RaynorCommanderFactory@Explode" Name="Flying"/>
+        <PlacementModel value="RaynorCommanderFactory@Placement"/>
+        <PlacementSound value="RaynorCommanderFactory@Placement"/>
+        <PortraitModel value="RaynorCommanderFactory@Portrait"/>
+        <BarOffset value="150"/>
+        <BarWidth value="160"/>
+        <GroupIcon>
+            <Image value="Assets\Textures\Wireframe-Terran-Factory.dds"/>
+        </GroupIcon>
+        <HeroIcon value="Assets\Textures\btn-building-terran-Factory.dds"/>
+        <NameOffset value="110"/>
+        <SoundArray index="Ready" value="RaynorCommanderFactory@Ready"/>
+        <SoundArray index="What" value="RaynorCommanderFactory@What"/>
+        <SoundArray index="Movement" value="RaynorCommanderFactory@Movement"/>
+        <SoundArray index="Construction" value="RaynorCommanderFactory@ConstructionWhat"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-Factory.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\Wireframe-Terran-Factory.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CActorSplat id="RaynorCommanderFactory@Splat" parent="TerranBuildingMorphSplat" unitName="RaynorCommanderFactory"/>
+    <CModel id="RaynorCommanderFactory@Build" parent="TerranBuildingBuild">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFactory" parent="FactoryBase">
+        <Model value="Assets\Buildings\Terran\FactoryEx1\FactoryEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFactory@Death" parent="FactoryDeathBase">
+        <Model value="Assets\Buildings\Terran\FactoryDeathEx1\FactoryDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFactory@FlyDeath" parent="FactoryFlyDeathBase">
+        <Model value="Assets\Buildings\Terran\FactoryFlyDeathEx1\FactoryFlyDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFactory@Placement" parent="FactoryPlacementBase" low="RaynorCommanderFactory">
+        <Model value="Assets\Buildings\Terran\FactoryPlacement\FactoryPlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFactory@Portrait" parent="TerranBuildingPortraitBase">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <Image value="Assets\Textures\AdjutantPortrait_Static.dds"/>
+        <Lighting value="AdjutantPortrait"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderFactory@Splat" parent="Splat">
+        <Model value="Assets\Splats\Splat_Factory\Splat_Factory.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.850000,0.850000,0.850000"/>
+        <ScaleMin value="0.850000,0.850000,0.850000"/>
+    </CModel>
+    <CSound id="RaynorCommanderFactory@Explode" parent="Combat">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge9.wav" Pitch="-3.000000,3.000000"/>
+        <Category value="Death"/>
+        <DupeDestroyCount value="5"/>
+    </CSound>
+    <CSound id="RaynorCommanderFactory@Movement" parent="Movement">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement0.wav" LoopCount="-1"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement1.wav" LoopCount="-1"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement2.wav" LoopCount="-1"/>
+        <OffsetFadeIn Volume="-96.000000"/>
+        <OffsetFadeIn Time="250"/>
+        <Pitch value="-1.000000,1.000000"/>
+        <Volume value="-6.000000,-6.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderFactory@Ready" parent="Ready">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Factory\Factory_What.ogg"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderFactory@What" parent="Voice">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\Factory\Factory_What.ogg"/>
+        <Volume value="-9.000000,-9.000000"/>
+    </CSound>
+    <CSound id="RaynorCommanderFactory@Placement" parent="Terran_BuildingPlacement">
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderFactory@ConstructionWhat" parent="Build">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Construction\Terran_ConstructionWhat0.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Construction\Terran_ConstructionWhat1.wav"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Construction\Terran_ConstructionWhat2.wav"/>
+        <Volume value="-3.000000,-3.000000"/>
+    </CSound>
+    <CDataCollectionAbil id="RaynorCommanderReactorMorphFactory">
+        <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
+        <DataRecord Entry="Abil,RaynorCommanderReactorMorphFactory"/>
+        <DataRecord Entry="Button,RaynorCommanderReactorMorphFactory"/>
+        <DataRecord Entry="Requirement,RaynorCommanderReactorMorphFactory@Requirement"/>
+    </CDataCollectionAbil>
+    <CDataCollectionAbil id="RaynorCommanderTechLabMorphFactory">
+        <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
+        <DataRecord Entry="Abil,RaynorCommanderTechLabMorphFactory"/>
+        <DataRecord Entry="Button,RaynorCommanderTechLabMorphFactory"/>
+        <DataRecord Entry="Requirement,RaynorCommanderTechLabMorphFactory@Requirement"/>
+    </CDataCollectionAbil>
+    <CDataCollectionUnit id="RaynorCommanderFactory" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Button,RaynorCommanderFactory"/>
+        <DataRecord Entry="Actor,RaynorCommanderFactory"/>
+        <DataRecord Entry="Actor,RaynorCommanderFactory@Splat"/>
+        <DataRecord Entry="Model,RaynorCommanderFactory"/>
+        <DataRecord Entry="Model,RaynorCommanderFactory@Splat"/>
+        <DataRecord Entry="Model,RaynorCommanderFactory@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderFactory@FlyDeath"/>
+        <DataRecord Entry="Model,RaynorCommanderFactory@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderFactory@Portrait"/>
+        <DataRecord Entry="Sound,RaynorCommanderFactory@Explode"/>
+        <DataRecord Entry="Sound,RaynorCommanderFactory@Movement"/>
+        <DataRecord Entry="Sound,RaynorCommanderFactory@Ready"/>
+        <DataRecord Entry="Sound,RaynorCommanderFactory@Placement"/>
+        <DataRecord Entry="Sound,RaynorCommanderFactory@ConstructionWhat"/>
+        <DataRecord Entry="Unit,RaynorCommanderFactory"/>
+        <DataRecord Entry="Unit,RaynorCommanderFactory@Fly"/>
+        <DataRecord Entry="Requirement,RaynorCommanderFactory"/>
+        <DataRecord Entry="Sound,RaynorCommanderFactory@What"/>
+        <DataRecord Entry="Model,RaynorCommanderFactory@Build"/>
+        <DataRecord Entry="Actor,RaynorCommanderFactory@Build"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderFactory" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <Name value="Unit/Name/RaynorCommanderFactory"/>
+        <Facing value="315"/>
+        <Mob value="Multiplayer"/>
+        <Collide index="Locust" value="0"/>
+        <Attributes index="Mechanical" value="1"/>
+        <LifeStart value="1250"/>
+        <LifeMax value="1250"/>
+        <LifeArmorName value="Unit/LifeArmorName/TerranBuildingPlating"/>
+        <StationaryTurningRate value="719.4726"/>
+        <TurningRate value="719.4726"/>
+        <CostResource index="Minerals" value="150"/>
+        <CostResource index="Vespene" value="100"/>
+        <RepairTime value="60"/>
+        <DamageDealtXP value="0"/>
+        <DamageTakenXP value="0"/>
+        <AbilArray index="1" Link="que5"/>
+        <AbilArray Link="RaynorCommanderTrainFactory"/>
+        <AbilArray Link="RaynorCommanderBuildAddons@Factory"/>
+        <AbilArray Link="Rally"/>
+        <AbilArray Link="RaynorCommanderLiftFactory@LiftOff"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <BehaviorArray Link="ReactorQueue"/>
+        <CardLayouts index="0">
+            <LayoutButtons index="0" Face="RaynorCommanderVulture" Type="AbilCmd" AbilCmd="RaynorCommanderTrainFactory,Train1" Row="0" Column="0"/>
+            <LayoutButtons index="1" Face="Rally" Type="AbilCmd" AbilCmd="Rally,Rally1" Row="1" Column="4"/>
+            <LayoutButtons index="2" Face="Lift" Type="AbilCmd" AbilCmd="RaynorCommanderLiftFactory@LiftOff,Execute" Row="2" Column="3"/>
+            <LayoutButtons index="3" Face="Halt" Type="AbilCmd" AbilCmd="BuildInProgress,Halt" Row="2" Column="3"/>
+            <LayoutButtons Face="Reactor" Type="AbilCmd" AbilCmd="RaynorCommanderBuildAddons@Factory,Build2" Row="2" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderBuildAddons@Factory" Type="AbilCmd" AbilCmd="RaynorCommanderBuildAddons@Factory,Build1" Row="2" Column="0"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="que5,CancelLast" Row="2" Column="4"/>
+            <LayoutButtons Face="Cancel" Type="AbilCmd" AbilCmd="FactoryAddOns,Halt" Row="2" Column="4"/>
+            <LayoutButtons Face="CancelBuilding" Type="AbilCmd" AbilCmd="BuildInProgress,Cancel" Row="2" Column="4"/>
+            <LayoutButtons Face="SelectBuilder" Type="SelectBuilder" Row="1" Column="3"/>
+            <LayoutButtons Face="RaynorCommanderSiegeTank" Type="AbilCmd" AbilCmd="RaynorCommanderTrainFactory,Train2" Row="0" Column="2"/>
+        </CardLayouts>
+        <Radius value="1.625"/>
+        <SeparationRadius value="1.625"/>
+        <ScoreMake value="250"/>
+        <ScoreMakeCostFactor index="Minerals" value="0"/>
+        <ScoreMakeCostFactor index="Vespene" value="0"/>
+        <ScoreKill value="250"/>
+        <ScoreKillCostFactor index="Minerals" value="0"/>
+        <ScoreKillCostFactor index="Vespene" value="0"/>
+        <SubgroupPriority value="3"/>
+        <MinimapRadius value="1.625"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <TacticalAI value="Factory"/>
+        <TechAliasArray index="0" value="Alias_Factory"/>
+        <GlossaryAlias value=""/>
+        <TechTreeProducedUnitArray value="Hellion"/>
+        <TechTreeProducedUnitArray value="SiegeTank"/>
+        <TechTreeProducedUnitArray value="Thor"/>
+        <TechTreeProducedUnitArray value="Cyclone"/>
+    </CUnit>
+    <CUnit id="RaynorCommanderFactory@Fly" parent="RaynorCommanderFactory">
+        <Name value="Unit/Name/Factory"/>
+        <PlaneArray index="Air" value="1"/>
+        <Collide index="Flying" value="1"/>
+        <Mover value="Fly"/>
+        <Speed value="0.9375"/>
+        <Acceleration value="1.3125"/>
+        <Height value="3.25"/>
+        <VisionHeight value="4"/>
+        <AbilArray Link="move"/>
+        <AbilArray Link="stop"/>
+        <AbilArray Link="RaynorCommanderLiftFactory@Land"/>
+        <AbilArray Link="RaynorCommanderBuildAddons@Factory"/>
+        <BehaviorArray Link="TerranBuildingBurnDown"/>
+        <CardLayouts>
+            <LayoutButtons Face="Land" Type="AbilCmd" AbilCmd="RaynorCommanderLiftFactory@Land,Execute" Row="2" Column="3"/>
+            <LayoutButtons Face="Reactor" Type="AbilCmd" AbilCmd="RaynorCommanderBuildAddons@Factory,Build2" Row="2" Column="1"/>
+            <LayoutButtons Face="RaynorCommanderBuildAddons@Factory" Type="AbilCmd" AbilCmd="RaynorCommanderBuildAddons@Factory,Build1" Row="2" Column="0"/>
+            <LayoutButtons Face="Stop" Type="AbilCmd" AbilCmd="stop,Stop" Row="0" Column="1"/>
+            <LayoutButtons Face="Move" Type="AbilCmd" AbilCmd="move,Move" Row="0" Column="0"/>
+            <LayoutButtons Face="MoveHoldPosition" Type="AbilCmd" AbilCmd="move,HoldPos" Row="0" Column="2"/>
+            <LayoutButtons Face="MovePatrol" Type="AbilCmd" AbilCmd="move,Patrol" Row="0" Column="3"/>
+        </CardLayouts>
+        <LeaderAlias value="Factory"/>
+        <HotkeyAlias value="Factory"/>
+        <TechAliasArray value="Alias_Factory"/>
+    </CUnit>
+</Catalog>

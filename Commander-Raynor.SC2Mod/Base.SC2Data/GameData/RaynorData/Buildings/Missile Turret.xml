@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CButton id="RaynorCommanderMissileTurret">
+        <Icon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorUnit id="RaynorCommanderMissileTurret" parent="CommanderUnitBase" unitName="RaynorCommanderMissileTurret">
+        <EditorCategories value=""/>
+        <PlacementSound value="RaynorCommanderMissileTurret@Placement"/>
+        <HeroIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel1.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
+        <Wireframe>
+            <Image value="Assets\Textures\wireframe-terran-missileturret.dds"/>
+        </Wireframe>
+    </CActorUnit>
+    <CModel id="RaynorCommanderMissileTurret" parent="Unit">
+        <Model value="Assets\Buildings\Terran\MissileTurret\MissileTurret.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMissileTurret@Build" parent="TerranBuildingBuildTiny">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMissileTurret@Death" parent="UnitDeath">
+        <Model value="Assets\Buildings\Terran\MissileTurretDeath\MissileTurretDeath.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMissileTurret@Placement" parent="Placement">
+        <Model value="Assets\Buildings\Terran\MissileTurretPlacement\MissileTurretPlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderMissileTurret@Portrait" parent="FXAPortrait">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Lighting value="AdjutantPortrait"/>
+    </CModel>
+    <CSound id="RaynorCommanderMissileTurret@Placement" parent="Terran_BuildingPlacementSmall">
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CDataCollectionUnit id="RaynorCommanderMissileTurret" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderMissileTurret"/>
+        <DataRecord Entry="Button,RaynorCommanderMissileTurret"/>
+        <DataRecord Entry="Model,RaynorCommanderMissileTurret"/>
+        <DataRecord Entry="Model,RaynorCommanderMissileTurret@Death"/>
+        <DataRecord Entry="Model,RaynorCommanderMissileTurret@Portrait"/>
+        <DataRecord Entry="Model,RaynorCommanderMissileTurret@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderMissileTurret@Build"/>
+        <DataRecord Entry="Unit,RaynorCommanderMissileTurret"/>
+        <DataRecord Entry="Sound,RaynorCommanderMissileTurret@Placement"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderMissileTurret" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <Footprint value="Footprint2x2Contour"/>
+        <PlacementFootprint value="Footprint2x2"/>
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+    </CUnit>
+</Catalog>

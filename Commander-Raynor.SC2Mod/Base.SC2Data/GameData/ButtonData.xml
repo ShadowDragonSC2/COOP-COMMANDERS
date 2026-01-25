@@ -35,21 +35,6 @@
         <AlertIcon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
-    <CButton id="RaynorCommanderReactorMorphBarrack">
-        <Icon value="Assets\Textures\btn-building-terran-reactor.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderReactorMorphFactory">
-        <Icon value="Assets\Textures\btn-building-terran-reactor.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderReactorMorphStarport">
-        <Icon value="Assets\Textures\btn-building-terran-reactor.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
     <CButton id="RaynorCommanderVikingMode@2">
         <Icon value="Assets\Textures\btn-unit-terran-vikingfighter.dds"/>
         <AlertIcon value="Assets\Textures\btn-unit-terran-vikingfighter.dds"/>
@@ -93,11 +78,6 @@
         <Icon value="Assets\Textures\btn-upgrade-raynor-incineratorgauntlets.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
-    <CButton id="RaynorCommanderArmory">
-        <Icon value="Assets\Textures\btn-building-terran-armory.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-armory.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
     <CButton id="AttackRaynorWorker">
         <Name value="Button/Name/Attack"/>
         <Tooltip value="Button/Tooltip/Attack"/>
@@ -110,36 +90,6 @@
         <TintRacially value="1"/>
         <HotkeyAlias value="Attack"/>
         <Universal value="1"/>
-    </CButton>
-    <CButton id="RaynorCommanderBarracks">
-        <Icon value="Assets\Textures\btn-building-terran-barracks.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-barracks.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderBunker">
-        <Icon value="Assets\Textures\btn-building-terran-bunker.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-bunker.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderCommandCenter">
-        <Icon value="Assets\Textures\btn-building-terran-commandcenter.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-commandcenter.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderEngineeringBay">
-        <Icon value="Assets\Textures\btn-building-terran-engineeringbay.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-engineeringbay.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderFactory">
-        <Icon value="Assets\Textures\btn-building-terran-factory.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-factory.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderFusionCore">
-        <Icon value="Assets\Textures\btn-building-terran-fusioncore.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-fusioncore.dds"/>
-        <EditorCategories value="Race:Raynor"/>
     </CButton>
     <CButton id="RaynorCommanderGather">
         <Icon value="Assets\Textures\btn-ability-terran-gather.dds"/>
@@ -159,16 +109,6 @@
         <Icon value="Assets\Textures\btn-upgrade-raynor-juggernautplating.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
-    <CButton id="RaynorCommanderMissileTurret">
-        <Icon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderRefinery">
-        <Icon value="Assets\Textures\btn-building-terran-refinery.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-refinery.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
     <CButton id="RaynorCommanderRepair">
         <Icon value="Assets\Textures\btn-ability-terran-repair.dds"/>
         <AlertIcon value="Assets\Textures\btn-ability-terran-repair.dds"/>
@@ -186,16 +126,6 @@
     <CButton id="RaynorCommanderSensorTower">
         <Icon value="Assets\Textures\btn-building-terran-sensordome.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-terran-sensordome.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderStarport">
-        <Icon value="Assets\Textures\btn-building-terran-starport.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-starport.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderSupplyDepot">
-        <Icon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
     <CButton id="RaynorCommanderTerranBuild">
@@ -232,21 +162,6 @@
         <AlertIcon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel3.dds"/>
         <EditorCategories value="Race:Raynor"/>
         <HotkeyAlias value="TerranInfantryWeaponsLevel1"/>
-    </CButton>
-    <CButton id="RaynorCommanderTechLabMorphBarrack">
-        <Icon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderTechLabMorphFactory">
-        <Icon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CButton>
-    <CButton id="RaynorCommanderTechLabMorphStarport">
-        <Icon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <AlertIcon value="Assets\Textures\btn-building-terran-techlab.dds"/>
-        <EditorCategories value="Race:Raynor"/>
     </CButton>
     <CButton id="RaynorCommanderBuildAddons">
         <Icon value="Assets\Textures\btn-building-terran-techlab.dds"/>

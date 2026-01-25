@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CRequirement id="RaynorCommanderEngineeringBay">
+        <EditorCategories value="Race:Raynor,TechType:Unit"/>
+        <CanBeSuppressed index="Use" value="0"/>
+        <NodeArray index="Use" Link="CountUnitEngineeringBayCompleteOnlyTechTreeCheat"/>
+    </CRequirement>
+    <CButton id="RaynorCommanderEngineeringBay">
+        <Icon value="Assets\Textures\btn-building-terran-engineeringbay.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-engineeringbay.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CActorUnit id="RaynorCommanderEngineeringBay" parent="CommanderUnitBase" unitName="RaynorCommanderEngineeringBay">
+        <EditorCategories value=""/>
+        <HighlightTooltip value="Unit/Name/Bogus"/>
+        <On Terms="UnitConstruction.RaynorCommanderEngineeringBay.Start" Send="Create RaynorCommanderEngineeringBay@Build"/>
+        <BuildModel value="RaynorCommanderEngineeringBay"/>
+        <HeroIcon value="Assets\Textures\btn-building-terran-engineeringbay.dds"/>
+        <UnitIcon value="Assets\Textures\btn-building-terran-engineeringbay.dds"/>
+    </CActorUnit>
+    <CActorModel id="RaynorCommanderEngineeringBay@Build" parent="TerranBuildingBuild">
+        <EditorCategories value=""/>
+        <On index="4" Terms="ActorCreation" Send="Create RaynorCommanderConstruction@Attached"/>
+    </CActorModel>
+    <CModel id="RaynorCommanderEngineeringBay" parent="Unit">
+        <Model value="Assets\Buildings\Terran\EngineeringBayEx1\EngineeringBayEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <Radius value="1.250000"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+        <SelectionRadius value="2.533000"/>
+        <ShadowRadius value="2.533000"/>
+        <SquibTypeDefault value="Metal"/>
+    </CModel>
+    <CModel id="RaynorCommanderEngineeringBay@Build" parent="BuildingEx">
+        <EditorCategories value="Race:Raynor"/>
+        <Model value="Assets\Buildings\Terran\TerranBuild\TerranBuild.m3"/>
+    </CModel>
+    <CModel id="RaynorCommanderEngineeringBay@Death" parent="UnitDeath">
+        <Model value="Assets\Buildings\Terran\EngineeringBayDeathEx1\EngineeringBayDeathEx1.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CModel id="RaynorCommanderEngineeringBay@Placement" parent="PlacementEx">
+        <Model value="Assets\Buildings\Terran\EngineeringBayPlacement\EngineeringBayPlacement.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+        <ScaleMax value="0.750000,0.750000,0.750000"/>
+        <ScaleMin value="0.750000,0.750000,0.750000"/>
+    </CModel>
+    <CModel id="RaynorCommanderEngineeringBay@Portrait" parent="Portrait">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
+    <CDataCollectionUnit id="RaynorCommanderEngineeringBay" parent="CommanderUnit">
+        <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
+        <DataRecord Entry="Actor,RaynorCommanderEngineeringBay"/>
+        <DataRecord Entry="Actor,RaynorCommanderEngineeringBay@Build"/>
+        <DataRecord Entry="Button,RaynorCommanderEngineeringBay"/>
+        <DataRecord Entry="Model,RaynorCommanderEngineeringBay@Build"/>
+        <DataRecord Entry="Requirement,RaynorCommanderEngineeringBay"/>
+        <DataRecord Entry="Unit,RaynorCommanderEngineeringBay"/>
+        <DataRecord Entry="Model,RaynorCommanderEngineeringBay@Placement"/>
+        <DataRecord Entry="Model,RaynorCommanderEngineeringBay@Portrait"/>
+        <DataRecord Entry="Model,RaynorCommanderEngineeringBay"/>
+        <DataRecord Entry="Model,RaynorCommanderEngineeringBay@Death"/>
+    </CDataCollectionUnit>
+    <CUnit id="RaynorCommanderEngineeringBay" parent="CommanderStructure_Terr" race="COOPRaynor">
+        <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <Facing value="315"/>
+    </CUnit>
+</Catalog>

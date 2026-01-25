@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <!--                                                                                         -->
+    <!--                                                                                         -->
+    <!-- Protoss ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <!--                                                                                         -->
+    <!--                                                                                         -->
+    <!-- Construction / Warp-In                                                                  -->
+    <!--                                                                                         -->
+    <CActorProgress id="ProtossConstruction">
+        <On Terms="Abil.ZeratulCommanderBuildProbe.BuiltStart" Send="Create"/>
+    </CActorProgress>
     <!-- Macro -->
     <!-- Actor Unit -->
     <CActorUnit id="ZeratulCommanderVoidShrine" parent="CommanderGroundUnit" unitName="ZeratulCommanderVoidShrine">

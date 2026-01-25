@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
-    <CSound id="RaynorCommanderArmory@Death" parent="Death">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" FacialGroup=""/>
-    </CSound>
     <CSound id="RaynorCommanderBansheeAirstrike@Sound" parent="Ambience_Object">
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\AC_Banshee_AirDrop_01.wav" FacialGroup=""/>
@@ -20,40 +7,10 @@
         <AssetArray File="Assets\Sounds\AC_Banshee_AirDrop_03.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\AC_Banshee_AirDrop_04.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="RaynorCommanderBunker@Explode" parent="Combat">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="-3.000000,3.000000"/>
-        <DupeDestroyCount value="5"/>
-    </CSound>
-    <CSound id="RaynorCommanderBunker@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\Bunker\Bunker_What.ogg"/>
-        <Volume value="-9.000000,-9.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderBunker@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\Bunker\Bunker_What.ogg"/>
-        <Volume value="-9.000000,-9.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderFusionCore@Placement" parent="Terran_BuildingPlacement">
-        <EditorCategories value="Race:Raynor"/>
-    </CSound>
     <CSound id="RaynorCommanderLoweredSupplies@Lowered" parent="Ambience_Object">
         <EditorCategories value="Race:Raynor"/>
     </CSound>
     <CSound id="RaynorCommanderLoweredSupplies@Raised" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-    </CSound>
-    <CSound id="RaynorCommanderMissileTurret@Placement" parent="Terran_BuildingPlacementSmall">
         <EditorCategories value="Race:Raynor"/>
     </CSound>
     <CSound id="RaynorCommanderOrbitaldroppods@Sound" parent="Ambience_Object">
@@ -65,51 +22,8 @@
         <OffsetFadeIn Time="1465"/>
         <OffsetFadeIn Time="10925"/>
     </CSound>
-    <CSound id="RaynorCommanderRefinery@Placement" parent="Terran_BuildingPlacement">
-        <EditorCategories value="Race:Raynor"/>
-    </CSound>
     <CSound id="RaynorCommanderSupplyDepot@Sound" parent="Combat">
         <EditorCategories value="Race:Raynor"/>
-    </CSound>
-    <CSound id="RaynorCommanderReactor@Birth" parent="Build">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_Birth.wav"/>
-        <Volume value="-13.980000,-13.980000"/>
-    </CSound>
-    <CSound id="RaynorCommanderReactor@Explode" parent="Combat">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="-3.000000,3.000000"/>
-        <DupeDestroyCount value="5"/>
-        <DupeMuteCount value="5"/>
-    </CSound>
-    <CSound id="RaynorCommanderReactor@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderReactor@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderReactorStarport@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderReactorStarport@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
     </CSound>
     <CSound id="Banshee_AttackImpact22" parent="Combat">
         <EditorCategories value="Race:Terran"/>
@@ -130,43 +44,6 @@
         <OverlapTimeDelta value="100"/>
         <Pitch value="-3.860000,1.640000"/>
         <Volume value="-5.200000,-3.100000"/>
-    </CSound>
-    <CSound id="RaynorCommanderCommandCenter@Explode" parent="Combat">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge0.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge1.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge2.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge3.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge4.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge5.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge6.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge7.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge8.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge9.wav" Pitch="-3.000000,3.000000"/>
-        <DupeDestroyCount value="5"/>
-        <DupeHistoryCount value="15"/>
-        <DupeMuteCount value="3"/>
-        <Volume value="-3.000000,0.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderCommandCenter@Movement" parent="Movement">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement0.wav" LoopCount="-1"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement1.wav" LoopCount="-1"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement2.wav" LoopCount="-1"/>
-        <OffsetFadeIn Volume="-96.000000"/>
-        <OffsetFadeIn Time="200"/>
-        <Pitch value="-3.000000,-2.000000"/>
-        <Volume value="-6.000000,-6.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderCommandCenter@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\CommandCenter\CommandCenter_What.ogg"/>
-        <Volume value="-3.000000,-3.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderCommandCenter@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\CommandCenter\CommandCenter_What.ogg"/>
-        <Volume value="-3.000000,-3.000000"/>
     </CSound>
     <CSound id="Raven_PointDefenseDroneAttackImpact2" parent="Combat">
         <EditorCategories value="Race:Raynor"/>
@@ -204,75 +81,6 @@
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff0.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff1.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="RaynorCommanderFactory@Explode" parent="Combat">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge0.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge1.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge2.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge3.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge4.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge5.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge6.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge7.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge8.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge9.wav" Pitch="-3.000000,3.000000"/>
-        <Category value="Death"/>
-        <DupeDestroyCount value="5"/>
-    </CSound>
-    <CSound id="RaynorCommanderFactory@Movement" parent="Movement">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement0.wav" LoopCount="-1"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement1.wav" LoopCount="-1"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement2.wav" LoopCount="-1"/>
-        <OffsetFadeIn Volume="-96.000000"/>
-        <OffsetFadeIn Time="250"/>
-        <Pitch value="-1.000000,1.000000"/>
-        <Volume value="-6.000000,-6.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderFactory@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\Factory\Factory_What.ogg"/>
-        <Volume value="-9.000000,-9.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderFactory@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\Factory\Factory_What.ogg"/>
-        <Volume value="-9.000000,-9.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderBarracks@Explode" parent="Combat">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge0.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge1.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge2.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge3.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge4.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge5.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge6.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge7.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge8.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge9.wav" Pitch="-3.000000,3.000000"/>
-        <DupeDestroyCount value="5"/>
-    </CSound>
-    <CSound id="RaynorCommanderBarracks@Movement" parent="Movement">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement0.wav" LoopCount="-1"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement1.wav" LoopCount="-1"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement2.wav" LoopCount="-1"/>
-        <OffsetFadeIn Volume="-96.000000"/>
-        <OffsetFadeIn Time="250"/>
-        <Pitch value="-1.000000,1.000000"/>
-        <Volume value="-3.000000,-3.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderBarracks@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\Barracks\Barracks_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderBarracks@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\Barracks\Barracks_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
     </CSound>
     <CSound id="RaynorCommanderHeal@Sound" parent="Spell">
         <EditorCategories value="Race:Raynor"/>
@@ -340,56 +148,6 @@
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Construction\Terran_ConstructionStart.wav"/>
         <Volume value="-6.000000,-6.000000"/>
     </CSound>
-    <CSound id="RaynorCommanderTechLab@Birth" parent="Build">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_Birth.wav"/>
-        <Volume value="-13.980000,-13.980000"/>
-    </CSound>
-    <CSound id="RaynorCommanderTechLab@Explode" parent="Combat">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="-3.000000,3.000000"/>
-        <DupeDestroyCount value="5"/>
-        <DupeMuteCount value="5"/>
-    </CSound>
-    <CSound id="RaynorCommanderTechLab@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderTechLab@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderTechLabStarport@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderTechLabStarport@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\TechLab\TechLab_What.ogg"/>
-        <Volume value="-12.000000,-12.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderFactory@Placement" parent="Terran_BuildingPlacement">
-        <EditorCategories value="Race:Raynor"/>
-    </CSound>
-    <CSound id="RaynorCommanderFactory@ConstructionWhat" parent="Build">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Construction\Terran_ConstructionWhat0.wav"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Construction\Terran_ConstructionWhat1.wav"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Construction\Terran_ConstructionWhat2.wav"/>
-        <Volume value="-3.000000,-3.000000"/>
-    </CSound>
     <CSound id="SiegeTank_AttackImpact2" parent="Combat">
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\SiegeTank_ImpactSmall0.wav" FacialGroup=""/>
@@ -416,63 +174,6 @@
         <DupeDestroyCount value="8"/>
         <DupeMaximumMethod value="Replace"/>
         <Pitch value="-6.180000,-1.820000"/>
-        <Volume value="-6.000000,-6.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderStarport@Explode" parent="Combat">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge0.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge1.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge2.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge3.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge4.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge5.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge6.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge7.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge8.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge9.wav" Pitch="-3.000000,3.000000"/>
-        <DupeDestroyCount value="5"/>
-    </CSound>
-    <CSound id="RaynorCommanderStarport@Movement" parent="Movement">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement0.wav" LoopCount="-1"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement1.wav" LoopCount="-1"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingMovement2.wav" LoopCount="-1"/>
-        <OffsetFadeIn Volume="-96.000000"/>
-        <OffsetFadeIn Time="300"/>
-        <Volume value="-6.000000,-6.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderStarport@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\Starport\Starport_What.ogg"/>
-        <Volume value="-5.000000,-5.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderStarport@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\Starport\Starport_What.ogg"/>
-        <Volume value="-5.000000,-5.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderSupplyDepot@Explode" parent="Combat">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium1.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium2.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium3.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium4.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium5.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium6.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium7.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" Pitch="-3.000000,3.000000"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" Pitch="-3.000000,3.000000"/>
-        <DupeDestroyCount value="5"/>
-    </CSound>
-    <CSound id="RaynorCommanderSupplyDepot@Ready" parent="Ready">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SupplyDepot\SupplyDepot_What.ogg"/>
-        <Volume value="-6.000000,-6.000000"/>
-    </CSound>
-    <CSound id="RaynorCommanderSupplyDepot@What" parent="Voice">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SupplyDepot\SupplyDepot_What.ogg"/>
         <Volume value="-6.000000,-6.000000"/>
     </CSound>
     <CSound id="VikingFighter_AttackImpact2" parent="Combat">

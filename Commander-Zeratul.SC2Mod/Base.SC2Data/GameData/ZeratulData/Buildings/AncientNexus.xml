@@ -59,7 +59,6 @@
         <DataRecord Entry="Actor,ZeratulCommanderAncientNexus@Building"/>
         <DataRecord Entry="Model,ZeratulCommanderAncientNexus@Building"/>
     </CDataCollectionUnit>
-    
     <CUnit id="ZeratulCommanderAncientNexus" parent="CommanderStructure_Prot" race="COOPZeratul">
         <Footprint value="Footprint5x5Contour"/>
         <PlacementFootprint value="Footprint5x5DropOff"/>

@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Includes>
+    <Catalog path="GameData/RaynorData/Buildings/Command Center.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Barracks.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Factory.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Starport.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Engineering bay.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Armory.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Fusion Core.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Bunker.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Missile Turret.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Supply Depot.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Reactor.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/TechLab.xml"/>
+    <Catalog path="GameData/RaynorData/Buildings/Refinery.xml"/>
     <Catalog path="GameData/RaynorData/Abilities/Stimpack.xml"/>
     <Catalog path="GameData/RaynorData/Abilities/YamatoGun.xml"/>
     <Catalog path="GameData/RaynorData/Top Bar/Hyperion.xml"/>
