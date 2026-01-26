@@ -4,12 +4,6 @@
         <EditorCategories value=""/>
         <On Terms="Effect.RaynorCommanderBansheeAirstrike" Send="Create"/>
     </CActorSound>
-    <CActorSound id="RaynorCommanderLoweredSupplies@Lowered" parent="SoundOneShot">
-        <EditorCategories value=""/>
-    </CActorSound>
-    <CActorSound id="RaynorCommanderLoweredSupplies@Raised" parent="SoundOneShot">
-        <EditorCategories value=""/>
-    </CActorSound>
     <CActorModel id="RaynorCommanderOrbitaldroppods" parent="ModelAddition">
         <EditorCategories value=""/>
         <On Terms="Effect.RaynorCommanderOrbitaldroppods@CP.Start" Send="Create"/>
@@ -108,22 +102,6 @@
         <Icon value="Assets\Textures\radaricon2.dds"/>
         <IconArcLength value="3.250000"/>
     </CActorRange>
-    <CActorSound id="RaynorCommanderLiftStarport@Land" parent="SoundOneShot">
-        <EditorCategories value=""/>
-        <On Terms="AbilMorph.RaynorCommanderLiftStarport@Land.Start" Send="Create"/>
-    </CActorSound>
-    <CActorSound id="RaynorCommanderLiftStarport@Lift" parent="SoundOneShot">
-        <EditorCategories value=""/>
-        <On Terms="AbilMorph.RaynorCommanderLiftStarport@LiftOff.Start" Send="Create"/>
-    </CActorSound>
-    <CActorSound id="RaynorCommanderLiftFactory@Land" parent="SoundOneShot">
-        <EditorCategories value=""/>
-        <On Terms="AbilMorph.RaynorCommanderLiftFactory@Land.Start" Send="Create"/>
-    </CActorSound>
-    <CActorSound id="RaynorCommanderLiftFactory@Lift" parent="SoundOneShot">
-        <EditorCategories value=""/>
-        <On Terms="AbilMorph.RaynorCommanderLiftFactory@LiftOff.Start" Send="Create"/>
-    </CActorSound>
     <CActorSimple id="RaynorCommanderHeal@Animation">
         <EditorCategories value=""/>
         <On Terms="Abil.RaynorCommanderHeal.SourceChannelStart" Send="Create"/>
@@ -167,14 +145,6 @@
     </CActorSound>
     <CActorSound id="RaynorCommanderHeal@Stop" parent="SoundOneShot">
         <EditorCategories value=""/>
-    </CActorSound>
-    <CActorSound id="RaynorCommanderLiftBarrack@Land" parent="SoundOneShot">
-        <EditorCategories value=""/>
-        <On Terms="AbilMorph.RaynorCommanderLiftBarrack@Land.Start" Send="Create"/>
-    </CActorSound>
-    <CActorSound id="RaynorCommanderLiftBarrack@Lift" parent="SoundOneShot">
-        <EditorCategories value=""/>
-        <On Terms="AbilMorph.RaynorCommanderLiftBarrack@LiftOff.Start" Send="Create"/>
     </CActorSound>
     <CActorAction id="RaynorCommanderPerditionThrower@UpgradeAttack" parent="GenericAttack" effectAttack="" effectImpact="" effectLaunch="RaynorCommanderPerditionThrower@Damage">
         <EditorCategories value=""/>

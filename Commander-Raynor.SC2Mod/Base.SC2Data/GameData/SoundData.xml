@@ -7,12 +7,6 @@
         <AssetArray File="Assets\Sounds\AC_Banshee_AirDrop_03.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\AC_Banshee_AirDrop_04.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="RaynorCommanderLoweredSupplies@Lowered" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-    </CSound>
-    <CSound id="RaynorCommanderLoweredSupplies@Raised" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-    </CSound>
     <CSound id="RaynorCommanderOrbitaldroppods@Sound" parent="Ambience_Object">
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\Ghost\Ghost_DropPodImpact0.wav" FacialGroup=""/>
@@ -71,17 +65,6 @@
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\Raven\Raven_PointDefenseDroneReleaseLaunch0.wav" FacialGroup=""/>
     </CSound>
-    <CSound id="RaynorCommanderLiftStarport@Land" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand1.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand2.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="RaynorCommanderLiftStarport@Lift" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff1.wav" FacialGroup=""/>
-    </CSound>
     <CSound id="RaynorCommanderHeal@Sound" parent="Spell">
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\Medivac\Medivac_HealLoop.wav" FacialGroup=""/>
@@ -94,28 +77,6 @@
     <CSound id="RaynorCommanderHeal@Stop" parent="Spell">
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\Medivac\Medivac_HealEnd.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="RaynorCommanderLiftFactory@Land" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand1.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand2.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="RaynorCommanderLiftFactory@Lift" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff1.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="RaynorCommanderLiftBarrack@Land" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand1.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand2.wav" FacialGroup=""/>
-    </CSound>
-    <CSound id="RaynorCommanderLiftBarrack@Lift" parent="Ambience_Object">
-        <EditorCategories value="Race:Raynor"/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff0.wav" FacialGroup=""/>
-        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff1.wav" FacialGroup=""/>
     </CSound>
     <CSound id="RaynorCommanderStimpackMara@Cast" parent="Spell">
         <EditorCategories value="Race:Raynor"/>

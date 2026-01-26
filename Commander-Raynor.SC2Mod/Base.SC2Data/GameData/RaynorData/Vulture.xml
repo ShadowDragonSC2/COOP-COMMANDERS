@@ -10,6 +10,14 @@
         <AttributeBonus index="Biological" value="10"/>
         <Amount value="15"/>
     </CEffectDamage>
+    <CAbilBuild id="RaynorCommanderPlaceSpiderMine">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <InfoArray index="Build1" Unit="RaynorCommanderSpiderMine">
+            <Charge CountMax="3" CountStart="3" CountUse="1"/>
+            <Button DefaultButtonFace="WidowMineBioSplash"/>
+        </InfoArray>
+        <EffectArray index="Finish" value="RaynorCommanderBurrowSpiderMine"/>
+    </CAbilBuild>
     <CRequirement id="RaynorCommanderVulture">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>
         <NodeArray index="Use" Link="CountUnitAlias_RaynorTechLabCompleteOnlyAtUnit206445810"/>
@@ -158,6 +166,12 @@
         <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Yes05.ogg" FacialAnim="Vulture_Yes04"/>
         <AssetArray File="LocalizedData\Sounds\TerranVO\CampaignUnits\Vulture\Vulture_Yes06.ogg" FacialAnim="Vulture_Yes05"/>
     </CSound>
+    <CDataCollectionAbil id="RaynorCommanderPlaceSpiderMine">
+        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
+        <DataRecord Entry="Abil,CommanderRaynorPlaceSpiderMine"/>
+        <DataRecord Entry="Abil,RaynorCommanderPlaceSpiderMine"/>
+        <TechInfoAbil value="CommanderRaynorPlaceSpiderMine"/>
+    </CDataCollectionAbil>
     <CDataCollectionUnit id="RaynorCommanderTorpedoes" parent="CommanderWeaponMissile">
         <EditorCategories value="DataGroup:Weapon,Race:Raynor,ObjectType:Projectile"/>
         <DataRecord Entry="Actor,RaynorCommanderTorpedoes@Attack"/>

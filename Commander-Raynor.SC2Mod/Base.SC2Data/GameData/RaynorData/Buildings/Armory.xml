@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilResearch id="RaynorCommanderArmoryResearch">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Units"/>
+        <InfoArray index="Research1" Time="10" Upgrade="RaynorCommanderVehicleAndShipWeapons@Level1">
+            <Button DefaultButtonFace="RaynorCommanderVehicleAndShipWeapons@Level1"/>
+        </InfoArray>
+        <InfoArray index="Research2" Time="10" Upgrade="RaynorCommanderVehicleAndShipWeapons@Level2">
+            <Button DefaultButtonFace="RaynorCommanderVehicleAndShipWeapons@Level2"/>
+        </InfoArray>
+        <InfoArray index="Research3" Time="10" Upgrade="RaynorCommanderVehicleAndShipWeapons@Level3">
+            <Button DefaultButtonFace="RaynorCommanderVehicleAndShipWeapons@Level3"/>
+        </InfoArray>
+    </CAbilResearch>
     <CRequirement id="RaynorCommanderArmory@Requirement">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>
     </CRequirement>
@@ -68,6 +80,11 @@
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium8.wav" FacialGroup=""/>
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium9.wav" FacialGroup=""/>
     </CSound>
+    <CDataCollectionUnit id="RaynorCommanderArmoryResearch">
+        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Other"/>
+        <DataRecord Entry="Abil,RaynorCommanderArmoryResearch"/>
+        <TechInfoUpgradeUsed value="RaynorCommanderReduceCostResearch"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderArmory" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderArmory"/>

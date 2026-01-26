@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilMorph id="RaynorCommanderLoweredSupplies@1">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderLoweredSupplies@1"/>
+        <InfoArray Unit="RaynorCommanderSupplyDepot@Alternate" CollideRange="0">
+            <SectionArray index="Abils">
+                <EffectArray index="Start" value="SupplyDepotMorphingApplyBehavior"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Collide">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
+    <CAbilMorph id="RaynorCommanderLoweredSupplies@2">
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderLoweredSupplies@2"/>
+        <Flags index="IgnorePlacement" value="0"/>
+        <Flags index="MoveBlockers" value="1"/>
+        <InfoArray Unit="RaynorCommanderSupplyDepot" CollideRange="0">
+            <SectionArray index="Abils">
+                <EffectArray index="Start" value="SupplyDepotMorphingApplyBehavior"/>
+            </SectionArray>
+            <SectionArray index="Actor">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Mover">
+                <DurationArray index="Duration" value="1.3"/>
+            </SectionArray>
+            <SectionArray index="Stats">
+                <DurationArray index="Delay" value="1.3"/>
+            </SectionArray>
+        </InfoArray>
+    </CAbilMorph>
     <CRequirement id="RaynorCommanderSupplyDepot">
         <EditorCategories value="Race:Raynor,TechType:Unit"/>
         <CanBeSuppressed index="Use" value="0"/>
         <NodeArray index="Use" Link="CountUnitAlias_SupplyDepotCompleteOnly3975993912TechTreeCheat"/>
     </CRequirement>
+    <CButton id="RaynorCommanderLoweredSupplies@2">
+        <Icon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
+    <CButton id="RaynorCommanderLoweredSupplies@1">
+        <Icon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
+        <AlertIcon value="Assets\Textures\btn-building-terran-supplydepotlowered.dds"/>
+        <EditorCategories value="Race:Raynor"/>
+    </CButton>
     <CButton id="RaynorCommanderSupplyDepot">
         <Icon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-terran-supplydepot.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
+    <CActorSound id="RaynorCommanderLoweredSupplies@Lowered" parent="SoundOneShot">
+        <EditorCategories value=""/>
+    </CActorSound>
+    <CActorSound id="RaynorCommanderLoweredSupplies@Raised" parent="SoundOneShot">
+        <EditorCategories value=""/>
+    </CActorSound>
     <CActorUnit id="RaynorCommanderSupplyDepot" parent="TerranBuildingEx" unitName="RaynorCommanderSupplyDepot">
         <Aliases value="_UnitLarge"/>
         <On index="69" Terms="UnitConstruction.RaynorCommanderSupplyDepot.Start" Send="Create RaynorCommanderSupplyDepot@Build"/>
@@ -145,6 +202,12 @@
     <CModel id="RaynorCommanderSupplyDepot@Build" parent="SupplyDepotBuildBase">
         <EditorCategories value="Race:Raynor"/>
     </CModel>
+    <CSound id="RaynorCommanderLoweredSupplies@Lowered" parent="Ambience_Object">
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
+    <CSound id="RaynorCommanderLoweredSupplies@Raised" parent="Ambience_Object">
+        <EditorCategories value="Race:Raynor"/>
+    </CSound>
     <CSound id="RaynorCommanderSupplyDepot@Explode" parent="Combat">
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" Pitch="-3.000000,3.000000"/>
@@ -169,6 +232,18 @@
         <AssetArray File="Assets\Sounds\Terran\SupplyDepot\SupplyDepot_What.ogg"/>
         <Volume value="-6.000000,-6.000000"/>
     </CSound>
+    <CDataCollectionAbil id="RaynorCommanderLoweredSupplies">
+        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Other"/>
+        <Button value="RaynorCommanderLoweredSupplies@1"/>
+        <DataRecord Entry="Abil,RaynorCommanderLoweredSupplies@1"/>
+        <DataRecord Entry="Abil,RaynorCommanderLoweredSupplies@2"/>
+        <DataRecord Entry="Actor,RaynorCommanderLoweredSupplies@Lowered"/>
+        <DataRecord Entry="Actor,RaynorCommanderLoweredSupplies@Raised"/>
+        <DataRecord Entry="Button,RaynorCommanderLoweredSupplies@1"/>
+        <DataRecord Entry="Button,RaynorCommanderLoweredSupplies@2"/>
+        <DataRecord Entry="Sound,RaynorCommanderLoweredSupplies@Lowered"/>
+        <DataRecord Entry="Sound,RaynorCommanderLoweredSupplies@Raised"/>
+    </CDataCollectionAbil>
     <CDataCollectionUnit id="RaynorCommanderSupplyDepot" parent="CommanderUnitMorphing">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderSupplyDepot"/>

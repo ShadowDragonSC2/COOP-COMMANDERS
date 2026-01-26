@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CAbilMorphPlacement id="RaynorCommanderLiftStarport@Land" parent="TerranBuildingLand" unit="Barracks">
+        <Name value="Abil/Name/RaynorCommanderLiftStarport@Land"/>
+        <InfoArray index="0" Unit="RaynorCommanderStarport" CollideRange="0">
+            <SectionArray index="Abils">
+                <DurationArray index="Delay" value="2"/>
+            </SectionArray>
+        </InfoArray>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:MorphsandBurrows"/>
+    </CAbilMorphPlacement>
+    <CAbilMorph id="RaynorCommanderLiftStarport@LiftOff" parent="TerranBuildingLiftOff" unit="BarracksFlying">
+        <Name value="Abil/Name/RaynorCommanderLiftStarport@LiftOff"/>
+        <InfoArray index="0" Unit="RaynorCommanderStarport@Flying"/>
+        <EditorCategories value="Race:Raynor,AbilityorEffectType:MorphsandBurrows"/>
+    </CAbilMorph>
     <CAbilMorph id="RaynorCommanderReactorMorphStarport">
         <EditorCategories value="Race:Raynor,AbilityorEffectType:Structures"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderReactorMorphStarport" Requirements="RaynorCommanderReactorMorphStarport@Requirement"/>
@@ -59,6 +73,14 @@
         <AlertIcon value="Assets\Textures\btn-building-terran-starport.dds"/>
         <EditorCategories value="Race:Raynor"/>
     </CButton>
+    <CActorSound id="RaynorCommanderLiftStarport@Land" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="AbilMorph.RaynorCommanderLiftStarport@Land.Start" Send="Create"/>
+    </CActorSound>
+    <CActorSound id="RaynorCommanderLiftStarport@Lift" parent="SoundOneShot">
+        <EditorCategories value=""/>
+        <On Terms="AbilMorph.RaynorCommanderLiftStarport@LiftOff.Start" Send="Create"/>
+    </CActorSound>
     <CActorUnit id="RaynorCommanderStarport" parent="TerranBuildingFlyerEx" unitName="RaynorCommanderStarport">
         <On index="69" Send="Create RaynorCommanderStarport@Build"/>
         <On index="80" Terms="UnitBirth.RaynorCommanderStarport@Flying" Send="Create"/>
@@ -157,6 +179,17 @@
         <ScaleMax value="0.800000,0.800000,0.800000"/>
         <ScaleMin value="0.800000,0.800000,0.800000"/>
     </CModel>
+    <CSound id="RaynorCommanderLiftStarport@Land" parent="Ambience_Object">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLand2.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="RaynorCommanderLiftStarport@Lift" parent="Ambience_Object">
+        <EditorCategories value="Race:Raynor"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Propulsion\Terran_BuildingLiftOff1.wav" FacialGroup=""/>
+    </CSound>
     <CSound id="RaynorCommanderStarport@Explode" parent="Combat">
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionLarge0.wav" Pitch="-3.000000,3.000000"/>
@@ -190,6 +223,15 @@
         <AssetArray File="Assets\Sounds\Terran\Starport\Starport_What.ogg"/>
         <Volume value="-5.000000,-5.000000"/>
     </CSound>
+    <CDataCollectionAbil id="RaynorCommanderLiftStarport">
+        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
+        <DataRecord Entry="Abil,RaynorCommanderLiftStarport@Land"/>
+        <DataRecord Entry="Abil,RaynorCommanderLiftStarport@LiftOff"/>
+        <DataRecord Entry="Actor,RaynorCommanderLiftStarport@Lift"/>
+        <DataRecord Entry="Actor,RaynorCommanderLiftStarport@Land"/>
+        <DataRecord Entry="Sound,RaynorCommanderLiftStarport@Lift"/>
+        <DataRecord Entry="Sound,RaynorCommanderLiftStarport@Land"/>
+    </CDataCollectionAbil>
     <CDataCollectionAbil id="RaynorCommanderReactorMorphStarport">
         <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
         <DataRecord Entry="Abil,RaynorCommanderReactorMorphStarport"/>

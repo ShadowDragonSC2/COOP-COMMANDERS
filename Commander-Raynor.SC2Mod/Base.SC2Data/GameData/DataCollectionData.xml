@@ -6,11 +6,6 @@
         <DataRecord Entry="Behavior,RaynorCommanderAfterburners"/>
         <DataRecord Entry="Button,RaynorCommanderAfterburners"/>
     </CDataCollectionAbil>
-    <CDataCollectionUnit id="RaynorCommanderArmoryResearch">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Other"/>
-        <DataRecord Entry="Abil,RaynorCommanderArmoryResearch"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderReduceCostResearch"/>
-    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderMedicsHealAdditionalTarget">
         <EditorCategories value="DataGroup:Mastery,Race:Raynor,ObjectType:Other"/>
         <DataRecord Entry="Upgrade,RaynorCommanderMedicsHealAdditionalTarget"/>
@@ -102,18 +97,6 @@
         <DataRecord Entry="Actor,RaynorCommanderConstruction"/>
         <DataRecord Entry="Actor,RaynorCommanderConstruction@Attached"/>
     </CDataCollection>
-    <CDataCollectionAbil id="RaynorCommanderLoweredSupplies">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,ObjectType:Other"/>
-        <Button value="RaynorCommanderLoweredSupplies@1"/>
-        <DataRecord Entry="Abil,RaynorCommanderLoweredSupplies@1"/>
-        <DataRecord Entry="Abil,RaynorCommanderLoweredSupplies@2"/>
-        <DataRecord Entry="Actor,RaynorCommanderLoweredSupplies@Lowered"/>
-        <DataRecord Entry="Actor,RaynorCommanderLoweredSupplies@Raised"/>
-        <DataRecord Entry="Button,RaynorCommanderLoweredSupplies@1"/>
-        <DataRecord Entry="Button,RaynorCommanderLoweredSupplies@2"/>
-        <DataRecord Entry="Sound,RaynorCommanderLoweredSupplies@Lowered"/>
-        <DataRecord Entry="Sound,RaynorCommanderLoweredSupplies@Raised"/>
-    </CDataCollectionAbil>
     <CDataCollection id="RaynorCommanderConstructionSounds">
         <EditorCategories value="Race:Raynor,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderConstructionSounds@Start"/>
@@ -159,21 +142,6 @@
         <DataRecord Entry="Upgrade,RaynorCommanderNewUnitBattlecruiser"/>
         <DataRecord Entry="Requirement,RaynorCommanderNewUnitBattlecruiser"/>
     </CDataCollectionUpgrade>
-    <CDataCollectionAbil id="RaynorCommanderPlaceSpiderMine">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
-        <DataRecord Entry="Abil,CommanderRaynorPlaceSpiderMine"/>
-        <DataRecord Entry="Abil,RaynorCommanderPlaceSpiderMine"/>
-        <TechInfoAbil value="CommanderRaynorPlaceSpiderMine"/>
-    </CDataCollectionAbil>
-    <CDataCollectionAbil id="RaynorCommanderLiftStarport">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
-        <DataRecord Entry="Abil,RaynorCommanderLiftStarport@Land"/>
-        <DataRecord Entry="Abil,RaynorCommanderLiftStarport@LiftOff"/>
-        <DataRecord Entry="Actor,RaynorCommanderLiftStarport@Lift"/>
-        <DataRecord Entry="Actor,RaynorCommanderLiftStarport@Land"/>
-        <DataRecord Entry="Sound,RaynorCommanderLiftStarport@Lift"/>
-        <DataRecord Entry="Sound,RaynorCommanderLiftStarport@Land"/>
-    </CDataCollectionAbil>
     <CDataCollectionUpgrade id="RaynorCommanderRapidRecruitment">
         <EditorCategories value="DataGroup:Research,Race:Raynor,ObjectType:Other"/>
         <DataRecord Entry="Upgrade,RaynorCommanderRapidRecruitment"/>
@@ -184,11 +152,6 @@
         <DataRecord Entry="Abil,RaynorCommanderReactorMorphDetached"/>
         <DataRecord Entry="Requirement,RaynorCommanderReactorMorphDetached@Requirement"/>
     </CDataCollectionAbil>
-    <CDataCollectionUnit id="RaynorCommanderBarrackResearch">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
-        <DataRecord Entry="Abil,RaynorCommanderBarrackResearch"/>
-        <TechInfoUpgradeUsed value="RaynorCommanderReduceCostResearch"/>
-    </CDataCollectionUnit>
     <CDataCollectionAbil id="RaynorCommanderBuildAddons">
         <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
         <DataRecord Entry="Abil,RaynorCommanderBuildAddons@Barracks"/>
@@ -219,24 +182,6 @@
         <DataRecord Entry="Upgrade,RaynorCommanderJuggernautPlating"/>
         <DataRecord Entry="Requirement,RaynorCommanderJuggernautPlating"/>
     </CDataCollectionUnit>
-    <CDataCollectionAbil id="RaynorCommanderLiftBarrack">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
-        <DataRecord Entry="Abil,RaynorCommanderLiftBarrack@Land"/>
-        <DataRecord Entry="Abil,RaynorCommanderLiftBarrack@LiftOff"/>
-        <DataRecord Entry="Actor,RaynorCommanderLiftBarrack@Lift"/>
-        <DataRecord Entry="Actor,RaynorCommanderLiftBarrack@Land"/>
-        <DataRecord Entry="Sound,RaynorCommanderLiftBarrack@Lift"/>
-        <DataRecord Entry="Sound,RaynorCommanderLiftBarrack@Land"/>
-    </CDataCollectionAbil>
-    <CDataCollectionAbil id="RaynorCommanderLiftFactory">
-        <EditorCategories value="DataGroup:Ability,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
-        <DataRecord Entry="Abil,RaynorCommanderLiftFactory@Land"/>
-        <DataRecord Entry="Abil,RaynorCommanderLiftFactory@LiftOff"/>
-        <DataRecord Entry="Actor,RaynorCommanderLiftFactory@Lift"/>
-        <DataRecord Entry="Actor,RaynorCommanderLiftFactory@Land"/>
-        <DataRecord Entry="Sound,RaynorCommanderLiftFactory@Lift"/>
-        <DataRecord Entry="Sound,RaynorCommanderLiftFactory@Land"/>
-    </CDataCollectionAbil>
     <CDataCollectionAbil id="RaynorCommanderTechLabMorphDetached">
         <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Raynor,DataFamily:Coop,ObjectType:Other"/>
         <DataRecord Entry="Abil,RaynorCommanderTechLabMorphDetached"/>
