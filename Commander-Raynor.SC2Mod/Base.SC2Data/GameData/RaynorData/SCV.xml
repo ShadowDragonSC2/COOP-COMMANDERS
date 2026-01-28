@@ -220,6 +220,10 @@
         <Volume value="-3.000000,-3.000000"/>
         <EditorCategories value="Race:Raynor"/>
     </CSound>
+    <CDataCollectionUnit id="RaynorCommanderBuildSCV" parent="CommanderAbilityBuild">
+        <EditorCategories value="DataGroup:AbilityBuildTrain,Race:Zeratul,DataFamily:Coop,ObjectType:Unit"/>
+        <DataRecord Entry="Abil,RaynorCommanderBuildSCV"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderWeaponSCV" parent="CommanderWeaponInstant">
         <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Instant"/>
         <DataRecord Entry="Actor,RaynorCommanderWeaponSCV@Attack"/>
@@ -247,7 +251,6 @@
         <DataRecord Entry="Requirement,RaynorCommanderSCV"/>
     </CDataCollectionUnit>
     <CUnit id="RaynorCommanderSCV" parent="CommanderGround_Terr" race="COOPRaynor">
-        <Name value="Unit/Name/RaynorCommanderSCV"/>
         <FlagArray index="Worker" value="1"/>
         <FlagArray index="ArmySelect" value="0"/>
         <DefaultAcquireLevel value="Defensive"/>

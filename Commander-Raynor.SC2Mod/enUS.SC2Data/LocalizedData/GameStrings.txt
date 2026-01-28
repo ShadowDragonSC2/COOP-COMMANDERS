@@ -97,7 +97,7 @@ Button/Name/RaynorCommanderPDD=Button
 Button/Name/RaynorCommanderReactorMorphBarrack=Build <d stringRef="Unit,RaynorCommanderReactor,Name"/>
 Button/Name/RaynorCommanderReactorMorphFactory=Build <d stringRef="Unit,RaynorCommanderReactor,Name"/>
 Button/Name/RaynorCommanderReactorMorphStarport=Build <d stringRef="Unit,RaynorCommanderReactor,Name"/>
-Button/Name/RaynorCommanderRefinery=Build Refinery
+Button/Name/RaynorCommanderRefinery=Build <d stringref="Unit,RaynorCommanderRefinery,Name">
 Button/Name/RaynorCommanderRepair=Repair
 Button/Name/RaynorCommanderReturnCargo=Return Cargo
 Button/Name/RaynorCommanderSCV@SCV=Train <d stringRef="Unit,RaynorCommanderSCV,Name"/>
@@ -209,7 +209,7 @@ DataCollection/Name/RaynorCommanderBarracks=Raynor Commander - Barracks
 DataCollection/Name/RaynorCommanderBattleBunkers=Raynor Commander - Battle Bunkers
 DataCollection/Name/RaynorCommanderBattlecruiser=Raynor Commander - Battlecruiser
 DataCollection/Name/RaynorCommanderBuildAddons=Raynor Commander - Build Addons
-DataCollection/Name/RaynorCommanderBuildSCV=Raynor Commander - Build SCV
+DataCollection/Name/RaynorCommanderBuildSCV=Raynor Commander - Build
 DataCollection/Name/RaynorCommanderBunker=Raynor Commander - Bunker
 DataCollection/Name/RaynorCommanderBurrowSpiderMine=Raynor Commander - Burrow Spider-Mine
 DataCollection/Name/RaynorCommanderCommandCenter=Command Center
@@ -420,6 +420,7 @@ Unit/Name/COOP/RaynorCommanderMarine=Marine
 Unit/Name/COOP/RaynorCommanderMedic=Medic
 Unit/Name/COOP/RaynorCommanderMissileTurret=Missile Turret
 Unit/Name/COOP/RaynorCommanderRefinery=Refinery
+Unit/Name/COOP/RaynorCommanderSCV=SCV
 Unit/Name/COOP/RaynorCommanderSiegeTank=Siege Tank
 Unit/Name/COOP/RaynorCommanderSiegeTank@Alternate=Siege Tank
 Unit/Name/COOP/RaynorCommanderStarport=Starport

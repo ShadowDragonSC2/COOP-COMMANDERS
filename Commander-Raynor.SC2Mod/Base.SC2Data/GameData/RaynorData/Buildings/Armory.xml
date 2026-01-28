@@ -61,12 +61,7 @@
         <Model value="Assets\Buildings\Terran\ArmoryPlacement\ArmoryPlacement.m3"/>
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderArmory@Portrait" parent="FXAPortrait">
-        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
-        <EditorCategories value="Race:Raynor"/>
-        <FacialController value="LocalizedData\Facial\AdjutantPortrait.fxa"/>
-        <Image value="Assets\Textures\adjutantportrait_static.dds"/>
-    </CModel>
+    <CModel id="RaynorCommanderArmory@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
     <CSound id="RaynorCommanderArmory@Death" parent="Death">
         <EditorCategories value="Race:Raynor"/>
         <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionMedium0.wav" FacialGroup=""/>

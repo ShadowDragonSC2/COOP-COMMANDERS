@@ -6,6 +6,7 @@
         <EditorCategories value="Race:Raynor"/>
     </CButton>
     <CActorUnit id="RaynorCommanderRefinery" parent="CommanderUnitBase" unitName="RaynorCommanderRefinery">
+        <On Terms="UnitConstruction.RaynorCommanderRefinery.Start" Send="Create RaynorCommanderRefinery@Build"/>
         <Aliases value="_CreepEngulfable"/>
         <Aliases value="_UnitHuge"/>
         <CreepHeightClass value="Medium"/>
@@ -14,7 +15,9 @@
         <PlacementSound value="RaynorCommanderRefinery@Placement"/>
         <LifeArmorIcon value="Assets\Textures\btn-upgrade-terran-buildingarmor.dds"/>
         <UnitIcon value="Assets\Textures\btn-building-terran-refinery.dds"/>
+        <BuildModel value="RaynorCommanderRefinery"/>
     </CActorUnit>
+    <CActorModel id="RaynorCommanderRefinery@Build" parent="TerranBuildingBuildRefinery"/>
     <CModel id="RaynorCommanderRefinery" parent="Refinery">
         <EditorCategories value="Race:Raynor"/>
     </CModel>
@@ -28,15 +31,14 @@
     <CModel id="RaynorCommanderRefinery@Placement" parent="RefineryPlacement">
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderRefinery@Portrait" parent="AdjutantPortrait">
-        <EditorCategories value="Race:Raynor"/>
-    </CModel>
+    <CModel id="RaynorCommanderRefinery@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
     <CSound id="RaynorCommanderRefinery@Placement" parent="Terran_BuildingPlacement">
         <EditorCategories value="Race:Raynor"/>
     </CSound>
     <CDataCollectionUnit id="RaynorCommanderRefinery" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderRefinery"/>
+        <DataRecord Entry="Actor,RaynorCommanderRefinery@Build"/>
         <DataRecord Entry="Button,RaynorCommanderRefinery"/>
         <DataRecord Entry="Model,RaynorCommanderRefinery"/>
         <DataRecord Entry="Model,RaynorCommanderRefinery@Death"/>
@@ -63,5 +65,7 @@
         <BuiltOn value="PurifierVespeneGeyser"/>
         <BuiltOn value="ShakurasVespeneGeyser"/>
         <EditorCategories value="ObjectType:Structure,ObjectFamily:Coop,Race:Raynor"/>
+        <ResourceState value="Harvestable"/>
+        <ResourceType value="Vespene"/>
     </CUnit>
 </Catalog>

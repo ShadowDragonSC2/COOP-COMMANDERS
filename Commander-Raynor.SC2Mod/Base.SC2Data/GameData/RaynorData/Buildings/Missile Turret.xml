@@ -31,11 +31,7 @@
         <Model value="Assets\Buildings\Terran\MissileTurretPlacement\MissileTurretPlacement.m3"/>
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderMissileTurret@Portrait" parent="FXAPortrait">
-        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
-        <EditorCategories value="Race:Raynor"/>
-        <Lighting value="AdjutantPortrait"/>
-    </CModel>
+    <CModel id="RaynorCommanderMissileTurret@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
     <CSound id="RaynorCommanderMissileTurret@Placement" parent="Terran_BuildingPlacementSmall">
         <EditorCategories value="Race:Raynor"/>
     </CSound>

@@ -133,12 +133,7 @@
         <Model value="Assets\Buildings\Terran\BarracksPlacement\BarracksPlacement.m3"/>
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderBarracks@Portrait" parent="TerranBuildingPortraitBase">
-        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
-        <Image value="Assets\Textures\AdjutantPortrait_Static.dds"/>
-        <Lighting value="AdjutantPortrait"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CModel>
+    <CModel id="RaynorCommanderBarracks@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
     <CModel id="RaynorCommanderBarracks@Splat" parent="Splat">
         <Model value="Assets\Splats\Splat_Barracks\Splat_Barracks.m3"/>
         <EditorCategories value="Race:Raynor"/>

@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CModel default="1" id="COOP_RAYNOR_PORTRAIT_STRUCT" parent="FXAPortrait">
+        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
+        <Image value="Assets\Textures\adjutantportrait_static.dds"/>
+        <FacialController value="LocalizedData\Facial\AdjutantPortrait.fxa"/>
+        <Lighting value="AdjutantPortrait"/>
+    </CModel>
+    <!-- -->
     <CModel default="1" id="RaynorCommanderArmory@Splat" parent="Splat">
         <Model value="Assets\Splats\Splat_Armory\Splat_Armory.m3"/>
         <EditorCategories value="Race:Raynor"/>

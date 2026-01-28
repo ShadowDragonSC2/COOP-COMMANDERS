@@ -101,12 +101,7 @@
         <Model value="Assets\Buildings\Terran\TechLabPlacement\TechLabPlacement.m3"/>
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderReactor@Portrait" parent="TerranBuildingPortraitBase">
-        <Model value="Assets\Portraits\Terran\AdjutantPortrait\AdjutantPortrait.m3"/>
-        <Image value="Assets\Textures\AdjutantPortrait_Static.dds"/>
-        <Lighting value="AdjutantPortrait"/>
-        <EditorCategories value="Race:Raynor"/>
-    </CModel>
+    <CModel id="RaynorCommanderReactor@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
     <CModel id="RaynorCommanderReactor@Splat" parent="Splat">
         <Model value="Assets\Splats\Splat_TechLab\Splat_TechLab.m3"/>
         <EditorCategories value="Race:Raynor"/>

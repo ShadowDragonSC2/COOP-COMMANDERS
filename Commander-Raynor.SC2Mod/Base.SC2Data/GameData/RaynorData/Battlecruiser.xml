@@ -44,6 +44,7 @@
         <ClearQueuedOrders value="0"/>
         <TargetLocation Effect="RaynorCommanderTacticalJump" Value="TargetPoint"/>
         <TeleportFlags index="TestFog" value="0"/>
+        <TeleportFlags index="TestZone" value="1"/>
     </CEffectTeleport>
     <CEffectLaunchMissile id="RaynorCommanderYamatoGun">
         <ValidatorArray index="0" value="YamatoTargetFilters"/>
@@ -112,6 +113,8 @@
         <UninterruptibleArray index="Channel" value="1"/>
         <ProgressButtonArray index="Channel" value="RaynorCommanderTacticalJump"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="RaynorCommanderTacticalJump"/>
+        <Flags index="BestUnit" value="0"/>
+        <Flags index="RequireTargetVision" value="0"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="RaynorCommanderYamatoGun">
         <Alignment value="Negative"/>

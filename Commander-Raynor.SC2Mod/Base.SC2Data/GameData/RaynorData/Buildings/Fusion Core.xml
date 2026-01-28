@@ -47,6 +47,7 @@
         <ScaleMax value="0.750000,0.750000,0.750000"/>
         <ScaleMin value="0.750000,0.750000,0.750000"/>
     </CModel>
+    <CModel id="RaynorCommanderFusionCore@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
     <CSound id="RaynorCommanderFusionCore@Placement" parent="Terran_BuildingPlacement">
         <EditorCategories value="Race:Raynor"/>
     </CSound>
@@ -61,6 +62,7 @@
         <DataRecord Entry="Actor,RaynorCommanderFusionCore@Build"/>
         <DataRecord Entry="Model,RaynorCommanderFusionCore@Placement"/>
         <DataRecord Entry="Model,RaynorCommanderFusionCore@Build"/>
+        <DataRecord Entry="Model,RaynorCommanderFusionCore@Portrait"/>
     </CDataCollectionUnit>
     <CUnit id="RaynorCommanderFusionCore" parent="CommanderStructure_Terr" race="COOPRaynor">
         <BuildTime value="65"/>
