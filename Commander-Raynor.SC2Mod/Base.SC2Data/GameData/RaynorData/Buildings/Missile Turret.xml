@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Catalog>
+    <CEffectCreatePersistent id="RaynorCommanderLongboltMissiles@CP">
+        <EditorCategories value="Race:Raynor"/>
+        <PeriodicEffectArray value="RaynorCommanderLongboltMissiles@LM"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="RaynorCommanderLongboltMissiles@Damage">
+        <EditorCategories value="Race:Raynor"/>
+        <Amount value="9"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="RaynorCommanderLongboltMissiles@LM">
+        <EditorCategories value="Race:Raynor"/>
+        <ImpactEffect value="RaynorCommanderLongboltMissiles@Damage"/>
+    </CEffectLaunchMissile>
     <CButton id="RaynorCommanderMissileTurret">
         <Icon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
         <AlertIcon value="Assets\Textures\btn-building-terran-missileturret.dds"/>
@@ -32,9 +44,18 @@
         <EditorCategories value="Race:Raynor"/>
     </CModel>
     <CModel id="RaynorCommanderMissileTurret@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
+    <CWeaponLegacy id="RaynorCommanderLongboltMissiles" parent="CommanderWeapon_Missile">
+        <EditorCategories value="Race:Raynor"/>
+    </CWeaponLegacy>
     <CSound id="RaynorCommanderMissileTurret@Placement" parent="Terran_BuildingPlacementSmall">
         <EditorCategories value="Race:Raynor"/>
     </CSound>
+    <CDataCollectionUnit id="RaynorCommanderLongboltMissiles" parent="CommanderWeaponMissile">
+        <EditorCategories value="DataGroup:Weapon,Race:Raynor,DataFamily:Coop,ObjectType:Projectile"/>
+        <DataRecord Entry="Effect,RaynorCommanderLongboltMissiles@CP"/>
+        <DataRecord Entry="Effect,RaynorCommanderLongboltMissiles@LM"/>
+        <DataRecord Entry="Effect,RaynorCommanderLongboltMissiles@Damage"/>
+    </CDataCollectionUnit>
     <CDataCollectionUnit id="RaynorCommanderMissileTurret" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderMissileTurret"/>

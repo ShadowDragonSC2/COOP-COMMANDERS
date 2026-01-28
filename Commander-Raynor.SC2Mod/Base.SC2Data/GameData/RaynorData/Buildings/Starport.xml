@@ -167,7 +167,9 @@
         <Model value="Assets\Buildings\Terran\StarportPlacement\StarportPlacement.m3"/>
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderStarport@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
+    <CModel id="RaynorCommanderStarport@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
     <CModel id="RaynorCommanderStarport@Splat" parent="Splat">
         <Model value="Assets\Splats\Splat_Starport\Splat_Starport.m3"/>
         <EditorCategories value="Race:Raynor"/>

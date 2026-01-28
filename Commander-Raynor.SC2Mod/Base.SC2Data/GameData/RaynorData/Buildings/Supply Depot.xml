@@ -184,7 +184,9 @@
         <Model value="Assets\Buildings\Terran\SupplyDepotPlacement\SupplyDepotPlacement.m3"/>
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderSupplyDepot@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
+    <CModel id="RaynorCommanderSupplyDepot@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
     <CModel id="RaynorCommanderSupplyDepot@Alternate" parent="SupplyDepotBase">
         <Model value="Assets\Buildings\Terran\SupplyDepotEx1\SupplyDepotEx1.m3"/>
         <EditorCategories value="Race:Raynor"/>

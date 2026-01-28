@@ -31,7 +31,9 @@
     <CModel id="RaynorCommanderRefinery@Placement" parent="RefineryPlacement">
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderRefinery@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
+    <CModel id="RaynorCommanderRefinery@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
     <CSound id="RaynorCommanderRefinery@Placement" parent="Terran_BuildingPlacement">
         <EditorCategories value="Race:Raynor"/>
     </CSound>

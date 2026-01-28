@@ -202,7 +202,9 @@
         <Model value="Assets\Buildings\Terran\CommandCenterPlacement\CommandCenterPlacement.m3"/>
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderCommandCenter@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
+    <CModel id="RaynorCommanderCommandCenter@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
     <CModel id="RaynorCommanderCommandCenter@Splat" parent="Splat">
         <Model value="Assets\Splats\splat_commandcenter\splat_commandcenter.m3"/>
         <EditorCategories value="Race:Raynor"/>

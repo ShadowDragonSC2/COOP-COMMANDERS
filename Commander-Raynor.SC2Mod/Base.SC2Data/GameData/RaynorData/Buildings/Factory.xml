@@ -128,7 +128,9 @@
         <Model value="Assets\Buildings\Terran\FactoryPlacement\FactoryPlacement.m3"/>
         <EditorCategories value="Race:Raynor"/>
     </CModel>
-    <CModel id="RaynorCommanderFactory@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
+    <CModel id="RaynorCommanderFactory@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
     <CModel id="RaynorCommanderFactory@Splat" parent="Splat">
         <Model value="Assets\Splats\Splat_Factory\Splat_Factory.m3"/>
         <EditorCategories value="Race:Raynor"/>

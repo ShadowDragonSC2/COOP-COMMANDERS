@@ -5,6 +5,7 @@
         <Image value="Assets\Textures\adjutantportrait_static.dds"/>
         <FacialController value="LocalizedData\Facial\AdjutantPortrait.fxa"/>
         <Lighting value="AdjutantPortrait"/>
+        <EditorCategories value="Race:Raynor"/>
     </CModel>
     <!-- -->
     <CModel default="1" id="RaynorCommanderArmory@Splat" parent="Splat">

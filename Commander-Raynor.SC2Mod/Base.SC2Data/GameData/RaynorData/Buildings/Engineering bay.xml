@@ -46,7 +46,9 @@
         <ScaleMax value="0.750000,0.750000,0.750000"/>
         <ScaleMin value="0.750000,0.750000,0.750000"/>
     </CModel>
-    <CModel id="RaynorCommanderEngineeringBay@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT"/>
+    <CModel id="RaynorCommanderEngineeringBay@Portrait" parent="COOP_RAYNOR_PORTRAIT_STRUCT">
+        <EditorCategories value="Race:Raynor"/>
+    </CModel>
     <CDataCollectionUnit id="RaynorCommanderEngineeringBay" parent="CommanderUnit">
         <EditorCategories value="DataGroup:Unit,Race:Raynor,DataFamily:Coop,ObjectType:Structure"/>
         <DataRecord Entry="Actor,RaynorCommanderEngineeringBay"/>
